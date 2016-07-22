@@ -64,6 +64,26 @@ a[target=_blank]:hover:after {
     clear: both;
 }
 
+#fork {
+    display: block;
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    background-image: url(../img/fork.png);
+    background-position: 0 0;
+}
+
+#fork:after {
+    display: none;
+}
+
+#fork:hover {
+    background-position: 0 -200px;
+}
+
 #header {
     line-height: 100px;
     font-size: 72px;
@@ -96,14 +116,33 @@ a[target=_blank]:hover:after {
     margin-bottom: 20px;
 }
 
+.label {
+    color: #ffffff;
+    padding: 2px;
+}
+
+.label.todo {
+    background-color: #dddddd;
+}
+
+.label.doing {
+    background-color: #ffaa00;
+}
+
+.label.done {
+    background-color: #66cc33;
+}
+
 .list {
     padding: 0;
+    width: 1225px;
 }
 
 .list li {
     float: left;
-    width: 18%;
-    margin-right: 2%;
+    width: 220px;
+    margin-right: 25px;
+    margin-bottom: 25px;
     display: block;
 }
 
@@ -298,4 +337,30 @@ blockquote {
 .table-border td {
     padding: 10px;
     border: 1px solid #EEE;
+}
+
+#ds-thread #ds-reset .ds-replybox {
+    z-index: auto !important;
+}
+
+.ds-thread a:after {
+    display: none;
+}
+
+#ds-thread #ds-reset .ds-textarea-wrapper {
+    background-image: none !important;
+}
+
+#ds-reset .ds-gradient-bg {
+    background-image: none !important;
+}
+
+#ds-thread #ds-reset li.ds-tab a.ds-current {
+    border-radius: 0 !important;
+}
+
+.ds-post-likes,
+.ds-post-repost,
+.ds-post-report {
+    display: none !important;
 }
