@@ -1,0 +1,3083 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title></title>
+    <link rel="shortcut icon" href="http://www.lvmama.com/favicon.ico" type="image/x-icon" >
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="mobile-agent" content="format=html5; url=http://m.lvmama.com/product/379867/">
+
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v5/modules/tags.css,/styles/v5/modules/tip.css,/styles/v4/modules/selectbox.css,/styles/v4/modules/forms.css,/styles/v4/modules/calendar.css,/styles/v6/header_new.css,/styles/v6/line/line_detail.css,/styles/v5/modules/paging.css,/styles/public/detail_sale.css">
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v5/modules/dialog.css,/styles/v5/modules/button.css,/styles/v4/modules/button.css,/styles/common/poplogin.css">
+    <link rel="stylesheet" href="http://pic.lvmama.com/styles/v6/comment/comment_index.css">
+    <link rel="stylesheet" href="http://pic.lvmama.com/styles/v5/comments_enterorder.css">
+    <script type="text/javascript" src="http://pic.lvmama.com/min/index.php?f=js/new_v/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+
+<!-- 公共头部开始  -->
+<div class="lv_topbar js_box">
+    <div class="topbar_box">
+        <div class="lv_city_box">
+            <div class="lv_city_up">
+                <i class="lv_icon icon_city"></i>
+                <b class="lv_city" data-city-name="上海" data-city-id="" data-id="9" data-source="home" fromchannel="" id="currentCity">上海</b>
+                <a class="lv_city_btn" href="javascript:;">[切换]</a>
+            </div>
+            <div class="lv_city_down Js_LISTFIRST">
+                <!-- 开始 -->
+                <p class="my_city_t">可选城市列表</p>
+                <!-- 结束 -->
+            </div>
+        </div>
+
+        <ul class="top_link">
+            <li class="dropdown">
+                <a class="lv_link" href="http://www.lvmama.com/myspace/index.do" rel="nofollow">我的驴妈妈<i class="icon_arrow"></i></a>
+                <div class="top_down pd_0">
+                    <a href="http://www.lvmama.com/myspace/order.do" rel="nofollow">我的订单</a>
+                    <a href="http://www.lvmama.com/myspace/account/points.do" rel="nofollow">我的积分</a>
+                    <a href="http://www.lvmama.com/myspace/account/coupon.do" rel="nofollow">我的优惠券</a>
+                    <!-- <a href="http://www.lvmama.com/login/loginBindCard.do" rel="nofollow" target="_blank">我的会员卡</a> -->
+                    <a href="http://www.lvmama.com/stored/goStoredSearch.do" rel="nofollow" target="_blank">我的礼品卡</a>
+                </div>
+            </li>
+            <li>
+                <a class="lv_link" href="http://www.lvmama.com/points" rel="nofollow">积分商城</a>
+            </li>
+            <li><a class="lv_link" href="http://www.lvmama.com/public/help" rel="nofollow">帮助</a></li>
+            <li class="border_l dropdown">
+                <a class="lv_link" href="javascript:;" rel="nofollow"><i class="lv_icon icon_wx"></i>微信</a>
+                <div class="top_down">
+                    <img src="http://pic.lvmama.com/img/v3/wechatcode.jpg" width="220" height="90" alt="">
+                </div>
+            </li>
+            <li><a class="lv_link" onclick="_gaq.push(['_trackEvent', 'weibo', 'click', 'weiboshouye', 5]);" href="http://e.weibo.com/lvmamas" rel="nofollow"><i class="lv_icon icon_wb"></i>+微博</a></li>
+
+            <li>
+                <a class="lv_link"  target="_blank" href="http://shouji.lvmama.com/" rel="nofollow"><i class="lv_icon icon_mobile"></i>手机版</a>
+            </li>
+            <li class="border_l dropdown link_call">
+                <a id ="onlyOne" class="lv_link" href="javascript:;" rel="nofollow"><i class="lv_icon icon_phone"></i><span></span> <i class="icon_arrow"></i></a>
+                <div class="top_down">
+                    <span class="lv_icon"></span>
+                    <p id ="onlyTwo" class="phone-num"> </p>
+                </div>
+            </li>
+
+        </ul>
+        <div id="J_login" class="topbar_login">
+            <a href="#">请登录</a>
+            <a href="http://login.lvmama.com/nsso/register/registering.do" rel="nofollow">免费注册</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="lv_header">
+    <div class="header_inner clearfix">
+        <div class="lv_logo">
+            <a href="http://www.lvmama.com">驴妈妈旅游网</a>
+        </div>
+        <ul class="lv_baozhang">
+            <li><i class="icon_bz1"></i>价格保证</li>
+            <li><i class="icon_bz2"></i>退订保障</li>
+            <li><i class="icon_bz3"></i>救援保障</li>
+            <li><i class="icon_bz4"></i>24时服务</li>
+        </ul>
+
+        <div class="header_search" id="headerSearch_div1">
+            <input type="hidden" id="fromPlaceName" value="">
+            <div class="lv_search_box">
+                <div class="search_type">
+                    <div class="btn_type js_btn_type"><b data-type="GROUP">跟团游</b><i class="icon_arrow"></i></div>
+                    <ul class="search_type_tab">
+                        <li data-type="GROUP">跟团游</li>
+                        <li data-type="SCENICTOUR">酒店+景点</li>
+                        <li data-type="FREETOUR">机票+酒店</li>
+                        <li data-type="TICKET">景点门票</li>
+                        <li data-type="HOTEL">度假酒店</li>
+                        <li data-type="SHIP">邮轮</li>
+                        <li data-type="VISA">签证</li>
+                    </ul>
+                </div>
+                <div class="search_type_box" >
+                    <!--跟团游-->
+                    <div class="search_type_list" id="group_fromPlaces">
+                        <div class="search_city">
+                            <div class="btn_city js_searchbox">
+                                <b data-id="9">上海</b><span>出发</span><i class="icon_arrow"></i>
+                            </div>
+
+                            <!--首页——出发城市 -----开始-->
+                            <div class="lv_city_down js_cf_city js_all_city" >
+                                <p>热门出发城市</p>
+
+                            </div>
+                            <!--首页——出发城市 -----结束-->
+
+                        </div>
+                        <form class="form_search">
+                            <input class="lv_search w_260" value="请输入目的地、主题、或关键词" type="text"  autocomplete="off">
+                        </form>
+                    </div>
+
+                    <!--酒店+景点-->
+                    <div class="search_type_list" style="display: block;" id="freetour_destroute_fromPlaces_1">
+                        <form class="form_search">
+                            <input class="lv_search w_380" value="请输入目的地、主题、或关键词" type="text">
+                        </form>
+                    </div>
+
+                    <!--机票+酒店-->
+                    <div class="search_type_list" id="freetour_destroute_fromPlaces">
+                        <div class="search_city">
+                            <div class="btn_city js_searchbox"><b data-id="8">全国</b><span>出发</span><i class="icon_arrow"></i></div>
+
+                            <!--首页——出发城市（所有产品、自由行、旅游线路） -----开始-->
+                            <div class="lv_city_down js_cf_city js_all_city" >
+                                <p>热门出发城市</p>
+
+                            </div>
+                            <!--首页——出发城市（所有产品、自由行、旅游线路） -----结束-->
+
+                        </div>
+                        <form class="form_search">
+                            <input class="lv_search w_260" value="请输入目的地、主题、或关键词" type="text"  autocomplete="off">
+                        </form>
+                    </div>
+
+                    <!--门票-->
+                    <div class="search_type_list">
+                        <form class="form_search">
+                            <input class="lv_search w_380" value="请输入目的地、主题或景区名称" type="text">
+                        </form>
+                    </div>
+
+                    <!--酒店搜索-->
+                    <div class="search_type_list">
+                        <form class="form_search">
+                            <input class="lv_search2 js_searchDest w_160" value="请输入国内或海外目的地" type="text">
+                            <input class="lv_search2 js_searchKeyword w_164" value="酒店名称/地标/商圈" type="text">
+                        </form>
+                        <!--热门搜索-->
+                        <div class="search_hotel_mdd" style="display: none;top:36px;">
+                            <p>支持中文/拼音/简拼输入</p>
+                            <ul class="mdd_tab">
+                                <li class="active">热门<i class="hotel_icon"></i></li>
+                                <li>ABCD<i class="hotel_icon"></i></li>
+                                <li>EFGH<i class="hotel_icon"></i></li>
+                                <li>JKLM<i class="hotel_icon"></i></li>
+                                <li>NOPQRS<i class="hotel_icon"></i></li>
+                                <li>TUVWX<i class="hotel_icon"></i></li>
+                                <li>YZ<i class="hotel_icon"></i></li>
+                            </ul>
+                            <ul class="mdd_list js_hotel_city">
+
+                            </ul>
+                            <span class="hotel_icon mdd_close"></span>
+                        </div>
+                        <div class="search_hotel_keyword" style="display:none;top:36px;left: 160px"></div>
+                        <div class="lv_search_tips">
+                            <p>请输入酒店所在目的地</p>
+                            <div class="lv_tips_arrow"><span>◆</span><i>◆</i></div>
+                        </div>
+                    </div><!--酒店搜索--end-->
+
+
+
+                    <!--邮轮-->
+                    <div class="search_type_list">
+                        <form class="form_search">
+                            <input class="lv_search w_380" value="请输入航线、邮轮公司或邮轮名称" type="text"  autocomplete="off">
+                        </form>
+                    </div>
+
+
+                    <!--签证-->
+                    <div class="search_type_list">
+                        <form class="form_search">
+                            <input class="lv_search w_380" value="请输入您需要签证的国家/地区" type="text" autocomplete="off">
+                        </form>
+                    </div>
+                </div>
+                <span class="lv_icon btn_lv_search"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 引用header_nav -->
+<div class="lv_nav_bg">
+    <div class="lv_nav">
+        <ul class="lv_nav_l css3_run">
+            <li id="home"><a href="http://www.lvmama.com" rel="nofollow">首页</a></li>
+            <li id="abroad" class="pnav_down">
+                <a href="http://www.lvmama.com/abroad/">出境游<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_def" href="http://www.lvmama.com/abroad/">出境首页</a>
+                        <a class="downNav_localfun" href="http://www.lvmama.com/localfun/">当地玩乐</a>
+                        <a href="http://www.lvmama.com/youlun/">邮轮</a>
+                        <a href="http://www.lvmama.com/visa/">签证</a>
+                        <a class="downNav_wifi" href="http://www.lvmama.com/wifi/">WIFI/电话卡</a>
+                        <a href="http://www.lvmama.com/tuangou/all/abroad-m0?losc=089960&ict=i">出境特卖</a>
+                        <a href="http://www.feilvway.com/" target="_blank">飞驴湾</a>
+                        <a class="downNav_car" href="http://www.lvmama.com/intcar/">国际租车<i class="icon_hui"></i></a>
+                        <a href="http://www.lvmama.com/zt/promo/zmcj/" target="_blank">周末出境游</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="destroute" class="pnav_down">
+                <a href="http://www.lvmama.com/destroute/">国内游<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_def" href="http://www.lvmama.com/destroute/">国内长途游</a>
+                        <a href="http://fit.lvmama.com/?losc=087900&ict=i">机票+酒店</a>
+                        <a class="downNav_bus" href="http://www.lvmama.com/around/">周边跟团</a>
+                        <a href="http://www.lvmama.com/tuangou/all/china-m0">国内特卖</a>
+                        <a class="downNav_sanya" href="http://www.lvmama.com/sanya/">三亚<i class="icon_sanya"></i></a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="around" class="pnav_down">
+                <a href="http://www.lvmama.com/zhoubianyou/" data-losc="084208">周边游<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_j_j" href="http://www.lvmama.com/freetour/" data-losc="084210">酒店+景点</a>
+                        <a class="downNav_bus" href="http://www.lvmama.com/around/" data-losc="084211">周边跟团</a>
+                        <a href="http://ticket.lvmama.com/" data-losc="084213">景区门票</a>
+                        <a href="http://zijia.lvmama.com/" data-losc="084214">自驾游</a>
+                        <a href="http://lvyue.lvmama.com/" target="_blank" data-losc="084215">亲子游</a>
+                        <a href="http://hotels.lvmama.com/hotel" data-losc="084216">度假酒店</a>
+                        <a href="http://www.lvmama.com/zt/promo/zijiafangche/" target="_blank" data-losc="084217">房车露营</a>
+                        <a href="http://www.lvmama.com/tuangou/all/surround-m0" data-losc="084218">周边特卖</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="ticket" class="pnav_down"><a href="http://ticket.lvmama.com/" rel="nofollow">景点门票<i class="icon_arrow"></i><i class="icon_sbx"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_mp" href="http://ticket.lvmama.com/">国内门票</a>
+                        <a href="http://www.lvmama.com/freetour/">酒店+景点</a>
+                        <a href="http://www.lvmama.com/tuangou/all/ticket-m0?losc=086046&ict=i">门票特卖</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+                <i class="icon_disney"></i>
+            </li>
+            <li id="hotel" class="pnav_down">
+                <a href="http://hotels.lvmama.com/hotel" rel="nofollow" data-losc="084219">度假酒店<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_def" href="http://hotels.lvmama.com/hotel" data-losc="084219">国内酒店</a>
+                        <a href="http://www.lvmama.com/freetour/" data-losc="084220">酒店+景点</a>
+                        <a href="http://lvyue.lvmama.com/hotels/" target="_blank" data-losc="084221">亲子酒店</a>
+                        <a href="http://www.lvmama.com/zt/promo/zijiafangche/" target="_blank" data-losc="084222">房车露营</a>
+                        <a href="http://hotel.lvmama.com/" data-losc="084223">境外酒店</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="local_tour"><a href="http://www.lvmama.com/local" rel="nofollow">当地游</a><i class="icon_local_tour"></i></li>
+            <li id="zijia" class="pnav_down">
+                <a href="http://zijia.lvmama.com/" data-losc="084232">自驾游<i class="icon_arrow"></i></a></i>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_def" href="http://zijia.lvmama.com/" data-losc="084232">周边自驾</a>
+                        <a href="http://zijia.lvmama.com/changxian" data-losc="084234">国内+出境自驾</a>
+                        <a href="http://www.lvmama.com/zt/promo/zijiafangche/" target="_blank" data-losc="084238">房车+露营自驾</a>
+                        <a href="http://www.lvmama.com/freetour/" data-losc="084242">酒店+景点</a>
+                        <a href="http://hotels.lvmama.com/hotel/" data-losc="084246">度假酒店</a>
+                        <a href="http://ticket.lvmama.com/" data-losc="084248">门票</a>
+                    </p>
+                    <a href="http://login.lvmama.com/nsso/register/roadClup.do?losc=068634&ict=i" class="navZjy" title="加入自驾俱乐部" target="_blank"><i class="lv_icon icon_navzjy"></i></a>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="lvyue"><a href="http://lvyue.lvmama.com/" target="_blank" data-losc="084253">亲子游</a><i class="icon_ly"></i></li>
+            <li id="liner"><a href="http://www.lvmama.com/youlun/">邮轮</a></li>
+            <li id="flight" class="pnav_down"><a href="http://flight.lvmama.com" target="_blank" rel="nofollow">机票<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_gnjp" href="http://flight.lvmama.com" target="_blank">国内机票</a>
+                        <a class="downNav_fit" href="http://fit.lvmama.com/?losc=087901&ict=i" target="_blank">机票+酒店</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="train"><a href="http://train.lvmama.com" target="_blank">火车票</a></li>
+            <li id="tuangou"><a href="http://www.lvmama.com/tuangou" title="团购">特卖会</a><i class="icon_tg"></i></li>
+            <li id="custom"><a href="http://www.lvmama.com/company" rel="nofollow">定制游</a></li>
+            <li id="finance" class="pnav_down">
+                <a href="http://jr.lvmama.com/index" target="_blank">金融<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a href="http://jr.lvmama.com/baitiao" target="_blank">小驴白条</a>
+                        <a href="http://jr.lvmama.com/installment" target="_blank">小驴分期</a>
+                        <a href="http://jr.lvmama.com/licai" target="_blank">理财</a>
+                        <a href="http://jr.lvmama.com/exchange" target="_blank">外币兑换</a>
+                        <a href="http://jr.lvmama.com/finance" target="_blank">保证金</a>
+                        <a href="http://jr.lvmama.com/certificate" target="_blank">存款证明</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+            <li id="lvyou" class="pnav_down">
+                <a href="http://www.lvmama.com/lvyou/">旅游攻略<i class="icon_arrow"></i></a>
+                <div class="down_nav">
+                    <p>
+                        <a class="downNav_def" href="http://www.lvmama.com/lvyou/">目的地</a>
+                        <a class="downNav_guide" href="http://www.lvmama.com/guide/">攻略</a>
+                        <a class="downNav_yj" href="http://www.lvmama.com/trip/">游记</a>
+                        <a class="downNav_lyb" href="http://www.lvmama.com/trip/lvyoubao" target="_blank">驴游宝</a>
+                        <a href="http://www.lvmama.com/comment/" target="_blank">写点评</a>
+                        <a class="downNav_info" href="http://www.lvmama.com/info/" target="_blank">资讯</a>
+                        <a href="http://bbs.lvmama.com/" target="_blank">论坛</a>
+                    </p>
+                    <span class="lv_icon down_nav_t"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="body_bg">
+    <div class="wrap">
+        <!--面包屑--开始-->
+        <div class="crumbs clearfix">
+            <div class="crumbs-link">
+                <a href="http://dujia.lvmama.com/" hidefocus="false">度假旅游</a> &gt;
+
+        	                    <span class="crumbs-list" destname="北京" urltype="freetour" pinyin="beijing" destid="1"><a class="crumbs-down-a" href="http://dujia.lvmama.com/tour/beijing1/freetour">北京酒店套餐<i class="icon_arrow"></i></a>
+	<div class="crumbs-down-info">
+	<a href="http://dujia.lvmama.com/tour/beijing1/around">北京周边跟团游</a>
+	<a href="http://dujia.lvmama.com/tour/beijing1/group">北京跟团游</a>
+	<a href="http://dujia.lvmama.com/tour/beijing1/local">北京当地游</a>
+	<a href="http://ticket.lvmama.com/a-beijing1">北京景点门票</a>
+	</div>
+	                    </span>
+
+            </div>
+        </div><!--面包屑--结束-->
+
+        <!--首屏产品介绍模块--开始-->
+        <div class="product_top clearfix">
+            <i class="line_icon product_zyx"></i>
+            <div class="product_top_l image_zone clearfix">
+                <!--图片切换模块--开始-->
+                <div class="product_top_img">
+                    <div class="focusImg">
+
+
+                        <span class="line_icon btn_l"></span>
+                        <span class="line_icon btn_r"></span>
+                    </div>
+                    <div class="scrollImg">
+                        <div class="scrollImg_wrap">
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="scrollBtn">
+                            <a href="javascript:;" class="line_icon prev disable"></a>
+                            <a href="javascript:;" class="line_icon next"></a>
+                        </div>
+                    </div>
+                </div><!--图片切换模块--结束-->
+
+                <!--日历表开始-->
+                <div class="calendar_box">
+                </div><!--日历表结束-->
+            </div>
+
+            <!--首屏右侧--开始-->
+            <div class="product_top_r">
+                <h1 class="product_top_tit"> liux 0531酒店套餐预售【勿动】-【目的地bu】&nbsp;
+                </h1>
+                <div class="product_info1">
+                    <p id="line_favorite"><i class="line_icon icon_xing1" id="line_favorite_icon"></i>收藏该线路</p>
+                    <p id="product_remark">
+                        <i class="line_icon icon_dmz1"></i>
+                <span class="c_f60">
+                    100%
+                </span>好评
+                    </p>
+                    产品编号：379867
+                </div>
+
+                <div class="pr">
+                    <dl class="product_info2 product_info2_1">
+                        <dt>驴妈妈价：</dt>
+                        <dd class="clearfix">
+                            <p class="product_price_box">
+	                    <span class="product_price">
+	                            <dfn>¥</dfn>
+	                        2
+	                    </span>
+                                起/份(1成人)
+                            </p>
+	                <span class="pro_price_tips">
+	                    <i class="line_icon icon_wenhao"></i>
+	                    <samp class="js_tips" tip-content="本起价是指未包含附加服务（如单人房差、保险费等）的基本价格。您最终确认的价格将会随所选出行日期、人数及服务项目而相应变化">起价说明</samp>
+	                </span>
+                        </dd>
+                    </dl>
+                    <!-- 优惠信息 -->
+
+                    <dl class="product_info2 product_info_bg">
+                        <dt>优惠信息：</dt>
+                        <dd>
+                            <span class="tags101" tip-content="从2015年10月01日起到2016年11月30日发表订单游记，审核通过即返25.00元，精华游记即返106.00元。更多精彩活动请查看游记频道。">游记返现</span>
+
+                        </dd>
+                    </dl>
+                    <!-- 促销信息 -->
+
+                </div>
+
+                <!-- 关联销售 -->
+                <dl class="product_info2">
+                    <dt>行程天数：</dt>
+                    <dd>
+                        <ul class="xc_tab js_xc_tab">
+                            <li class="active">2天2晚<i class="line_icon icon_gou"></i></li>
+
+
+                        </ul>
+                    </dd>
+                </dl>
+
+                <dl class="product_info2 zIndex5">
+                    <dt>目 的 地：</dt>
+                    <dd class="product_mdd_down clearfix">
+                        <div class="product_mdd">
+                            <p>
+                                <span>北京</span>
+                            </p>
+                            <i class="icon_arrow"></i>
+                        </div>
+                        <!--JS会自动检测是否超过一行，是否显示按钮-->
+                    </dd>
+                </dl>
+                <dl class="product_info2">
+                    <dt>费用包含：</dt>
+                    <dd>
+                        小交通
+                    </dd>
+                </dl>
+                <!--预约券-->
+                <!-- 产品经理推荐 -->
+                <dl class="product_info2 mt20">
+                    <dd>
+                        <div class="product_ewm">
+                            <img src="/img/lineQr/379867.png" width="80" height="80">
+                            <p>[扫一扫更优惠]</p>
+                        </div>
+                    </dd>
+                </dl>
+
+            </div><!--首屏右侧--结束-->
+        </div><!--首屏产品介绍模块--结束--><div class="yuding_box yuding_box_yh">
+        <div class="yuding_top" id="product-preorder">
+            <div class="yuding_top_r">
+                总价：<span class="all_price" id="total-price-value">--</span>
+                <span class="btn cbtn-orange btn-big" id="preorder-confirm-button" data-disable="true">立即预订</span>
+            </div>
+            <dl class="yuding_top_list">
+                <dt>出发日期：</dt>
+                <dd>
+                    <div class="hotelSeach-input startDate pr">
+                        <input type="text" class="like-input JS_calendar" readonly="readonly" value="">
+                        <div class="calendar-info pa">
+                            <i class="selectDay"></i>
+                            <span class="line_icon line_icon-calendar"></span>
+                        </div>
+                    </div>
+                </dd>
+                <dt>购买份数：</dt>
+                <dd>
+                    <select id="preorder-quantity" data-hidden="N" class="buy_number product-select-quantity"
+                            data-class="selectbox-small" name="quantity">
+                        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+                    </select>
+                </dd>
+                <dt>其中包含：</dt>
+                <dd>
+                    <p class="yuding_top_p">成人：<span style="display: none;">
+				   <select id="adult-count" data-hidden="N" class="buy_number"
+                           data-class="selectbox-small" name="adultQuantity" disabled="true">
+					   <option value="1">1</option>
+				   </select>
+				</span><span id="adultCounts">1</span><span style="display: none;">
+				   <select id="children-count" data-hidden="N" class="buy_number"
+                           data-class="selectbox-small" name="childQuantity" disabled="true">
+					   <option value="0">0</option>
+				   </select>
+				</span><span id="childCounts" style="display:none;">0</span></p>
+                </dd>
+                <dd>
+                <span class="pro_price_tips"><i class="line_icon icon_wenhao"></i>
+				<samp class="js_tips" tip-content="本起价是指未包含附加服务（如单人房差、保险费等）的基本价格。您最终确认的价格将会随所选出行日期、人数及服务项目而相应变化">起价说明</samp></span>
+                </dd>
+            </dl>
+        </div>
+        <!--预订按钮和选日期模块--结束-->
+
+        <!--选择日期展开内容--日期切换1-->
+        <div id="preorder-adjust" class="yuding_detail" style="display:block;">
+        </div>
+
+        <!--费用包含-->
+        <div id="feeInclude" style="display: none">
+        </div>
+
+        <input type="hidden" id="preorder-start-time" value=""/>
+        <form method="post" action="http://www.lvmama.com/vst_front/book/destbu/routeReservation.do" id="submitDataForm" accept-charset="utf-8">
+            <input type="text" id="orderJson" name="orderJson" value="" hidden="hidden">
+        </form>
+    </div>
+        <script type="text/javascript">
+
+
+            function dealtotalMoney(e) {
+                var type = $(e).data("type");
+
+                var price = 0;
+                $(".lvmama-price-flag").each(function() {
+                    var select_value = $(this).val();
+                    if (select_value == null) {
+                        select_value = 0;
+                    }
+
+                    price += parseInt(select_value);
+                });
+                var priceValue = 0;
+                if (price % 100 == 0) {
+                    priceValue = price / 100;
+                } else {
+                    priceValue = (price / 100).toFixed(2);
+                }
+                $("#total-price-value").html("<dfn>¥</dfn>" + priceValue);
+            }
+
+            $('.sale_by_people').children().each(function(){
+                if($(this).val()==2){
+                    $(this).attr("selected","selected");
+                }
+            });
+
+            window.DestGoods = {
+                baidumap: [],
+                productId: 379867,
+                notSell:'N',
+                javaCallback: {
+                    init: function(){
+                        this.bindEvent();
+                    },
+                    loadingSuppGoodsCallBack: function($date,$routeId){
+                        var self = this;
+                        var selectDate = null;
+                        var routeId = $routeId;
+                        var startDate = $("#preorder-start-time").val();
+                        if($date === undefined || $date == null || $date == ""){
+                            if(startDate != null && startDate != ""){
+                                selectDate = startDate;
+
+                                if(!routeId){// 行程
+                                    var el = $(".caltable td[date-map='" + selectDate + "']");
+                                    routeId = el.find(".caltips").attr("routeId");
+                                    if(!routeId) {// 单行程，取默认
+                                        routeId = $("#defaultLineRouteId").val();
+                                    }
+                                }
+                            }else{
+                                // 啥都没有，返回
+                                return;
+                            }
+                        }else{
+                            selectDate = $date;
+                        }
+                        var adultQuantity = $("#adult-count").val();
+                        var childQuantity = $("#children-count").val();
+                        var quantity = $("#preorder-quantity").val();
+
+                        var ajaxData = {
+                            selectDate1:selectDate,
+                            adultQuantity:adultQuantity,
+                            childQuantity:childQuantity,
+                            quantity:quantity,
+                            productId:window.DestGoods.productId
+                        };
+
+                        // 禁用掉预定按钮，及设置预订时间
+                        var $preorderConfirmButton = $("#preorder-confirm-button");
+                        $preorderConfirmButton.attr("data-disable",true);
+                        $preorderConfirmButton.attr("data-lock", true);
+                        $("#preorder-confirm-button").removeClass("btn_stop").addClass("btn_stop");
+                        $("#total-price-value").html("<dfn>¥</dfn>--");
+                        $("#preorder-start-time").val(selectDate);
+
+                        // 显示loading界面
+                        $("#preorder-adjust").html('<div class="loading_box"><i class="icon_loading"></i><span>请稍候，正在为您查询...</span></div>');
+
+                        var loadingGoodsUrl = "destbu/loadingGoods";
+                        if('N' == "Y"){
+                            //loadingGoodsUrl = "/route/destbu/loadingGoods";
+                        }
+                        $.ajax({
+                            url:loadingGoodsUrl,
+                            type:"get",
+                            contentType:'application/json;charset=utf-8', //设置请求头信息
+                            data: ajaxData,
+                            success: function (data) {
+                                $("#preorder-adjust").html(data);
+                                if($("<div>"+data+"</div>").find(".do-not-modify-me").size() == 0){
+                                    if(routeId){
+                                        var feeIncludeHtml = $("#line_route_"+routeId).html();
+                                        $("#preorder-adjust").append(feeIncludeHtml);
+                                    }
+                                }
+                                // 商品不可售
+                                if(data.indexOf("do-not-modify-me") > -1 || 'N' == "Y"){
+                                    $preorderConfirmButton.html("开始预订");
+                                    $preorderConfirmButton.removeAttr("data-lock");
+                                    return;
+                                    // 商品可售
+                                }
+                                // 按钮恢复正常
+                                $preorderConfirmButton.removeAttr("data-disable");
+                                $("#preorder-confirm-button").removeClass("btn_stop");
+                                $preorderConfirmButton.attr("data-lock", true);
+                                $preorderConfirmButton.html("立即预订");
+                                //不再使用提示
+                                //$('.js_btnTips').remove(); //删除提示
+                                //第一次加载算一次总价
+                                $(".lvmama-price-flag").each(function(e) {
+                                    dealtotalMoney(this);
+                                });
+                                pandora.selectModel({'autoWidth': false, 'selectElement': $('.buy_number')});
+                                getAllBuyInfo();
+                            }
+                        });
+
+                    },
+                    //更换产品
+                    replaceCallback: function(e) {
+                        var groupid = $(e.currentTarget).data("groupid");
+                        var currentproductbranchid = $(e.currentTarget).attr("data-currentproductbranchid");
+                        var haveChangeButton = $(e.currentTarget).data("havechangebutton"); //是否有更换button的按钮
+                        var adultquantity = $(e.currentTarget).data("adultquantity");
+                        var childquantity = $(e.currentTarget).data("childquantity");
+                        var quantity = $(e.currentTarget).data("quantity");
+                        var selectdate = $(e.currentTarget).data("selectdate");
+                        var changeType = $(e.currentTarget).data("changetype");
+                        var startDistrictId = $(e.currentTarget).attr("data-startDistrictId");
+                        if (!startDistrictId) {
+                            startDistrictId = -1;
+                        }
+
+                        //这个产品ID是被打包的产品ID 解决升级问题的
+                        var productId = $(e.currentTarget).data("productid");
+                        //自主打包的产品ID 若为供应商打包就和上面的productId是一样的
+                        var lvmamaProductId = window.DestGoods.productId;
+                        var changeTitle = "";
+                        if(changeType == "hotelPackage") {
+                            changeTitle = "更换酒店套餐";
+                        }else if (changeType == "hotel") {
+                            changeTitle = "更换酒店";
+                        }else if (changeType == "ticket") {
+                            changeTitle = "更换景点门票";
+                        }else {
+                            changeTitle = "更换其他套餐";
+                        }
+
+                        var changeProductUrl = "destbu/changeProduct";
+
+                        if ('N' == "Y") {
+                            changeProductUrl = "/route/destbu/changeProduct";
+                        }
+                        winLoading(true,'正在努力加载中...');
+                        $.ajax({
+                            url: changeProductUrl,
+                            type: "get",
+                            contentType: 'application/json;charset=utf-8',
+                            //设置请求头信息
+                            data: {
+                                lvmamaProductId: lvmamaProductId,
+                                selectDate: selectdate,
+                                adultQuantity: adultquantity,
+                                childQuantity: childquantity,
+                                quantity: quantity,
+                                productId: productId,
+                                groupId: groupid,
+                                currentProductBranchId: currentproductbranchid,
+                                changeType: changeType,
+                                startDistrictId: startDistrictId,
+                                haveChangeButton: haveChangeButton
+                            },
+                            success: function(data) {
+                                winLoading(false);
+                                $(e.currentTarget).removeAttr("data-disable");
+                                $.dialog({
+                                    title: changeTitle,
+                                    width:1030,
+                                    height:570,
+                                    content: data
+                                });
+                                if (changeType == "hotel") {
+                                    $(".change_list").each(function(){
+                                        //重新计算差价
+                                        refreshHotelGapPrice($(this),$('.selected_change_hotel_type'));
+                                    });
+                                }
+                            },
+                            error:function(){
+                                winLoading(false);
+                                $(e.currentTarget).removeAttr("data-disable");
+                            }
+                        });
+                    },
+                    //替换选择的商品和相对变化的附件信息
+                    doSelectAction: function(e) {
+                        var b = false;
+                        var startDistrictId = $(e.currentTarget).attr("data-startDistrictId");
+                        if (!startDistrictId) {
+                            startDistrictId = -1;
+                        }
+                        var productId = $(e.currentTarget).data("productid");
+                        //自主打包的产品ID 若为供应商打包就和上面的productId是一样的
+                        var lvmamaProductId = window.DestGoods.productId;
+                        var groupId = $(e.currentTarget).data("groupid");
+                        var productBranchId = $(e.currentTarget).data("currentproductbranchid");//被选中的产品规格
+                        var currentSuppGoodsId = $(e.currentTarget).data("suppgoodsid"); //选中的商品ID
+                        var selectedProductBranchId = $(e.currentTarget).data("selectedcurrentproductbranchid"); //默认被选中的产品规格
+                        var adultquantity = $(e.currentTarget).data("adultquantity");
+                        var childquantity = $(e.currentTarget).data("childquantity");
+                        var quantity = $(e.currentTarget).data("quantity");
+                        var selectdate = $(e.currentTarget).data("selectdate");
+                        var changeType = $(e.currentTarget).data("changetype");
+
+                        var changeSuppGoodsUrl = "destbu/changeSuppGoods";
+                        if ('N' == "Y") {
+                            changeSuppGoodsUrl = "/route/destbu/changeSuppGoods";
+                        }
+                        winLoading(true,'正在努力更换中...');
+                        $.ajax({
+                            url: changeSuppGoodsUrl,
+                            type: "get",
+                            contentType: 'application/json;charset=utf-8',
+                            //设置请求头信息
+                            data: {
+                                lvmamaProductId: lvmamaProductId,
+                                productId: productId,
+                                groupId: groupId,
+                                productBranchId: productBranchId,
+                                currentSuppGoodsId: currentSuppGoodsId,
+                                selectDate: selectdate,
+                                adultQuantity: adultquantity,
+                                childQuantity: childquantity,
+                                quantity: quantity,
+                                changeType: changeType,
+                                startDistrictId: startDistrictId
+                            },
+                            success: function(data) {
+                                winLoading(false);
+                                if($("<div>"+data+"</div>").find(".do-not-modify-me").size() == 0){
+                                    $(".dialog-close").trigger("click");
+                                    $("#group-" + groupId + "_" + selectedProductBranchId).replaceWith(data);
+                                    //更换商品之后再算一次价格
+                                    $(".lvmama-price-flag").each(function(e) {
+                                        dealtotalMoney(this);
+                                    });
+                                    if(changeType == "hotel"){
+                                        pandora.selectModel({'autoWidth':false, 'selectElement': $('.buy_number')});
+                                        //获取酒店默认商品DIV
+                                        var houseTypeItem = $("#group-" + groupId + "_" + productBranchId).find(".default-hotel");
+                                        //重新计算差价
+                                        refreshHotelGapPrice($("#group-" + groupId + "_" + productBranchId),houseTypeItem);
+                                    }
+                                    pandora.selectModel({'autoWidth': false, 'selectElement': $('.buy_number')});
+                                }else{
+                                    alert("系统异常，更换商品失败！");
+                                    $(".dialog-close").trigger("click");
+                                }
+                            },
+                            error:function(){
+                                winLoading(false);
+                                alert("系统异常，更换商品失败！");
+                                $(".dialog-close").trigger("click");
+                            }
+                        });
+                    },
+                    //酒店图片详情
+                    getHotelDetailCallback: function(e,productId) {
+                        var getHotelDetailUrl = "destbu/hotelDetail/" + productId;
+                        if ('N' == "Y") {
+                            getHotelDetailUrl = "/route/destbu/hotelDetail/" + productId;
+                        }
+                        winLoading(true,'正在努力加载中...');
+                        $.ajax({
+                            url: getHotelDetailUrl,
+                            success: function(data) {
+                                winLoading(false);
+                                pandora.dialog({
+                                    title: "酒店信息",
+                                    width:1000,
+                                    height:570,
+                                    content: data
+                                });
+                                $(e.currentTarget).removeAttr("data-disable");
+                            },
+                            error:function(){
+                                winLoading(false);
+                                $(e.currentTarget).removeAttr("data-disable");
+                            }
+                        });
+                    },
+                    //门票图片详情
+                    getTicketDetailCallback: function(e,productId) {
+                        var getTicketDetailUrl = "destbu/scenicDetail/" + productId;
+                        if ('N' == "Y") {
+                            getTicketDetailUrl = "/route/destbu/scenicDetail/" + productId;
+                        }
+                        winLoading(true,'正在努力加载中...');
+                        $.ajax({
+                            url: getTicketDetailUrl,
+                            success: function(data) {
+                                winLoading(false);
+                                pandora.dialog({
+                                    title: "门票信息",
+                                    width:1000,
+                                    height:570,
+                                    content: data
+                                });
+                                $(e.currentTarget).removeAttr("data-disable");
+                            },
+                            error:function(){
+                                winLoading(false);
+                                $(e.currentTarget).removeAttr("data-disable");
+                            }
+                        });
+                    },
+                    bindEvent: function(){
+                        var self = this;
+                        var yudingBox = $(".yuding_box");
+                        yudingBox.on("click", ".show-hotel-detail-flag", function(event){
+                            var targetId = $(this).attr("productId");
+                            if(targetId) {
+                                self.getHotelDetailCallback(event, targetId);
+                            }
+                            return false;
+                        });
+                        yudingBox.on("click", ".show-ticket-detail-flag", function(event){
+                            var targetId = $(this).attr("productId");
+                            if(targetId) {
+                                self.getTicketDetailCallback(event, targetId);
+                            }
+                            return false;
+                        });
+                    },
+                    preorderStart: function(e){
+                        e.stopPropagation();
+                        // alert("提交校验！");
+                        if ($('#preorder-confirm-button').hasClass('btn_stop')) {
+                            return;
+                        }
+                        var $currentTarget = $(e.currentTarget);
+                        if ($currentTarget.attr("data-disable")) {
+                            return;
+                        }
+                        if ($currentTarget.attr("data-lock")) {
+                            window.DestGoods.javaCallback.submitData(e);
+                            return;
+                        }
+                    },
+                    submitData: function(e) {
+                        var itemList = [];
+                        var breakFlag = "1";
+                        var maxAdultQuantity =0,maxChildQuantity = 0;
+                        $(".need-submit-data").each(function(){
+                            var groupType = $(this).attr("data-group");
+                            var item = {};
+                            var hotelAdditation = {};//酒店的时候使用
+                            var goodsId=$(this).attr("data-goodsId");
+                            if(typeof(goodsId) != 'undefined'){
+                                item.goodsId = goodsId;
+                            }
+                            var goodType=$(this).attr("data-goodType");
+                            if(typeof(goodType) != 'undefined'){
+                                item.goodType = goodType;
+                            }
+                            var mainItem=$(this).attr("data-mainItem");
+                            if(typeof(mainItem) != 'undefined'){
+                                item.mainItem = mainItem;
+                            }
+                            var routeRelation=$(this).attr("data-routeRelation");
+                            if(typeof(routeRelation) != 'undefined'){
+                                item.routeRelation = routeRelation;
+                            }
+                            var detailId=$(this).attr("data-detailId");
+                            if(typeof(detailId) != 'undefined'){
+                                item.detailId = detailId;
+                            }
+                            var quantity=$(this).attr("data-quantity");
+                            if(typeof(quantity) != 'undefined'){
+                                if(groupType == "addition"){
+                                    item.adultQuantity = quantity;
+                                    item.quantity = quantity;
+                                }else{
+                                    item.quantity = quantity;
+                                }
+                            }
+
+                            if(groupType  == "ticket"){
+                                //增加品类判断
+                                var childQuantity = $(this).attr("data-childQuantity");
+                                if(typeof(childQuantity) != 'undefined'){
+                                    item.childQuantity = childQuantity*quantity;
+                                    if(childQuantity*quantity > maxChildQuantity){
+                                        maxChildQuantity = childQuantity*quantity;
+                                    }
+                                }
+
+                                var adultQuantity = $(this).attr("data-adultQuantity");
+                                if(typeof(adultQuantity) != 'undefined'){
+                                    item.adultQuantity = adultQuantity*quantity;
+                                    if(adultQuantity*quantity > maxAdultQuantity){
+                                        maxAdultQuantity = adultQuantity*quantity;
+                                    }
+                                }
+                            }
+
+                            var visitTime = $(this).attr("data-visitTime");
+                            if (typeof(visitTime) != 'undefined') {
+                                item.visitTime = visitTime;
+                            }
+                            if (groupType == "ticket") {
+                                var markSelect_1 = detailId + "-" + goodsId;
+                                $("select").each(function () {
+                                    var markSelect_2 = $(this).attr("data-detailid-suppgoodsid");
+                                    if (typeof(markSelect_2) != 'undefined' && markSelect_1 == markSelect_2) {
+                                        var selectOptionLength_new = $(this).find("option:selected").text();
+                                        if (selectOptionLength_new == '请选择') {
+                                            $(this)[0].focus();
+                                            $(this).css("background-color", "#ffcccc");
+                                            breakFlag = 0;
+                                            return false;
+                                        }
+                                    }
+                                })
+                            }
+                            var displayTime = $(this).attr("data-displayTime");
+                            if (typeof(displayTime) != 'undefined') {
+                                item.displayTime = displayTime;
+                            }
+                            var detail = $(this).attr("data-detail");
+                            if (typeof(detail) != 'undefined' && detail && (groupType == 'selectPackage' || groupType == 'hotelPackage')) {
+                                item.hotelcombOptions = JSON.parse(detail);
+                            }
+                            if($(".disney").length>0){
+                                item.isDisneyGood = true;
+                            }
+                            var leaveTime = $(this).attr("data-leaveTime");
+                            if (typeof(leaveTime) != 'undefined' && groupType == "hotel") {
+                                hotelAdditation.leaveTime = leaveTime;
+                            }
+                            var arrivalTime = $(this).attr("data-arrivalTime");
+                            if (typeof(arrivalTime) != 'undefined' && groupType == "hotel") {
+                                hotelAdditation.arrivalTime = arrivalTime;
+                            }
+                            var stayDays = $(this).attr("data-stayDays");
+                            if (typeof(stayDays) != 'undefined' && groupType == "hotel") {
+                                hotelAdditation.stayDays = stayDays;
+                            }
+
+                            //如果是酒店才会有这个对象
+                            if (groupType == "hotel") {
+                                item.hotelAdditation = hotelAdditation;
+                            }
+                            //过滤掉份数为0的,而且所有下单的东西一定是会有份数的
+                            if ("quantity" in item && item.quantity != ""  && item.quantity != "0") {
+                                itemList.push(item);
+                            }
+
+                        });
+                        if(breakFlag == 0){
+                            return false;
+                        }
+                        //输入的参数也要传过去
+                        var adultQuantity = $("#adult-count").val();
+                        var childQuantity = $("#children-count").val();
+                        var quantity = $("#preorder-quantity").val();
+                        var quantityHiddenFlag = $("#preorder-quantity").data("hidden");
+                        // alert(adultQuantity+":"+childQuantity+":"+quantity);
+
+                        var form = {};
+                        form.itemList = itemList;
+                        //如果没有酒店套餐的,按人售卖
+                        if(quantityHiddenFlag == 'Y'){
+                            if(adultQuantity > maxAdultQuantity){
+                                maxAdultQuantity = adultQuantity;
+                            }
+                            if(childQuantity>maxChildQuantity){
+                                maxChildQuantity = childQuantity;
+                            }
+                            form.adultQuantity=adultQuantity;
+                            form.childQuantity=childQuantity;
+                            //如果有酒店套餐的，按份售卖
+                        }else if(quantityHiddenFlag == 'N'){
+                            if((adultQuantity*quantity) > maxAdultQuantity){
+                                maxAdultQuantity = adultQuantity*quantity;;
+                            }
+                            if((childQuantity*quantity)>maxChildQuantity){
+                                maxChildQuantity = childQuantity*quantity;;
+                            }
+                            form.adultQuantity=adultQuantity*quantity;
+                            form.childQuantity=childQuantity*quantity;
+                        }
+                        form.maxAdultQuantity = maxAdultQuantity;
+                        form.maxChildQuantity = maxChildQuantity;
+
+                        form.quantity=quantity;
+                        form.productId=379867;
+                        form.startDistrictId =
+                                form.visitTime = $("#preorder-start-time").val();
+                        if($("#lineRouteId"))
+                        {
+                            form.lineRouteId=$("#lineRouteId").val();
+                        }
+                        $("#orderJson").val(encodeURI(JSON.stringify(form)));
+                        //alert( $("#orderJson").val());
+                        //改为免登录
+                        $("#submitDataForm").submit();
+                        /*$.getJSON(
+                         "http://login.lvmama.com/nsso/ajax/checkLoginStatus.do?jsoncallback=?",
+                         {},
+                         function(data) {
+                         if (data.success) {
+                         $("#submitDataForm").submit();
+                         } else {
+                         showLogin(function(){
+                         $("#submitDataForm").submit();
+                         });
+                         cmCreatePageviewTag("登陆浮动层-酒店套餐-国内","虚拟浏览");
+                         }
+                         }
+                         );*/
+                    }
+                }
+            };
+
+            $(function(){
+                DestGoods.javaCallback.init();
+                getAllBuyInfo();
+            });
+
+            /*$(function(){
+             var params = {productId: 379867,};
+             $.getJSON('http://dujia.lvmama.com/package/data.json', params, function(response) {
+             var flag = false;
+             for(i=0;i<response.length;i++){
+             if(typeof(response[i].price)!==undefined && response[i].price!==null && response[i].price!==''){
+             flag = true;
+             break;
+             }
+             }
+             if(flag){
+             // 按钮恢复正常,锁住立即预订按钮，不让其跳转
+             //$preorderConfirmButton.removeAttr("data-disable");
+             $("#preorder-confirm-button").removeClass("btn_stop");
+             //$preorderConfirmButton.attr("data-lock", true);
+             $preorderConfirmButton.html("立即预订");
+             }
+             });
+             });*/
+
+            function getAllBuyInfo(){
+
+                var categoryId = 17;
+                if(categoryId!=17){
+                    var checkArray = new Array();
+                    var isCombStructName = '';
+                    //遍历酒店  和 酒店套餐
+                    $('.active_xuan').each(function(){
+                        var obj1 = $(this);
+                        var dataType = obj1.attr('data-type');
+                        //如果是非结构化套餐
+                        if('packageComb'==dataType){
+                            var hotelComb = new Object();
+                            hotelComb.typeName = '酒店套餐';
+                            hotelComb.goodsName=obj1.attr('showgoodsname');
+                            hotelComb.quantity=obj1.attr('data-quantity')+"份";
+                            checkArray.push(hotelComb);
+                        }
+
+                        //如果是套餐结构化门票
+                        if('comb_struct_ticket'==dataType && isCombStructName == ''){
+                            isCombStructName = $('#currentgoodsname').text();
+                            var comb_struct = new Object();
+                            comb_struct.typeName = '酒店套餐';
+                            comb_struct.goodsName=isCombStructName;
+                            var comb_quantity = $("#preorder-quantity").val();
+                            comb_struct.quantity=comb_quantity+"份";
+                            checkArray.push(comb_struct);
+                        }
+                        //套餐结构化酒店
+                        if('comb_struct_hotel'==dataType && isCombStructName == ''){
+                            isCombStructName = $('#currentgoodsname').text();
+                            var comb_struct = new Object();
+                            comb_struct.typeName = '酒店套餐';
+                            comb_struct.goodsName=isCombStructName;
+                            var comb_quantity = $("#preorder-quantity").val();
+                            comb_struct.quantity=comb_quantity+"份";
+                            checkArray.push(comb_struct);
+                        }
+                        //如果是酒店
+                        if('hotel'==dataType){
+                            var hotel = new Object();
+                            hotel.typeName = '房型';
+                            hotel.goodsName=obj1.attr('showGoodsName');
+                            var hotelQuantity = $('select[data-suppgoodsid='+obj1.attr('data-suppgoodsid')+']').find("option:selected").text()+"间";
+                            hotel.quantity = hotelQuantity;
+                            checkArray.push(hotel);
+                        }
+                    });
+                    //遍历门票
+                    $('.buy_number.ticket-select').each(function(){
+                        var ticket = $(this);
+                        ticket.typeName="门票";
+                        ticket.goodsName=ticket.attr('showGoodsName');
+                        ticket.quantity=ticket.find("option:selected").text()+"张";
+                        checkArray.push(ticket);
+                    });
+
+                    var htmlStr = "";
+                    //遍历数组，组装内容显示
+                    $.each(checkArray, function(index,obj){
+                        var li_1 ="<li>";
+                        var typeName = '<span class="ysi-type">'+obj.typeName+'：</span>';
+                        var goodsName = '<span class="ysi-name" title='+obj.goodsName+'>'+obj.goodsName+'</span>';
+                        var quantity = '<span class="ysi-amount">'+obj.quantity+'</span>';
+                        var li_2 ="</li>";
+                        htmlStr = htmlStr+li_1+typeName+goodsName+quantity+li_2;
+                    });
+                    //console.log(htmlStr);
+
+                    if(htmlStr!=""){
+                        $('.yh-slc-items').html(htmlStr)
+                        $('.yh-slc-selected').show();
+                        $('.yh-slc-none').hide();
+                    }
+                }
+            }
+        </script><!--产品详情模块--开始-->
+        <div class="detail_all clearfix">
+
+            <!--产品详情右侧栏--开始-->
+            <div class="detail_r">
+                <!-- 交通地图 开始 -->
+                <div class="asider">
+                    <h5 class="asiderTit">交通地图</h5>
+                    <div  class="siderBox mapBox js_traffic_info" id="mini-map" style="height: 200px"></div>
+                </div>
+                <!-- 交通地图 结束 -->
+
+                <!-- 最新活动 开始 -->
+                <!-- 最新活动 结束 -->
+
+                <!-- 线路推荐 开始 -->
+                <div class="asider" id="line_recommend">
+                    <h5 class="asiderTit">线路推荐</h5>
+                    <div class="siderBox">
+                        <ul class="asiderPro">
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/380244" title="liux-自由行-交通服务-自主打包-有可换酒店" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/380244" title="liux-自由行-交通服务-自主打包-有可换酒店" target="_blank">
+                                        liux-自由行-交通服务-自主打包-有可换酒店
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>67</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/group/379867" title="liux 0531酒店套餐预售【勿动】-【目的地bu】" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/group/379867" title="liux 0531酒店套餐预售【勿动】-【目的地bu】" target="_blank">
+                                        liux 0531酒店套餐预售【勿动】-【目的地bu】
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>2</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/379293" title="0412交通服务国内供应商" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/379293" title="0412交通服务国内供应商" target="_blank">
+                                        0412交通服务国内供应商
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>88</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/378614" title="liux-机酒入口-自由行按份打包" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/378614" title="liux-机酒入口-自由行按份打包" target="_blank">
+                                        liux-机酒入口-自由行按份打包
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>23</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/379231" title="【可以后置产品】0517zn测试自由行打包机票非对接" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/379231" title="【可以后置产品】0517zn测试自由行打包机票非对接" target="_blank">
+                                        【可以后置产品】0517zn测试自由行打包机票非对接
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>1080</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/378976" title="liux 自由行 ，自主打包。国内类别的自动过。" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/378976" title="liux 自由行 ，自主打包。国内类别的自动过。" target="_blank">
+                                        liux 自由行 ，自主打包。国内类别的自动过。
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>860</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/379599" title="FJJ国内自由行机酒供应商打包" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/379599" title="FJJ国内自由行机酒供应商打包" target="_blank">
+                                        FJJ国内自由行机酒供应商打包
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>120</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://dujia.lvmama.com/freetour/378572" title="liux-按份-自由行-国内-自主打包-大交通否（打包了酒店套餐）目的地BU33664【按份2成人1儿童】-【预售券】" target="_blank">
+                                    <img width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://dujia.lvmama.com/freetour/378572" title="liux-按份-自由行-国内-自主打包-大交通否（打包了酒店套餐）目的地BU33664【按份2成人1儿童】-【预售券】" target="_blank">
+                                        liux-按份-自由行-国内-自主打包-大交通否（打包了酒店套餐）目的地BU33664【按份2成人1儿童】-【预售券】
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr">
+                                        <dfn>
+                                            100
+                                        </dfn>%好评率
+                                    </span>
+                                    <span class="asiderPro-price">
+                                        <dfn>&yen;<i>1714</i></dfn>起
+                                    </span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 线路推荐 结束 -->
+
+                <!-- 景点推荐 开始 -->
+                <div class="asider" id="scenic_recommendation">
+                    <h5 class="asiderTit">景点推荐</h5>
+                    <div class="siderBox">
+                        <ul class="asiderPro tuijian">
+                            <li>
+                                <a class="asiderPro-img" href="http://ticket.lvmama.com/scenic-91038" title="其它票是否可售测试"  target="_blank">
+                                    <img alt="" width="228" height="152" src="    http://pic.lvmama.com//uploads/pc/place_vst/hotels/585/5855/gp1_M00_47_94_pIYBAFMhbliAdk0VAAF30fIfWUM117.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://ticket.lvmama.com/scenic-91038" title="其它票是否可售测试" target="_blank">
+                                        其它票是否可售测试
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr"><dfn>
+                                        100%
+                                    </dfn>好评率</span>
+                                    <span class="asiderPro-price"><dfn>&yen;<i>1</i></dfn>起</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a class="asiderPro-img" href="http://ticket.lvmama.com/scenic-1" title="武隆通关测试ddd"  target="_blank">
+                                    <img alt="" width="228" height="152" src="    http://pic.lvmama.com/img/cmt/img_400_268.jpg
+">
+                                </a>
+                                <p class="asiderPro-tit">
+                                    <a href="http://ticket.lvmama.com/scenic-1" title="武隆通关测试ddd" target="_blank">
+                                        武隆通关测试ddd
+                                    </a>
+                                </p>
+                                <p class="asiderPro-info">
+                                    <span class="fr"><dfn>
+                                        100%
+                                    </dfn>好评率</span>
+                                    <span class="asiderPro-price"><dfn>&yen;<i>11</i></dfn>起</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 景点推荐 结束 -->
+            </div>
+            <!--产品详情右侧栏--结束-->
+
+            <!--产品详情左侧栏--开始-->
+            <div class="detail_l">
+                <!--模块锚点按钮--开始-->
+                <div id="destorder" class="tab-outer">
+                    <div class="tab-dest tab-fixed tab-dest-yh" style="">
+                        <ul class="ul-hor J_scrollnav">
+                            <li class="active" date_id="xiangqing">产品详情</li>
+                            <li date_id="jiaotong">交通地图</li>
+                            <li date_id="xuzhi">预订须知</li>
+                            <li date_id="dianping">驴友点评<span>(0)</span></li>
+                            <li date_id="xgtrip">相关游记<span></span></li>
+                        </ul>
+                        <a class="yh-preorder-btn" date_id="reservation" hidefocus="false">立即预订</a>
+                    </div>
+                </div><!--模块锚点按钮--结束-->
+
+                <!--主题活动推荐(公告)--开始-->
+                <!--主题活动推荐(公告)--结束-->
+
+                <!--product_detail开始-->
+
+                <div class="product_detail">
+                    <h3 class="line_tit" id="xiangqing"><span><i class="line_icon icon_tit1"></i></span>产品详情</h3>
+
+                    <div class="product_xq">
+                        11111111111111111
+                    </div>
+
+
+                    <!-- 交通地图 开始 -->
+                    <h3 class="line_tit" id="jiaotong"><span><i class="line_icon icon_tit3"></i></span>交通地图</h3>
+                    <div class="jiaotong_all detail-info">
+                        <strong class="detail-info-stit">公共交通</strong>
+                        <div><span style="color:#333333;font-family:宋体, Tahoma, Arial;line-height:22px;background-color:#FFFFFF;">交通到达</span>1111111</div>
+                    </div>
+                    <!-- 交通地图 结束 -->
+
+                    <!--费用说明--开始-->
+                    <div class="instance_list2_box">
+                        <div class="instance_list2" style="display:block;">
+                        </div>
+                    </div>
+                    <!--费用说明--结束-->
+
+                    <!--预订须知--开始-->
+                    <h3 class="line_tit" id="xuzhi"><span><i class="line_icon icon_tit5"></i></span>预订须知</h3>
+                    <div class="xuzhi_all">
+                        <em class="xuzhi-tips">本产品由上海驴妈妈兴旅国际旅行社有限公司及具有合法资质的地接社提供相关服务。</em>
+
+                        <!-- 购物说明开始 -->
+                        <div class="instance_list2_box">
+                            <div class="instance_list2" style="display: block;">
+                            </div>
+                        </div>
+                        <!-- 购物说明结束 -->
+
+                        <!-- 推荐项目开始 -->
+                        <div class="instance_list2_box">
+                            <div class="instance_list2" style="display: block;">
+                            </div>
+                        </div>
+                        <!-- 推荐项目结束 -->
+
+                        <!-- 出行警示及说明开始 -->
+                        <!-- 出行警示及说明结束 -->
+
+                        <!-- 行前须知开始-->
+                        <strong class="xuzhi-gowuTit detail-info-stit">行前须知</strong>
+                        <div class="detail-info">
+                            <table style="color:#333333;width:1683px;font-family:宋体, Tahoma, Arial;font-size:12px;background-color:#FFFFFF;">
+                                <tbody>
+                                <tr>
+                                    <td width="150" style="vertical-align:top;">
+                                        行前须知
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table style="color:#333333;width:1683px;font-family:宋体, Tahoma, Arial;font-size:12px;background-color:#FFFFFF;">
+                                <tbody>
+                                <tr>
+                                    <td width="150" style="vertical-align:top;">
+                                        行前须知
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table style="color:#333333;width:1683px;font-family:宋体, Tahoma, Arial;font-size:12px;background-color:#FFFFFF;">
+                                <tbody>
+                                <tr>
+                                    <td width="150" style="vertical-align:top;">
+                                        行前须知
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table style="color:#333333;width:1683px;font-family:宋体, Tahoma, Arial;font-size:12px;background-color:#FFFFFF;">
+                                <tbody>
+                                <tr>
+                                    <td width="150" style="vertical-align:top;">
+                                        行前须知
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table style="color:#333333;width:1683px;font-family:宋体, Tahoma, Arial;font-size:12px;background-color:#FFFFFF;">
+                                <tbody>
+                                <tr>
+                                    <td width="150" style="vertical-align:top;">
+                                        行前须知
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table style="color:#333333;width:1683px;font-family:宋体, Tahoma, Arial;font-size:12px;background-color:#FFFFFF;">
+                                <tbody>
+                                <tr>
+                                    <td width="150" style="vertical-align:top;">
+                                        行前须知
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- 行前须知结束 -->
+
+                        <!-- 退改说明 -->
+                        <strong class="xuzhi-gowuTit detail-info-stit">退改说明</strong>
+                        <div class="detail-info">
+                            <span style="color:#333333;font-family:宋体, Tahoma, Arial;line-height:22px;background-color:#FFFFFF;">退改说明</span><span style="color:#333333;font-family:宋体, Tahoma, Arial;line-height:22px;background-color:#FFFFFF;">退改说明</span><span style="color:#333333;font-family:宋体, Tahoma, Arial;line-height:22px;background-color:#FFFFFF;">退改说明</span><span style="color:#333333;font-family:宋体, Tahoma, Arial;line-height:22px;background-color:#FFFFFF;">退改说明</span><span style="color:#333333;font-family:宋体, Tahoma, Arial;line-height:22px;background-color:#FFFFFF;">退改说明</span>
+                        </div>
+                        <!-- 退改说明 -->
+                    </div><!-- //xuzhi_all -->
+                    <!--预订须知--结束-->
+
+                    <!--签证/签注--开始-->
+                    <div class="instance_list2_box">
+                        <div class="instance_list2" style="display: block;">
+                        </div>
+                    </div>
+                    <!--签证/签注--结束-->
+
+                    <!-- 用户点评开始 -->
+                    <h3 class="line_tit" id="dianping"><span><i class="line_icon icon_tit6"></i></span>驴友点评</h3>
+                    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+                    <div class="product-detail-instance xl_position_r" id="product-customer-review">
+                        <a href="http://www.lvmama.com/zt/promo/chunjie6/" class="xl_comments_enter3" target="_blank">
+                            <img src="http://pic.lvmama.com/img/v5/comments_enter3.png" width="196" height="105"/>
+                        </a>
+                        <div class="comwrap">
+                            <!-- 点评信息概况 -->
+                            <div class="new-cominfo">
+                                <div class="comstati clearfix">
+
+                                    <div class="com-null">
+                                        <img src="http://pic.lvmama.com/img/v6/comment/lvpic.png" alt="">
+                                        <p>已有一大波人购买此产品啦，可惜他们还在写点评的路上...<br>你有机会成为点评第一人！</p>
+                                    </div>
+
+                                    <div class="com-btns">
+                                        <a class="nlogin" href="javascript:;">有订单，写体验点评返奖金</a>
+                                    </div>
+                                </div><!-- //com-btns -->
+                            </div>
+
+
+
+
+
+
+                            <div class="JS_com-content">
+                                <!-- 点评 -->
+
+                                <!-- 精华 -->
+
+                                <!-- 晒旅图点评 -->
+
+                                <!--相关点评-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                    </script>
+                    <!-- 相关游记 -->
+                    <input type="hidden" id="elite" value="0"/>
+                    <input type="hidden" id="category_code" value="category_route_hotelcomb"/>
+                    <input type="hidden" id="destId" value="1"/>
+                    <!-- 相关游记 -->
+                    <div class="tripBox" id="xgtrip">
+                        <div class="dtitle">
+                            <p class="dtit"><i class="dp_icon dicon-trip"></i>相关游记</p>
+                            <a class="trip-propaganda" href="http://www.lvmama.com/trip/zt/i/hui100" target="_blank" hidefocus="false">一写就惠——写订单游记，超值返现100元！</a>
+                            <a target="_blank" href="http://www.lvmama.com/public/help_center_555" class="trip-ask fr" hidefocus="false"><span class="dp_icon dicon-tripAsk"></span>活动说明</a>
+                            <a target="_blank" href="http://www.lvmama.com/trip/start" class="trip-link fr" hidefocus="false">发游记赚钱啦!</a>
+                        </div>
+                        <!-- 相关游记内容开始 -->
+                        <div class="tripContent">
+                            <div class="tripTab">
+                                <span class="active" id="allTabTrip">全部</span>|<span id="bestTabTrip">精华</span>
+                            </div>
+                            <div class="tripListBox">
+                                <input type="hidden" id="totalTrip" value=""/>
+                                <!-- 如果没有点评则显示commentNull -->
+                                <div class="commentNull">
+                                    <span class="icon dicon-comLv"></span>
+                                    本产品暂无相关游记，如果您去过，那就写篇关于这里的游记吧，更重要的是它还能帮你赚钱哦！
+                                </div><!-- //commentNull -->
+                            </div><!-- //tripListBox -->
+                        </div>
+                        <!-- //tripContent 相关游记内容结束 -->
+                    </div>
+                    <script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/top/header-air_new.js"></script>
+                    <script type="text/javascript">
+                        var loadTripsNumDefault = "no";
+                        var dataArray = [];//本地存储数据
+                        $(document).ready(function(){
+                            init();
+                            addLoscHref();
+                        });
+
+                        //初始化数据
+                        function init(){
+                            //直接加载层对应数据(加载缓存数据)
+                            //console.info(dataArray.length);
+                            if(dataArray.length<=0){
+                                loadPaginationOfTripsDefault(1);
+                                ajaxData(1, 1);//精华
+                            }
+                            //var index = getIndex();
+                            //dataArray[index] = $(".tripListBox").html();
+                        }
+
+                        //全部事件
+                        $("#allTabTrip").bind("click",function(){
+                            $("#elite").val(0);//全部
+                            refresh();
+                        });
+
+                        //精华事件
+                        $("#bestTabTrip").bind("click",function(){
+                            $("#elite").val(1);//精华
+                            refresh();
+                        });
+
+                        /**
+                         *游记部分(分页)
+                         *@param currentPage 页数
+                         */
+                        function loadPaginationOfTrips(currentPage){
+                            var elite = getIndex(getElite());
+                            ajaxData(currentPage, elite, function(data){
+                                $(".tripListBox").html(data);
+                            });
+                        }
+                        /**
+                         *Ajax请求数据
+                         *@param elite 全部/精华
+                         *@param callFn 回调函数
+                         */
+                        function ajaxData(currentPage, elite, callFn){
+                            var categoryCode  = $("#category_code").val()!='' ? $("#category_code").val() : "";
+
+                            $.ajax({
+                                url: "/freetour/destbu/loadPaginationOfTrips",
+                                data: {
+                                    currentPage:currentPage,
+                                    destId:$("#destId").val(),
+                                    elite:getElite(elite),
+                                    categoryCode:categoryCode
+                                },
+                                dataType: 'html',
+                                success: function(data) {
+                                    var index = getIndex(elite);
+                                    dataArray[index] = data;
+                                    if(callFn) callFn(data);
+                                },
+                                error:function(res){
+                                    //console.info("ajaxData failure["+ res.status +"]");
+                                }
+                            });
+
+                        }
+                        /**
+                         *第一次加载游记返现游记，需要修改相关游记的数量标签
+                         *@param currentPage 页数
+                         */
+                        function loadPaginationOfTripsDefault(currentPage){
+                            var elite = getIndex(getElite());
+                            ajaxDataDefault(currentPage, elite, function(data){
+                                $(".tripListBox").html(data);
+                            });
+                        }
+                        /**
+                         *Ajax请求数据
+                         *@param elite 全部/精华
+                         *@param callFn 回调函数
+                         */
+                        function ajaxDataDefault(currentPage, elite, callFn){
+                            var categoryCode  = $("#category_code").val()!='' ? $("#category_code").val() : "";
+
+                            $.ajax({
+                                url: "/freetour/destbu/loadPaginationOfTrips",
+                                data: {
+                                    currentPage:currentPage,
+                                    destId:$("#destId").val(),
+                                    elite:getElite(elite),
+                                    categoryCode:categoryCode
+                                },
+                                dataType: 'html',
+                                success: function(data) {
+                                    var index = getIndex(elite);
+                                    dataArray[index] = data;
+                                    if(callFn) callFn(data);
+                                    changeDestOrder();
+                                },
+                                error:function(res){
+                                    //console.info("ajaxData failure["+ res.status +"]");
+                                }
+                            });
+
+                        }
+                        //刷新div内容
+                        function refresh(){
+                            var index = getIndex();
+                            $(".tripListBox").html("");
+                            $(".tripListBox").html(dataArray[index]);
+                        }
+
+                        /**
+                         *根据elite获取div选项索引
+                         */
+                        function getIndex(elite){//直接加载层对应数据
+                            var elite = getElite(elite);
+                            if(!elite) return 0;//默认显示全部层
+                            return elite;
+                        }
+                        function getElite(elite){
+                            if(!elite) return $("#elite").val();
+                            return elite;
+                        }
+
+                        function addLoscHref(){
+
+                            var jz_tic_losc = '';
+                            var categoryId = '17';
+                            //var packType = 'SUPPLIER';
+                            if(categoryId == 18){
+                                jz_tic_losc = '?losc=056659&ict=i';
+                            }else if(categoryId == 17){// && packType=='LVMAMA'
+                                jz_tic_losc = '?losc=056661&ict=i';
+                            }else if(categoryId == 15){//packType=='SUPPLIER'
+                                jz_tic_losc = '?losc=056662&ict=i';
+                            }else if(categoryId == 16){
+                                jz_tic_losc = '?losc=162285&ict=i';
+                            }/* else if(categoryId == 11){
+                             jz_tic_losc = '?losc=058172&ict=i';
+                             } */
+                            if(jz_tic_losc!=''){
+                                $('.trip-listPic').each(function(){
+                                    var herf = $(this).attr('href');
+                                    var anchor = $(this).attr('data');
+                                    $(this).attr('href',herf+jz_tic_losc+ "#p" +anchor);
+                                });
+                                $('.trip-list_info_content').each(function(){
+                                    var herf = $(this).attr('href');
+                                    var anchor = $(this).attr('data');
+                                    $(this).attr('href',herf+ jz_tic_losc+ "#p" +anchor);
+                                });
+                            }
+
+                        }
+                        function changeDestOrder(){
+                            $totalTrip = $("#destorder").find("li[date_id='xgtrip']").children("span");
+                            //if($totalTrip.attr("load")=="no"){
+                            if(loadTripsNumDefault=="no"){
+                                var totalTrip = $("#totalTrip").val();
+                                if((totalTrip >=0) && (totalTrip != null && totalTrip != undefined && totalTrip != '') ){
+                                    $totalTrip.html("("+totalTrip+")");
+                                }
+                                //$totalTrip.attr("load","yes");
+                                loadTripsNumDefault=="yes";
+                            }
+                        }
+                    </script>
+
+                </div><!--product_detail结束-->
+
+            </div><!--产品详情左侧栏--开始-->
+
+        </div><!--产品详情模块--结束-->
+
+        <script>
+            //losc 增加
+            $(function(){
+                if($("#scenic_recommendation") && $("#scenic_recommendation")!=null){
+                    addLosc($("#scenic_recommendation"),'054087');
+                }
+                if($("#line_recommend") && $("#line_recommend")!=null){
+                    addLosc($("#line_recommend"),'054085');
+                }
+            });
+
+        </script>    </div>
+    <script src="http://pic.lvmama.com/js/v6/public/footer.js"></script>
+    <div class="hh_cooperate">
+        <!-- 1408行 -->
+        <p><b>周边地区：</b><span>
+                    <a href="http://dujia.lvmama.com/tour/beijing1" target="_blank" hidefocus="false">北京旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/tianjin2" target="_blank" hidefocus="false">天津旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/shanghai79" target="_blank" hidefocus="false">上海旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/zhongqing277" target="_blank" hidefocus="false">重庆旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/diaoyudao207240" target="_blank" hidefocus="false">钓鱼岛旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/xianggang398" target="_blank" hidefocus="false">香港旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/aomen400" target="_blank" hidefocus="false">澳门旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/hebei3" target="_blank" hidefocus="false">河北旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/shanxi15" target="_blank" hidefocus="false">山西旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/neimenggu27" target="_blank" hidefocus="false">内蒙古旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/liaoning41" target="_blank" hidefocus="false">辽宁旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/jilinsheng56" target="_blank" hidefocus="false">吉林旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/heilongjiang66" target="_blank" hidefocus="false">黑龙江旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/jiangsu80" target="_blank" hidefocus="false">江苏旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/zhejiang96" target="_blank" hidefocus="false">浙江旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/anhui118" target="_blank" hidefocus="false">安徽旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/fujian135" target="_blank" hidefocus="false">福建旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/jiangxi145" target="_blank" hidefocus="false">江西旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/shandong159" target="_blank" hidefocus="false">山东旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/henan179" target="_blank" hidefocus="false">河南旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/hubei198" target="_blank" hidefocus="false">湖北旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/hunan212" target="_blank" hidefocus="false">湖南旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/guangdong228" target="_blank" hidefocus="false">广东旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/guangxi251" target="_blank" hidefocus="false">广西旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/hainan267" target="_blank" hidefocus="false">海南旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/sichuan278" target="_blank" hidefocus="false">四川旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/guizhou300" target="_blank" hidefocus="false">贵州旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/yunnan312" target="_blank" hidefocus="false">云南旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/xicang331" target="_blank" hidefocus="false">西藏旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/shanxi339" target="_blank" hidefocus="false">陕西旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/gansu350" target="_blank" hidefocus="false">甘肃旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/qinghai366" target="_blank" hidefocus="false">青海旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/ningxia375" target="_blank" hidefocus="false">宁夏旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/taiwan401" target="_blank" hidefocus="false">台湾旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/xinjiang3549" target="_blank" hidefocus="false">新疆旅游</a>
+    </span></p>
+        <p><b>北京线路：</b><span>
+                    <a href="http://dujia.lvmama.com/tour/zhongqingshennvxi159887/route-D13" target="_blank" hidefocus="false">北京到重庆神女溪旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/jiujiangyuemuci158159/freetour-D13" target="_blank" hidefocus="false">北京到九江岳母祠自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/labei205390/group-D13" target="_blank" hidefocus="false">北京到拉贝跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/xidijingqu100510/route-D13" target="_blank" hidefocus="false">北京到西递景区旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/hangzhouhuxueyanguju101965/freetour-D13" target="_blank" hidefocus="false">北京到杭州胡雪岩故居自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/xieziya177514/group-D13" target="_blank" hidefocus="false">北京到写字崖跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/ziyuantianmenshanfengjingqu121663/route-D13" target="_blank" hidefocus="false">北京到资源天门山风景区旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/jingmeitu162033/freetour-D13" target="_blank" hidefocus="false">北京到惊美图自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/kashan204400/freetour-D13" target="_blank" hidefocus="false">北京到喀山自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/shamenyuanboyuan160458/group-D13" target="_blank" hidefocus="false">北京到厦门园博苑跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/boli204494/freetour-D13" target="_blank" hidefocus="false">北京到波里自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/hangkongwenquan10546748/group-D13" target="_blank" hidefocus="false">北京到航空温泉跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/shangjijiehai10624091/group-D13" target="_blank" hidefocus="false">北京到上季节海跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/sanyaJundachejibiaoyanguan160462/route-D13" target="_blank" hidefocus="false">北京到三亚骏达车技表演馆旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/hangzhouyuhangshangougou103811/freetour-D13" target="_blank" hidefocus="false">北京到杭州余杭山沟沟自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/linan103/group-D13" target="_blank" hidefocus="false">北京到临安跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/xietongqingpiaohaozhongguoqianzhuangbowuguan177513/group-D13" target="_blank" hidefocus="false">北京到协同庆票号(中国钱庄博物馆)跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/yidali3562/group-D13" target="_blank" hidefocus="false">北京到意大利跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/kaipudun3583/group-D13" target="_blank" hidefocus="false">北京到开普敦跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/zhongqingchangshouhu108117/route-D13" target="_blank" hidefocus="false">北京到重庆长寿湖旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/lijiangsangushui161368/route-D13" target="_blank" hidefocus="false">北京到丽江三股水旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/shuilifang153033/group-D13" target="_blank" hidefocus="false">北京到水立方跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/nanlongda205269/group-D13" target="_blank" hidefocus="false">北京到南隆达跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/yashanfengjingqu177744/route-D13" target="_blank" hidefocus="false">北京到丫山风景区旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/beifang205795/freetour-D13" target="_blank" hidefocus="false">北京到北方自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/ningboyuyaosimingshan103394/route-D13" target="_blank" hidefocus="false">北京到宁波余姚四明山旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/xiangshanjingqu101259/group-D13" target="_blank" hidefocus="false">北京到象山景区跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/longhu109000/freetour-D13" target="_blank" hidefocus="false">北京到龙湖自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/shisanlingzhidingling175901/route-D13" target="_blank" hidefocus="false">北京到十三陵之定陵旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/jiangnanchunwenquan159682/route-D13" target="_blank" hidefocus="false">北京到江南春温泉旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/huadongzhengfadaxue172705/route-D13" target="_blank" hidefocus="false">北京到华东政法大学旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/wuyishanlongchuandaxiagu156840/route-D13" target="_blank" hidefocus="false">北京到武夷山龙川大峡谷旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/kimtemaihui10633421/group-D13" target="_blank" hidefocus="false">北京到kim特卖会跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/changzhouhuabohui159022/freetour-D13" target="_blank" hidefocus="false">北京到常州花博会自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/zhuozhengyuan100857/route-D13" target="_blank" hidefocus="false">北京到拙政园旅游</a>
+                    <a href="http://dujia.lvmama.com/tour/beijing1/route-N6" target="_blank" hidefocus="false">北京6日游</a>
+                    <a href="http://dujia.lvmama.com/tour/nawuli205312/group-D13" target="_blank" hidefocus="false">北京到纳乌里跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/qinglai203854/freetour-D13" target="_blank" hidefocus="false">北京到清莱自由行</a>
+                    <a href="http://dujia.lvmama.com/tour/kaersi203963/group-D13" target="_blank" hidefocus="false">北京到卡尔斯跟团游</a>
+                    <a href="http://dujia.lvmama.com/tour/shangraolingshandaxiagupiaoliu158244/freetour-D13" target="_blank" hidefocus="false">北京到上饶灵山大峡谷漂流自由行</a>
+    </span></p>
+        <p><b>北京景点：</b><span>
+                    <a href="http://www.lvmama.com/lvyou/d-beijing1.html" target="_blank" hidefocus="false">北京旅游攻略</a>
+                    <a href="http://ticket.lvmama.com/scenic-122748" target="_blank" hidefocus="false">北京欢乐谷</a>
+                    <a href="http://dujia.lvmama.com/tour/beijing1" target="_blank" hidefocus="false">北京旅游</a>
+                    <a href="http://www.lvmama.com/lvyou/traffic/d-beijing1.html" target="_blank" hidefocus="false">北京交通</a>
+                    <a href="http://www.lvmama.com/lvyou/photo/d-beijing1.html" target="_blank" hidefocus="false">北京图片</a>
+                    <a href="http://ticket.lvmama.com/scenic-100370" target="_blank" hidefocus="false">颐和园</a>
+                    <a href="http://ticket.lvmama.com/scenic-101516" target="_blank" hidefocus="false">天安门</a>
+                    <a href="http://ticket.lvmama.com/scenic-105073" target="_blank" hidefocus="false">雍和宫</a>
+                    <a href="http://ticket.lvmama.com/scenic-102987" target="_blank" hidefocus="false">八达岭长城</a>
+                    <a href="http://ticket.lvmama.com/scenic-105127" target="_blank" hidefocus="false">国家大剧院</a>
+                    <a href="http://ticket.lvmama.com/scenic-100451" target="_blank" hidefocus="false">北京海洋馆</a>
+                    <a href="http://ticket.lvmama.com/scenic-121020" target="_blank" hidefocus="false">北海公园</a>
+                    <a href="http://ticket.lvmama.com/a-beijing1" target="_blank" hidefocus="false">北京景点</a>
+                    <a href="http://ticket.lvmama.com/scenic-106119" target="_blank" hidefocus="false">潭柘寺</a>
+                    <a href="http://ticket.lvmama.com/scenic-101515" target="_blank" hidefocus="false">鸟巢</a>
+                    <a href="http://ticket.lvmama.com/scenic-153033" target="_blank" hidefocus="false">水立方</a>
+                    <a href="http://ticket.lvmama.com/scenic-104849" target="_blank" hidefocus="false">大观园</a>
+                    <a href="http://ticket.lvmama.com/scenic-100441" target="_blank" hidefocus="false">北京故宫</a>
+                    <a href="http://ticket.lvmama.com/scenic-101555" target="_blank" hidefocus="false">天坛公园</a>
+                    <a href="http://ticket.lvmama.com/scenic-108252" target="_blank" hidefocus="false">北京野生动物园</a>
+                    <a href="http://ticket.lvmama.com/scenic-122748" target="_blank" hidefocus="false">北京欢乐谷门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-102987" target="_blank" hidefocus="false">八达岭长城门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-153327" target="_blank" hidefocus="false">东方普罗旺斯薰衣草庄园</a>
+                    <a href="http://ticket.lvmama.com/scenic-100370" target="_blank" hidefocus="false">颐和园门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-100374" target="_blank" hidefocus="false">明十三陵</a>
+                    <a href="http://ticket.lvmama.com/scenic-100441" target="_blank" hidefocus="false">故宫门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-105054" target="_blank" hidefocus="false">中国国家博物馆</a>
+                    <a href="http://ticket.lvmama.com/scenic-100479" target="_blank" hidefocus="false">龙庆峡</a>
+                    <a href="http://ticket.lvmama.com/scenic-150362" target="_blank" hidefocus="false">八达岭野生动物园</a>
+                    <a href="http://ticket.lvmama.com/scenic-106142" target="_blank" hidefocus="false">北京植物园门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-100452" target="_blank" hidefocus="false">北京世界公园</a>
+                    <a href="http://ticket.lvmama.com/scenic-150363" target="_blank" hidefocus="false">太平洋海底世界</a>
+                    <a href="http://ticket.lvmama.com/scenic-153323" target="_blank" hidefocus="false">温都水城</a>
+                    <a href="http://ticket.lvmama.com/scenic-105130" target="_blank" hidefocus="false">北京天文馆</a>
+                    <a href="http://ticket.lvmama.com/scenic-160899" target="_blank" hidefocus="false">北京杜莎夫人蜡像馆</a>
+                    <a href="http://ticket.lvmama.com/scenic-150364" target="_blank" hidefocus="false">富国海底世界</a>
+                    <a href="http://ticket.lvmama.com/scenic-155616" target="_blank" hidefocus="false">德云社门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-106148" target="_blank" hidefocus="false">北京动物园门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-101515" target="_blank" hidefocus="false">鸟巢门票</a>
+                    <a href="http://ticket.lvmama.com/scenic-151645" target="_blank" hidefocus="false">顺景温泉</a>
+    </span></p>
+
+    </div>
+</div>
+
+<!--交通地图,弹出层--开始-->
+<div class="traffic_info" id="traffic_info" style="display: none;">
+    <div class="traffic_info_l" id="map-content">
+    </div>
+    <div class="traffic_info_r map-results">
+        <div class="traffic_r_t">酒店<i>→</i>景区推荐线路</div>
+        <ul class="traffic_tab">
+            <li data-id="map-driving" class="active"><i class="line_icon icon_car2"></i>驾车</li>
+            <li data-id="map-transit"><i class="line_icon icon_car3"></i>公交</li>
+        </ul>
+        <div class="traffic_type">
+            <ul id="map-driving" class="traffic_list" style="display:block;">
+                <li class="map-plan" style="display: none">
+                    <div class="traffic_list_t traffic_tj">
+                        <span class="traffic_num">推荐</span>
+                        <i class="icon_arrow"></i>
+                        <p class="traffic_p1">26分钟 / 15.3公里</p>
+                        <p class="traffic_p2">途径：虹桥火车站、真北路</p>
+                    </div>
+                    <div class="traffic_text">
+                        <div class="info_arrow"><span>◆</span><i>◆</i></div>
+                        <div class="traffic_start">•上海松江世贸酒店</div>
+                        <div class="traffic_end">•上海松江世贸酒店</div>
+                    </div>
+                </li>
+            </ul>
+            <ul id="map-transit" class="traffic_list">
+                <li class="map-plan" style="display: none">
+                    <div class="traffic_list_t traffic_tj">
+                        <span class="traffic_num">推荐</span>
+                        <i class="icon_arrow"></i>
+                        <p class="traffic_p1">26分钟 / 15.3公里 / 32个红绿灯</p>
+                        <p class="traffic_p2">途径：虹桥火车站、真北路</p>
+                    </div>
+                    <div class="traffic_text map-plan-content">
+                        <div class="info_arrow"><span>◆</span><i>◆</i></div>
+                        <div class="traffic_start">•上海松江世贸酒店</div>
+                        <div class="traffic_end">•上海松江世贸酒店</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><!--交通地图,弹出层--结束-->
+<script type="text/javascript" src="http://pic.lvmama.com/min/index.php?f=/js/ui/lvmamaUI/lvmamaUI.js,/js/v6/header_new.js,/js/v6/public/searchComplete.js,/js/v5/modules/pandora-poptip.js,/js/v4/modules/pandora-select.js,/js/v6/modules/calendar-detail.js,/js/v5/modules/pandora-dialog.js,/js/v6/public/swfobject.js,/js/v6/line/line_detail.js,/js/common/losc.js,/js/v6/comment/new_comment.js,/js/v6/public/common_box.js,/js/public/detail_sale.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=i2ccGvMLyR86WI0YcodIe7Lu"></script>
+<script type="text/javascript" src="http://pic.lvmama.com/min/index.php?f=/js/v5/modules/pandora-dialog.js,/js/common/poplogin.js"></script>
+<script type="text/javascript" src="http://pic.lvmama.com/min/index.php?f=/js/v6/line/map.js"></script>
+<script src="/vst_front/js/comm/comment.js?verson=201508111234"></script>
+<script type="text/javascript" src="http://pic.lvmama.com/min/index.php?f=/js/v5/ibm/eluminate.js"></script>
+<script type="text/javascript" src="http://pic.lvmama.com/min/index.php?f=/js/v5/ibm/coremetrics-initalize.js"></script>
+<script>
+
+    (function(){
+        // 邮轮切换事件
+        $('.tripTab>span').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    })();
+
+    $('.calendar-info').click(function(e){
+        $('.JS_calendar').trigger('click');
+        e.stopPropagation();
+    });
+
+    var dateArr = new Array(); // 记录时间价格的日期
+    var dateStampFlags = new Array(); //stampFlags Array
+    var datePos = 0; // 时间价格日期的数组坐标位
+
+    //出发日期 获取默认日期的星期值
+    var $selectDay = $('.selectDay');
+    var aDayOfWeek = ['日','一','二','三','四','五','六'];
+
+
+
+    var publicCallBack = {};
+    var DestBu = window.DestBu = {
+        calendarLastDate: null, //上次日历展示的日期
+        calendarEndDate: null,  //日历数据截止日期
+        isFirstLoadCalendar: true, //是否第一次加载日
+        departureCalendar : null ,
+        calendar : null,
+        result : null,
+        init: function() {
+            this.loadCM();
+            var params = {
+                productId: 379867,
+                businessType : 'DestBu'
+            };
+            $.ajaxSettings.async = false;
+            //$.getJSON('http://dujia.lvmama.com/package/data.json', params, function(response) {
+            result = [{"child":0,"date":"2016-06-30","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2.7,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-07-01","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-02","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-03","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-04","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-05","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-06","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-07","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-08","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-09","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-10","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-11","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-12","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-13","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-14","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-15","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-16","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-17","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-18","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-19","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-20","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-21","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-22","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-23","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-24","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-25","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-26","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-27","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-28","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-29","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-30","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-07-31","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-01","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-02","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-03","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-04","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-05","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-06","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-07","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-08","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-09","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-10","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-11","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-12","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-13","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-14","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-15","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-16","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-17","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-18","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-19","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-20","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-21","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-22","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-23","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-24","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-25","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-26","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-27","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-28","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-29","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-30","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-08-31","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":22,"restDay":"N","stampFlag":"","surplus":190,"type":0},{"child":0,"date":"2016-09-01","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-02","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-03","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-04","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-05","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-06","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-07","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-08","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-09","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-10","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-11","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-12","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-13","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-14","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-15","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-16","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-17","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-18","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-19","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-20","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-21","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-22","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-23","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-24","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-25","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-26","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-27","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-28","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-29","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-09-30","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-01","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-02","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-03","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-04","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-05","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-06","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-07","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"Y","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-08","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-09","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-10","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-11","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-12","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0},{"child":0,"date":"2016-10-13","detail":"","endDate":"201610","lineRouteId":0,"lineRouteName":"","next":true,"prev":false,"price":2,"restDay":"N","stampFlag":"","surplus":-1,"type":0}];
+                result.forEach(function(data){
+                    if(data.price >=0 && data.surplus != 0) {
+                        dateArr[datePos] = data.date;
+                        dateStampFlags[datePos] = data.stampFlag;
+                        datePos++;
+                    }
+                });
+            //});
+            $.ajaxSettings.async = true;
+            this.loadCalendar();
+            this.loadDepartureDate();//加载出发日期
+            //跳转到最近有时间价格表的月份
+            departureCalendar.toMonth(dateArr[0].substring(0,4),dateArr[0].substring(5,7));
+            //跳转到最近有时间价格表的月份
+            calendar.toMonth(dateArr[0].substring(0,4),dateArr[0].substring(5,7));
+            this.loadComment();
+            DestBuMap.init([]);
+            this.bindEvent();
+        },
+        loadDepartureDate: function() {
+            var self = this;
+
+            // 出发日期日历
+            departureCalendar = pandora.calendar({
+                trigger: ".JS_calendar",
+                mos: 12,
+                cascade: {
+                    days: 0,
+                    trigger: ".JS_calendar"
+                },
+                isTodayClick: true,
+                frequent: false,
+                titleTip: "<dfn>{{year}}</dfn>年{{month}}月",
+                templatetype:"small",
+                template:
+                {
+                    warp: '<div class="ui-calendar ui-calendar-mini"></div>',
+                    calControl: '<span class="month-prev" {{stylePrev}} title="上一月">‹</span><span class="month-next" {{styleNext}} title="下一月">›</span>',
+                    calWarp: '<div class="calwarp clearfix">{{content}}</div>',
+                    calMonth: '<div class="calmonth">{{content}}</div>',
+                    calTitle: '<div class="caltitle" {{nowmonth}}><span class="mtitle">{{month}}</span></div>',
+                    calBody: '<div class="calbox">' + '<i class="monthbg">{{month}}</i>' + '<table cellspacing="0" cellpadding="0" border="0" class="caltable">' + '<thead>' + '<tr>' + '<th class="sun">日</th>' + '<th class="mon">一</th>' + '<th class="tue">二</th>' + '<th class="wed">三</th>' + '<th class="thu">四</th>' + '<th class="fri">五</th>' + '<th class="sat">六</th>' + '</tr>' + '</thead>' + '<tbody>' + '{{date}}' + '</tbody>' + '</table>' + '</div>',
+                    weekWarp: '<tr>{{week}}</tr>',
+                    day: '<td {{week}} {{dateMap}} >' + '<div class="nodate">{{day}}</div>' + '</td>'
+                },
+                autoRender: false,
+                sourceFn:function(obj){
+
+                    // 处理没有时间价格的日期
+                    var tdElement=$(".ui-calendar-mini .caltable").find("td");
+                    $(tdElement).each(function(t,v){
+                        var date=$(v).attr("date-map");
+                        var isNodate = true;
+                        for(var i=0; i<datePos; i++){
+                            if(dateArr[i]==date && dateStampFlags[i] != '1' && dateStampFlags[i] != '2'){
+                                isNodate = false;
+                                break;
+                            }
+                        }
+
+                        if(!isNodate){
+                            var dateParam = { year: date.substring(0,4), month: date.substring(5,7), day: date.substring(8,10) };
+                            //$(v).find("div:eq(0)").removeClass("nodate")//.addClass(obj.getClass(dateParam));
+                        }
+                    });
+
+                    var tdElementSecond, tdElementFirst;
+                    $($(".ui-calendar-mini .caltable")[1]).find("td").each(function(){
+                        if($(this).attr("date-map") !=undefined){
+                            tdElementSecond = this;
+                        }
+                    });
+
+                    $($(".ui-calendar-mini .caltable")[0]).find("td").each(function(){
+                        if($(this).attr("date-map") !=undefined){
+                            tdElementFirst = this;
+                            return false;
+                        }
+                    });
+
+                    if($(tdElementSecond).attr("date-map")>=dateArr[dateArr.length-1]){
+                        $(".ui-calendar-mini .month-next").toggle(false);//不显示下一页
+                    }else{
+                        $(".ui-calendar-mini .month-next").toggle(true);//显示下一页
+                    }
+
+                    if($(tdElementFirst).attr("date-map")<=dateArr[0]){
+                        $(".ui-calendar-mini .month-prev").toggle(false);//不显示上一页
+                    }else{
+                        $(".ui-calendar-mini .month-prev").toggle(true);//显示上一页
+                    }
+
+                },
+                selectDateCallback: function(obj,element){
+
+                    calendar.toMonth(obj.selectedDate.substring(0,4),obj.selectedDate.substring(5,7));
+                    $(".calendar_box .caltable td").removeClass("calSelected");
+                    //日历框联动
+                    var el = $(".calendar_box .caltable td[date-map='" + obj.selectedDate + "']").addClass("calSelected");
+
+                    //选择后设置日期
+                    var week = parseInt(element.parent('td').attr('week'));
+                    $selectDay.html('星期' + aDayOfWeek[week]);
+
+                    var routeId = el.find(".caltips").attr("routeId");
+                    if(routeId) { //时间价格表和行程联动
+                        $(".xingcheng_all .instance_tab li[data-line='" + routeId + "'").trigger("click");
+                    }else{// 单行程，取默认
+                        routeId = $("#defaultLineRouteId").val();
+                    }
+
+                    window.DestGoods.javaCallback.loadingSuppGoodsCallBack(obj.selectedDate,routeId);
+                }
+            });
+        },
+        loadCalendar: function() {
+            var self = this;
+            calendar = pandora.calendar({
+                target: ".calendar_box",//渲染容器
+                mos: 12,
+                isTodayClick: true,
+                selectDateCallback:  function(that,element){//点击选择日期后的回调函数
+
+                    $(".JS_calendar").val(that.selectedDate);
+                    //判断下个月是否有可售日期
+                    var selectedMonth =  parseInt(that.selectedDate.substring(5,7));
+                    var selectedYear =  parseInt(that.selectedDate.substring(0,4));
+                    var nextMonthDate,curMonthFirstDate;
+                    if(selectedMonth == 12){
+                        nextMonthDate = (selectedYear+1) + '0101';
+                    }else{
+                        var nextMonth =selectedMonth+1+'';
+                        if(nextMonth.length == 1){
+                            nextMonthDate = selectedYear + '0' + nextMonth + '01';
+                        }else{
+                            nextMonthDate = selectedYear + '' + nextMonth + '01';
+                        }
+                    }
+                    curMonthFirstDate = selectedYear + '' + selectedMonth + '01';
+                    var maxEffectiveDate = dateArr[dateArr.length-1].replace(/-/g,'');
+                    var minEffectiveDate = dateArr[0].replace(/-/g,'');
+
+                    if(maxEffectiveDate >= nextMonthDate &&  curMonthFirstDate > minEffectiveDate){
+                        departureCalendar.toMonth(selectedYear,selectedMonth);
+                    }else if(nextMonthDate > maxEffectiveDate){
+                        departureCalendar.toMonth(selectedYear,selectedMonth - 1);
+                    }else if(minEffectiveDate >= curMonthFirstDate){
+                        departureCalendar.toMonth(selectedYear,selectedMonth + 1);
+                    }
+
+                    //选择后设置日期
+                    var week = parseInt(element.parent('td').attr('week'));
+                    $selectDay.html('星期' + aDayOfWeek[week]);
+
+                    var el = $(".caltable td[date-map='" + that.selectedDate + "']");
+                    var routeId = el.find(".caltips").attr("routeId");
+                    if(routeId) { //时间价格表和行程联动
+                        $(".xingcheng_all .instance_tab li[data-line='" + routeId + "'").trigger("click");
+                    }else{// 单行程，取默认
+                        routeId = $("#defaultLineRouteId").val();
+                    }
+
+                    window.DestGoods.javaCallback.loadingSuppGoodsCallBack(that.selectedDate,routeId);
+                },//点击选择日期后的回调函数
+                completeCallback: function () {//数据加载完成并显示出日历后的回调函数,点击上下月回调函数。
+                    $('.calsale').poptip();
+                },
+                sourceFn:function(){
+
+                    result.forEach(function(data){
+                        //var el = $(".caltable td[date-map='" + data.date + "']");
+                        var el = $($($(".caltable")[0]).find("td[date-map='" + data.date + "']"));
+                        if(data.stampFlag=='1'){
+                            var htmlStr = el.children('div').html();
+                            var str = '<span class="calsale" tip-content="可现在先买预售券，再预约出游日期~">正在预售</span>';
+                            el.children('div').html(htmlStr+str);
+                            el.children('div').addClass('nodate').removeClass('caldate');
+                        }else if(data.stampFlag=='2') {
+                            var htmlStr = el.children('div').html();
+                            var str = '<span class="calsale tagsback noborder" tip-content="如果您之前购买过该日期段的预售券，现在可预约出游日期哦~">预售预约</span>';
+                            el.children('div').html(htmlStr+str);
+                            el.children('div').addClass('nodate').removeClass('caldate');
+                        }else {
+                            if(el.length > 0 && data.price >=0) {
+                                if(data.surplus == 0) {
+                                    el.find(".calinfo").html("售罄");
+                                }else{
+                                    el.find(".calprice").html("&yen;" + data.price + "起");
+                                    if(data.detail) {
+                                        el.find(".caltips").html("促");
+                                    }
+                                    if(data.lineRouteName) {
+                                        el.find(".caltips").attr("routeId", data.lineRouteId).html(data.lineRouteName);
+                                    }
+                                }
+                                //设置"休"标签
+                                if(data.restDay=='Y'){
+                                    el.find(".cal-yin-xiu").html("休");
+                                }
+                            }
+                        }
+                    });
+                    // 处理没有时间价格的日期
+                    var tdElement=$(".caltable").find("td");
+                    $(tdElement).each(function(t,v){
+                        var date=$(v).attr("date-map");
+                        if(date == $(".JS_calendar").val()){
+                            $(v).addClass("calSelected");
+                        }
+                        var isNodate = true;
+                        for(var i=0;i<datePos;i++){
+                            if(dateArr[i]==date){
+                                isNodate = false;
+                                break;
+                            }
+                        }
+                        if(isNodate){
+                            $(v).find("div:eq(0)").removeClass().addClass("nodate");
+                        }
+                    });
+
+                    if($(".calendar_box .caltable").find(".caldate:last").parent().attr("date-map")>=dateArr[dateArr.length-1]){
+                        $(".calendar_box .month-next").toggle(false);//不显示下一页
+                    }else{
+                        $(".calendar_box .month-next").toggle(true);//显示下一页
+                    }
+
+                    if($(".calendar_box .caltable").find(".caldate:first").parent().attr("date-map")<=dateArr[0]){
+                        $(".calendar_box .month-prev").toggle(false);//不显示上一页
+                    }else{
+                        $(".calendar_box .month-prev").toggle(true);
+                    }
+                }
+            });
+        },
+        loadCM: function() {
+            _LVMAMA_COREMETRICS.init(document.domain);
+            cmCreatePageviewTag("产品详情页_酒店套餐_目的地事业部_国内", "JDTC001", null, null);
+            cmCreateProductviewTag('379867', 'liux 0531酒店套餐预售【勿动】-【目的地bu】', '酒店套餐','目的地BU');
+        },
+        formatDate: function(date) {
+            return date.getFullYear() + '-' + (date.getMonth() < 9 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
+                    + "-" + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+        },
+        loadComment: function() {
+            var self = this;
+            /**
+             *相关点评翻页
+             * @param type          点评类别
+             * @param currentPage   当前页
+             * @param totalCount    总数
+             * @param placeId       POI
+             * @param productId     产品ID
+             * @param placeIdType   POI类型
+             * @param isPicture     晒图
+             * @param isBest        精华
+             * @param isPOI         是不是POI
+             * @param isELong       是不是艺龙点评
+             * @param productRef    相关点评产品id串,逗号分隔
+             * @param vstType       产品品类
+             * @param isRef         相关点评类型
+             */
+            window.newLoadPaginationOfCommentRef = function(type,currentPage,totalCount,placeId,productId,placeIdType,isPicture,isBest,isPOI,isELong,productRef,vstType,isRef){
+                $.ajax({
+                    url: "/comment/newPaginationOfComments",
+                    data: {
+                        currentPage:currentPage,
+                        totalCount:totalCount,
+                        type:type,
+                        placeId: placeId,
+                        placeIdType:placeIdType,
+                        isPicture:isPicture,
+                        isBest:isBest,
+                        isPOI:isPOI,
+                        isELong:isELong,
+                        productRef:productRef,
+                        vstType:vstType,
+                        isRef:isRef
+                    },
+                    dataType: 'html',
+                    success: function(data) {
+                        $("#"+type+"CmtComment").html(data);
+                        $(window).scrollTop($('#product-customer-review').offset().top);
+                    }
+                });
+            };
+        },
+        bindEvent: function() {
+            //背书链接
+            $(".bz_list li").live("click", function(e){
+                e.stopPropagation();
+                window.open('http://www.lvmama.com/public/user_security#zby');
+            });
+
+            $('#preorder-confirm-button').live('click',function(e){//form提交
+                if($(this).attr("data-disable")){
+                    $(window).scrollTop($('div.calendar_box').offset().top);
+                    $(".JS_calendar").click();
+                    return false;
+                }else{
+                    if($(".buy_number.ticket-select.disney").length > 0) {
+                        var totalDisney = 0;
+                        $(".buy_number.ticket-select.disney").each(function() {
+                            totalDisney += parseInt($(this).find("option:selected").text());
+                        });
+
+                        if(totalDisney > 5) {
+                            $.alert("一笔订单中迪士尼门票最多选购5张，超过5张订单提交失败，如订购数量超过5张，请分开下单。");
+                            $(".buy_number.ticket-select.disney").get(0).focus();
+                            return false;
+                        }
+                    }
+                    // 驴妈妈-点击立即抢购&开始预订触发  品友dsp
+                    pyRegisterCvt();
+                    e.stopPropagation();
+                    window.DestGoods.javaCallback.preorderStart(e);
+                    return false;
+                }
+            });
+
+            //$('#preorder-confirm-button').live('mouseover',function(){
+            //	if($(this).attr("data-disable")){
+            //btnTips($('.btn-big'),'请选择出行日期'); //提示的时候调用
+            //$(".JS_calendar").click();
+            //	}
+            //});
+
+            //$('#preorder-confirm-button').live('mouseout',function(){
+            //	$('.js_btnTips').remove(); //删除提示
+            //});
+
+            $('.product-select-quantity').live('change',function(e){//份数选择
+                e.stopPropagation();
+                var baseAdultQuantity = $("#adult-count").val();
+                var baseChildQuantity = $("#children-count").val();
+                var quantity = $("#preorder-quantity").val();
+                var quantityHiddenFlag = $("#preorder-quantity").data("hidden");
+
+                if(quantityHiddenFlag == 'N'){//按份售卖
+                    $("#adultCounts").text(baseAdultQuantity*quantity);
+                    $("#childCounts").text(baseChildQuantity*quantity);
+                }
+                window.DestGoods.javaCallback.loadingSuppGoodsCallBack(null);
+                return false;
+            });
+        }
+    };
+    DestBu.init();
+
+    $("#allCmt").bind("click",function(){
+        var count = $("#allCmtComment").find(".comment-li").length;
+        if(count <= 0){
+            Comment.newLoadPaginationOfComment({type:"all",currentPage:1,totalCount:0,productId:'379867',isPicture:"N",isBest:"N",isPOI:"Y",isELong:"N"});
+        }
+    });
+
+    $("#bestCmt").bind("click",function(){
+        var count = $("#bestCmtComment").find(".comment-li").length;
+        if(count <= 0){
+            Comment.newLoadPaginationOfComment({type:"best",currentPage:1,totalCount:0,productId:'379867',isPicture:"N",isBest:"Y",isPOI:"Y",isELong:"N"});
+        }
+    });
+
+    $("#picCmt").bind("click",function(){
+        var count = $("#picCmtComment").find(".comment-li").length;
+        if(count <= 0){
+            Comment.newLoadPaginationOfComment({type:"pic",currentPage:1,totalCount:0,productId:'379867',isPicture:"Y",isBest:"N",isPOI:"Y",isELong:"N"});
+        }
+    });
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+        $.searchType.showType('SCENICTOUR');
+    }
+
+    $(function(){
+
+
+
+
+
+        var fv={};
+        fv.startCheckFVstatus=function(){
+            $.getJSON(
+                    "http://login.lvmama.com/nsso/ajax/checkLoginStatus.do?jsoncallback=?",
+                    function(data) {
+                        if (data.success) {
+                            fv.checkFavorite();
+                        }
+                        else {
+                            fv.bindFVclickEvent();
+                        }
+                    }
+            );
+        };
+        fv.checkFavorite= function(){
+            var objectId=379867
+            $.ajax({
+                type: "get",
+                contentType: 'application/json;charset=utf-8',
+                url: "destbu/checkFavoriteStatus",
+                cache: false,
+                data: {
+                    objectId:objectId
+                },
+                success: function(data) {
+                    if(data.success == "true"){
+                        $("#line_favorite_icon").removeClass("icon_xing1").addClass("icon_xing3");
+                        $("#line_favorite").html('<i class="line_icon icon_xing3" id="line_favorite_icon"></i>已收藏');
+                        if($("#line_favorite_icon").hasClass("icon_xing3")){
+                            fv.bindFVclickEvent();
+                        }
+                    } else {
+                        fv.bindFVclickEvent();
+                    }
+                },
+                error : function(){
+                    //do nothing
+                    fv.bindFVclickEvent();
+                }
+            });
+        };
+
+        fv.deleteFavorite=function(){
+            var objectId=379867
+            $.ajax({
+                type: "get",
+                contentType: 'application/json;charset=utf-8',
+                url: "destbu/checkFavoriteStatus",
+                cache: false,
+                data: {
+                    objectId:objectId
+                },
+                success: function(data) {
+                    if(data.success == "true"){
+                        $.ajax({
+                            type: "get",
+                            contentType: 'application/json;charset=utf-8',
+                            url: "destbu/deleteFavorite",
+                            cache: false,
+                            data: {
+                                objectId:objectId
+                            },
+                            success: function(data) {
+                                if(data.success == "true"){
+                                    alert("取消收藏成功");
+                                    $("#line_favorite_icon").removeClass("icon_xing3").addClass("icon_xing1");
+                                    $("#line_favorite").html('<i class="line_icon icon_xing1" id="line_favorite_icon"></i>收藏该线路');
+                                }else if(data.success == "false"){
+                                    alert("取消收藏失败");
+                                }
+                            },
+                            error : function(){
+                                alert("取消收藏");
+                            }
+                        });
+
+                    } else {
+                        alert("取消收藏成功");
+                        $("#line_favorite_icon").removeClass("icon_xing3").addClass("icon_xing1");
+                        $("#line_favorite").html('<i class="line_icon icon_xing1" id="line_favorite_icon"></i>收藏该线路');
+                        if($("#line_favorite_icon").hasClass("icon_xing3")){
+                            fv.bindFVclickEvent();
+                        }
+                    }
+                },
+                error : function(){
+                    //do nothing
+                    fv.bindFVclickEvent();
+                }
+            });
+
+        }
+
+
+
+
+        fv.addFavorite=function(){
+            var objectId=379867;
+            $.ajax({
+                type: "get",
+                contentType: 'application/json;charset=utf-8',
+                url: "destbu/addFavorite",
+                cache: false,
+                data: {
+                    objectId:objectId,
+                    objectName:encodeURI("liux 0531酒店套餐预售【勿动】-【目的地bu】")
+                },
+                success: function(data) {
+                    if(data.success == "true"){
+                        alert("收藏成功");
+                        $("#line_favorite_icon").removeClass("icon_xing1").addClass("icon_xing3");
+                        $("#line_favorite").html('<i class="line_icon icon_xing3" id="line_favorite_icon"></i>已收藏');
+                    }else if(data.success == "false"){
+                        alert("已经收藏过此线路产品");
+                        $("#line_favorite_icon").removeClass("icon_xing1").addClass("icon_xing3");
+                        $("#line_favorite").html('<i class="line_icon icon_xing3" id="line_favorite_icon"></i>已收藏');
+                    }
+                },
+                error : function(){
+                    alert("收藏失败");
+                }
+            });
+        };
+
+        fv.bindFVclickEvent=function(){
+            $("#line_favorite").live("click",function(){
+                if($("#line_favorite_icon").hasClass("icon_xing3")){
+                    var flag = confirm('已经收藏过此线路产品!\n\n 确定是否取消收藏?');
+                    if(flag){
+                        fv.deleteFavorite();
+                    }
+                }
+                else{
+                    $.getJSON(
+                            "http://login.lvmama.com/nsso/ajax/checkLoginStatus.do?jsoncallback=?",
+                            {},
+                            function(data) {
+                                if (data.success) {
+                                    fv.addFavorite();
+                                }else{
+                                    showLogin(function(){
+                                        //$("#submitDataForm").submit();
+                                        fv.addFavorite();
+                                        $('.dialog-close').click();//如果没有关闭当前窗口，则调用这个click。
+                                    });
+                                    //cmCreatePageviewTag("登陆浮动层-酒店套餐-国内","虚拟浏览");
+                                }
+                            }
+                    );}
+            });
+        };
+        //invoke fv statu check
+        fv.startCheckFVstatus();
+    });
+</script>
+<script type="text/javascript">
+    /* 改为同步
+     //面包屑导航SEO
+     $(function(){
+
+     $(".crumbs-list").bind("mouseleave",function(){
+     var $this = $(this);
+     $this.children(".crumbs-down-info").remove()
+     });
+
+     $(".crumbs-list").bind("mouseenter",function(){
+     var $this = $(this);
+     var destName = $this.attr("destname");
+     var urlType = $this.attr("urltype");
+     var pinyin = $this.attr("pinyin");
+     var destId = $this.attr("destid");
+     $.ajax({
+     url:"http://dujia.lvmama.com/freetour/linenavigation?destName="+destName+"&urlType="+urlType+"&pinyin="+pinyin+"&destId="+destId,
+     type:"get",
+     dataType:'html',
+     success: function (data) {
+     $this.append(data);
+     }
+     });
+     });
+
+
+     });*/
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        <!--统计点击驴友点评访问量-->
+        $('[date_id="dianping"]').bind("click",function(){
+            cmCreateElementTag("酒店套餐_驴友点评","驴友点评点击");
+        });
+    });
+</script>
+<script>
+    //通过点击行程天数页面过来的，进行统计
+    //获取外部链接
+    var getReferrer=function() {
+        var referrer = '';
+        try {
+            referrer = window.top.document.referrer;
+        } catch(e) {
+            if(window.parent) {
+                try {
+                    referrer = window.parent.document.referrer;
+                } catch(e2) {
+                    referrer = '';
+                }
+            }
+        }
+        if(referrer === '') {
+            referrer = document.referrer;
+        }
+        return referrer;
+    };
+    var getReferrerStr = getReferrer();
+    $(function(){
+        $(".travelDays").click(function(){
+            sessionStorage.setItem('clicked','true');
+            var url = "http://dujia.lvmama.com/package/"+$(this).attr("data-value");
+            $(this).removeClass("active");
+            $(this).parent().children(":first").addClass("active");
+            $(this).parent().children(":first").append("<i class='line_icon icon_gou'></i>");
+            cmCreateElementTag("categoryName_行程天数","行程天数link点击");
+            //ie浏览器需要自己加上refer
+            if (document.all || !!window.ActiveXObject || "ActiveXObject" in window){ //兼容ie11的判断
+                var referLink = document.createElement('a');
+                referLink.href = url;
+                referLink.target = '_blank';
+                document.body.appendChild(referLink);
+                referLink.click();
+                sessionStorage.setItem('clicked','false');
+            } else {
+                //location.href = url;
+                window.open(url);
+                sessionStorage.setItem('clicked','false');
+            }
+        });
+    });
+
+    //解决刷新统计问题
+    if(sessionStorage.clicked == undefined || sessionStorage.clicked == null){
+    }else{
+        if(sessionStorage.clicked == 'true'){
+            //如果是通过点击行程天数页面过来的，将进行统计
+            var isGetReferrer = (getReferrerStr.indexOf("dujia.lvmama.com/group/")==-1?false:true) || (getReferrerStr.indexOf("dujia.lvmama.com/freetour/")==-1?false:true) || (getReferrerStr.indexOf("dujia.lvmama.com/local/")==-1?false:true) || (getReferrerStr.indexOf("dujia.lvmama.com/package/")==-1?false:true);
+            if(isGetReferrer){
+                cmCreateElementTag("categoryName_行程天数","行程天数link点击");
+            }
+        }else{
+        }
+    }
+    sessionStorage.setItem('clicked','false');
+
+    //门票有变化时
+    $('.ticket-select').live('change', function (e) {
+        var checkArray = new Array();
+        var isCombStructName = '';
+        $('.active_xuan').each(function(){
+            var obj1 = $(this);
+            var dataType = obj1.attr('data-type');
+            //如果是非结构化套餐
+            if('packageComb'==dataType){
+                var hotelComb = new Object();
+                hotelComb.typeName = '酒店套餐';
+                hotelComb.goodsName=obj1.attr('showGoodsName');
+                hotelComb.quantity=obj1.attr('data-quantity')+"份";
+                checkArray.push(hotelComb);
+            }
+            //结构化套餐
+            if('comb_struct_ticket'==dataType || 'comb_struct_ticket'==dataType){
+                if(isCombStructName == ''){
+                    isCombStructName = $('#currentgoodsname').text();
+                    var comb_struct = new Object();
+                    comb_struct.typeName = '酒店套餐';
+                    comb_struct.goodsName=isCombStructName;
+                    var comb_quantity = $("#preorder-quantity").val();
+                    comb_struct.quantity=comb_quantity+"份";
+                    checkArray.push(comb_struct);
+                }
+            }
+            //如果是酒店
+            if('hotel'==dataType){
+                var hotel = new Object();
+                hotel.typeName = '房型';
+                hotel.goodsName=obj1.attr('showGoodsName');
+                var hotelQuantity = obj1.parent().prev().find('.hotel-select').find("option:selected").text()+"间";
+                hotel.quantity = hotelQuantity;
+                checkArray.push(hotel);
+            }
+
+        });
+
+        //门票buy_number ticket-select
+        $('.buy_number.ticket-select').each(function(){
+            var ticket = $(this);
+            ticket.typeName="门票";
+            ticket.goodsName=ticket.attr('showGoodsName');
+            ticket.quantity=ticket.find("option:selected").text()+"张";
+            checkArray.push(ticket);
+        });
+
+
+        var htmlStr = "";
+        $.each(checkArray, function(index,obj){
+            var li_1 ="<li>";
+            var typeName = '<span class="ysi-type">'+obj.typeName+'：</span>';
+            var goodsName = '<span class="ysi-name" title='+obj.goodsName+'>'+obj.goodsName+'</span>';
+            var quantity = '<span class="ysi-amount">'+obj.quantity+'</span>';
+            var li_2 ="</li>";
+            htmlStr = htmlStr+li_1+typeName+goodsName+quantity+li_2;
+            console.log(typeName);
+            console.log(goodsName);
+            console.log(quantity);
+            //yh-slc-items
+        });
+        if(htmlStr!=""){
+            $('.yh-slc-items').html(htmlStr)
+            $('.yh-slc-selected').show();
+            //yh-slc-none
+            $('.yh-slc-none').hide();
+        }
+
+    });
+
+
+    //酒店变化
+    $('.hotel-select').live('change', function (e) {
+        var checkArray = new Array();
+        var hotelObj = $(this);
+        var isCombStructName = '';
+        $('.active_xuan').each(function(){
+            var obj1 = $(this);
+            var dataType = obj1.attr('data-type');
+            //如果是非结构化套餐
+            if('packageComb'==dataType){
+                var hotelComb = new Object();
+                hotelComb.typeName = '酒店套餐';
+                hotelComb.goodsName=obj1.attr('showGoodsName');
+                hotelComb.quantity=obj1.attr('data-quantity')+"份";
+                checkArray.push(hotelComb);
+            }
+            //结构化套餐
+            if('comb_struct_ticket'==dataType || 'comb_struct_ticket'==dataType){
+                if(isCombStructName == ''){
+                    isCombStructName = $('#currentgoodsname').text();
+                    var comb_struct = new Object();
+                    comb_struct.typeName = '酒店套餐';
+                    comb_struct.goodsName=isCombStructName;
+                    var comb_quantity = $("#preorder-quantity").val();
+                    comb_struct.quantity=comb_quantity+"份";
+                    checkArray.push(comb_struct);
+                }
+            }
+            //如果是酒店
+            if('hotel'==dataType){
+                var hotel = new Object();
+                hotel.typeName = '房型';
+                if(hotelObj.attr('data-groupid')==obj1.attr('data-groupid')){
+                    hotel.goodsName=hotelObj.attr('showGoodsName');
+                    hotel.quantity = hotelObj.find("option:selected").text()+"间";
+                    checkArray.push(hotel);
+                }else{
+                    hotel.goodsName=obj1.attr('showGoodsName');
+                    var hotelQuantity = obj1.parent().prev().find('.hotel-select').find("option:selected").text()+"间";
+                    hotel.quantity = hotelQuantity;
+                    checkArray.push(hotel);
+                }
+            }
+
+        });
+
+        //门票buy_number ticket-select
+        $('.buy_number.ticket-select').each(function(){
+            var ticket = $(this);
+            ticket.typeName="门票";
+            ticket.goodsName=ticket.attr('showGoodsName');
+            ticket.quantity=ticket.find("option:selected").text()+"张";
+            checkArray.push(ticket);
+        });
+
+        var htmlStr = "";
+        $.each(checkArray, function(index,obj){
+            var li_1 ="<li>";
+            var typeName = '<span class="ysi-type">'+obj.typeName+'：</span>';
+            var goodsName = '<span class="ysi-name" title='+obj.goodsName+'>'+obj.goodsName+'</span>';
+            var quantity = '<span class="ysi-amount">'+obj.quantity+'</span>';
+            var li_2 ="</li>";
+            htmlStr = htmlStr+li_1+typeName+goodsName+quantity+li_2;
+            //yh-slc-items
+        });
+        if(htmlStr!=""){
+            $('.yh-slc-items').html(htmlStr)
+            $('.yh-slc-selected').show();
+            //yh-slc-none
+            $('.yh-slc-none').hide();
+        }
+    });
+
+
+    //选择事件
+    $('.btn_xuan').live('click',function(){
+        var checkArray = new Array();
+        var isCombStructName = '';
+        //获取当前选择对象
+        var obj = $(this);
+        //判断是否从更换页面选择
+        if(typeof(obj.attr('data-changeType'))!='undefined')
+        {
+            return false;
+        }
+        //选择商品，更换商品
+        $('.active_xuan').each(function(){
+            var obj1 = $(this);
+            var dataType = obj1.attr('data-type');
+            //如果是非结构化套餐
+            if('packageComb'==dataType){
+                var hotelComb = new Object();
+                hotelComb.typeName = '酒店套餐';
+                if(obj.attr('data-type')==obj1.attr('data-type')){
+                    hotelComb.goodsName=obj.attr('showgoodsname');
+                    hotelComb.quantity=obj.attr('data-quantity')+"份";
+
+                    checkArray.push(hotelComb);
+                }else{
+                    hotelComb.goodsName=obj1.attr('showgoodsname');
+                    hotelComb.quantity=obj1.attr('data-quantity')+"份";
+                    checkArray.push(hotelComb);
+                }
+            }
+
+            //结构化套餐
+            if('comb_struct_ticket'==dataType || 'comb_struct_ticket'==dataType){
+                if(isCombStructName == ''){
+                    isCombStructName = $('#currentgoodsname').text();
+                    var comb_struct = new Object();
+                    comb_struct.typeName = '酒店套餐';
+                    comb_struct.goodsName=isCombStructName;
+                    var comb_quantity = $("#preorder-quantity").val();
+                    comb_struct.quantity=comb_quantity+"份";
+                    checkArray.push(comb_struct);
+                }
+            }
+            //如果是酒店
+            if('hotel'==dataType){
+                var hotel = new Object();
+                hotel.typeName = '房型';
+                if(obj.attr('data-groupid')==obj1.attr('data-groupid')){
+                    console.log('---groupid 相等---');
+                    hotel.goodsName=obj.attr('showGoodsName');
+                    var hotelQuantity = obj.parent().prev().find('.hotel-select').find("option:selected").text()+"间";
+                    hotel.quantity = hotelQuantity;
+                    checkArray.push(hotel);
+                }else
+                {
+                    hotel.goodsName=obj1.attr('showGoodsName');
+                    var hotelQuantity = obj1.parent().prev().find('.hotel-select').find("option:selected").text()+"间";
+                    hotel.quantity = hotelQuantity;
+                    checkArray.push(hotel);
+                }
+            }
+
+        });
+
+        //遍历门票
+        $('.buy_number.ticket-select').each(function(){
+            var ticket = $(this);
+            ticket.typeName="门票";
+            ticket.goodsName=ticket.attr('showGoodsName');
+            ticket.quantity=ticket.find("option:selected").text()+"张";
+            checkArray.push(ticket);
+        });
+        var htmlStr = "";
+        $.each(checkArray, function(index,obj){
+            var li_1 ="<li>";
+            var typeName = '<span class="ysi-type">'+obj.typeName+'：</span>';
+            var goodsName = '<span class="ysi-name" title='+obj.goodsName+'>'+obj.goodsName+'</span>';
+            var quantity = '<span class="ysi-amount">'+obj.quantity+'</span>';
+            var li_2 ="</li>";
+            htmlStr = htmlStr+li_1+typeName+goodsName+quantity+li_2;
+        });
+        if(htmlStr!=""){
+            $('.yh-slc-items').html(htmlStr);
+            $('.yh-slc-selected').show();
+            $('.yh-slc-none').hide();
+        }
+
+    });
+
+</script>
+<script>
+    function pyRegisterCvt(){
+        var w=window,d=document,e=encodeURIComponent;
+        var b=location.href,c=d.referrer,f,g=d.cookie,h=g.match(/(^|;)\s*ipycookie=([^;]*)/),i=g.match(/(^|;)\s*ipysession=([^;]*)/);
+        if (w.parent!=w){f=b;b=c;c=f;};u='//stats.ipinyou.com/cvt?a='+e('Rds.9ps.e7t6CKVu8aDDv6A4ka6sRP')+'&c='+e(h?h[2]:'')+'&s='+e(i?i[2].match(/jump\%3D(\d+)/)[1]:'')+'&u='+e(b)+'&r='+e(c)+'&rd='+(new Date()).getTime()+'&e=';
+        (new Image()).src=u;
+    }
+</script>
+
+
+<script>
+
+    $(function () {
+
+        //点击好评锚点js
+        var btn = $("[date_id='dianping']");
+        $("#product_remark").click(function(){
+
+            btn.click();
+        });
+
+        //立即预定锚点js
+        $("[date_id='reservation']").click(function(){
+
+            $("#preorder-confirm-button").click();
+
+        });
+
+    });
+</script>
+
+<script type = "text/javascript">
+    //产品页部署：品友互动DSP-单品访客找回代码
+    var categoryId_new = 17;
+    var  productUrl = "";//产品url
+    var  categoryname ="";
+
+    var imgurl = "";
+    if(imgurl == ""){
+        imgurl = "http://s1.lvjs.com.cn/img/logo/lv_logo.png";
+    }else{
+        var photoLen = imgurl.length-4;
+        var phototype = imgurl.substring(photoLen,photoLen+4);//图片类型
+        var prhotourl = imgurl.substring(0,photoLen);
+        imgurl = "http://pic.lvmama.com" + prhotourl+"_480_320"+phototype;//带尺寸完整url
+    }
+    //判断品类名称
+    if(categoryId_new == 18){
+        categoryname ="自由行";
+        productUrl  = "http://dujia.lvmama.com/freetour/379867";
+    }else if(categoryId_new == 17) {
+        categoryname ="酒店套餐";
+        productUrl  = "http://dujia.lvmama.com/package/379867";
+    }else{
+        categoryname ="自由行";
+        productUrl  = "http://dujia.lvmama.com/freetour/379867";
+    }
+    //是否可售
+    var saleFlag =  "Y";
+    if(saleFlag == 'Y'){
+        saleFlag = "0";
+    }else if(saleFlag == 'N'){
+        saleFlag = "1";
+    }else{
+    }
+
+    var _goodsData = {
+        id:"379867", //产品ID（必填）
+        soldOut:saleFlag, // 状态: 1下架，0在售（必填）
+        category:categoryname, // 品类（必填）：国内_自由行，出境_wifi   productType_categoryName，门票品类写死为“门票”
+        categoryId:'0', // 写死'0' （必填）
+        name:"liux 0531酒店套餐预售【勿动】-【目的地bu】", // 产品名称（必填）
+        price:"2.0", // 产品售价（必填）
+        imgUrl:imgurl, // 产品预览图URL （必填）
+        productUrl:productUrl, // 产品URL地址 （必填）
+        currency:'CNY'
+    };
+    var _py = _py || [];
+    _py.push(['a', 'Rds..gqSOetWjQRf0t9OP9jSHx0']);
+    _py.push(['domain','stats.ipinyou.com']);
+    _py.push(['pi',_goodsData]);
+    _py.push(['e','']);
+    -function(d) {
+        var s = d.createElement('script'),
+                e = d.body.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e),
+                f = 'https:' == location.protocol;
+        s.src = (f ? 'https' : 'http') + '://'+(f?'fm.ipinyou.com':'fm.p0y.cn')+'/j/adv.js';
+    }(document);
+</script>
+<noscript><img src="//stats.ipinyou.com/adv.gif?a=Rds..gqSOetWjQRf0t9OP9jSHx0&e=" style="display:none;"/></noscript>
+
+
+
+<script>
+    //360聚效：产品详情页代码
+    var categoryId_new = 17;
+    var  productUrl = "";//产品url
+    var categoryname = "";
+
+    //是否可售
+    var saleFlag =  "Y";
+    if(saleFlag == 'Y'){
+        saleFlag = "1";
+    }else if(saleFlag == 'N'){
+        saleFlag = "0";
+    }else{
+    }
+
+    var saleprice = "2.0";
+    if(saleprice == ""){
+        saleprice = 0;
+    }else{
+
+    }
+
+    var imgurl = "";
+
+
+
+    if(imgurl == ""){
+        imgurl = "http://s1.lvjs.com.cn/img/logo/lv_logo.png";
+    }else{
+        var photoLen = imgurl.length-4;
+        var phototype = imgurl.substring(photoLen,photoLen+4);//图片类型
+        var prhotourl = imgurl.substring(0,photoLen);
+        imgurl = "http://pic.lvmama.com" + prhotourl+"_480_320"+phototype;//带尺寸完整url
+    }
+
+    //判断品类名称
+    if(categoryId_new == 18){
+        categoryname ="自由行";
+        productUrl  = "http://dujia.lvmama.com/freetour/379867";
+    }else if(categoryId_new == 17) {
+        categoryname ="酒店套餐";
+        productUrl  = "http://dujia.lvmama.com/package/379867";
+    }else{
+        categoryname ="自由行";
+        productUrl  = "http://dujia.lvmama.com/freetour/379867";
+    }
+
+    if(saleFlag == "1"){
+        var _mvq = window._mvq || [];
+        window._mvq = _mvq;
+        _mvq.push(['$setAccount', 'm-193368-0']);
+        _mvq.push(['$setGeneral', 'goodsdetail', '', '', '']);
+        _mvq.push(['$logConversion']);
+        _mvq.push(['setPageUrl',  productUrl]);
+        _mvq.push(['$addGoods', '',  '', /*产品名称*/ 'liux 0531酒店套餐预售【勿动】-【目的地bu】',/*产品ID*/ '379867',/*产品售价*/ saleprice, /*产品图片url*/ imgurl, '', '', /*产品库存状态1在售或是0售完或下架*/ saleFlag, '', '', '', /*品类,productType_categoryName*/ categoryname, '', '']);
+        _mvq.push(['$addPricing', '']);
+        _mvq.push(['$logData']);
+
+    }else if(saleFlag == "0"){
+        var _mvq = window._mvq || [];
+        window._mvq = _mvq;
+        _mvq.push(['$setAccount', 'm-193368-0']);
+        _mvq.push(['$setGeneral', 'goodsdetail', '', '', '']);
+        _mvq.push(['$logConversion']);
+        _mvq.push(['setPageUrl',  productUrl]);
+        _mvq.push(['$addGoods', '',  '', /*产品名称*/ 'liux 0531酒店套餐预售【勿动】-【目的地bu】',/*产品ID*/ '379867',/*产品售价*/ saleprice, /*产品图片url*/ imgurl, '', '', /*产品库存状态1在售或是0售完或下架*/ saleFlag, '', '', '', /*品类,productType_categoryName*/ categoryname, '', '']);
+        _mvq.push(['$addPricing', '']);
+        _mvq.push(['$logData']);
+
+    }
+
+</script>
+<style>
+    .noborder{
+        border : 0px;
+    }
+</style>
+</body>
+</html>

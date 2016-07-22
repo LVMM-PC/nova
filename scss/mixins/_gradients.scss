@@ -1,0 +1,8 @@
+@charset "UTF-8";
+@import "colors";
+
+@mixin gradient-y($start-color:#000000, $end-color:#FFFFFF, $start-percent :100, $end-percent:100) {
+  background: -webkit-linear-gradient(top,toRGBA($start-color, $start-percent), toRGBA($end-color, $end-percent));
+  background: -moz-linear-gradient(top,toRGBA($start-color, $start-percent), toRGBA($end-color, $end-percent));
+  background: linear-gradient(to bottom,toRGBA($start-color, $start-percent), toRGBA($end-color, $end-percent));
+}

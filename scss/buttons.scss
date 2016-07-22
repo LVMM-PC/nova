@@ -1,0 +1,262 @@
+@charset "UTF-8";
+/*!
+ * buttons.scss
+ * 2016-03-15
+ * Sheng Jiang
+ * 1.0.0.3
+ */
+@import "variables";
+@import "mixins";
+
+button.btn,
+input[type="button"].btn {
+  *border: 0;
+  *overflow: visible;
+  outline: none;
+}
+
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+  border: none; padding: 0;
+}
+
+//按钮
+.btn {
+  vertical-align: top;
+  text-align: center;
+  display: inline-block;
+  box-sizing: content-box;
+  cursor: pointer;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 19px;
+  font-size: 14px;
+  //font-family: $microsoft-yahei;
+  @include sans-serif;
+  color: $btn-color;
+  background: #FBFBFB;
+  border: $input-border-width solid #DDDDDD;
+  @include border-radius(3px);
+  @include gradient-y(#FFFFFF, #F8F8F8);
+  &:hover {
+    color: #666666;
+    background: #F5F5F5;
+    text-decoration: none;
+    @include gradient-y(#F5F5F5, #F5F5F5);
+  }
+  &:active {
+    @include box-shadow($btn-colorful-shadow)
+  }
+  &[disabled],
+  &.btn-disabled {
+    cursor: default;
+    color: #BABABA;
+    background: #FFFFFF;
+    @include gradient-y(#FFFFFF, #F8F8F8);
+    border-color: $btn-border-disabled;
+  }
+  &.btn-forbidden:active,
+  &[disabled]:active,
+  &.btn-disabled:active {
+    @include box-shadow(none);
+  }
+}
+
+input[type="button"].btn,
+button.btn {
+  *height: 30px;
+  *line-height: 30px;
+  *padding: 0 20px;
+}
+
+.btn-block {
+  display: block;
+}
+
+//按钮颜色
+.btn-pink,
+.btn-orange,
+.btn-blue {
+  &:active {
+    @include box-shadow($btn-colorful-shadow);
+  }
+  &.btn-forbidden:active,
+  &[disabled]:active,
+  &.btn-disabled:active {
+    @include box-shadow(none);
+  }
+}
+
+//按钮阴影
+.btn-xl,
+.btn-lg {
+  &:active {
+    @include box-shadow($btn-xl-shadow);
+  }
+}
+
+.btn-xl.btn-pink,
+.btn-xl.btn-orange,
+.btn-xl.btn-blue,
+.btn-lg.btn-pink,
+.btn-lg.btn-orange,
+.btn-lg.btn-blue {
+  &:active {
+    @include box-shadow($btn-colorful-large-shadow);
+  }
+  &.btn-forbidden:active,
+  &[disabled]:active,
+  &.btn-disabled:active {
+    @include box-shadow(none);
+  }
+}
+
+//玫红色
+.btn-pink {
+  color: $btn-colorful-color;
+  background: $btn-pink-bg;
+  border-color: $btn-pink-border;
+  &:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    background: $btn-pink-bg-hover;
+  }
+  &[disabled],
+  &.btn-disabled {
+    color: #FFFFFF;
+    background: $btn-pink-bg-disabled;
+    border-color: $btn-pink-bg-disabled;
+  }
+}
+
+//橙色
+.btn-orange {
+  color: $btn-colorful-color;
+  background: $btn-orange-bg;
+  border-color: $btn-orange-border;
+  &:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    background: $btn-orange-bg-hover;
+  }
+  &[disabled],
+  &.btn-disabled {
+    color: #FFFFFF;
+    background: $btn-orange-bg-disabled;
+    border-color: $btn-orange-bg-disabled;
+  }
+}
+
+//蓝色
+.btn-blue {
+  color: $btn-colorful-color;
+  background: $btn-blue-bg;
+  border-color: $btn-blue-border;
+  &:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    background: $btn-blue-bg-hover;
+  }
+  &[disabled],
+  &.btn-disabled {
+    color: #FFFFFF;
+    background: $btn-blue-bg-disabled;
+    border-color: $btn-blue-bg-disabled;
+  }
+}
+
+//超大按钮
+.btn-xl {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 29px;
+  font-size: 18px;
+  //font-family: $microsoft-yahei;
+  @include sans-serif;
+  .icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 11px 10px 0 0;
+    *margin: 3px 10px 0 0;
+    vertical-align: top;
+  }
+}
+
+input[type="button"].btn-xl,
+button.btn-xl {
+  *height: 42px;
+  *line-height: 42px;
+  *padding: 0 30px;
+}
+
+//大按钮
+.btn-lg {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 24px;
+  font-size: 16px;
+  //font-family: $microsoft-yahei;
+  @include sans-serif;
+  .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 9px 10px 0 0;
+    *margin: 2px 10px 0 0;
+    vertical-align: top;
+  }
+}
+
+input[type="button"].btn-lg,
+button.btn-lg {
+  *height: 36px;
+  *line-height: 36px;
+  *padding: 0 25px;
+}
+
+//小按钮
+.btn-sm {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 14px;
+  font-size: 12px;
+  //font-family: $simsun;
+  @include serif;
+}
+
+input[type="button"].btn-sm,
+button.btn-sm {
+  *height: 26px;
+  *line-height: 26px;
+  *padding: 0 15px;
+}
+
+//超小按钮
+.btn-xs {
+  height: 20px;
+  line-height: 20px;
+  padding: 0 9px;
+  font-size: 12px;
+  //font-family: $simsun;
+  @include serif;
+}
+
+input[type="button"].btn-xs,
+button.btn-xs {
+  *height: 22px;
+  *line-height: 22px;
+  *padding: 0 10px;
+}
+
+//按钮禁止
+.btn-forbidden {
+  cursor: not-allowed;
+  &,
+  &:hover,
+  &[disabled],
+  &.btn-disabled {
+    color: $btn-forbidden-color;
+    background: $btn-forbidden-bg;
+  }
+}

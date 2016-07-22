@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+    <!--<link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/lv/calendar.css">-->
+    <style>
+
+        /* TODO delete */
+        input[type="text"] {
+            border: 1px solid #CCC;
+            line-height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div id="logo">
+        NOVA
+    </div>
+</header>
+
+<menu id="nav">
+    <li><a href="./">首页</a></li>
+</menu>
+
+<div id="everything">
+
+    <h1>Calendar</h1>
+
+    <h2>引用</h2>
+
+    <div>
+        <ul>
+            <li>
+                <a href="http://pic.lvmama.com/styles/lv/calendar.css" target="_blank">http://pic.lvmama.com/min/index.php?f=/styles/lv/calendar.css</a>
+            </li>
+            <li>
+                <a href="http://pic.lvmama.com/js/lv/calendar.js" target="_blank">http://pic.lvmama.com/min/index.php?f=/js/lv/calendar.js</a>
+            </li>
+        </ul>
+    </div>
+
+    <h2>
+        配置
+    </h2>
+    <div>
+        <blockquote>.ui-calendar层级（z-index）需自定义</blockquote>
+        <blockquote>自定义.ui-calendar层级后, 如需在级联日历中显示“n晚”信息，需要设置.cal-number-of-days层级大于.ui-calendar</blockquote>
+        <h3><a href="calendar/settings.html" target="_blank">配置文档</a></h3>
+        <h3><a href="calendar-birthday.html" target="_blank">生日日历</a></h3>
+    </div>
+
+<pre>
+<code class="js">
+    //使用日历对象获取选择的日历值
+
+    var select = calendar.getSelect();
+    console.log(select)
+
+    //返回值
+    []  //未选中
+    ["2016-06-28"]  //单选日历
+    ["2016-06-28", "2016-06-29", "2016-06-30"]  //复选日历
+</code>
+</pre>
+
+    <h2>实例</h2>
+
+    <h3>日历1 单月小日历</h3>
+
+    <div class="section">
+        <span id="mySmallCalendar"></span>
+        <button class="btn" id="mySmallBtn">获取</button>
+        <p>
+            <a href="calendar/small-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <h3>日历2 双月小日历</h3>
+    <div class="section">
+        <span id="mySmallBimonthlyCalendar"></span>
+        <p>
+            <a href="calendar/small-bimonthly-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <h3>日历3 单月大日历</h3>
+    <div class="section">
+        <span id="myBigCalendar"></span>
+        <p>
+            <a href="calendar/big-calendar.html" target="_blank">调用文档</a>
+            <a href="json/calendar-data.json" target="_blank">JSON数据</a>
+        </p>
+    </div>
+
+    <h3>日历4 双月大日历</h3>
+    <div class="section">
+        <div id="myBigBimonthlyCalendar"></div>
+        <p>
+            <a href="calendar/big-bimonthly-calendar.html" target="_blank">调用文档</a>
+            <a href="json/calendar-data.json" target="_blank">JSON数据</a>
+        </p>
+    </div>
+
+    <h3>日历5 小日历控件浮层</h3>
+    <div class="section">
+        <input type="text" id="floatSmallInput" readonly="readonly" value="2016-07-28">
+        <span id="floatSmallText"></span>
+        <p>
+            <a href="calendar/float-small-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <h3>日历6 小日历双月控件浮层</h3>
+    <div class="section">
+        <input type="text" id="floatSmallBimonthlyInput" readonly="readonly">
+        <span id="floatSmallBimonthlyText"></span>
+        <p>
+            <a href="calendar/float-small-bimonthly-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <!--
+        日历7 计划外
+        <div>
+            <input type="text" id="floatBigInput" readonly="readonly">
+            <span id="floatBigText"></span>
+        </div>
+    -->
+
+    <h3>日历8 日历控件浮层</h3>
+    <p>［门票订单填写页］</p>
+    <div class="section">
+        <input type="text" id="floatBigBimonthlyInput" readonly="readonly">
+        <span id="floatBigBimonthlyText"></span>
+        <p>
+            <a href="calendar/float-big-bimonthly-calendar.html" target="_blank">调用文档</a>
+            <a href="json/calendar-data.json" target="_blank">JSON数据</a>
+        </p>
+    </div>
+
+    <h3>日历9 区间日历控件浮层</h3>
+    <div class="section">
+        <input type="text" class="floatBimonthlyCascadingInput" readonly="readonly" value="2016-07-15">
+        <span class="floatBimonthlyCascadingText"></span>
+        <input type="text" class="floatBimonthlyCascadingInput" readonly="readonly" value="2016-07-20">
+        <span class="floatBimonthlyCascadingText"></span>
+        <p>
+            <a href="calendar/float-bimonthly-cascading-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <div>
+        <button class="btn" id="floatBimonthlyCascadingBtn">获取</button>
+    </div>
+
+    <h3>日历10 区间日历单月控件</h3>
+    <div class="section">
+        <input type="text" class="floatCascadingInput" readonly="readonly">
+        <input type="text" class="floatCascadingInput" readonly="readonly">
+        <p>
+            <a href="calendar/float-cascading-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <h3>日历11 度假酒店日历控件样式</h3>
+    <div class="section">
+        <input type="text" class="vacationInput" readonly="readonly">
+        <input type="text" class="vacationInput" readonly="readonly">
+        <p>
+            <a href="calendar/vacation-calendar.html" target="_blank">调用文档</a>
+        </p>
+    </div>
+
+    <h3>日历12 分销日历控件</h3>
+    <div class="section">
+        <input type="text" id="distributionInput" readonly="readonly">
+        <span id="distributionText"></span>
+        <p>
+            <a href="calendar/distribution-calendar.html" target="_blank">调用文档</a>
+            <a href="json/calendar-data.json" target="_blank">JSON数据</a>
+        </p>
+    </div>
+
+    <h3>日历13 特卖会线路弹层</h3>
+    <div class="section">
+        <input type="text" id="GrouponInput" readonly="readonly">
+        <span id="GrouponText"></span>
+        <p>
+            <a href="calendar/groupon-calendar.html" target="_blank">调用文档</a>
+            <a href="json/calendar-data.json" target="_blank">JSON数据</a>
+        </p>
+    </div>
+
+</div>
+<script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+<!--<script src="js/jquery-1.12.1.js"></script>-->
+<script src="../js/calendar.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script src="js/navigation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+$sans-serif: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif;
+
+$serif: "Arial", "PingFang SC", "SimSun", serif;
+
+$img: url(http://pic.lvmama.com/img/lv/calendar.png);
+
+$border-width: 1px;
+$input-border-width: $border-width;
+
+$btn-colorful-color: #FFFFFF;
+
+$btn-color: #666666;
+$btn-border: #DDDDDD;
+$btn-border-disabled: #EEEEEE;
+
+$btn-pink-bg: #EE3388;
+$btn-pink-bg-hover: #DD3377;
+$btn-pink-bg-disabled: #F699C3;
+$btn-pink-border: $btn-pink-bg;
+
+$btn-orange-bg: #FF8800;
+$btn-orange-bg-hover: #FF6600;
+$btn-orange-bg-disabled: #FFC37F;
+$btn-orange-border: $btn-orange-bg;
+
+$btn-blue-bg: #0099FF;
+$btn-blue-bg-hover: #0088DD;
+$btn-blue-bg-disabled: #7FCCFF;
+$btn-blue-border: $btn-blue-bg;
+
+$btn-forbidden-color: #999999;
+$btn-forbidden-bg: #DDDDDD;
+
+$btn-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.1);
+$btn-colorful-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.15);
+$btn-xl-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.1);
+$btn-colorful-large-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.15);

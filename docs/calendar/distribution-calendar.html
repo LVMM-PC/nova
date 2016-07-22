@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历12 分销日历控件</title>
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="../css/monokai-sublime.css">
+    <link rel="stylesheet" href="../css/docs.css">
+</head>
+<body>
+
+<header id="header">
+    <div id="logo">
+        NOVA
+    </div>
+</header>
+
+<menu id="nav">
+    <li><a href="../">首页</a></li>
+</menu>
+
+<p id="crumbs">
+    <a href="../">Index</a>
+    &gt;
+    <a href="../calendar.html">Calendar</a>
+</p>
+
+<div id="everything">
+
+<pre>
+<code class="js">
+//分销
+var distributionCalendar = lv.calendar({
+    autoRender: false,
+    trigger: "#distributionInput",
+    triggerEvent: "click",
+    sourceFn: distributionFillData,
+    bimonthly: true,
+    wrapClass: "ui-calendar-blue"
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+function distributionFillData() {
+    var self = this;
+    var url = "json/calendar-data.json";
+
+    function getStoreHTML(inventory, oversold) {
+        var html = "";
+        if (typeof inventory !== "number" || oversold) {
+            html = "二次确认";
+        } else if (inventory &lt;= 0) {
+            html = "售罄";
+        } else if (inventory &lt; 10) {
+            html = "余" + inventory
+        } else {
+            html = "充足"
+        }
+        return html;
+    }
+
+    function createHover() {
+        var $hover = $(".calhover");
+        if ($hover.length &lt;= 0) {
+            $hover = $('&lt;div class="calhover"&gt;&lt;div class="triangle"&gt;&lt;/div&gt;&lt;/div&gt;');
+        } else {
+            $hover.html('&lt;div class="triangle"&gt;&lt;/div&gt;');
+        }
+        $("body").append($hover);
+        $hover.removeClass("calhover-right");
+        return $hover;
+    }
+
+    function setDate(data) {
+
+        if (!data) {
+            return false;
+        }
+
+        var $allTd = self.wrap.find('td[data-date-map]');
+        $allTd.children().addClass("caldisabled");
+
+        data.forEach(function (row) {
+
+            var jsonDateStr = row.date;
+            var date = lv.calendar.getDateFromFormattedString(jsonDateStr, self.options.dateFormat);
+
+            var dateStr = lv.calendar.dateFormat(date, self.options.dateFormat);
+            var price = row.price;
+            var inventory = row.inventory;
+            var oversold = row.oversold;
+            var sale = row.sale;
+            var lineRouteName = row.lineRouteName;
+
+            var $td = self.wrap.find('td[data-date-map=' + dateStr + ']');
+            if ($td) {
+
+                $td.find(".calinfo").html(getStoreHTML(inventory, oversold));
+                var $calActive = $td.find(".calactive");
+                if (typeof inventory !== "number" || oversold) {
+                    $td.children().removeClass("caldisabled");
+                } else if (inventory &lt;= 0) {
+                    $td.find(".calinfo").addClass("sellout");
+                    $td.children().removeClass("caldate").addClass("nodate");
+                    return false;
+                } else if (inventory &lt;= 3 && inventory &gt; 0) {
+                    $td.children().removeClass("caldisabled");
+                    $td.find(".calinfo").addClass("sellouting");
+                } else {
+                    $td.children().removeClass("caldisabled")
+                }
+                if (lineRouteName) {
+                    var $lineRouteName = $('&lt;div class="calroute"&gt;' + lineRouteName + '&lt;/div&gt;');
+                    $calActive.append($lineRouteName);
+                }
+
+                $td.find(".calprice").html('&lt;i&gt;&yen;&lt;/i&gt;&lt;em&gt;' + price + '&lt;/em&gt;起');
+
+            }
+        });
+
+        (function () {
+
+            var festival;
+            var route;
+            var sale;
+            self.wrap.on("mouseleave", "[data-date-map]", function () {
+                var $hover = $(".calhover");
+                $hover.hide();
+                $hover.css({
+                    left: 0,
+                    top: 0
+                });
+            });
+            self.wrap.on("mouseenter", "[data-date-map]", function () {
+                var hasOnce = false;
+                var $this = $(this);
+
+                var date = $this.attr("data-date-map");
+
+                var $hover = createHover();
+
+                var $calfestival = $('&lt;p class="calfestival"&gt;&lt;i&gt;休&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;');
+                var $calfestivalContent = $calfestival.find("span");
+                var $calroute = $('&lt;p class="calroute"&gt;&lt;i&gt;&nbsp;&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;');
+                var $calrouteTitle = $calroute.find("i");
+                var $calrouteContent = $calroute.find("span");
+                var $calsale = $('&lt;p class="calsale"&gt;&lt;i&gt;促&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;');
+                var $calsaleContent = $calsale.find("span");
+
+                var left = $this.offset().left;
+                var top = $this.offset().top + $this.outerHeight();
+
+                //节日
+                var thatFestival = self.options.festival[date];
+                festival = thatFestival;
+                if (thatFestival) {
+                    hasOnce = true;
+                    $calfestivalContent.html(thatFestival.vacationName);
+                    $hover.append($calfestival);
+                }
+
+                data.forEach(function (row) {
+                    if (row.date == date) {
+                        var route = row.lineRouteName;
+                        if (row.sale) {
+                            var sale = row.sale.replace(/\n/g, '&lt;br/&gt;');
+                        }
+
+                        if (route) {
+                            hasOnce = true;
+                            $calrouteTitle.html(route);
+                            $calrouteContent.html("线路");
+                            $hover.append($calroute);
+                        }
+                        if (sale) {
+                            hasOnce = true;
+                            $calsaleContent.html(sale);
+                            $hover.append($calsale);
+                        }
+                    }
+                });
+
+                var width = $hover.outerWidth();
+
+                var $table = $this.parents(".caltable");
+                var tableLeft = $table.offset().left;
+                var tableWidth = $table.outerWidth();
+                if (width + left - tableLeft &gt; tableWidth) {
+                    left = tableLeft + (tableWidth - width);
+                    $hover.addClass("calhover-right");
+                }
+
+                if (hasOnce) {
+
+                    if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
+                        //hide
+                    }else if (!self.wrap.is(".ui-calendar-mini")) {
+                        $hover.show();
+                    }
+
+                    $hover.css({
+                        left: left,
+                        top: top
+                    });
+                }
+
+            });
+
+        })();
+    }
+
+    this.loading();
+    $.ajax({
+        url: url,
+        dataType: "json",
+        async: true
+    }).done(function (data) {
+        setDate(data);
+        setTimeout(function () {
+            self.loaded();
+        }, 200);
+    }).fail(function (error) {
+        //TODO 错误处理
+    })
+}
+
+</code>
+</pre>
+
+</div>
+
+<script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+<script src="../../js/calendar.js"></script>
+<script src="../js/calendar.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script src="../js/navigation.js"></script>
+</body>
+</html>

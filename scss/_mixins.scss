@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@mixin user-select($select) {
+  -moz-user-select: $select;
+  -webkit-user-select: $select;
+  -ms-user-select: $select;
+  user-select: $select;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin border-radius($radius...) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+$microsoft-yahei: Arial, "Microsoft Yahei", sans-serif;
+$simsun: Arial, SimSun, sans-serif;
+
+@mixin sans-serif() {
+  font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif;
+}
+
+@mixin serif() {
+  font-family: "Arial", "PingFang SC", "SimSun", serif;
+  *font-family: "SimSun", serif;
+}
+
+@mixin arial() {
+  font-family: "Arial", sans-serif;
+}
+
+@import "mixins/gradients";
+@import "mixins/colors";
