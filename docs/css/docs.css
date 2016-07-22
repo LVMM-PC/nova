@@ -64,6 +64,26 @@ a[target=_blank]:hover:after {
     clear: both;
 }
 
+#fork {
+    display: block;
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    background-image: url(../img/fork.png);
+    background-position: 0 0;
+}
+
+#fork:after{
+    display: none;
+}
+
+#fork:hover {
+    background-position: 0 -200px;
+}
+
 #header {
     line-height: 100px;
     font-size: 72px;
@@ -298,4 +318,26 @@ blockquote {
 .table-border td {
     padding: 10px;
     border: 1px solid #EEE;
+}
+
+#ds-thread #ds-reset .ds-replybox {
+    z-index: auto !important;
+}
+
+.ds-thread a:after {
+    display: none;
+}
+
+#ds-thread #ds-reset .ds-textarea-wrapper {
+    background-image: none !important;
+}
+
+#ds-reset .ds-gradient-bg {
+    background-image: none !important;
+}
+
+.ds-post-likes,
+.ds-post-repost,
+.ds-post-report {
+    display: none!important;
 }
