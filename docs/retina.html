@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retina</title>
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="css/retina.css">
+</head>
+<body>
+
+<header id="header">
+    <div id="logo">
+        NOVA
+    </div>
+</header>
+
+<menu id="nav">
+    <li><a href="./">首页</a></li>
+</menu>
+
+<div id="everything">
+
+    <h1>Retina</h1>
+
+    <h2>建议</h2>
+    <blockquote>
+        Ctrl + = 放大屏幕显示比例到200%或使用高分屏显示器以查看效果
+    </blockquote>
+    <h3>普通图片</h3>
+    <section>
+        <div class="lvmama-logo"></div>
+    </section>
+    <h3>高分屏适配图片</h3>
+    <section>
+        <div class="lvmama-logo lvmama-logo-retina"></div>
+    </section>
+    <pre>
+        <code>
+.lvmama-logo {
+    background-image: url(../img/logo-61.png);
+    width: 330px;
+    height: 70px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+    /* 当设备像素比不小于1.5的时候... */
+    .lvmama-logo-retina {
+        background-image: url(../img/logo-61@2x.png);
+        background-size: 100%;
+    }
+
+}
+        </code>
+    </pre>
+
+</div>
+<script src="js/jquery-1.12.1.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script src="js/navigation.js"></script>
+
+</body>
+</html>

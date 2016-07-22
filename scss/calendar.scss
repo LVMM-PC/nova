@@ -1,0 +1,1081 @@
+@charset "UTF-8";
+/*!
+ * buttons.scss
+ * 2016-03-15
+ * Sheng Jiang
+ * 1.0.0.0
+ */
+@import "variables";
+@import "mixins";
+
+/*region 日历*/
+.ui-calendar {
+  .monthbg {
+    display: none;
+  }
+  //font-family: $microsoft-yahei;
+  @include sans-serif;
+  background-color: #fff;
+  position: relative;
+  width: 1196px;
+  border: 2px solid #e3e3e3;
+  color: #333;
+  .month-prev,
+  .month-next {
+    position: absolute;
+    color: #ffffff;
+    font-size: 16px;
+    width: 26px;
+    height: 26px;
+    background-image: $img;
+    top: 4px;
+    cursor: pointer;
+    text-indent: -9999em;
+    overflow: hidden;
+    &:hover {
+      background-color: #ff77bb;
+    }
+  }
+  .month-prev {
+    background-position: -60px 0;
+    left: 4px;
+    &:hover {
+      background-position: 0 0;
+    }
+  }
+  .month-next {
+    background-position: -90px 0;
+    right: 4px;
+    &:hover {
+      background-position: -30px 0;
+    }
+  }
+  .calmonth {
+    width: 596px;
+    float: left;
+  }
+  .calbox {
+    position: relative;
+  }
+  .caltitle {
+    font-size: 16px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #ffffff;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+  }
+  .month-loading {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff url(http://pic.lvmama.com/img/new_v/ui_scrollLoading/loadingGIF46px.gif) no-repeat center center;
+    position: absolute;
+    overflow: hidden;
+    font-size: 200px;
+    line-height: 100%;
+    text-align: center;
+    display: none;
+  }
+  table {
+    position: relative;
+    //font-family: $simsun;
+    @include serif;
+  }
+  thead {
+    background-color: #f5f5f5;
+  }
+  th, td {
+    border: 1px solid #e3e3e3;
+  }
+  th {
+    text-align: center;
+    width: 30px;
+    height: 26px;
+    line-height: 26px;
+    font-weight: normal;
+  }
+  td {
+    width: 84px;
+    height: 49px;
+  }
+  .sat,
+  .sun {
+    color: #ee3388;
+  }
+  .date {
+    position: relative;
+    width: 84px;
+    height: 49px;
+    cursor: default;
+  }
+  .nodate {
+    position: relative;
+    width: 84px;
+    height: 49px;
+    @include user-select(none);
+    color: #999999;
+    &:hover {
+      color: #999999;
+    }
+  }
+  .caldate {
+    position: relative;
+    cursor: pointer;
+  }
+  .caldisabled {
+    height: 49px;
+    position: relative;
+    cursor: default;
+  }
+  .caldate:hover {
+    width: 84px;
+    height: 49px;
+    //border: 1px solid #ff9800;
+    background: #fffaee;
+    //margin: -1px;
+  }
+  .calday,
+  .calinfo,
+  .calprice,
+  .calactive {
+    position: absolute;
+  }
+  .calday {
+    top: 5px;
+    left: 6px;
+    line-height: 12px;
+  }
+  .calinfo {
+    top: 19px;
+    left: 5px;
+    right: 5px;
+    color: #11b811;
+    line-height: 12px;
+    &.sellout {
+      color: #bbbbbb;
+      text-align: center;
+    }
+    &.sellouting {
+      color: #ff3300;
+    }
+  }
+  .calprice {
+    left: 5px;
+    top: 32px;
+    line-height: 12px;
+    color: #ff6600;
+    i, em {
+      vertical-align: -1px;
+    }
+  }
+  .calactive {
+    top: 0;
+    right: 0;
+  }
+  .calsale,
+  .calfestival,
+  .calroute {
+    margin-left: 1px;
+    display: inline-block;
+    background-image: $img;
+    background-position: -120px 0;
+    width: 14px;
+    height: 14px;
+    text-indent: -9999em;
+    float: left;
+  }
+
+  .calroute {
+    background-image: none;
+    background-color: #fe7878;
+    color: #FFFFFF;
+    text-indent: 0;
+    line-height: 14px;
+    text-align: center;
+  }
+  .calfestival {
+    background-position: -120px -15px;
+  }
+
+  &[data-float="true"] {
+    position: absolute;
+    @include box-shadow(0px 2px 7px 0px rgba(0, 0, 0, 0.15));
+  }
+}
+
+/*endregion */
+
+/*region 大日历*/
+.ui-calendar-big {
+  .month-loading {
+  }
+  .calbox {
+    border: 1px solid #e3e3e3;
+  }
+  table {
+    margin: -1px;
+  }
+
+  .caldate:hover {
+    &.caldisabled {
+      background: none;
+      margin: 0;
+      cursor: default;
+    }
+  }
+  &[data-bimonthly="true"] {
+    .notThisMonth {
+      display: none;
+    }
+  }
+  &[data-float="true"][data-bimonthly="true"] {
+    width: 928px;
+    border: none;
+    .calmonth {
+      width: auto;
+      margin: 0;
+    }
+    .caltitle {
+      border: none;
+    }
+    [data-offset="0"] {
+      .calbox {
+        border-right: none;
+      }
+
+    }
+    [data-offset="1"] {
+      .calbox {
+      }
+
+    }
+    .calbox {
+      border: 2px solid #e3e3e3;
+      //overflow: hidden;
+    }
+    .caltable {
+      margin: -1px;
+    }
+    td {
+      width: 65px;
+      height: 49px;
+    }
+    .date {
+      width: 65px;
+      height: 49px;
+    }
+    .caltitle {
+      background: #ee3388;
+      color: #FFFFFF;
+      line-height: 28px;
+      height: 28px;
+    }
+    .month-prev,
+    .month-next {
+      width: 28px;
+      height: 28px;
+      top: 0;
+      &:hover {
+        background-color: #a81c54;
+      }
+    }
+    .month-prev {
+      left: 0;
+      background-position: 0 0;
+    }
+    .month-next {
+      right: 0;
+      background-position: -30px 0;
+    }
+  }
+
+  &[data-bimonthly="false"] {
+    width: 561px;
+    border: none;
+    .month-prev,
+    .month-next {
+      width: 28px;
+      height: 28px;
+      top: 0;
+      &:hover {
+        background-color: #a81c54;
+      }
+    }
+    .month-prev {
+      left: 0;
+      background-position: 0 0;
+    }
+    .month-next {
+      right: 0;
+      background-position: -30px 0;
+    }
+    .caltitle {
+      background-color: #ee3388;
+      color: #ffffff;
+      height: 28px;
+      line-height: 28px;
+      border: none;
+    }
+    th {
+      height: 24px;
+      line-height: 24px;
+      border-top: none;
+    }
+    td {
+      width: 79px;
+    }
+    .nodate,
+    .caldate,
+    .date {
+      width: 79px;
+    }
+    .notThisMonth {
+      background-color: #fbfbfb;
+    }
+    .caldate:hover {
+      width: 79px;
+    }
+    .calmonth[data-offset='0'] {
+      width: 561px;
+
+      .calbox {
+      }
+    }
+  }
+  &[data-bimonthly="true"][data-float="false"] {
+    .calmonth {
+      margin-bottom: -1px;
+    }
+    .calmonth[data-offset='0'] {
+      margin-left: -1px;
+    }
+    .calmonth[data-offset='1'] {
+      margin-right: -1px;
+    }
+  }
+  .calmonth[data-offset='1'] {
+    float: right;
+  }
+  .td-selected {
+    .calselected {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: $img no-repeat -140px -10px;
+      width: 20px;
+      height: 20px;
+    }
+    .caldate {
+      border: 1px solid #ff9900;
+      background: #fffaee;
+      margin: -1px;
+    }
+  }
+  .caldate.nodate {
+    cursor: default;
+    background-color: transparent;
+  }
+  .festival {
+    .calday {
+      color: #ee3388;
+    }
+  }
+
+}
+
+/*endregion */
+
+/*region 小日历*/
+.ui-calendar-mini {
+  position: relative;
+  width: 468px;
+  border: none;
+  .month-prev,
+  .month-next {
+    position: absolute;
+    color: #ffffff;
+    font-size: 16px;
+    width: 28px;
+    height: 28px;
+    top: 0;
+  }
+  .month-prev {
+    left: 0;
+    background-position: 0 0;
+  }
+  .month-next {
+    right: 0;
+    background-position: -30px 0;
+  }
+  .calmonth {
+    width: 234px;
+    float: left;
+    border-bottom: 1px solid #cccccc;
+  }
+  .calbox {
+    position: relative;
+  }
+
+  .calbox {
+    padding: 5px 4px 4px 4px;
+  }
+  .caltitle {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #ef3388;
+    border: none;
+  }
+  .monthbg {
+    position: absolute;
+    overflow: hidden;
+    font-size: 200px;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+  }
+  table {
+    position: relative;
+  }
+  thead {
+    background-color: #f6f6f6;
+  }
+  th {
+    text-align: center;
+    width: 30px;
+    height: 24px;
+    border-bottom: 4px solid #fff;
+    font-weight: normal;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  td {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    padding: 1px;
+    border: none;
+    text-align: center;
+    vertical-align: top;
+  }
+  .sat {
+    border-right: 2px solid #fff;
+  }
+  .sun {
+    border-left: 1px solid #fff;
+  }
+  .date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+    border: none;
+  }
+  .today {
+    color: #ee3388;
+  }
+  .caldate {
+    cursor: pointer;
+  }
+  .notThisMonth {
+    display: none;
+  }
+  .caldate:hover {
+    width: 32px;
+    margin: 0 0 0 -1px;
+    height: 30px;
+    border: none;
+    background-color: #fef2f9;
+    color: #ee3388;
+  }
+  .nodate {
+    cursor: default;
+  }
+  .nodate:hover {
+    color: #999999;
+    background-color: transparent;
+  }
+  .caldate.active {
+    background-color: #ff77bb;
+    color: #fff;
+  }
+  .calmonth[data-offset='0'] {
+    .calbox {
+      border-right: 1px solid #f5f5f5;
+      border-left: 1px solid #cccccc;
+    }
+  }
+  .calmonth[data-offset='1'] {
+    .calbox {
+      border-left: 1px solid #f5f5f5;
+      border-right: 1px solid #cccccc;
+    }
+  }
+  &[data-bimonthly] {
+    .month-prev:hover,
+    .month-next:hover {
+      background-color: #a81c54;
+    }
+  }
+
+  &[data-bimonthly="false"] {
+    width: 234px;
+
+    .nodate {
+      background-color: transparent;
+    }
+    .caldate:hover {
+      width: 32px;
+    }
+    .calmonth[data-offset='0'] {
+      width: 234px;
+      .calbox {
+        border-right: 1px solid #cccccc;
+      }
+    }
+  }
+  &[data-bimonthly="true"] {
+    .calmonth {
+      margin-bottom: -1px;
+    }
+  }
+  &[data-bimonthly="true"] .calmonth[data-offset='0'],
+  &[data-bimonthly="true"] .calmonth[data-offset='1'],
+  &[data-bimonthly="false"] .calmonth[data-offset='0'] {
+    margin: 0;
+  }
+  .festival {
+    color: #ee3388;
+    &.nodate {
+      color: #999999;
+    }
+  }
+
+  .calmiddle {
+    width: 32px;
+    margin-left: -1px;
+    background-color: #fcdaed;
+  }
+  .caldisabled {
+    color: #999999;
+    cursor: default;
+    &:hover {
+      color: #999999;
+      background-color: transparent;
+    }
+    &.calmiddle:hover {
+      background-color: #fcdaed;
+    }
+  }
+  .td-selected {
+    .caldate {
+      width: 32px;
+      margin-left: -1px;
+      color: #fff;
+      background: #ff77bb;
+      border: none;
+    }
+  }
+
+  .nodate {
+    background-color: transparent;
+  }
+}
+
+/*endregion */
+
+/*region 生日日历*/
+.ui-calendar-birthday {
+  .cal-month-dropdown-box,
+  .cal-year-dropdown-box {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid #cccccc;
+    width: 72px;
+    position: absolute;
+  }
+  .cal-month-dropdown-box {
+    width: 49px;
+  }
+  .td-selected {
+    .caldate:hover {
+      background: #84b1e9;
+      color: #fff;
+    }
+  }
+  .cal-year-select-active,
+  .cal-year-select,
+  .cal-month-select-active,
+  .cal-month-select {
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    height: 24px;
+    line-height: 24px;
+    i {
+      margin-left: 5px;
+      vertical-align: 3px;
+      display: inline-block;
+      background-image: $img;
+      background-position: -160px 0;
+      width: 7px;
+      height: 4px;
+    }
+  }
+  .cal-month-select.active,
+  .cal-month-select-active,
+  .cal-year-select.active,
+  .cal-year-select-active {
+    color: #ee3388;
+    i {
+      background-position: -170px 0;
+    }
+  }
+  .cal-year-select {
+    position: absolute;
+    top: 3px;
+    left: 56px;
+    width: 72px;
+    display: block;
+  }
+  .cal-month-select {
+    position: absolute;
+    top: 3px;
+    left: 132px;
+    width: 49px;
+    display: block;
+  }
+  .cal-year-dropdown,
+  .cal-month-dropdown {
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #eaeaea;
+      border: 2px solid #fff;
+      width: 8px;
+      border-radius: 6px;
+    }
+    overflow-y: auto;
+    height: 240px;
+    width: 72px;
+    li {
+      cursor: pointer;
+      font-size: 12px;
+      padding-left: 8px;
+      color: #666666;
+      height: 20px;
+      line-height: 20px;
+    }
+    li:hover {
+      color: #ee3388;
+      background-color: #fef2f9;
+    }
+    li.active {
+      color: #ffffff;
+      background-color: #ed7eb6;
+    }
+  }
+  .cal-month-dropdown {
+    width: 49px;
+  }
+  .cal-pane {
+    text-align: right;
+    height: 30px;
+    margin: 5px 3px 0 0;
+    color: #666666;
+    font-family: $serif;
+  }
+  .cal-time-input {
+    width: 48px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    color: #333333;
+    text-align: center;
+  }
+  .cal-time-text,
+  .cal-time-input,
+  .cal-birthday-ok,
+  .cal-birthday-time,
+  .cal-birthday-clear {
+    display: none;
+    margin-left: 5px;
+    margin-right: 0;
+  }
+  .cal-birthday-clear {
+    display: inline-block;
+  }
+  .cal-hour,
+  .cal-minute,
+  .cal-time-to {
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    width: 20px;
+    &.active {
+      color: #0065d3;
+    }
+  }
+  .cal-hour {
+    text-align: right;
+  }
+  .cal-minute {
+    text-align: left;
+  }
+  .cal-time-to {
+    width: 8px;
+  }
+  .cal-hour-dropdown,
+  .cal-minute-dropdown {
+    width: 123px;
+    height: 146px;
+    border: 1px solid #cccccc;
+    position: absolute;
+    top: 113px;
+    left: 78px;
+    background: #fff;
+    ul {
+      margin: 5px 0 0 5px;
+    }
+    li {
+      cursor: pointer;
+      text-align: center;
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      margin: 0 2px 2px 0;
+      color: #333333;
+      &:hover {
+        background: #eff8fc;
+        color: #0065d3;
+      }
+      &.active {
+        background: #84b1e9;
+        color: #fff;
+      }
+    }
+    li[data-disabled="true"] {
+      cursor: default;
+      color: #999;
+      background-color: transparent;
+    }
+    .title {
+      font-family: $serif;
+      width: 123px;
+      height: 24px;
+      line-height: 24px;
+      color: #666666;
+      padding-left: 10px;
+    }
+    .close {
+      cursor: pointer;
+      top: 2px;
+      right: 4px;
+      position: absolute;
+      padding: 5px;
+      i {
+        display: block;
+        width: 11px;
+        height: 11px;
+        background-image: $img;
+        background-position: -160px -15px;
+        &:hover {
+          background-position: -180px -15px;
+        }
+      }
+    }
+  }
+  .cal-minute-dropdown {
+    height: 100px;
+    top: 159px;
+  }
+}
+
+/*endregion*/
+
+/*region 黄色*/
+.ui-calendar-orange {
+  .sat,
+  .sun {
+    color: #ff6600;
+  }
+  .caltitle {
+    background-color: #ff8800;
+  }
+  &[data-bimonthly="true"] .month-prev:hover,
+  &[data-bimonthly="true"] .month-next:hover {
+    background-color: #ff6600;
+  }
+  .calmonth .caltable {
+    .caldate:hover {
+      background-color: #fff7e4;
+      color: #ff6600;
+    }
+    .festival {
+      color: #ff6600;
+    }
+    .today {
+      color: #ff6600;
+      background-color: transparent;
+    }
+    .td-selected .today {
+      width: 32px;
+      background-color: #fa0;
+    }
+    .calmiddle {
+      background-color: #ffedc1;
+    }
+    .nodate,
+    .caldisabled {
+      color: #999999;
+      cursor: default;
+      &:hover {
+        color: #999999;
+        background-color: transparent;
+      }
+      &.calmiddle:hover {
+        background-color: #ffedc1;
+      }
+    }
+    .td-selected .caldate {
+      color: #ffffff;
+      background-color: #ffaa00;
+    }
+  }
+}
+
+/*endregion*/
+
+/*region 蓝色*/
+.ui-calendar-blue[data-float][data-bimonthly] {
+  .sat,
+  .sun {
+    color: #1d79d8;
+  }
+  .festival {
+    color: #1d79d8;
+    .calday {
+      color: #1d79d8;
+    }
+  }
+  .caltitle {
+    background-color: #0088dd;
+  }
+  .month-prev:hover,
+  .month-next:hover {
+    background-color: #007bc6;
+  }
+  &.ui-calendar-mini {
+
+    .month-prev:hover,
+    .month-next:hover {
+      background-color: #0065d3;
+    }
+    .caltitle {
+      background-color: #5092e5;
+    }
+    .today {
+      color: #0065d3;
+    }
+    .caldate {
+    }
+    .caldate:hover {
+      background-color: #eff8fc;
+      color: #0065d3;
+    }
+
+    .td-selected .caldate {
+      background: #84b1e9;
+      color: #fff;
+    }
+    .calmiddle {
+      background-color: #eff8fc;
+    }
+    .caldisabled,
+    .caldisabled:hover {
+      color: #999999;
+      background-color: transparent;
+    }
+  }
+
+  &.ui-calendar-birthday {
+
+    .cal-month-select.active,
+    .cal-month-select-active,
+    .cal-year-select.active,
+    .cal-year-select-active {
+      color: #0065d3;
+
+      i {
+        background-position: -160px -5px;
+      }
+    }
+
+    .cal-year-dropdown,
+    .cal-month-dropdown {
+
+      li:hover {
+        color: #0065d3;
+        background-color: #eff8fc;
+      }
+      li.active {
+        color: #ffffff;
+        background-color: #84b1e9;
+      }
+    }
+
+  }
+
+}
+
+.ui-calendar-big.ui-calendar-blue[data-float][data-bimonthly] {
+  td,
+  .date {
+    height: 62px;
+    word-break: break-all;
+  }
+}
+
+/*endregion*/
+
+/*region 特卖会*/
+.ui-calendar-groupon {
+  &[data-float][data-bimonthly] {
+    width: 1127px;
+
+    .caltable {
+      margin: 0;
+    }
+    .calbox {
+      width: 561px;
+      border: none;
+    }
+    td {
+      width: 79px;
+    }
+    .date {
+      width: 79px;
+    }
+    [data-offset="0"] {
+      .caltitle {
+        width: 566px;
+      }
+    }
+  }
+}
+
+/*endregion*/
+
+.calhover {
+  @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
+  //font-family: $simsun;
+  @include serif;
+  display: none;
+  color: #666666;
+  border: 1px solid #cccccc;
+  background: #FFFFFF;
+  position: absolute;
+  padding: 10px 10px 4px 10px;
+  *margin-left: -1px;
+  *margin-top: -1px;
+  //*width: 346px;
+  .triangle {
+    width: 11px;
+    height: 7px;
+    display: block;
+    position: absolute;
+    margin: 0;
+    top: -7px;
+    left: 36px;
+    bottom: auto;
+    background: $img no-repeat -140px 0;
+    pointer-events: none;
+    border: none;
+  }
+  &.calhover-right {
+    *margin-left: 0;
+    .triangle {
+      left: auto;
+      right: 36px;
+    }
+  }
+  .calroute,
+  .calsale,
+  .calfestival {
+    line-height: 20px;
+    i {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      float: left;
+      margin-right: 5px;
+      vertical-align: top;
+      text-align: center;
+      line-height: 14px;
+      overflow: hidden;
+    }
+    span {
+      vertical-align: top;
+      display: inline-block;
+      margin: -3px 0 3px 0;
+    }
+  }
+  .calroute {
+    i {
+      background: #fe7878;
+      color: #FFFFFF;
+    }
+  }
+  .calfestival {
+    i {
+      text-indent: -9999em;
+      background-image: $img;
+      background-position: -120px -15px;
+    }
+  }
+  .calsale {
+    i {
+      text-indent: -9999em;
+      background-image: $img;
+      background-position: -120px 0;
+    }
+  }
+}
+
+.cal-number-of-days {
+  @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
+  display: none;
+  *font-family: SimSun, sans-serif;
+  pointer-events: none;
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  line-height: 20px;
+  padding: 5px 10px;
+  .triangle {
+    width: 11px;
+    height: 7px;
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    margin-left: -5px;
+    background: $img no-repeat -140px 0;
+    pointer-events: none;
+  }
+}

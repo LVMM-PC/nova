@@ -1,0 +1,301 @@
+@charset "UTF-8";
+
+html {
+    background: #CCCCCC;
+}
+
+body {
+    margin: 0 0 600px 0;
+    font-family: "Microsoft Yahei", sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    color: #333333;
+    background: #FFFFFF;
+}
+
+code {
+    font-size: 16px;
+    font-family: Monaco, Consolas, DengXian, monospace;
+}
+
+code.hljs {
+    font-size: 18px;
+    background: #32332b;
+}
+
+code::selection,
+code span::selection {
+    background: #CCC;
+}
+
+.hljs-comment::selection {
+    color: #fff;
+}
+
+a {
+    cursor: pointer;
+    color: #0099FF;
+    text-decoration: none;
+}
+
+a[target=_blank]:hover {
+    background: #0099FF;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a[target=_blank]:after {
+    width: 20px;
+    height: 20px;
+    background: url(../img/lv.png) no-repeat 0 0;
+    display: inline-block;
+    content: "";
+    vertical-align: top;
+    margin-left: 2px;
+}
+
+a[target=_blank]:hover:after {
+    background: url(../img/lv.png) no-repeat 0 -20px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#header {
+    line-height: 100px;
+    font-size: 72px;
+    padding-left: calc(50% - 600px);
+}
+
+#logo {
+    background-image: url(../../img/nova.png);
+    width: 110px;
+    height: 80px;
+    text-indent: -9999em;
+    background-size: 100%;
+}
+
+#crumbs {
+    width: 1200px;
+    font-size: 16px;
+    margin: 20px auto 0;
+}
+
+#everything {
+    padding: 20px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#everything section,
+#everything .section {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.list {
+    padding: 0;
+}
+
+.list li {
+    float: left;
+    width: 18%;
+    margin-right: 2%;
+    display: block;
+}
+
+.list li a {
+    display: block;
+    line-height: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #CCCCCC;
+}
+
+.list li small {
+    color: #999999;
+}
+
+.list li a:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.list .todo {
+    cursor: default;
+    background-color: #f6f6f6;
+    border-color: #dddddd;
+}
+
+.list .todo:hover {
+    box-shadow: none;
+}
+
+.list .doing {
+    background-color: #fffaee;
+    border-color: #ffaa00;
+}
+
+.list .done {
+    background-color: #f8fff2;
+    border-color: #66cc33;
+}
+
+#nav {
+    background: #6CB5D9;
+    margin: 0;
+    height: 40px;
+    padding-left: calc(50% - 600px);
+    padding-right: calc(50% - 600px);
+}
+
+#nav li {
+    list-style: none;
+    float: left;
+    font-size: 16px;
+}
+
+#nav li a {
+    padding: 0 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    line-height: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+#nav li a:hover {
+    background: #5995B3;
+}
+
+.btn-group {
+    margin-bottom: 10px;
+    font-size: 0;
+}
+
+.navigation {
+    position: fixed;
+    top: 190px;
+    right: 50px;
+    padding: 10px 20px 10px 10px;
+    border: 1px solid #CCCCCC;
+    background: #FFFFFF;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.navigation .close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    margin: -5px -5px 0 0;
+}
+
+.navigation .close:hover {
+    background-color: #F06;
+    color: #ffffff;
+}
+
+.navigation a {
+    display: block;
+    cursor: pointer;
+    color: #333333;
+}
+
+.navigation a:hover {
+    color: #FF6600;
+    background: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 120%;
+    font-weight: normal;
+    padding: 5px 0;
+    margin: 0;
+}
+
+h1.hover,
+h2.hover,
+h3.hover,
+h4.hover,
+h5.hover,
+h6.hover {
+    background: #EEEEEE;
+}
+
+h1 {
+    font-size: 30px;
+    color: #5995B3;
+}
+
+h2 {
+    font-size: 24px;
+    color: #5995B3;
+}
+
+h3 {
+    font-size: 18px;
+    border-bottom: 2px solid #EEE;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+.navigation .h1 {
+    font-size: 18px;
+}
+
+.navigation .h2 {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.navigation .h3 {
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.navigation .h4 {
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+blockquote {
+    background: #EEEEEE;
+    padding: 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.btn .icon {
+    background-color: #666666;
+}
+
+.btn-pink .icon,
+.btn-orange .icon,
+.btn-blue .icon {
+    background-color: #FFFFFF;
+}
+
+.btn {
+    margin-right: 10px;
+}
+
+.table-border {
+    width: 100%;
+}
+
+.table-border td {
+    padding: 10px;
+    border: 1px solid #EEE;
+}

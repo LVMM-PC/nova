@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VST日历</title>
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="../css/monokai-sublime.css">
+    <link rel="stylesheet" href="../css/docs.css">
+</head>
+<body>
+
+<header id="header">
+    <div id="logo">
+        NOVA
+    </div>
+</header>
+
+<menu id="nav">
+    <li><a href="../">首页</a></li>
+</menu>
+
+<p id="crumbs">
+    <a href="../">Index</a>
+    &gt;
+    <a href="../calendar.html">Calendar</a>
+</p>
+
+<div id="everything">
+
+<pre>
+<code class="js">
+//VST日历
+var vstCalendar = lv.calendar({
+    cascadingCallback: function (self, $dom) {
+        console.log(this);
+        console.log(self);
+        console.log($dom);
+    },
+    autoRender: false,
+    trigger: ".vstInput",
+    triggerEvent: "click",
+    isBirthday: true,
+    template: "birthday",
+    wrapClass: "ui-calendar-blue",
+    cascading: true,  //级联日历
+    cascadingMin: 0,
+    cascadingOffset: 0,
+    cascadingMax: -1,  //起始与结束日期最大范围
+    showNumberOfDays: false,  //是否显示
+    dateFormat: "yyyy-MM-dd",
+    hasTime: false,
+    dayPrev: -1,
+    monthPrev: -1,
+    minLimit: "1990-06",
+    maxLimit: "2017-06"
+});
+
+//VST日历时间
+var vstHasTimeCalendar = lv.calendar({
+    cascadingCallback: function (self, $dom) {
+    },
+    autoRender: false,
+    trigger: ".vstHasTimeInput",
+    triggerEvent: "click",
+    isBirthday: true,
+    template: "birthday",
+    wrapClass: "ui-calendar-blue",
+    cascading: true,  //级联日历
+    cascadingMin: 0,
+    cascadingOffset: 0,
+    cascadingMax: -1,  //起始与结束日期最大范围
+    showNumberOfDays: false,  //是否显示
+    dateFormat: "yyyy-MM-dd HH:mm",
+    hasTime: true,
+    dayPrev: -1,
+    monthPrev: -1,
+    minLimit: "1990-06",
+    maxLimit: "2017-06"
+});
+</code>
+</pre>
+
+</div>
+
+<script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+<script src="../../js/calendar.js"></script>
+<script src="../js/calendar.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script src="../js/navigation.js"></script>
+</body>
+</html>

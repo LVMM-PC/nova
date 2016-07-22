@@ -1,0 +1,23 @@
+{
+  "name": "nova",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/em2046/nova.git"
+  },
+  "author": "em2046",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/em2046/nova/issues"
+  },
+  "homepage": "https://github.com/em2046/nova#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
+  }
+}
