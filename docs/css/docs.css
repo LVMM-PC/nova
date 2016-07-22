@@ -76,7 +76,7 @@ a[target=_blank]:hover:after {
     background-position: 0 0;
 }
 
-#fork:after{
+#fork:after {
     display: none;
 }
 
@@ -116,14 +116,33 @@ a[target=_blank]:hover:after {
     margin-bottom: 20px;
 }
 
+.label {
+    color: #ffffff;
+    padding: 2px;
+}
+
+.label.todo {
+    background-color: #dddddd;
+}
+
+.label.doing {
+    background-color: #ffaa00;
+}
+
+.label.done {
+    background-color: #66cc33;
+}
+
 .list {
     padding: 0;
+    width: 1225px;
 }
 
 .list li {
     float: left;
-    width: 18%;
-    margin-right: 2%;
+    width: 220px;
+    margin-right: 25px;
+    margin-bottom: 25px;
     display: block;
 }
 
@@ -336,8 +355,12 @@ blockquote {
     background-image: none !important;
 }
 
+#ds-thread #ds-reset li.ds-tab a.ds-current {
+    border-radius: 0 !important;
+}
+
 .ds-post-likes,
 .ds-post-repost,
 .ds-post-report {
-    display: none!important;
+    display: none !important;
 }
