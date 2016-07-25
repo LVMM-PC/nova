@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+@import "mixins/gradients";
+@import "mixins/colors";
+
 @mixin user-select($select) {
   -moz-user-select: $select;
   -webkit-user-select: $select;
@@ -27,13 +30,10 @@ $simsun: Arial, SimSun, sans-serif;
 }
 
 @mixin serif() {
-  font-family: "Arial", "PingFang SC", "SimSun", serif;
-  *font-family: "SimSun", serif;
+  font-family: "Arial", "PingFang SC", "SimSun", sans-serif;
+  *font-family: "SimSun", sans-serif;
 }
 
 @mixin arial() {
   font-family: "Arial", sans-serif;
 }
-
-@import "mixins/gradients";
-@import "mixins/colors";
