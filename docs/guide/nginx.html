@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selectors Level 3</title>
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="../css/monokai-sublime.css">
+    <link rel="stylesheet" href="../css/docs.css">
+</head>
+<body>
+
+<header id="header">
+    <div id="logo">
+        NOVA
+    </div>
+</header>
+
+<menu id="nav">
+    <li><a href="../">首页</a></li>
+</menu>
+
+<div id="everything">
+
+    <h1>Nginx配置</h1>
+
+    <blockquote>
+        参考文档：
+    </blockquote>
+
+    <section>
+        <ul>
+            <li><a target="_blank" href="http://nginx.org/en/download.html">nginx下载页面</a></li>
+            <li>
+                <ul>
+                    <li><a target="_blank" href="http://nginx.org/download/nginx-1.11.3.zip">nginx下载地址</a></li>
+                </ul>
+            </li>
+            <li><a target="_blank" href="http://windows.php.net/download#php-5.6">PHP下载页</a></li>
+            <li>
+                <ul>
+                    <li>
+                        <a target="_blank"
+                           href="http://windows.php.net/downloads/releases/php-5.6.24-nts-Win32-VC11-x64.zip">
+                            PHP下载地址
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <h3>nginx配置文件</h3>
+    <section>
+        conf\nginx.conf
+
+    </section>
+    <pre>
+<code>
+
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       10.112.3.99:80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            autoindex_exact_size on;
+            autoindex on;
+            root   C:\svn\develop;
+            index  index.html index.htm;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        location ~ \.php$ {
+            root           C:\svn\develop;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
+
+</code>
+    </pre>
+
+    <h3>PHP配置</h3>
+    <section>
+        将php.ini-development复制一份，重命名为php.ini
+    </section>
+
+    <h3>启动</h3>
+    <section>
+        <dl>
+            <dt>启动nginx</dt>
+            <dd>start nginx.exe</dd>
+        </dl>
+
+        <dl>
+            <dt>启动php</dt>
+            <dd>php-cgi.exe -b 127.0.0.1:9000 -c .\php.ini</dd>
+        </dl>
+    </section>
+
+    <h2>评论</h2>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="nginx" data-title="NOVA"
+         data-url="http://www.em2046.com/nova/docs/guide/nginx.html"></div>
+    <!-- 多说评论框 end -->
+
+</div>
+<script src="../js/jquery-1.12.1.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script src="../js/navigation.js"></script>
+
+</body>
+</html>

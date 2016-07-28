@@ -2127,7 +2127,10 @@
             var date = this.now;
             html += this.createSingleCalendar(date, 0);
             if (options.bimonthly) {
-                html += this.createSingleCalendar(Calendar.monthOffset(date, 1), 1);
+                var nextMonthDate = new Date(date);
+                nextMonthDate.setDate(1);
+                nextMonthDate = Calendar.monthOffset(nextMonthDate, 1);
+                html += this.createSingleCalendar(nextMonthDate, 1);
             }
             html = this.replaceWith(options.template.calWrap, {
                 content: html

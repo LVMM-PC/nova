@@ -279,6 +279,8 @@ var myBigCalendar = lv.calendar({
             })();
         }
 
+        this.loading();
+
         //Ajax获取时间价格表数据
         $.ajax({
             url: url,
@@ -286,7 +288,11 @@ var myBigCalendar = lv.calendar({
             async: true
         }).done(function (data) {
             //完成
-            setDate(data);
+            //TODO 延迟0.5秒模拟Ajax响应延迟时间
+            setTimeout(function () {
+                setDate(data);
+                self.loaded();
+            }, 200)
         }).fail(function (error) {
             //TODO 错误处理
         })
