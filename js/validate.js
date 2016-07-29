@@ -31,7 +31,6 @@
         target: "body",  //校验区域
         triggerEvent: "change",  //默认改变触发
         rules: {},
-        message: {},
         validateCallback: null
     };
 
@@ -70,11 +69,11 @@
 
             var inputValidate = true;
 
-            var message = this.options.message;
+            var rules = this.options.rules;
             var validateCallback = this.options.validateCallback;
 
             for (var ruleDetail in ruleDetails) {
-                var thatMessage = message[rule][ruleDetail];
+                var thatMessage = rules[rule][ruleDetail+"-message"];
 
                 var val = $input.val();
 

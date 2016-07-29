@@ -23,97 +23,78 @@ $(function () {
     var myValidate = nova.validate({
         rules: {
             ".JS_non_empty": {
-                "required": true
+                "required": true,
+                "required-message": "非空校验，自定义报错内容。"
             },
             ".JS_chinese_and_english": {
-                "chineseAndEnglish": true
+                "chineseAndEnglish": true,
+                "chineseAndEnglish-message": "请输入姓名。"
             },
             ".JS_chinese": {
                 "required": true,
-                "chinese": true
+                "required-message": "请输入中文姓名。",
+                "chinese": true,
+                "chinese-message": "中文姓名只能包含汉字，请重新输入。"
             },
             ".JS_english": {
-                "english": true
+                "english": true,
+                "english-message": "英文姓名只能包含字母，请重新输入。"
             },
             ".JS_mobile": {
                 "required": true,
-                "mobile": true
+                "required-message": "请输入手机号码。",
+                "mobile": true,
+                "mobile-message": "手机号码必须为11位的数字，请重新输入。"
             },
             ".JS_email": {
                 "required": true,
-                "email": true
+                "required-message": "请输入邮箱地址。",
+                "email": true,
+                "email-message": "电子邮箱格式不正确，请重新输入。"
             },
             ".JS_birthday": {
                 "required": true,
-                "datetime": true
+                "required-message": "请选择出生日期。",
+                "datetime": true,
+                "datetime-message": "请选择出生日期。"
             },
             ".JS_address": {
                 "required": true,
-                "address": true
+                "required-message": "请输入正确的详细地址。",
+                "address": true,
+                "address-message": "请输入正确的详细地址。"
             },
             ".JS_zip_code": {
-                "zip": true
+                "zip": true,
+                "zip-message": "邮政编码只能为6位数字，请重新输入。"
             },
             ".JS_id_card": {
-                "idCard": true
-            }
-        },
-        message: {
-            ".JS_non_empty": {
-                "required": "非空校验，自定义报错内容。"
-            },
-            ".JS_chinese_and_english": {
-                "chineseAndEnglish": "请输入姓名。"
-            },
-            ".JS_chinese": {
-                "required": "请输入中文姓名。",
-                "chinese": "中文姓名只能包含汉字，请重新输入。"
-            },
-            ".JS_english": {
-                "english": "英文姓名只能包含字母，请重新输入。"
-            },
-            ".JS_mobile": {
-                "required": "请输入证件号码。",
-                "mobile": "手机号码必须为11位的数字，请重新输入。"
-            },
-            ".JS_email": {
-                "required": "请输入邮箱地址。",
-                "email": "电子邮箱格式不正确，请重新输入。"
-            },
-            ".JS_birthday": {
-                "required": "请选择出生日期。",
-                "datetime": "请选择出生日期。"
-            },
-            ".JS_address": {
-                "required": "请输入正确的详细地址。",
-                "address": "请输入正确的详细地址。"
-            },
-            ".JS_zip_code": {
-                "zip": "邮政编码只能为6位数字，请重新输入。"
-            },
-            ".JS_id_card": {
-                "required": "请输入证件号码。",
-                "idCard": "请输入正确的身份证号码。"
+                "required": true,
+                "required-message": "请输入证件号码。",
+                "idCard": true,
+                "idCard-message": "请输入正确的身份证号码。"
             }
         },
         validateCallback: function (ret, val, $input, errorMessage) {
-            // console.log(this);
-            //
-            // console.log("val: ", val);
-            // console.log("ret: ", ret);
-            // console.log("$input: ", $input);
-            // console.log("errorMessage: ", errorMessage);
 
             var $parent = $input.parent();
             var $tsText = $parent.find(".ts_text");
             var $errorText = $parent.find(".error_text");
+            var $successText = $parent.find(".success_text");
+            if ($successText.length < 1) {
+                $successText=$('<span class="success_text"><span class="nova-icon-xs nova-icon-success"></span></span>')
+                $parent.append($successText)
+            }
 
             if (ret) {
-                $errorText.hide();
-            } else {
                 $tsText.hide();
-                $errorText.html(errorMessage);
-                $errorText.show();
+                $errorText.hide();
+                $successText.css("display", "inline-block");
+            } else {
+                $successText.hide();
+                $tsText.hide();
+                $errorText.html('<span class="nova-icon-xs nova-icon-error"></span>' + errorMessage);
+                $errorText.css("display", "inline-block");
             }
 
         }
