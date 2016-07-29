@@ -27,8 +27,8 @@ $(function () {
                 "required-message": "非空校验，自定义报错内容。"
             },
             ".JS_chinese_and_english": {
-                "chineseAndEnglish": true,
-                "chineseAndEnglish-message": "请输入姓名。"
+                "chinese-and-english": true,
+                "chinese-and-english-message": "请输入姓名。"
             },
             ".JS_chinese": {
                 "required": true,
@@ -44,7 +44,9 @@ $(function () {
                 "required": true,
                 "required-message": "请输入手机号码。",
                 "mobile": true,
-                "mobile-message": "手机号码必须为11位的数字，请重新输入。"
+                "mobile-message": "手机号码必须为11位的数字，请重新输入。",
+                "mobile-strict": true,
+                "mobile-strict-message": '暂不支持您输入的号码段，请联系驴妈妈客服<span class="c_f60">1010-6060</span>进行反馈'
             },
             ".JS_email": {
                 "required": true,
@@ -82,7 +84,7 @@ $(function () {
             var $errorText = $parent.find(".error_text");
             var $successText = $parent.find(".success_text");
             if ($successText.length < 1) {
-                $successText=$('<span class="success_text"><span class="nova-icon-xs nova-icon-success"></span></span>')
+                $successText=$('<span class="nova-tip-form success_text"><span class="nova-icon-xs nova-icon-success"></span></span>')
                 $parent.append($successText)
             }
 

@@ -73,19 +73,23 @@
             var validateCallback = this.options.validateCallback;
 
             for (var ruleDetail in ruleDetails) {
-                var thatMessage = rules[rule][ruleDetail+"-message"];
+                var thatMessage = rules[rule][ruleDetail + "-message"];
 
                 var val = $input.val();
 
                 var method = this.methods[ruleDetail];
                 if (method && $.isFunction(method)) {
+                    var result = true;
 
-                    var result = method.call(this, val, $input);
+                    if (ruleDetail !== "required" && val.length === 0) {
+                        result = true;
+                    } else {
+                        result = method.call(this, val, $input);
+                    }
 
                     if (validateCallback && $.isFunction(validateCallback)) {
                         validateCallback.call(this, result, val, $input, thatMessage);
                     }
-
                     if (result === false) {
                         inputValidate = false;
                         break;
@@ -180,7 +184,7 @@
                 function idCard18Test(idNumber) {
 
                     //region 身份证是否是17位数字+一位校验位
-                    var idCard18Regular = /\d{17}[0-9X]/;
+                    var idCard18Regular = /^\d{17}[0-9X]$/;
 
                     var regularTestResult = idCard18Regular.test(idNumber);
                     if (!regularTestResult) {
@@ -225,7 +229,7 @@
                 function idCard15Test(idNumber) {
 
                     //region 身份证是否是15位数字
-                    var idCard15Regular = /\d{15}/;
+                    var idCard15Regular = /^\d{15}$/;
 
                     var regularTestResult = idCard15Regular.test(idNumber);
                     if (!regularTestResult) {
@@ -270,6 +274,27 @@
                 }
                 return false;
 
+            },
+            "chinese-and-english": function (value, element) {
+                return /^[a-zA-Z\u4e00-\u9fa5\s]+$/.test(value);
+            },
+            chinese: function (value, element) {
+                return /^[\u4e00-\u9fa5]+$/.test(value);
+            },
+            english: function (value, element) {
+                return /^[a-zA-Z\s]+$/.test(value);
+            },
+            mobile: function (value, element) {
+                return /^\d{11}$/.test(value);
+            },
+            "mobile-strict": function (value, element) {
+                return /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17\d{1})|(18([0-4]|[5-9])))\d{8}$/.test(value);
+            },
+            zip: function (value, element) {
+                return /^\d{6}$/.test(value);
+            },
+            address: function (value) {
+                return value.length >= 5;
             }
         }
 
