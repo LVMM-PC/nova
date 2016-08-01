@@ -15,7 +15,9 @@
     }
 
     var $document = $(document);  //文档
-    var $body = $("body");  //body
+    var englishRegExp = /^[a-zA-Z\s]+$/;
+    var chineseRegExp = /^[\u4e00-\u9fa5]+$/;
+    var chineseAndEnglishRegExp = /^[a-zA-Z\u4e00-\u9fa5\s]+$/;
 
     /**
      * 工厂类
@@ -31,7 +33,18 @@
         target: "body",  //校验区域
         triggerEvent: "change",  //默认改变触发
         rules: {},
-        validateCallback: null
+        validateCallback: null,
+        messages: {
+            default: "格式错误",
+            required: "必须填写。",
+            "chinese-and-english": "请输入中文或英文。",
+            chinese: "请输入中文。",
+            english: "请输入英文。",
+            mobile: '暂不支持您输入的号码段，请联系驴妈妈客服<span class="c_f60">1010-6060</span>进行反馈',
+            email: "电子邮箱格式不正确，请重新输入。",
+            zip: "邮政编码只能为6位数字，请重新输入。",
+            idcard: "请输入正确的身份证号码。"
+        }
     };
 
     /**
@@ -60,7 +73,12 @@
         init: function (options) {
             this.options = options;
             this.defaults = Factory.defaults;
-
+            this.$target = $(options.target);
+            var expandMethods = options.expandMethods;
+            for (var expandMethod in expandMethods) {
+                this.addMethod(expandMethod, expandMethods[expandMethod]);
+            }
+            this.$firstError = null;
             this.bindEvent();
         },
 
@@ -70,27 +88,57 @@
             var inputValidate = true;
 
             var rules = this.options.rules;
+            var messages = this.options.messages;
+            var message = this.options.messages.default;
             var validateCallback = this.options.validateCallback;
 
+            var val = $input.val();
             for (var ruleDetail in ruleDetails) {
-                var thatMessage = rules[rule][ruleDetail + "-message"];
 
-                var val = $input.val();
+                var defaultMessage = messages[ruleDetail];
+                if (defaultMessage) {
+                    message = defaultMessage;
+                }
+                var ruleMessage = rules[rule][ruleDetail + "-message"];
+                if (ruleMessage) {
+                    message = ruleMessage;
+                }
 
                 var method = this.methods[ruleDetail];
+                var complexMethod = this.complexMethods[ruleDetail];
+                var result = true;
+
                 if (method && $.isFunction(method)) {
-                    var result = true;
+
+                    //参数
+                    var parameter = rules[rule][ruleDetail];
+
 
                     if (ruleDetail !== "required" && val.length === 0) {
-                        result = true;
+
                     } else {
-                        result = method.call(this, val, $input);
+                        result = method.call(this, val, $input, parameter);
                     }
 
                     if (validateCallback && $.isFunction(validateCallback)) {
-                        validateCallback.call(this, result, val, $input, thatMessage);
+                        validateCallback.call(this, result, val, $input, message);
                     }
                     if (result === false) {
+                        inputValidate = false;
+                        break;
+                    }
+
+                }
+                if (complexMethod && $.isFunction(complexMethod)) {
+                    var error = true;
+
+                    error = complexMethod.call(this, val, $input, parameter);
+
+                    if (validateCallback && $.isFunction(validateCallback)) {
+                        validateCallback.call(this, error == true, val, $input, error);
+                    }
+
+                    if (error !== true) {
                         inputValidate = false;
                         break;
                     }
@@ -110,7 +158,7 @@
             for (var rule in rules) {
                 (function (rule) {
 
-                    $document.on("change", rule, function () {
+                    self.$target.on("change", rule, function () {
                         var $input = $(this);
                         var ruleDetails = rules[rule];
 
@@ -124,6 +172,7 @@
         //获取是否验证通过
         getValidate: function () {
             var rules = this.options.rules;
+            this.$firstError = null;
 
             var isThatAllRight = true;
 
@@ -140,6 +189,11 @@
                     }
 
                 }
+
+                if (isThatAllRight === false && !this.$firstError) {
+                    this.$firstError = $input;
+                }
+
             }
 
             return isThatAllRight;
@@ -148,19 +202,23 @@
         //验证方法
         methods: {
             //必填
-            required: function (value, element) {
+            required: function (value, $element) {
                 return value.length > 0;
             },
+            //最大不能超过
+            maxlength: function (value, $element, parameter) {
+                return value.length <= parameter;
+            },
+            //最小不能低于
+            minlength: function (value, $element, parameter) {
+                return value.length >= parameter;
+            },
             //邮箱
-            email: function (value, element) {
-                // From https://html.spec.whatwg.org/multipage/forms.html#valid-e-mail-address
-                // Retrieved 2014-01-14
-                // If you have a problem with this implementation, report a bug against the above spec
-                // Or use custom methods to implement your own email validation
-                return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value);
+            email: function (value, $element) {
+                return /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value);
             },
             //身份证
-            idCard: function (value, element) {
+            "idcard": function (value, $element) {
 
                 function calcChecksum(rid) {
                     var arr = rid.split('').reverse();
@@ -275,27 +333,50 @@
                 return false;
 
             },
-            "chinese-and-english": function (value, element) {
-                return /^[a-zA-Z\u4e00-\u9fa5\s]+$/.test(value);
+            //中英文
+            "chinese-and-english": function (value, $element) {
+                return chineseAndEnglishRegExp.test(value);
             },
-            chinese: function (value, element) {
-                return /^[\u4e00-\u9fa5]+$/.test(value);
+            //中文
+            chinese: function (value, $element) {
+                return chineseRegExp.test(value);
             },
-            english: function (value, element) {
-                return /^[a-zA-Z\s]+$/.test(value);
+            //英文
+            english: function (value, $element) {
+                return englishRegExp.test(value);
             },
-            mobile: function (value, element) {
-                return /^\d{11}$/.test(value);
-            },
-            "mobile-strict": function (value, element) {
+            //中国大陆手机号
+            mobile: function (value, $element) {
                 return /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17\d{1})|(18([0-4]|[5-9])))\d{8}$/.test(value);
             },
-            zip: function (value, element) {
+            //中国大陆邮政编码
+            zip: function (value, $element) {
                 return /^\d{6}$/.test(value);
-            },
-            address: function (value) {
-                return value.length >= 5;
             }
+        },
+
+        //复杂验证方法
+        complexMethods: {
+            //护照
+            "pass-port-name": function (value, $element) {
+                if (/^([a-zA-Z])+\/+([a-zA-Z])+$/.test(value)) {
+                    return true;
+                }
+
+                if (!chineseAndEnglishRegExp.test(value)) {
+                    return '姓名只能包含汉字、字母和空格，请重新输入';
+                }
+
+                if (englishRegExp.test(value)) {
+                    return '英文姓名请用“/”分割';
+                }
+
+                return true;
+            }
+        },
+        //添加验证方法
+        addMethod: function (name, method) {
+            this.complexMethods[name] = method;
         }
 
     };
