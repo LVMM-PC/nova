@@ -265,7 +265,7 @@ $(function () {
 
                         if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
                             //hide
-                        }else if (!self.wrap.is(".ui-calendar-mini")) {
+                        } else if (!self.wrap.is(".ui-calendar-mini")) {
                             $hover.show();
                         }
 
@@ -605,7 +605,7 @@ $(function () {
 
                         if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
                             //hide
-                        }else if (!self.wrap.is(".ui-calendar-mini")) {
+                        } else if (!self.wrap.is(".ui-calendar-mini")) {
                             $hover.show();
                         }
 
@@ -709,5 +709,14 @@ $(function () {
         minLimit: "1990-06",
         maxLimit: "2017-06"
     });
+
+    $(".bigChange").on("click", function () {
+        var $this = $(this);
+        var dateStr = $this.html();
+        var date = lv.calendar.getDateFromFormattedString(dateStr, "yyyy-MM");
+        myBigCalendar.now.setTime(+date);
+        myBigCalendar.render();
+        myBigCalendar.bindEvent();
+    })
 
 });

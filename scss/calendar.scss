@@ -13,7 +13,7 @@
   .monthbg {
     display: none;
   }
-  //font-family: $microsoft-yahei;
+
   @include sans-serif;
   background-color: #fff;
   position: relative;
@@ -254,7 +254,8 @@
     }
     .calbox {
       border: 2px solid #e3e3e3;
-      //overflow: hidden;
+      border-top: none;
+      overflow: hidden;
     }
     .caltable {
       margin: -1px;

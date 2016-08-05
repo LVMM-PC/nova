@@ -25,7 +25,7 @@
 
 .ui-calendar .month-loading { left: 0; top: 0; right: 0; bottom: 0; background: #fff url(http://pic.lvmama.com/img/new_v/ui_scrollLoading/loadingGIF46px.gif) no-repeat center center; position: absolute; overflow: hidden; font-size: 200px; line-height: 100%; text-align: center; display: none; }
 
-.ui-calendar table { position: relative; font-family: "Arial", "PingFang SC", "SimSun", serif; *font-family: "SimSun", serif; }
+.ui-calendar table { position: relative; font-family: "Arial", "PingFang SC", "SimSun", sans-serif; *font-family: "SimSun", sans-serif; }
 
 .ui-calendar thead { background-color: #f5f5f5; }
 
@@ -91,7 +91,7 @@
 
 .ui-calendar-big[data-float="true"][data-bimonthly="true"] [data-offset="0"] .calbox { border-right: none; }
 
-.ui-calendar-big[data-float="true"][data-bimonthly="true"] .calbox { border: 2px solid #e3e3e3; }
+.ui-calendar-big[data-float="true"][data-bimonthly="true"] .calbox { border: 2px solid #e3e3e3; border-top: none; overflow: hidden; }
 
 .ui-calendar-big[data-float="true"][data-bimonthly="true"] .caltable { margin: -1px; }
 
@@ -384,7 +384,7 @@
 .ui-calendar-groupon[data-float][data-bimonthly] [data-offset="0"] .caltitle { width: 566px; }
 
 /*endregion*/
-.calhover { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); font-family: "Arial", "PingFang SC", "SimSun", serif; *font-family: "SimSun", serif; display: none; color: #666666; border: 1px solid #cccccc; background: #FFFFFF; position: absolute; padding: 10px 10px 4px 10px; *margin-left: -1px; *margin-top: -1px; }
+.calhover { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); font-family: "Arial", "PingFang SC", "SimSun", sans-serif; *font-family: "SimSun", sans-serif; display: none; color: #666666; border: 1px solid #cccccc; background: #FFFFFF; position: absolute; padding: 10px 10px 4px 10px; *margin-left: -1px; *margin-top: -1px; }
 
 .calhover .triangle { width: 11px; height: 7px; display: block; position: absolute; margin: 0; top: -7px; left: 36px; bottom: auto; background: url(http://pic.lvmama.com/img/lv/calendar.png) no-repeat -140px 0; pointer-events: none; border: none; }
 

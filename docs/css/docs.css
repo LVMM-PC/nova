@@ -309,6 +309,21 @@ h4 {
     margin-left: 30px;
 }
 
+.reference {
+    font-family: SimSun, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.reference p {
+    margin: 10px 0;
+}
+
+.reference li {
+    list-style: disc;
+    margin-left: 20px;
+}
+
 blockquote {
     background: #EEEEEE;
     padding: 5px;
