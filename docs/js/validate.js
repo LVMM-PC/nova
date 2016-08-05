@@ -153,15 +153,15 @@ $(function () {
         var $firstError = $(".nova-tip-form.error_text:visible:first");
         var $firstErrorInput = $firstError.siblings(":input");
 
+        $firstErrorInput.focus();
+
         //滚动至错误处
         if ($firstErrorInput.length > 0) {
 
             var top = $firstErrorInput.offset().top;
             $("html,body").stop(false, true).animate({
                 "scrollTop": top
-            }, 100, function () {
-                $firstErrorInput.focus();
-            });
+            }, 100);
         }
 
         console.log(validated);
