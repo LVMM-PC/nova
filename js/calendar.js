@@ -685,15 +685,15 @@
                 this.bindEvent();
                 $(options.trigger).append(this.wrap)
             } else {  //浮动日历
-                $(options.trigger).off(options.triggerEvent, this.triggerEventHandler);
-                $(options.trigger).on(options.triggerEvent, {self: this}, this.triggerEventHandler);
+                $(document).off(options.triggerEvent, options.trigger, this.triggerEventHandler);
+                $(document).on(options.triggerEvent, options.trigger, {self: this}, this.triggerEventHandler);
                 this.triggerBlur();
             }
         },
 
         unLoadCal: function () {
             var options = this.options;
-            $(options.trigger).off(options.triggerEvent, this.triggerEventHandler);
+            $(document).off(options.triggerEvent, options.trigger, this.triggerEventHandler);
             this.unBindEvent();
         },
 

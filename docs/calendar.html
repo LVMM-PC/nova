@@ -117,7 +117,7 @@
 
     <h3>日历5 小日历控件浮层</h3>
     <div class="section">
-        <input type="text" id="floatSmallInput" readonly="readonly" value="2016-07-28">
+        <input type="text" class="floatSmallInput" readonly="readonly" value="2016-07-28">
         <span id="floatSmallText"></span>
         <p>
             <a href="calendar/float-small-calendar.html" target="_blank">调用文档</a>
@@ -224,7 +224,7 @@
 <script src="js/navigation.js"></script>
 <script>
     $(function () {
-        $("#floatSmallInput").click();
+        $(".floatSmallInput").click();
 
         var $ajaxCalendarBox = $("#ajaxCalendarBox");
 
@@ -242,12 +242,18 @@
 
         setTimeout(function () {
 
-            for(var i=0;i<10;i++){
+            for (var i = 0; i < 10; i++) {
                 $ajaxCalendarBox.append("<a class='ajaxCalendar'>test</a> ");
             }
         }, 100)
 
 
+        setTimeout(function () {
+
+            var $input = $('<input type="text" class="floatSmallInput" readonly="readonly" value="2016-07-28">');
+            $("#floatSmallText").before($input)
+
+        }, 1000);
     })
 </script>
 </body>

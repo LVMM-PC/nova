@@ -335,7 +335,7 @@ $(function () {
 
     var floatSmallCalendar = lv.calendar({
         autoRender: false,
-        trigger: "#floatSmallInput",
+        trigger: ".floatSmallInput",
         triggerEvent: "click",
         template: "small",
 
@@ -413,7 +413,7 @@ $(function () {
         cascading: true
     });
 
-    $("#floatSmallInput").on("change", function () {
+    $(".floatSmallInput").on("change", function () {
         $("#floatSmallText").html($(this).val());
     });
 
