@@ -81,8 +81,7 @@
   }
   table {
     position: relative;
-    //font-family: $simsun;
-    @include serif;
+    @include sans-serif;
   }
   thead {
     background-color: #f5f5f5;
@@ -338,6 +337,12 @@
     }
     .caldate:hover {
       width: 79px;
+    }
+    .notThisMonth.caldate:hover {
+      background-color: #fffaee;
+    }
+    .notThisMonth.caldisabled:hover {
+      background-color: #fbfbfb;
     }
     .calmonth[data-offset='0'] {
       width: 561px;
@@ -699,7 +704,7 @@
     height: 30px;
     margin: 5px 3px 0 0;
     color: #666666;
-    font-family: $serif;
+    @include sans-serif;
   }
   .cal-time-input {
     width: 48px;
@@ -776,7 +781,7 @@
       background-color: transparent;
     }
     .title {
-      font-family: $serif;
+      @include sans-serif;
       width: 123px;
       height: 24px;
       line-height: 24px;
@@ -984,8 +989,7 @@
 
 .calhover {
   @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
-  //font-family: $simsun;
-  @include serif;
+  @include sans-serif;
   display: none;
   color: #666666;
   border: 1px solid #cccccc;
@@ -1061,7 +1065,7 @@
 .cal-number-of-days {
   @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
   display: none;
-  *font-family: SimSun, sans-serif;
+  @include sans-serif;
   pointer-events: none;
   position: absolute;
   background: #ffffff;

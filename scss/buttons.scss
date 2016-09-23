@@ -222,7 +222,7 @@ button.btn-lg {
   padding: 0 14px;
   font-size: 12px;
   //font-family: $simsun;
-  @include serif;
+  @include sans-serif;
 }
 
 input[type="button"].btn-sm,
@@ -239,7 +239,7 @@ button.btn-sm {
   padding: 0 9px;
   font-size: 12px;
   //font-family: $simsun;
-  @include serif;
+  @include sans-serif;
 }
 
 input[type="button"].btn-xs,

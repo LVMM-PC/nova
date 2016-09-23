@@ -15,9 +15,12 @@
     }
 
     var $document = $(document);  //文档
+    var zipRegExp = /^\d{6}$/;
     var englishRegExp = /^[a-zA-Z\s]+$/;
     var chineseRegExp = /^[\u4e00-\u9fa5]+$/;
     var chineseAndEnglishRegExp = /^[a-zA-Z\u4e00-\u9fa5\s]+$/;
+    var emailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    var phoneRegExp = /^((1[3|7|8]\d)|(14[5|7])|(15([0-3]|[5-9])))\d{8}$/;
 
     /**
      * 工厂类
@@ -92,7 +95,7 @@
             var message = this.options.messages.default;
             var validateCallback = this.options.validateCallback;
 
-            var val = $input.val();
+            var val = $.trim($input.val());
             for (var ruleDetail in ruleDetails) {
 
                 var defaultMessage = messages[ruleDetail];
@@ -215,7 +218,7 @@
             },
             //邮箱
             email: function (value, $element) {
-                return /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value);
+                return emailRegExp.test(value);
             },
             //身份证
             "idcard": function (value, $element) {
@@ -347,11 +350,11 @@
             },
             //中国大陆手机号
             mobile: function (value, $element) {
-                return /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17\d{1})|(18([0-4]|[5-9])))\d{8}$/.test(value);
+                return phoneRegExp.test(value);
             },
             //中国大陆邮政编码
             zip: function (value, $element) {
-                return /^\d{6}$/.test(value);
+                return zipRegExp.test(value);
             }
         },
 
