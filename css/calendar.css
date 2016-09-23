@@ -131,6 +131,10 @@
 
 .ui-calendar-big[data-bimonthly="false"] .caldate:hover { width: 79px; }
 
+.ui-calendar-big[data-bimonthly="false"] .notThisMonth.caldate:hover { background-color: #fffaee; }
+
+.ui-calendar-big[data-bimonthly="false"] .notThisMonth.caldisabled:hover { background-color: #fbfbfb; }
+
 .ui-calendar-big[data-bimonthly="false"] .calmonth[data-offset='0'] { width: 561px; }
 
 .ui-calendar-big[data-bimonthly="true"][data-float="false"] .calmonth { margin-bottom: -1px; }

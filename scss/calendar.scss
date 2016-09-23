@@ -338,6 +338,12 @@
     .caldate:hover {
       width: 79px;
     }
+    .notThisMonth.caldate:hover {
+      background-color: #fffaee;
+    }
+    .notThisMonth.caldisabled:hover {
+      background-color: #fbfbfb;
+    }
     .calmonth[data-offset='0'] {
       width: 561px;
 

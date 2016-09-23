@@ -205,6 +205,10 @@
         </p>
     </div>
 
+    <div class="section" id="ajaxCalendarBox">
+
+    </div>
+
     <h2>评论</h2>
     <!-- 多说评论框 start -->
     <div class="ds-thread" data-thread-key="calendar" data-title="NOVA"
@@ -220,7 +224,30 @@
 <script src="js/navigation.js"></script>
 <script>
     $(function () {
-        $("#floatSmallInput").click()
+        $("#floatSmallInput").click();
+
+        var $ajaxCalendarBox = $("#ajaxCalendarBox");
+
+        var ajaxCalendarCalendar = lv.calendar({
+            autoRender: false,
+            trigger: ".ajaxCalendar",
+            triggerEvent: "click",
+            template: "small",
+
+            selectDateCallback: function (self, $this) {
+                self.$trigger.change();
+            }
+
+        });
+
+        setTimeout(function () {
+
+            for(var i=0;i<10;i++){
+                $ajaxCalendarBox.append("<a class='ajaxCalendar'>test</a> ");
+            }
+        }, 100)
+
+
     })
 </script>
 </body>

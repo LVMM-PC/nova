@@ -393,6 +393,7 @@ $(function () {
             self.$trigger.change();  //手动触发输入框的change事件
             var dayOfWeek = self.getDayOfWeek();  //获取选中日期的星期（如果是节日或当天，则显示相应的信息）
 
+            console.log(dayOfWeek)
             console.log(this.options.trigger)
 
         }
