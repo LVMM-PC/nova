@@ -199,6 +199,7 @@
         showNumberOfDays: false,  //是否显示级联间隔日期
         isBirthday: false,  //是否是生日日历
         hasTime: false,  //是否含时间
+        clickDocumentHide: true,  //是点击
         festival: {
             '2016-01-01': {
                 name: '元旦',
@@ -711,10 +712,12 @@
         },
 
         destroyHandler: function (e) {
+        	
             var $target = $(e.target);
             var self = e.data.self;
             var $calendar = $target.parents(".ui-calendar");
-            if ($calendar.length <= 0) {
+            var options = self.options;
+            if ($calendar.length <= 0 && options.clickDocumentHide == true ) {
                 self.destroy();
             }
         },
@@ -1182,6 +1185,7 @@
             var $this = $(this);
             var selectedMonth = $this.attr("data-month");
             var month = parseInt(selectedMonth, 10);
+            self.now.setDate(1);
             self.now.setMonth(month);
             self.render();
             self.bindEvent();
@@ -1200,6 +1204,7 @@
             if (minLimitDate && nowYear == minLimitDate.getFullYear()) {
                 var minMonth = minLimitDate.getMonth();
                 if (nowMonth < minMonth) {
+                    this.now.setDate(1);
                     this.now.setMonth(minMonth)
                 }
             }
@@ -1207,6 +1212,7 @@
             if (maxLimitDate && nowYear == maxLimitDate.getFullYear()) {
                 var maxMonth = maxLimitDate.getMonth();
                 if (nowMonth > maxMonth) {
+                    this.now.setDate(1);
                     this.now.setMonth(maxMonth)
                 }
             }
@@ -1770,6 +1776,7 @@
         monthChangeHandler: function (e) {
             var self = e.data.self;
             var monthOffset = e.data.monthOffset;
+            self.now.setDate(1);
             self.now = Calendar.monthOffset(self.now, monthOffset);
 
             self.render();
@@ -1787,6 +1794,7 @@
                 this.now.setFullYear(year);
             }
             if (typeof month === "number") {
+                this.now.setDate(1);
                 this.now.setMonth(month);
             }
             this.render();
