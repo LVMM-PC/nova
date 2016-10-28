@@ -457,9 +457,28 @@ $(function () {
         wrapClass: "ui-calendar-blue"
     });
 
+    //缓存
+    var distributionCaches = {};
+
+    //清缓存
+    $(document).on("click","#distributionClearCache", function () {
+        distributionCaches = {};
+        console.log("缓存已经清空");
+    });
+
+    /**
+     * 缓存类
+     * @param data 价格数据
+     * @param addDateTime 缓存数据的时间
+     * @constructor
+     */
+    function Cache(data, addDateTime) {
+        this.data = data;
+        this.addDateTime = addDateTime;
+    }
+
     function distributionFillData() {
         var self = this;
-        var url = "json/calendar-data.json";
 
         function getStoreHTML(inventory, oversold) {
             var html = "";
@@ -487,14 +506,14 @@ $(function () {
             return $hover;
         }
 
-        function setDate(data) {
+        function setDate(data, index) {
 
             if (!data) {
                 return false;
             }
 
-            var $allTd = self.wrap.find('td[data-date-map]');
-            $allTd.children().addClass("caldisabled");
+            // var $allTd = self.wrap.find('td[data-date-map]');
+            // $allTd.children().addClass("caldisabled");
 
             data.forEach(function (row) {
 
@@ -540,7 +559,10 @@ $(function () {
                 var festival;
                 var route;
                 var sale;
-                self.wrap.on("mouseleave", "[data-date-map]", function () {
+
+                var $month = self.wrap.find(".calmonth[data-offset=" + index + "]");
+
+                $month.on("mouseleave", "[data-date-map]", function () {
                     var $hover = $(".calhover");
                     $hover.hide();
                     $hover.css({
@@ -548,7 +570,7 @@ $(function () {
                         top: 0
                     });
                 });
-                self.wrap.on("mouseenter", "[data-date-map]", function () {
+                $month.on("mouseenter", "[data-date-map]", function () {
                     var hasOnce = false;
                     var $this = $(this);
 
@@ -631,27 +653,72 @@ $(function () {
             })();
         }
 
-        //this.loading();
         //分销加载
-        self.wrap.addClass("distribution-loading");
-        $.ajax({
-            url: url,
-            dataType: "json",
-            async: true
-        }).done(function (data) {
+        var yearAndMonthStr = lv.calendar.dateFormat(self.now, "yyyy-MM");
+        var yearAndMonthNext = lv.calendar.monthOffset(self.now, 1);
+        yearAndMonthNextStr = lv.calendar.dateFormat(yearAndMonthNext, "yyyy-MM");
 
 
-            var $allTd = self.wrap.find('td[data-date-map]');
+        //加载当前月份与下一个月的数据
+        loadSingleMonthDataRoute(yearAndMonthStr, 0);
+        loadSingleMonthDataRoute(yearAndMonthNextStr, 1);
+
+        //加载路由
+        function loadSingleMonthDataRoute(yearAndMonthStr, index) {
+
+            var $month = self.wrap.find(".calmonth[data-offset=" + index + "]");
+            var $allTd = $month.find('td[data-date-map]');
             $allTd.children().addClass("caldisabled");
 
-            setTimeout(function () {
-                setDate(data);
-                //self.loaded();
-                self.wrap.removeClass("distribution-loading");
-            }, 500);
-        }).fail(function (error) {
-            //TODO 错误处理
-        })
+            var yearAndMonthData = distributionCaches[yearAndMonthStr];
+            if (yearAndMonthData) {
+                //如果数据已经缓存
+
+                //15分钟
+                var fifteenMinute = 15 * 60 * 1000;
+                if (fifteenMinute <= new Date() - yearAndMonthData.addDateTime) {
+                    //如果数据已经过期
+                    loadSingleMonthData(yearAndMonthStr, index)
+                } else {
+                    setDate(yearAndMonthData.data, index);
+
+                }
+            } else {
+                //如果数据未缓存
+                loadSingleMonthData(yearAndMonthStr, index)
+            }
+        }
+
+
+        /**
+         * 加载单月数据
+         * @param yearAndMonth
+         */
+        function loadSingleMonthData(yearAndMonth, index) {
+
+            var $month = self.wrap.find(".calmonth[data-offset=" + index + "]");
+            $month.addClass("distribution-loading");
+
+            $.ajax({
+                url: "json/calendar-data" + "-" + yearAndMonth + ".json",
+                dataType: "json",
+                async: true
+            }).done(function (data) {
+                setTimeRandom = ~~(Math.random() * 500);
+                setTimeout(function () {
+                    setDate(data, index);
+                    $month.removeClass("distribution-loading");
+
+                    //缓存数据
+                    distributionCaches[yearAndMonth] = new Cache(data, new Date());
+                }, setTimeRandom);
+            }).fail(function (error) {
+                //TODO 错误处理
+                //无数据
+                $month.removeClass("distribution-loading")
+            })
+        }
+
     }
 
     //特卖会
@@ -776,7 +843,6 @@ $(function () {
 
             var sectionSelectStartStr = nova.calendar.dateFormat(this.sectionSelectStart, this.options.dateFormat)
             var sectionSelectEndStr = nova.calendar.dateFormat(this.sectionSelectEnd, this.options.dateFormat)
-
 
 
             console.log(sectionSelectStartStr, sectionSelectEndStr)
