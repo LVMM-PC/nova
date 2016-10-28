@@ -274,6 +274,11 @@ $(function () {
                             top: top
                         });
 
+                        var triangleLeft = ~~($this.offset().left - left + $this.width() / 2);
+                        $hover.find(".triangle").css({
+                            left: triangleLeft
+                        })
+
                         if (self.options.zIndex) {
                             $hover.css("zIndex", self.options.zIndex + 1);
                         }
@@ -614,6 +619,11 @@ $(function () {
                             left: left,
                             top: top
                         });
+
+                        var triangleLeft = ~~($this.offset().left - left + $this.width() / 2);
+                        $hover.find(".triangle").css({
+                            left: triangleLeft
+                        })
                     }
 
                 });
@@ -621,16 +631,24 @@ $(function () {
             })();
         }
 
-        this.loading();
+        //this.loading();
+        //分销加载
+        self.wrap.addClass("distribution-loading");
         $.ajax({
             url: url,
             dataType: "json",
             async: true
         }).done(function (data) {
-            setDate(data);
+
+
+            var $allTd = self.wrap.find('td[data-date-map]');
+            $allTd.children().addClass("caldisabled");
+
             setTimeout(function () {
-                self.loaded();
-            }, 200);
+                setDate(data);
+                //self.loaded();
+                self.wrap.removeClass("distribution-loading");
+            }, 500);
         }).fail(function (error) {
             //TODO 错误处理
         })
@@ -754,6 +772,19 @@ $(function () {
         template: "big",
         triggerEvent: "click",
         bimonthly: true,
+        selectDateCallback: function () {
+
+            var sectionSelectStartStr = nova.calendar.dateFormat(this.sectionSelectStart, this.options.dateFormat)
+            var sectionSelectEndStr = nova.calendar.dateFormat(this.sectionSelectEnd, this.options.dateFormat)
+
+
+
+            console.log(sectionSelectStartStr, sectionSelectEndStr)
+
+        },
+        cancelDateCallback: function () {
+            //console.log("未")
+        },
         sourceFn: fillDataSection  //填充时间价格表
     });
 
@@ -937,8 +968,6 @@ $(function () {
                             var dateObj = lv.calendar.getDateFromFormattedString(date, self.options.dateFormat);
                             var canSectionSelect = self.canSectionSelect($this, self, dateObj)
 
-                            console.log("canSectionSelect", canSectionSelect)
-
                             if (canSectionSelect == 2) {
                                 var $canNotSectionSelect = $('<p>该日期区间不可预订</p>')
                                 $hover.append($canNotSectionSelect)
@@ -947,9 +976,7 @@ $(function () {
                                 var $canNotSelect = $('<p>该日期不可预订</p>')
                                 $hover.append($canNotSelect)
                                 hasOnce = true;
-                                console.log("3")
                             } else if (canSectionSelect == 4) {
-                                console.log("4")
 
                             } else {
                                 var night = lv.calendar.getDaysBetween(self.sectionSelectStart, dateObj)

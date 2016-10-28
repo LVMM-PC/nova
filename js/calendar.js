@@ -1530,8 +1530,8 @@
 
                     self.sectionSelectFlag = true;
                     self.sectionSelectEnd = null;
-
                     self.sectionSelectStart = date;
+                    self.sectionSelectEnd = Calendar.dateOffset(date, 1)
                 }
 
 
@@ -1611,7 +1611,7 @@
 
             function runCancelDateCallback() {
                 if (cancelDateCallback) {
-                    selectDateCallback.call(self, self, $this);
+                    cancelDateCallback.call(self, self, $this);
                 }
             }
 
@@ -1643,29 +1643,26 @@
                     //单日历区间选择
 
                     var canSelect = self.canSectionSelect($this, self, date);
-                    console.log("canSelect", canSelect)
 
                     if (canSelect == 1 || canSelect == 2) {
                         self.sectionSelectFlag = false;
-
                         self.sectionSelectEnd = date;
                     }
 
-                    if (canSelect == 3) {
-                        console.log("3")
-                        //self.sectionSelectFlag = false;
-                        //self.sectionSelectStart = null;
-                        //self.sectionSelectEnd = null;
+                    if (canSelect == 1||canSelect == 0||canSelect == 4) {
+                        runSelectDateCallback()
+                    } else {
+                        runCancelDateCallback()
                     }
 
                     //可选
                     if (canSelect == 4) {
-                        console.log("4")
                         self.sectionSelectFlag = true;
                         self.sectionSelectStart = date
+                        self.sectionSelectEnd = Calendar.dateOffset(date,1);
                     }
 
-                    self.renderSelected()
+                    self.renderSelected();
                     self.bindEvent();
 
                 } else {
