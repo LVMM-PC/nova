@@ -89,7 +89,7 @@
 
 .ui-calendar-big[data-float="true"][data-bimonthly="true"] { width: 928px; border: none; }
 
-.ui-calendar-big[data-float="true"][data-bimonthly="true"] .calmonth { width: auto; margin: 0; }
+.ui-calendar-big[data-float="true"][data-bimonthly="true"] .calmonth { width: 464px; margin: 0; }
 
 .ui-calendar-big[data-float="true"][data-bimonthly="true"] .caltitle { border: none; }
 
@@ -382,6 +382,8 @@
 /*endregion*/
 /*region 特卖会*/
 .ui-calendar-groupon[data-float][data-bimonthly] { width: 1127px; }
+
+.ui-calendar-groupon[data-float][data-bimonthly] .calmonth { width: 561px; }
 
 .ui-calendar-groupon[data-float][data-bimonthly] .caltable { margin: 0; }
 

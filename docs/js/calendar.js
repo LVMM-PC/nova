@@ -546,6 +546,7 @@ $(function () {
                     }
                     if (lineRouteName) {
                         var $lineRouteName = $('<div class="calroute">' + lineRouteName + '</div>');
+                        $calActive.find(".calroute").remove();
                         $calActive.append($lineRouteName);
                     }
 
@@ -704,7 +705,8 @@ $(function () {
                 dataType: "json",
                 async: true
             }).done(function (data) {
-                setTimeRandom = ~~(Math.random() * 500);
+                //模拟ajax延迟
+                setTimeRandom = ~~(Math.random() * 2000)+500;
                 setTimeout(function () {
                     setDate(data, index);
                     $month.removeClass("distribution-loading");

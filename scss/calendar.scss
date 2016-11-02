@@ -239,7 +239,7 @@
     width: 928px;
     border: none;
     .calmonth {
-      width: auto;
+      width: 464px;
       margin: 0;
     }
     .caltitle {
@@ -971,7 +971,9 @@
 .ui-calendar-groupon {
   &[data-float][data-bimonthly] {
     width: 1127px;
-
+    .calmonth {
+      width: 561px;
+    }
     .caltable {
       margin: 0;
     }
