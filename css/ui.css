@@ -1,0 +1,39 @@
+.nova-checkbox-label:hover .nova-checkbox { background-position: 0 -20px; }
+
+.nova-checkbox-label:hover .nova-checkbox.checked { background-position: 0 -40px; }
+
+.nova-checkbox { width: 13px; height: 13px; display: inline-block; background: url(../img/checkbox.png); background-position: 0 0; }
+
+.nova-checkbox.checked { background-position: 0 -40px; }
+
+.nova-radio-label:hover .nova-radio { background-position: 0 -80px; }
+
+.nova-radio-label:hover .nova-radio.checked { background-position: 0 -100px; }
+
+.nova-radio { width: 14px; height: 14px; display: inline-block; background: url(../img/checkbox.png); background-position: 0 -60px; }
+
+.nova-radio.checked { background-position: 0 -100px; }
+
+.nova-select { width: 188px; line-height: 28px; }
+
+.nova-select.opened { position: relative; }
+
+.nova-select.opened .nova-select-dropdown { display: block; }
+
+.nova-select.disabled { background-color: #cccccc; }
+
+.nova-select-toggle { width: 166px; padding: 0 10px; border: 1px solid #cccccc; }
+
+.nova-select-dropdown { margin-top: -1px; background-color: #fff; width: 186px; border: 1px solid #cccccc; max-height: 280px; overflow: auto; position: absolute; display: none; }
+
+.nova-select-optgroup-label { color: #999; }
+
+.nova-select-option, .nova-select-optgroup-label { padding: 0 10px; }
+
+.nova-select-option.active { color: #ee3388; }
+
+.nova-select-option:hover { background-color: #fef2f9; }
+
+.nova-select-optgroup .nova-select-option { padding-left: 20px; }
+
+.nova-select-label { display: inline-block; }
