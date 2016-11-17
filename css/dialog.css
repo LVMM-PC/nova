@@ -1,0 +1,27 @@
+.nova-dialog, .nova-dialog-static { font-size: 12px; position: fixed; width: 418px; border: 1px solid #cccccc; background-color: #fff; color: #333333; box-shadow: 0 5px 14.25px 0.75px rgba(6, 0, 1, 0.15); }
+
+.nova-dialog.nova-dialog-moving, .nova-dialog-static.nova-dialog-moving { cursor: move; }
+
+.nova-dialog-close { cursor: pointer; position: absolute; top: 0; right: 0; width: 35px; height: 35px; }
+
+.nova-dialog-close i { display: block; margin: 10px 0 0 9px; width: 16px; height: 15px; background-image: url(//pic.lvmama.com/img/lv/dialog.png); background-position: 0 0; }
+
+.nova-dialog-close:hover i { background-position: -20px 0; }
+
+.nova-dialog-header { height: 35px; line-height: 35px; font-size: 14px; padding: 0 10px; border-bottom: 1px solid #cccccc; }
+
+.nova-dialog-body { padding: 30px 30px 25px 30px; line-height: 22px; }
+
+.nova-dialog-body iframe { width: 100%; height: 100%; }
+
+.nova-dialog-footer { font-size: 0; text-align: center; padding-bottom: 30px; }
+
+.nova-overlay { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: #000; opacity: 0.35; filter: alpha(opacify=35); }
+
+.nova-dialog-body-loading { text-align: center; }
+
+.nova-dialog-body-loading i { background-image: url(http://pic.lvmama.com/img/new_v/ui_scrollLoading/loadingGIF46px.gif); width: 46px; height: 46px; display: inline-block; margin: 0 auto; }
+
+.nova-dialog-custom .nova-dialog-body { padding: 0; }
+
+.nova-dialog-custom .nova-dialog-body-loading { padding: 30px 30px 25px 30px; }

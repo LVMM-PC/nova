@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
-$checkbox-bg: url(../img/checkbox.png);
+$ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
 
 .nova-checkbox-label {
+  margin-right: 10px;
   &:hover {
     .nova-checkbox {
       background-position: 0 -20px;
@@ -10,21 +11,49 @@ $checkbox-bg: url(../img/checkbox.png);
     .nova-checkbox.checked {
       background-position: 0 -40px;
     }
+    .nova-checkbox.disabled {
+      background-position: 0 0;
+    }
   }
 }
 
 .nova-checkbox {
+  vertical-align: top;
+  margin-top: 9px;
+  margin-right: 5px;
   width: 13px;
   height: 13px;
   display: inline-block;
-  background: $checkbox-bg;
+  background: $ui-bg;
   background-position: 0 0;
   &.checked {
     background-position: 0 -40px;
   }
+
+  &.disabled {
+    background-position: 0 0;
+  }
+}
+
+
+.nova-checkbox-label-orange {
+  .nova-checkbox {
+    &.checked {
+      background-position: -20px -40px;
+    }
+  }
+  &:hover {
+    .nova-checkbox {
+      background-position: -20px -20px;
+    }
+    .nova-checkbox.checked {
+      background-position: -20px -40px;
+    }
+  }
 }
 
 .nova-radio-label {
+  margin-right: 10px;
   &:hover {
     .nova-radio {
       background-position: 0 -80px;
@@ -32,17 +61,40 @@ $checkbox-bg: url(../img/checkbox.png);
     .nova-radio.checked {
       background-position: 0 -100px;
     }
+    .nova-radio.disabled {
+      background-position: 0 -60px;
+    }
   }
 }
 
 .nova-radio {
-  width: 14px;
-  height: 14px;
+  vertical-align: top;
+  margin-top: 9px;
+  margin-right: 5px;
+  width: 13px;
+  height: 13px;
   display: inline-block;
-  background: $checkbox-bg;
+  background: $ui-bg;
   background-position: 0 -60px;
   &.checked {
     background-position: 0 -100px;
+  }
+}
+
+.nova-radio-label-orange {
+
+  .nova-radio {
+    &.checked {
+      background-position: -20px -100px;
+    }
+  }
+  &:hover {
+    .nova-radio {
+      background-position: -20px -80px;
+    }
+    .nova-radio.checked {
+      background-position: -20px -100px;
+    }
   }
 }
 

@@ -16,61 +16,9 @@
     var $document = $(document);  //文档
 
     function Factory(options) {
-
         options = $.extend({}, Factory.defaults, options);
         return new UI(options);
     }
-
-    /*
-     <div class="nova-select">
-     <div class="nova-select-toggle"><em>北京市</em></div>
-     <div class="nova-select-dropdown">
-     <div class="nova-select-optgroup">
-     <div class="nova-select-optgroup-label">直辖市</div>
-     <div class="nova-select-option">北京市</div>
-     <div class="nova-select-option">天津市</div>
-     <div class="nova-select-option">上海市</div>
-     <div class="nova-select-option">重庆市</div>
-     </div>
-     <div class="nova-select-option">河北省</div>
-     <div class="nova-select-option">山西省</div>
-     <div class="nova-select-option">辽宁省</div>
-     <div class="nova-select-option">吉林省</div>
-     <div class="nova-select-option">黑龙江省</div>
-     <div class="nova-select-option">江苏省</div>
-     <div class="nova-select-option">浙江省</div>
-     <div class="nova-select-option">安徽省</div>
-     <div class="nova-select-option">福建省</div>
-     <div class="nova-select-option">江西省</div>
-     <div class="nova-select-option">山东省</div>
-     <div class="nova-select-option">河南省</div>
-     <div class="nova-select-option">湖北省</div>
-     <div class="nova-select-option">湖南省</div>
-     <div class="nova-select-option">广东省</div>
-     <div class="nova-select-option">海南省</div>
-     <div class="nova-select-option">四川省</div>
-     <div class="nova-select-option">贵州省</div>
-     <div class="nova-select-option">云南省</div>
-     <div class="nova-select-option">陕西省</div>
-     <div class="nova-select-option">甘肃省</div>
-     <div class="nova-select-option">青海省</div>
-     <div class="nova-select-option">台湾省</div>
-     <div class="nova-select-optgroup">
-     <div class="nova-select-optgroup-label">自治区</div>
-     <div class="nova-select-option">内蒙古自治区</div>
-     <div class="nova-select-option">广西壮族自治区</div>
-     <div class="nova-select-option">西藏自治区</div>
-     <div class="nova-select-option">宁夏回族自治区</div>
-     <div class="nova-select-option">新疆维吾尔自治区</div>
-     </div>
-     <div class="nova-select-optgroup">
-     <div class="nova-select-optgroup-label">特别行政区</div>
-     <div class="nova-select-option">香港特别行政区</div>
-     <div class="nova-select-option">澳门特别行政区</div>
-     </div>
-     </div>
-     </div>
-     */
 
     var template = {
         checkbox: '' +
@@ -249,6 +197,11 @@
                 } else {
                     $checkbox.removeClass("checked");
                 }
+
+                var disabled = $ele.prop("disabled");
+                if (disabled) {
+                    $checkbox.addClass("disabled");
+                }
             })
         },
 
@@ -268,6 +221,10 @@
                     $radio.addClass("checked");
                 } else {
                     $radio.removeClass("checked");
+                }
+                var disabled = $ele.prop("disabled");
+                if (disabled) {
+                    $radio.addClass("disabled");
                 }
             })
         },

@@ -5,6 +5,7 @@
 $(function () {
 
     var ui = nova.ui();
+    ui.render();
 
     $("#render").on("click", function () {
         ui.render();
