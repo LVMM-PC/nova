@@ -6,7 +6,7 @@
  * 1.0.0.0
  */
 
-(function (window, $, lv) {
+(function (window, $, lv, nova) {
 
     "use strict";
 
@@ -145,10 +145,16 @@
 
     //默认值
     Factory.defaults = {
+        sectionSelect: false,  //单个日历区间选择
         allowMutiSelected: false,  //是否支持多选
         triggerEvent: "click",  //默认点击触发
         date: "",  //初始化定位
         target: "body",  //日历控件加载DOM区域
+        //定位偏移
+        offsetAmount: {
+            top: 0,
+            left: 0
+        },
         //星期短标题
         weekShortTitle: {
             0: "日",
@@ -193,6 +199,7 @@
         monthPrev: 0,  //可翻页之前月份，-1为不限制
         dayNext: -1,  //可选后续天数，-1为不限制
         dayPrev: 0,  //可选之前天数，-1为不限制
+        dayDisableNext: 0,  //当前之后几天不可选择
         isTodayClick: true,  //当天是否可点击
         numberOfDays: "{{num}}晚",
         division: false,  //上下分月
@@ -290,7 +297,8 @@
             '2016-10-07': {
                 vacationName: '国庆节假期'
             }
-        }
+        },
+        cascadingEndNotShowStart: false  //级联第二个日历不显示第一个选中元素
     };
 
     /**
@@ -612,6 +620,7 @@
             } else {
                 switch (options.template) {
                     case "big":
+                        //大日历
                         template = bigTemplate;
                         break;
                     case "birthday":
@@ -685,15 +694,15 @@
                 this.bindEvent();
                 $(options.trigger).append(this.wrap)
             } else {  //浮动日历
-                $(options.trigger).off(options.triggerEvent, this.triggerEventHandler);
-                $(options.trigger).on(options.triggerEvent, {self: this}, this.triggerEventHandler);
+                $(document).off(options.triggerEvent, options.trigger, this.triggerEventHandler);
+                $(document).on(options.triggerEvent, options.trigger, {self: this}, this.triggerEventHandler);
                 this.triggerBlur();
             }
         },
 
         unLoadCal: function () {
             var options = this.options;
-            $(options.trigger).off(options.triggerEvent, this.triggerEventHandler);
+            $(document).off(options.triggerEvent, options.trigger, this.triggerEventHandler);
             this.unBindEvent();
         },
 
@@ -712,12 +721,11 @@
         },
 
         destroyHandler: function (e) {
-        	
             var $target = $(e.target);
             var self = e.data.self;
             var $calendar = $target.parents(".ui-calendar");
             var options = self.options;
-            if ($calendar.length <= 0 && options.clickDocumentHide == true ) {
+            if ($calendar.length <= 0 && options.clickDocumentHide == true) {
                 self.destroy();
             }
         },
@@ -815,13 +823,13 @@
          */
         getOffset: function () {
             var $trigger = this.$trigger;
-            var top = this.getInt($trigger.offset().top + $trigger.outerHeight(true));
-            var left = this.getInt($trigger.offset().left);
-            var offset = {
+            var offsetAmount = this.options.offsetAmount;
+            var top = this.getInt($trigger.offset().top + $trigger.outerHeight(false) + offsetAmount.top);
+            var left = this.getInt($trigger.offset().left + offsetAmount.left);
+            return {
                 top: top,
                 left: left
             };
-            return offset;
         },
 
         /**
@@ -1437,6 +1445,10 @@
                 self.hideNumberOfDays();
                 self.renderSelected(false, false);
             }
+
+            if (self.options.sectionSelect) {
+                self.renderSelected(false, false);
+            }
         },
 
         bindMouseOverHandler: function (e) {
@@ -1444,9 +1456,18 @@
             var self = e.data.self;
             var $this = $(this);
 
+            var dateStr = $this.attr("data-date-map");
+
             if (self.options.cascading) {
                 if (!$this.children().is(".nodate,.caldisabled")) {
-                    var dateStr = $this.attr("data-date-map");
+                    if (!self.options.cascadingEndNotShowStart) {
+                        self.renderSelected(dateStr, false);
+                    }
+                }
+            }
+
+            if (self.options.sectionSelect && self.sectionSelectFlag) {
+                if (!$this.children().is(".notThisMonth,.nodate")) {
                     self.renderSelected(dateStr, false);
                 }
             }
@@ -1487,6 +1508,89 @@
         },
 
         /**
+         * 是否可以点击区间
+         * @param td
+         * @param self
+         * @param date
+         * @returns {boolean}
+         */
+        canSectionSelect: function (td, self, date) {
+            var hasProductStr = td.attr("data-has-product");
+            var hasProduct = false;
+            if (hasProductStr == "true") {
+                hasProduct = true;
+            }
+
+            var canSelect = 0;
+
+            if (!self.sectionSelectFlag) {
+                //起始
+
+                if (hasProduct) {
+
+                    self.sectionSelectFlag = true;
+                    self.sectionSelectEnd = null;
+                    self.sectionSelectStart = date;
+                    self.sectionSelectEnd = Calendar.dateOffset(date, 1)
+                }
+
+
+            } else {
+                //结束
+
+                var middle;
+                var sectionSelectStart;
+                var sectionSelectEnd;
+                var middleStr;
+
+
+                if (+self.sectionSelectStart == +date) {
+                } else {
+                    if (self.sectionSelectStart > date) {
+
+                        if (hasProduct) {
+                            return 4;
+                        } else {
+                            return 3;
+                        }
+                        //交换
+                        //sectionSelectStart = date;
+                        //sectionSelectEnd = self.sectionSelectStart;
+
+                        //判断交换后入住是否合法
+                        // var dateStr = Calendar.dateFormat(date, self.options.dateFormat);
+                        // var $startDate = self.wrap.find('[data-date-map='+ dateStr +']')
+                        // if($startDate.attr("data-has-product")!=="true"){
+                        //     return false;
+                        // }
+
+                    } else {
+                        sectionSelectStart = self.sectionSelectStart;
+                        sectionSelectEnd = date;
+                    }
+
+                    canSelect = 1;
+                    middle = Calendar.dateOffset(sectionSelectStart, 1);
+                    while (middle < sectionSelectEnd) {
+                        middleStr = Calendar.dateFormat(middle, self.options.dateFormat);
+                        var $middle = self.wrap.find('[data-date-map=' + middleStr + ']');
+
+                        if ($middle.attr("data-has-product") !== "true") {
+                            canSelect = 2;
+                            break;
+                        }
+
+                        middle = Calendar.dateOffset(middle, 1);
+                    }
+
+                }
+
+
+            }
+
+            return canSelect;
+        },
+        /**
          * 日期选择句柄
          */
         bindSelectHandler: function (e) {
@@ -1507,19 +1611,23 @@
 
             function runCancelDateCallback() {
                 if (cancelDateCallback) {
-                    selectDateCallback.call(self, self, $this);
+                    cancelDateCallback.call(self, self, $this);
                 }
             }
+
             if ($this.children().first().is(".nodate,.caldisabled")) {
                 //不可用
-            } else if($this.children().is(".notThisMonth") && self.options.bimonthly) {
+            } else if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
                 //不可用
             } else {
                 var dateStr = $this.attr("data-date-map");
                 var format = self.options.dateFormat;
                 if (dateStr) {
                     var date = Calendar.getDateFromFormattedString(dateStr, format);
-                    self.now = date;
+
+                    if (!self.options.sectionSelect) {
+                        self.now = new Date(date);
+                    }
                 }
 
                 var end = self.cascadingSelected.end;
@@ -1530,6 +1638,32 @@
                 //var date
                 if (self.options.cascading) {
                     //级联
+
+                } else if (self.options.sectionSelect) {
+                    //单日历区间选择
+
+                    var canSelect = self.canSectionSelect($this, self, date);
+
+                    if (canSelect == 1 || canSelect == 2) {
+                        self.sectionSelectFlag = false;
+                        self.sectionSelectEnd = date;
+                    }
+
+                    if (canSelect == 1||canSelect == 0||canSelect == 4) {
+                        runSelectDateCallback()
+                    } else {
+                        runCancelDateCallback()
+                    }
+
+                    //可选
+                    if (canSelect == 4) {
+                        self.sectionSelectFlag = true;
+                        self.sectionSelectStart = date
+                        self.sectionSelectEnd = Calendar.dateOffset(date,1);
+                    }
+
+                    self.renderSelected();
+                    self.bindEvent();
 
                 } else {
                     var hasInventory = $this.children().hasClass("hasInventory");
@@ -1568,6 +1702,7 @@
 
                     }
                 }
+
             }
 
             if (!autoRender) {
@@ -1582,7 +1717,6 @@
                 var dateVal = Calendar.getDateFromFormattedString(dateMap, self.options.dateFormat);
 
                 var dateResult = self.getDateResult(dateVal);
-
 
 
                 self.$trigger.val(dateResult);  //填充日期到$trigger中
@@ -1907,10 +2041,12 @@
             var $dates = this.wrap.find("[data-date-map]").has(".caldate");
             var cascadingMin = this.options.cascadingMin;
             var cascadingMax = self.options.cascadingMax;
+            var cascadingEndNotShowStart = self.options.cascadingEndNotShowStart;
 
             $dates.children().removeClass("calmiddle");
 
             //级联
+            var dateFormat = self.options.dateFormat;
             if (self.options.cascading) {
                 var start = self.cascadingSelected.start;
                 var end = mouseOverEnd || self.cascadingSelected.end;
@@ -1919,10 +2055,10 @@
                 var $endDate = $dates.filter('[data-date-map="' + end + '"]').has(".caldate");
 
                 if (start) {
-                    var startDate = Calendar.getDateFromFormattedString(start, self.options.dateFormat);
+                    var startDate = Calendar.getDateFromFormattedString(start, dateFormat);
                 }
                 if (end) {
-                    var endDate = Calendar.getDateFromFormattedString(end, self.options.dateFormat);
+                    var endDate = Calendar.getDateFromFormattedString(end, dateFormat);
                 }
 
                 if (this.cascadingIndex === 0) {
@@ -1941,7 +2077,10 @@
                             //已经选中开始与结束，填充中间值
                             if (end) {
                                 if (date > startDate && date < endDate) {
-                                    $date.children().addClass("calmiddle");
+                                    if (!self.options.cascadingEndNotShowStart) {
+                                        $date.children().addClass("calmiddle");
+                                    }
+
                                 }
                             }
 
@@ -2025,9 +2164,91 @@
                     $dates.removeClass("td-selected");
                 }
 
-                if (start) {
+                if (start && !((cascadingEndNotShowStart && this.cascadingIndex === 1))) {
                     //开始
                     $startDate.addClass("td-selected")
+                }
+
+            }
+
+            if (self.options.sectionSelect) {
+
+                var $wrap = self.wrap;
+                var $tds = $wrap.find("td[data-date-map]").filter(function (index, ele) {
+                    var $ele = $(ele);
+                    if ($ele.find(".notThisMonth").length > 0) {
+                        return false
+                    } else {
+                        return true;
+                    }
+                });
+
+                $tds.removeClass("td-selected").children().removeClass("calmiddle").find(".calday").each(function (index, ele) {
+                    var $ele = $(ele);
+                    var backup = $ele.attr("data-backup");
+                    if (backup) {
+                        $ele.text(backup);
+                    }
+                });
+
+                //交换开始结束位置
+                var sectionSelectStart = self.sectionSelectStart;
+                var sectionSelectEnd = self.sectionSelectEnd;
+
+                if (mouseOverEnd) {
+                    sectionSelectEnd = Calendar.getDateFromFormattedString(mouseOverEnd, self.options.dateFormat);
+                }
+
+                if (+sectionSelectStart == +sectionSelectEnd) {
+                    return;
+                }
+
+                if (sectionSelectStart && sectionSelectEnd) {
+
+                    if (+sectionSelectStart > +sectionSelectEnd) {
+
+                        //var temp = sectionSelectStart;
+                        sectionSelectStart = null;
+                        sectionSelectEnd = null;
+
+                        //更新数据
+                        if (!mouseOverEnd) {
+
+                            self.sectionSelectStart = sectionSelectStart;
+                            self.sectionSelectEnd = sectionSelectEnd;
+                        }
+                    }
+
+                    var middle = Calendar.dateOffset(sectionSelectStart, 1);
+                    var $middle;
+                    var middleStr;
+                    while (+middle < +sectionSelectEnd) {
+                        middleStr = Calendar.dateFormat(middle, dateFormat);
+                        $middle = $tds.filter('td[data-date-map=' + middleStr + ']');
+                        $middle.children().addClass("calmiddle");
+                        middle = Calendar.dateOffset(middle, 1);
+
+                    }
+
+                }
+
+                //开始
+                if (sectionSelectStart) {
+                    var sectionSelectStartStr = Calendar.dateFormat(sectionSelectStart, dateFormat);
+
+                    var $start = $tds.filter('td[data-date-map=' + sectionSelectStartStr + ']');
+                    $start.addClass("td-selected");
+                    var $startCalDay = $start.find(".calday");
+                    $startCalDay.attr("data-backup", $startCalDay.text()).text("入住");
+                }
+
+                //结束
+                if (sectionSelectEnd) {
+                    var sectionSelectEndStr = Calendar.dateFormat(sectionSelectEnd, dateFormat);
+                    var $end = $tds.filter('td[data-date-map=' + sectionSelectEndStr + ']');
+                    $end.addClass("td-selected");
+                    var $endCalDay = $end.find(".calday");
+                    $endCalDay.attr("data-backup", $endCalDay.text()).text("退房");
                 }
 
             }
@@ -2038,7 +2259,13 @@
 
                     var date = $td.attr("data-date-map");
                     if (self.selected[date]) {
-                        $td.addClass("td-selected");
+                        if (self.options.autoRender) {
+                            $td.addClass("td-selected");
+                        } else {
+                            if (self.$trigger.val() != "") {
+                                $td.addClass("td-selected");
+                            }
+                        }
 
                         var $thisTd = self.wrap.find('[data-date-map="' + date + '"]');
                         if ($thisTd.length > 1) {
@@ -2239,6 +2466,8 @@
             var dayNext = this.options.dayNext;
             var dayPrev = this.options.dayPrev;
 
+            var dayDisableNext = this.options.dayDisableNext;
+
             var cascadingOffset = this.options.cascadingOffset;
             var cascadingMin = this.options.cascadingMin;
             var cascading = this.options.cascading;
@@ -2259,6 +2488,10 @@
             var dayBetween = Calendar.getDaysBetween(thisDate, calDate);
 
             if (calDate > thisDate && dayNext != -1 && dayBetween > dayNext) {
+                className += " nodate";
+            }
+
+            if (calDate >= thisDate && dayBetween < dayDisableNext) {
                 className += " nodate";
             }
 
@@ -2539,10 +2772,13 @@
     lv.calendar = Factory;
     window.lv = lv;
 
+    nova.calendar = Factory;
+    window.nova = nova;
+
     for (var c in Calendar) {
         if (typeof Calendar[c] === "function") {
             Factory[c] = Calendar[c]
         }
     }
 
-})(window, jQuery, window.lv || {});
+})(window, jQuery, window.lv || {}, window.nova || {});

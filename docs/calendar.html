@@ -5,7 +5,7 @@
     <title>Calendar</title>
     <meta name="renderer" content="webkit">
     <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
-    <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="css/atom-one-light.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" href="../css/calendar.css">
@@ -17,6 +17,23 @@
             border: 1px solid #CCC;
             line-height: 20px;
         }
+
+        #offsetInput {
+            border: 1px solid #29e;
+            margin: 20px 0 20px 200px;
+            outline: 20px solid #eee;
+        }
+
+        .distribution-loading td .date {
+            background: url(http://pic.lvmama.com/img/new_v/ui_scrollLoading/loading.gif) no-repeat center center;
+
+        }
+
+        .distribution-loading td .date.notThisMonth{
+            background: none;
+
+        }
+
 
     </style>
 </head>
@@ -117,7 +134,7 @@
 
     <h3>日历5 小日历控件浮层</h3>
     <div class="section">
-        <input type="text" id="floatSmallInput" readonly="readonly" value="2016-07-28">
+        <input type="text" class="floatSmallInput" readonly="readonly" value="2016-07-28">
         <span id="floatSmallText"></span>
         <p>
             <a href="calendar/float-small-calendar.html" target="_blank">调用文档</a>
@@ -188,6 +205,7 @@
     <h3>日历12 分销日历控件</h3>
     <div class="section">
         <input type="text" id="distributionInput" readonly="readonly">
+        <a id="distributionClearCache">清缓存</a>
         <span id="distributionText"></span>
         <p>
             <a href="calendar/distribution-calendar.html" target="_blank">调用文档</a>
@@ -209,6 +227,30 @@
 
     </div>
 
+    <h3>14 offset margin</h3>
+    <div class="section">
+        <input type="text" id="offsetInput" readonly="readonly">
+    </div>
+
+    <h3>15 大日历级联</h3>
+    <div class="section">
+        <input type="text" class="bigCascadingInput">
+        <input type="text" class="bigCascadingInput">
+    </div>
+
+    <h3>16 今天起几日不可选</h3>
+    <div class="section">
+        <input type="text" class="dayDisableNextInput">
+    </div>
+    <div class="section">
+        <input type="text" class="dayDisableNextInput">
+    </div>
+
+    <h3 ><a name="17">17 区间单日历</a></h3>
+    <div class="section">
+        <div class="sectionCalendar"></div>
+    </div>
+
     <h2>评论</h2>
     <!-- 多说评论框 start -->
     <div class="ds-thread" data-thread-key="calendar" data-title="NOVA"
@@ -224,7 +266,7 @@
 <script src="js/navigation.js"></script>
 <script>
     $(function () {
-        $("#floatSmallInput").click();
+        $(".floatSmallInput").click();
 
         var $ajaxCalendarBox = $("#ajaxCalendarBox");
 
@@ -242,12 +284,18 @@
 
         setTimeout(function () {
 
-            for(var i=0;i<10;i++){
+            for (var i = 0; i < 10; i++) {
                 $ajaxCalendarBox.append("<a class='ajaxCalendar'>test</a> ");
             }
         }, 100)
 
 
+        setTimeout(function () {
+
+            var $input = $('<input type="text" class="floatSmallInput" readonly="readonly" value="2016-07-28">');
+            $("#floatSmallText").before($input)
+
+        }, 1000);
     })
 </script>
 </body>
