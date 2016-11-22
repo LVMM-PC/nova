@@ -1957,6 +1957,12 @@
             this.wrap.html("");
             this.wrap.append(this.createHead());
             this.wrap.append(this.createBody());
+
+            if(this.wrap.is(".ui-calendar-big")){
+
+                this.wrap.append("<div class='nova-calendar-tip'><i></i>因最低价实时变化，请以实际价格为准</div>")
+            }
+
             var sourceFn = this.options.sourceFn;
 
             if (!disableCallback && $.isFunction(sourceFn)) {

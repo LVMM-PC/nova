@@ -421,3 +421,7 @@
 .cal-number-of-days { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); display: none; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; pointer-events: none; position: absolute; background: #ffffff; border: 1px solid #cccccc; line-height: 20px; padding: 5px 10px; }
 
 .cal-number-of-days .triangle { width: 11px; height: 7px; display: block; position: absolute; top: -7px; left: 50%; margin-left: -5px; background: url(http://pic.lvmama.com/img/lv/calendar.png) no-repeat -140px 0; pointer-events: none; }
+
+.nova-calendar-tip { background: #fff; font-size: 12px; color: #666; line-height: 32px; height: 33px; padding-left: 10px; border-color: #dcdcdc; border-style: solid; border-width: 0px 2px 0 2px; }
+
+.nova-calendar-tip i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; background: url(http://pic.lvmama.com/img/flight/flight.png) -50px -20px; vertical-align: -3px; }
