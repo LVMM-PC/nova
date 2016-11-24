@@ -61,9 +61,19 @@ $(function () {
 
     $(".JS_dialog_title_content").on("click", function () {
         nova.dialog({
-            title: "自定义标题",
+            title: "自定义标题<small>副标题</small>",
             content: "标准模式，可以自定义提醒标题和内容，默认不显示确定 取消的按钮",
             maskClass:"try"
+        });
+    });
+
+    $(".JS_dialog_no_title").on("click", function () {
+        nova.dialog({
+            title: null,
+            content: "标准模式，可以自定义提醒标题和内容",
+            maskClass:"try",
+            ok:true,
+            cancel:true
         });
     });
 

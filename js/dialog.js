@@ -438,6 +438,7 @@
             var $header = this.wrap.find(".nova-dialog-header");
             if (title === null) {
                 $header.hide();
+                this.wrap.addClass("nova-dialog-no-title");
             } else {
                 $header.html(title);
             }

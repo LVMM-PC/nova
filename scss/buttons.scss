@@ -31,28 +31,24 @@ input[type="button"]::-moz-focus-inner {
   line-height: 28px;
   padding: 0 19px;
   font-size: 14px;
-  //font-family: $microsoft-yahei;
   @include sans-serif;
-  color: $btn-color;
-  background: #FBFBFB;
-  border: $input-border-width solid #DDDDDD;
+  border: $input-border-width solid #cccccc;
   @include border-radius(3px);
-  @include gradient-y(#FFFFFF, #F8F8F8);
+  background-color: #ffffff;
+  color: #666;
   &:hover {
-    color: #666666;
-    background: #F5F5F5;
+    color: #ff6600;
+    border-color: #ff6600;
     text-decoration: none;
-    @include gradient-y(#F5F5F5, #F5F5F5);
   }
   &:active {
-    @include box-shadow($btn-colorful-shadow)
+    box-shadow: inset 0 3px 3px rgba(255, 102, 0, 0.15);
   }
   &[disabled],
   &.btn-disabled {
     cursor: default;
     color: #BABABA;
     background: #FFFFFF;
-    @include gradient-y(#FFFFFF, #F8F8F8);
     border-color: $btn-border-disabled;
   }
   &.btn-forbidden:active,
@@ -91,7 +87,7 @@ button.btn {
 .btn-xl,
 .btn-lg {
   &:active {
-    @include box-shadow($btn-xl-shadow);
+    box-shadow: inset 0 4px 4px rgba(255, 102, 0, 0.1);
   }
 }
 
@@ -117,6 +113,7 @@ button.btn {
   background: $btn-pink-bg;
   border-color: $btn-pink-border;
   &:hover {
+    border-color: $btn-pink-border;
     color: #FFFFFF;
     text-decoration: none;
     background: $btn-pink-bg-hover;
@@ -135,6 +132,7 @@ button.btn {
   background: $btn-orange-bg;
   border-color: $btn-orange-border;
   &:hover {
+    border-color: $btn-orange-border;
     color: #FFFFFF;
     text-decoration: none;
     background: $btn-orange-bg-hover;
@@ -153,6 +151,7 @@ button.btn {
   background: $btn-blue-bg;
   border-color: $btn-blue-border;
   &:hover {
+    border-color: $btn-blue-border;
     color: #FFFFFF;
     text-decoration: none;
     background: $btn-blue-bg-hover;
@@ -171,7 +170,6 @@ button.btn {
   line-height: 40px;
   padding: 0 29px;
   font-size: 18px;
-  //font-family: $microsoft-yahei;
   @include sans-serif;
   .icon {
     display: inline-block;
@@ -196,7 +194,6 @@ button.btn-xl {
   line-height: 34px;
   padding: 0 24px;
   font-size: 16px;
-  //font-family: $microsoft-yahei;
   @include sans-serif;
   .icon {
     display: inline-block;
@@ -221,7 +218,6 @@ button.btn-lg {
   line-height: 24px;
   padding: 0 14px;
   font-size: 12px;
-  //font-family: $simsun;
   @include sans-serif;
 }
 
@@ -238,7 +234,6 @@ button.btn-sm {
   line-height: 20px;
   padding: 0 9px;
   font-size: 12px;
-  //font-family: $simsun;
   @include sans-serif;
 }
 
@@ -258,5 +253,6 @@ button.btn-xs {
   &.btn-disabled {
     color: $btn-forbidden-color;
     background: $btn-forbidden-bg;
+    border: 1px solid #CCC;
   }
 }

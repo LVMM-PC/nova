@@ -145,6 +145,7 @@
 
     //默认值
     Factory.defaults = {
+        showPriceTip: true,
         sectionSelect: false,  //单个日历区间选择
         allowMutiSelected: false,  //是否支持多选
         triggerEvent: "click",  //默认点击触发
@@ -296,6 +297,38 @@
             },
             '2016-10-07': {
                 vacationName: '国庆节假期'
+            },
+            '2017-01-01': {
+                name: '元旦',
+                vacationName: '元旦'
+            },
+            '2017-01-27': {
+                name: '除夕',
+                vacationName: '除夕'
+            },
+            '2017-01-28': {
+                name: '春节',
+                vacationName: '春节'
+            },
+            '2017-04-04': {
+                name: '清明',
+                vacationName: '清明节'
+            },
+            '2017-05-01': {
+                name: '劳动',
+                vacationName: '劳动节'
+            },
+            '2017-05-30': {
+                name: '端午',
+                vacationName: '端午节'
+            },
+            '2017-10-04': {
+                name: '中秋',
+                vacationName: '中秋节'
+            },
+            '2017-10-01': {
+                name: '国庆',
+                vacationName: '国庆节'
             }
         },
         cascadingEndNotShowStart: false  //级联第二个日历不显示第一个选中元素
@@ -1958,9 +1991,8 @@
             this.wrap.append(this.createHead());
             this.wrap.append(this.createBody());
 
-            if(this.wrap.is(".ui-calendar-big")){
-
-                this.wrap.append("<div class='nova-calendar-tip'><i></i>因最低价实时变化，请以实际价格为准</div>")
+            if(this.wrap.is(".ui-calendar-big") && this.options.showPriceTip){
+                this.wrap.append("<div class='nova-calendar-tip'>因最低价实时变化，请以实际价格为准</div>")
             }
 
             var sourceFn = this.options.sourceFn;
