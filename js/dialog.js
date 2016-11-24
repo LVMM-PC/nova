@@ -60,22 +60,24 @@
     //默认值
     Factory.defaults = {
 
+        template: template,
+
         showClose: true,  //是否显示关闭按钮
-        button: null,  //按钮组
+        buttons: null,  //按钮组
         fixed: true,  //是否position:fixed
-        mask: true,  //是否有遮罩层
-        drag: false,  //是否可以拖拽
+        masked: true,  //是否有遮罩层
+        draggable: false,  //是否可以拖拽
 
-        dialogAuto: false,  //是否弹窗顶部与窗口顶部保持固定尺寸
-        dialogAutoTop: 60,  //弹窗顶部与窗口顶部的距离
+        topFixed: false,  //是否弹窗顶部与窗口顶部保持固定尺寸
+        topOffset: 60,  //弹窗顶部与窗口顶部的距离
 
-        initialHeight: "300px",  //iframe高度
+        initHeight: "300px",  //iframe高度
 
-        initialize: null,  //初始化完成后执行方法
-        beforeunload: null,  //窗口关闭前执行方法
+        initCallback: null,  //初始化完成后执行方法
+        beforeClosingCallback: null,  //窗口关闭前执行方法
 
-        ok: null,  //确定按钮
-        cancel: null,  //取消按钮
+        okCallback: null,  //确定按钮
+        cancelCallback: null,  //取消按钮
 
         okValue: "确定",  //确定按钮文本
         cancelValue: "取消",  //取消按钮文本
@@ -147,6 +149,7 @@
             self.setButton(options);
 
             //创建弹窗dom对象
+            var template = this.options.template;
             self.wrap = $(template);
 
             //设置id
@@ -179,7 +182,7 @@
             self.time(options.time);
 
             //设置遮罩层
-            if (options.mask === true) {
+            if (options.masked === true) {
                 setTimeout(function () {
                     self.mask(options);
                 }, 0);
@@ -197,7 +200,7 @@
             self.bindEvent(options);
 
             //设置拖拽
-            if (options.drag === true) {
+            if (options.draggable === true) {
                 self.drag();
             }
 
@@ -205,8 +208,8 @@
             self.showClose(options.showClose);
 
             //执行初始化完成方法
-            if (typeof options.initialize === "function") {
-                options.initialize.call(this);
+            if (typeof options.initCallback === "function") {
+                options.initCallback.call(this);
             }
 
         },
@@ -233,7 +236,7 @@
         /**
          * 拖动
          */
-        drag: function () {
+        draggable: function () {
             var wrap = this.wrap;
             var dialogTop;
             var dialogLeft;
@@ -310,35 +313,35 @@
          */
         setButton: function () {
             var options = this.options;
-            if (options.button && options.button.push) {
+            if (options.buttons && options.buttons.push) {
 
             } else {
-                options.button = [];
+                options.buttons = [];
             }
 
-            if (options.ok) {
+            if (options.okCallback) {
                 var okButton = {
                     className: options.okClassName,
                     value: options.okValue,
-                    callback: options.ok
+                    callback: options.okCallback
                 };
-                options.button.push(okButton)
+                options.buttons.push(okButton)
             }
-            if (options.cancel) {
+            if (options.cancelCallback) {
                 var cancelButton = {
                     className: options.cancelClassName,
                     value: options.cancelValue,
-                    callback: options.cancel
+                    callback: options.cancelCallback
                 };
-                options.button.push(cancelButton)
+                options.buttons.push(cancelButton)
             }
         },
 
         /**
          * 设置按钮
          */
-        button: function () {
-            var buttons = this.options.button;
+        buttons: function () {
+            var buttons = this.options.buttons;
             var size = buttons.length;
             var className;
             var $footer = this.wrap.find(".nova-dialog-footer");
@@ -391,7 +394,7 @@
             var self = e.data.self;
             var $this = $(this);
             var index = $this.index();
-            var button = self.options.button[index];
+            var button = self.options.buttons[index];
             var callback = button.callback;
             if (callback && $.isFunction(callback)) {
                 var ret = callback.call(self);
@@ -419,7 +422,7 @@
          * @param force 不执行beforeunload直接关闭
          */
         close: function (force) {
-            var beforeunload = this.options.beforeunload;
+            var beforeunload = this.options.beforeClosingCallback;
             if (!force && beforeunload && $.isFunction(beforeunload)) {
                 var ret = beforeunload.call(this);
                 if (ret === false) {
@@ -462,7 +465,7 @@
                 var footerHeight = $footer.outerHeight(true);
                 var bodyHeight = dialogHeight - (headerHeight ? headerHeight : 0) - (footerHeight ? footerHeight : 0);
 
-                var initialHeight = this.options.initialHeight;
+                var initialHeight = this.options.initHeight;
                 if (initialHeight) {
                     $body.height(parseInt(initialHeight))
                 } else {
@@ -513,9 +516,9 @@
             var dialogHeight = this.wrap.height();
             var left = ~~((windowWidth - dialogWidth) / 2);
 
-            if (this.options.dialogAuto) {
+            if (this.options.topFixed) {
 
-                var dialogAutoTop = $window.scrollTop() + this.options.dialogAutoTop;
+                var dialogAutoTop = $window.scrollTop() + this.options.topOffset;
                 this.wrap.css({
                     position: "absolute",
                     top: dialogAutoTop,
@@ -559,8 +562,8 @@
         /**
          * 遮罩层
          */
-        mask: function () {
-            var mask = this.options.mask;
+        masked: function () {
+            var mask = this.options.masked;
             if (mask) {
                 this.wrap.attr("data-mask", "mask");
             }
@@ -597,21 +600,21 @@
     nova.alert = function (content, callback) {
         return Factory({
             fixed: true,
-            mask: true,
+            masked: true,
             content: content,
-            ok: true,
-            beforeunload: callback
+            okCallback: true,
+            beforeClosingCallback: callback
         });
     };
 
     //Confirm
-    nova.confirm = function (content, ok, cancel) {
+    nova.confirm = function (content, okCallback, cancel) {
         return Factory({
             fixed: true,
             lock: true,
             content: content,
-            ok: ok ? ok : true,
-            cancel: cancel ? cancel : true
+            okCallback: okCallback ? okCallback : true,
+            cancelCallback: cancel ? cancel : true
         });
     };
 
@@ -621,7 +624,7 @@
             showClose: false,
             title: null,
             fixed: true,
-            mask: false,
+            masked: false,
             content: content,
             time: time ? time : 2000
         });
@@ -634,7 +637,7 @@
             showClose: false,
             title: null,
             content: content ? content : html,
-            beforeunload: callback
+            beforeClosingCallback: callback
         })
     };
 

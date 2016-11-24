@@ -134,7 +134,7 @@ if (!document.createElement('canvas').getContext) {
      * element from now on. This is called automatically before the page is
      * loaded but if you are creating elements using createElement you need to
      * make sure this is called on the element.
-     * @param {HTMLElement} el The canvas element to initialize.
+     * @param {HTMLElement} el The canvas element to initCallback.
      * @return {HTMLElement} the element that was created.
      */
     initElement: function(el) {

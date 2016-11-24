@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /*! buttons.scss 2016-03-15 Sheng Jiang 1.0.0.0 */
 /*region 日历*/
+.nova-calendar-tip { background: #fff; font-size: 12px; color: #999; line-height: 32px; height: 32px; }
+
+.nova-calendar-tip i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; background: url(http://pic.lvmama.com/img/lv/icon.png) -240px -220px; vertical-align: -3px; }
+
 .ui-calendar { font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; background-color: #fff; position: relative; width: 1196px; border: 2px solid #e3e3e3; color: #333; }
 
 .ui-calendar .monthbg { display: none; }
@@ -87,7 +91,13 @@
 
 .ui-calendar-big[data-bimonthly="true"] .notThisMonth { display: none; }
 
+.ui-calendar-big[data-bimonthly="true"] .nova-calendar-tip { line-height: 30px; height: 30px; padding-left: 10px; }
+
+.ui-calendar-big[data-float="true"] .nova-calendar-tip { border-left: 1px solid #e3e3e3; border-right: 1px solid #e3e3e3; padding-left: 10px; }
+
 .ui-calendar-big[data-float="true"][data-bimonthly="true"] { width: 928px; border: none; }
+
+.ui-calendar-big[data-float="true"][data-bimonthly="true"] .nova-calendar-tip { border-left: 2px solid #e3e3e3; border-right: 2px solid #e3e3e3; padding-left: 10px; margin-top: -1px; position: relative; border-bottom: 2px solid #e3e3e3; }
 
 .ui-calendar-big[data-float="true"][data-bimonthly="true"] .calmonth { width: 464px; margin: 0; }
 
@@ -383,6 +393,8 @@
 /*region 特卖会*/
 .ui-calendar-groupon[data-float][data-bimonthly] { width: 1127px; }
 
+.ui-calendar-groupon[data-float][data-bimonthly] .nova-calendar-tip { margin-top: 0; border-left: 1px solid #e3e3e3; border-right: 1px solid #e3e3e3; }
+
 .ui-calendar-groupon[data-float][data-bimonthly] .calmonth { width: 561px; }
 
 .ui-calendar-groupon[data-float][data-bimonthly] .caltable { margin: 0; }
@@ -421,7 +433,3 @@
 .cal-number-of-days { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); display: none; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; pointer-events: none; position: absolute; background: #ffffff; border: 1px solid #cccccc; line-height: 20px; padding: 5px 10px; }
 
 .cal-number-of-days .triangle { width: 11px; height: 7px; display: block; position: absolute; top: -7px; left: 50%; margin-left: -5px; background: url(http://pic.lvmama.com/img/lv/calendar.png) no-repeat -140px 0; pointer-events: none; }
-
-.nova-calendar-tip { background: #fff; font-size: 12px; color: #666; line-height: 32px; height: 33px; padding-left: 10px; }
-
-.nova-calendar-tip i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; background: url(http://pic.lvmama.com/img/flight/flight.png) -50px -20px; vertical-align: -3px; }

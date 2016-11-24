@@ -192,7 +192,7 @@ nova.confirm("你确定要删除吗？", function() {
 nova.alert("实现一个alert的模态提醒");
 nova.dialog({
     content: "实现一个alert的模态提醒",
-    ok: true
+    okCallback: true
 });
 </code>
 </pre>
@@ -213,11 +213,11 @@ nova.dialog({
     <h4>1.3 confirm的模态提醒</h4>
     <div class="section">
         参数说明
-        <code>nova.confirm(content, ok, cancel)</code>
+        <code>nova.confirm(content, okCallback, cancelCallback)</code>
         实例如下：
         <ul>
             <li>content为提醒内容</li>
-            <li>ok为点击确定按钮的回调事件</li>
+            <li>okCallback为点击确定按钮的回调事件</li>
             <li>cancel为点击取消按钮的回调事件</li>
         </ul>
         实例
@@ -313,19 +313,19 @@ nova.dialog({
     showClose: true,  //是否显示关闭按钮
     button: null,  //按钮组
     fixed: true,  //是否position:fixed
-    mask: true,  //是否有遮罩层
-    drag: false,  //是否可以拖拽
+    masked: true,  //是否有遮罩层
+    draggable: false,  //是否可以拖拽
 
-    dialogAuto: false,  //是否弹窗顶部与窗口顶部保持固定尺寸
-    dialogAutoTop: 60,  //弹窗顶部与窗口顶部的距离
+    topFixed: false,  //是否弹窗顶部与窗口顶部保持固定尺寸
+    topOffset: 60,  //弹窗顶部与窗口顶部的距离
 
-    initialHeight: "300px",  //iframe高度
+    initHeight: "300px",  //iframe高度
 
-    initialize: null,  //初始化完成后执行方法
-    beforeunload: null,  //窗口关闭前执行方法
+    initCallback: null,  //初始化完成后执行方法
+    beforeClosingCallback: null,  //窗口关闭前执行方法
 
-    ok: null,  //确定按钮
-    cancel: null,  //取消按钮
+    okCallback: null,  //确定按钮
+    cancelCallback: null,  //取消按钮
 
     okValue: "确定",  //确定按钮文本
     cancelValue: "取消",  //取消按钮文本
@@ -374,8 +374,8 @@ nova.dialog({
 <code class="js">
 nova.dialog({
     content: "显示弹窗按钮，若未指定按钮的回调函数，则默认关闭",
-    ok: true,
-    cancel: true
+    okCallback: true,
+    cancelCallback: true
 });
 </code></pre>
 
@@ -424,12 +424,12 @@ nova.dialog({
 <code class="js">
 nova.dialog({
     content: "显示弹窗按钮，实现按钮文字自定义，绑定特定按钮点击事件",
-    ok: function () {
+    okCallback: function () {
         nova.msg("保存成功");
     },
     okClassName: "btn-pink",
     okValue: "保存修改",
-    cancel: true,
+    cancelCallback: true,
     cancelValue: "不保存"
 });
 </code></pre>
@@ -441,14 +441,14 @@ nova.dialog({
 nova.dialog({
     content: "点击“重写提示”按钮，将使用链式操作重写弹窗的提醒内容！",
     okValue: "重写提示",
-    ok: function () {
+    okCallback: function () {
         this.title("警告");
         this.content("重写该弹窗提示内容，在回调函数使用return false 不会关闭当前弹出框");
         this.resize();
         return false;
     },
     cancelValue: "关闭",
-    cancel: true
+    cancelCallback: true
 });
 </code></pre>
         <p>
@@ -496,8 +496,8 @@ nova.dialog({
 <code class="js">
 nova.dialog({
     content: $(".dialog-auto"),
-    dialogAuto: true,
-    dialogAutoTop: 60
+    topFixed: true,
+    topOffset: 60
 });
 </code></pre>
         <pre>
@@ -535,7 +535,7 @@ nova.dialog({
 <code class="js">
 nova.dialog({
     content: "弹窗未初始化完成",
-    initialize: function () {
+    initCallback: function () {
         this.content("弹窗初始化完成");
     }
 });
@@ -557,16 +557,16 @@ nova.dialog({
     height: 300,
     title: "关闭对话框前执行方法",
     content: "用户填写了信息但未保存，提醒用户是否保存",
-    ok: true,
+    okCallback: true,
     okValue: "关闭",
     okClassName: "btn",
-    cancel: function () {
+    cancelCallback: function () {
         this.close(true);
         return false;
     },
     cancelValue: "强制关闭",
     cancelClassName: "btn-pink",
-    beforeunload: function () {
+    beforeClosingCallback: function () {
         var self = this;
         nova.confirm("关闭后会导致数据丢失，是否确认关闭？", function () {
             self.close(true);  //强制关闭弹窗
@@ -587,7 +587,7 @@ nova.dialog({
 nova.dialog({
     width: 600,
     wrapClass: "nova-dialog-custom",
-    initialize: function () {
+    initCallback: function () {
         var self = this;
         self.loading();
         $.ajax({
@@ -630,7 +630,7 @@ nova.dialog({
     url: true,
     content: "dialog/dialog-iframe.html",
     width: 600,
-    initialHeight: 300  //设置iframe的高度
+    initHeight: 300  //设置iframe的高度
     //height: 300,  //同时设置了iframe与dialog的高度后，iframe可能会溢出
 })
 </code></pre>

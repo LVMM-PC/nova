@@ -72,16 +72,16 @@ $(function () {
             title: null,
             content: "标准模式，可以自定义提醒标题和内容",
             maskClass:"try",
-            ok:true,
-            cancel:true
+            okCallback:true,
+            cancelCallback:true
         });
     });
 
     $(".JS_dialog_button").on("click", function () {
         nova.dialog({
             content: "显示弹窗按钮，若未指定按钮的回调函数，则默认关闭",
-            ok: true,
-            cancel: true
+            okCallback: true,
+            cancelCallback: true
         });
     });
 
@@ -106,12 +106,12 @@ $(function () {
     $(".JS_dialog_btn").on("click", function () {
         nova.dialog({
             content: "显示弹窗按钮，实现按钮文字自定义，绑定特定按钮点击事件",
-            ok: function () {
+            okCallback: function () {
                 nova.msg("保存成功");
             },
             okClassName: "btn-pink",
             okValue: "保存修改",
-            cancel: true,
+            cancelCallback: true,
             cancelValue: "不保存"
         });
     });
@@ -121,14 +121,14 @@ $(function () {
         nova.dialog({
             content: "点击“重写提示”按钮，将使用链式操作重写弹窗的提醒内容！",
             okValue: "重写提示",
-            ok: function () {
+            okCallback: function () {
                 this.title("警告");
                 this.content("重写该弹窗提示内容，在回调函数使用return false 不会关闭当前弹出框<br>" + (count)++ + " Click!<br>" + Math.random());
                 this.resize();
                 return false;
             },
             cancelValue: "关闭",
-            cancel: true
+            cancelCallback: true
         });
     });
 
@@ -137,7 +137,7 @@ $(function () {
         nova.dialog({
             content: '<h4>您对模态窗口满意吗？</h4>' +
             '<p>说明：使用模态窗口，能实现全站的弹窗统一，外观能够控制，方便修改，功能上也可定制，实在是统一网页设计弹窗的必备武器！</p>',
-            button: [
+            buttons: [
                 {
                     value: "非常满意",
                     className: "btn-pink",
@@ -166,8 +166,8 @@ $(function () {
     $(".JS_dialog_auto").on("click", function () {
         nova.dialog({
             content: $(".dialog-auto"),
-            dialogAuto: true,
-            dialogAutoTop: 60
+            topFixed: true,
+            topOffset: 60
         });
     });
 
@@ -184,7 +184,7 @@ $(function () {
         nova.dialog({
             width: 600,
             wrapClass: "nova-dialog-custom",
-            initialize: function () {
+            initCallback: function () {
                 var self = this;
                 self.loading();
                 $.ajax({
@@ -226,14 +226,14 @@ $(function () {
             content: "dialog/dialog-iframe.html",
             width: 600,
             //height: 300,
-            initialHeight: 300
+            initHeight: 300
         });
     });
 
     $(".JS_dialog_initialize").on("click", function () {
         nova.dialog({
             content: "弹窗未初始化完成",
-            initialize: function () {
+            initCallback: function () {
                 this.content("弹窗初始化完成");
             }
         });
@@ -244,16 +244,16 @@ $(function () {
             height: 300,
             title: "关闭对话框前执行方法",
             content: "User Name: <input type='text' value='em2046'><br><br>用户填写了信息但未保存，提醒用户是否保存<br/><br/><br/><br/><br/>",
-            ok: true,
+            okCallback: true,
             okValue: "关闭",
             okClassName: "btn",
-            cancel: function () {
+            cancelCallback: function () {
                 this.close(true);
                 return false;
             },
             cancelValue: "强制关闭",
             cancelClassName: "btn-pink",
-            beforeunload: function () {
+            beforeClosingCallback: function () {
                 var self = this;
                 nova.confirm("关闭后会导致数据丢失，是否确认关闭？", function () {
                     self.close(true);  //强制关闭弹窗

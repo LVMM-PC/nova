@@ -9,6 +9,24 @@
 @import "mixins";
 
 /*region 日历*/
+
+.nova-calendar-tip {
+  background: #fff;
+  font-size: 12px;
+  color: #999;
+  line-height: 32px;
+  height: 32px;
+}
+
+.nova-calendar-tip i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  background: url(http://pic.lvmama.com/img/lv/icon.png) -240px -220px;
+  vertical-align: -3px;
+}
+
 .ui-calendar {
   .monthbg {
     display: none;
@@ -234,8 +252,28 @@
     .notThisMonth {
       display: none;
     }
+    .nova-calendar-tip {
+      line-height: 30px;
+      height: 30px;
+      padding-left: 10px;
+    }
+  }
+  &[data-float="true"] {
+    .nova-calendar-tip {
+      border-left: 1px solid #e3e3e3;
+      border-right: 1px solid #e3e3e3;
+      padding-left: 10px;
+    }
   }
   &[data-float="true"][data-bimonthly="true"] {
+    .nova-calendar-tip {
+      border-left: 2px solid #e3e3e3;
+      border-right: 2px solid #e3e3e3;
+      padding-left: 10px;
+      margin-top: -1px;
+      position: relative;
+      border-bottom: 2px solid #e3e3e3;
+    }
     width: 928px;
     border: none;
     .calmonth {
@@ -970,6 +1008,11 @@
 /*region 特卖会*/
 .ui-calendar-groupon {
   &[data-float][data-bimonthly] {
+    .nova-calendar-tip {
+      margin-top: 0;
+      border-left: 1px solid #e3e3e3;
+      border-right: 1px solid #e3e3e3;
+    }
     width: 1127px;
     .calmonth {
       width: 561px;
@@ -1096,22 +1139,4 @@
     background: $img no-repeat -140px 0;
     pointer-events: none;
   }
-}
-
-.nova-calendar-tip {
-  background: #fff;
-  font-size: 12px;
-  color: #666;
-  line-height: 32px;
-  height: 33px;
-  padding-left: 10px;
-}
-
-.nova-calendar-tip i {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-right: 5px;
-  background: url(http://pic.lvmama.com/img/flight/flight.png) -50px -20px;
-  vertical-align: -3px;
 }

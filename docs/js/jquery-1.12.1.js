@@ -5449,7 +5449,7 @@ jQuery.event = {
 			}
 		},
 
-		beforeunload: {
+		beforeClosingCallback: {
 			postDispatch: function( event ) {
 
 				// Support: Firefox 20+
@@ -6949,7 +6949,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 		// If we already have the right measurement, avoid augmentation
 		4 :
 
-		// Otherwise initialize for horizontal or vertical properties
+		// Otherwise initCallback for horizontal or vertical properties
 		name === "width" ? 1 : 0,
 
 		val = 0;
