@@ -43,9 +43,9 @@
 
 .ui-calendar .date { position: relative; width: 84px; height: 49px; cursor: default; }
 
-.ui-calendar .nodate { position: relative; width: 84px; height: 49px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; color: #999999; }
+.ui-calendar .nodate { position: relative; width: 84px; height: 49px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; color: #BBB; }
 
-.ui-calendar .nodate:hover { color: #999999; }
+.ui-calendar .nodate:hover { color: #BBB; }
 
 .ui-calendar .caldate { position: relative; cursor: pointer; }
 
@@ -83,7 +83,7 @@
 
 .ui-calendar-big table { margin: -1px; }
 
-.ui-calendar-big .caldisabled { color: #999; }
+.ui-calendar-big .caldisabled { color: #BBB; }
 
 .ui-calendar-big .caldisabled:hover { background-color: transparent; }
 
@@ -213,7 +213,7 @@
 
 .ui-calendar-mini .nodate { cursor: default; }
 
-.ui-calendar-mini .nodate:hover { color: #999999; background-color: transparent; }
+.ui-calendar-mini .nodate:hover { color: #BBB; background-color: transparent; }
 
 .ui-calendar-mini .caldate.active { background-color: #ff77bb; color: #fff; }
 
@@ -239,13 +239,13 @@
 
 .ui-calendar-mini .festival { color: #ee3388; }
 
-.ui-calendar-mini .festival.nodate { color: #999999; }
+.ui-calendar-mini .festival.nodate { color: #BBB; }
 
 .ui-calendar-mini .calmiddle { width: 32px; margin-left: -1px; background-color: #fcdaed; }
 
-.ui-calendar-mini .caldisabled { color: #999999; cursor: default; }
+.ui-calendar-mini .caldisabled { color: #BBB; cursor: default; }
 
-.ui-calendar-mini .caldisabled:hover { color: #999999; background-color: transparent; }
+.ui-calendar-mini .caldisabled:hover { color: #BBB; background-color: transparent; }
 
 .ui-calendar-mini .caldisabled.calmiddle:hover { background-color: #fcdaed; }
 
@@ -345,9 +345,9 @@
 
 .ui-calendar-orange .calmonth .caltable .calmiddle { background-color: #ffedc1; }
 
-.ui-calendar-orange .calmonth .caltable .nodate, .ui-calendar-orange .calmonth .caltable .caldisabled { color: #999999; cursor: default; }
+.ui-calendar-orange .calmonth .caltable .nodate, .ui-calendar-orange .calmonth .caltable .caldisabled { color: #BBB; cursor: default; }
 
-.ui-calendar-orange .calmonth .caltable .nodate:hover, .ui-calendar-orange .calmonth .caltable .caldisabled:hover { color: #999999; background-color: transparent; }
+.ui-calendar-orange .calmonth .caltable .nodate:hover, .ui-calendar-orange .calmonth .caltable .caldisabled:hover { color: #BBB; background-color: transparent; }
 
 .ui-calendar-orange .calmonth .caltable .nodate.calmiddle:hover, .ui-calendar-orange .calmonth .caltable .caldisabled.calmiddle:hover { background-color: #ffedc1; }
 

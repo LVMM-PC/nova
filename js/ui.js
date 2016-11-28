@@ -169,7 +169,8 @@
             var $label = $(this.options.target).find(".nova-checkbox-label");
             var $input = $label.find("input[type=checkbox]");
             var $checkbox = $label.find(".nova-checkbox");
-            $input.show();
+            //$input.show();
+            $input.removeClass("nova-checkbox-hide");
             $checkbox.remove();
         },
 
@@ -177,7 +178,8 @@
             var $label = $(this.options.target).find(".nova-radio-label");
             var $input = $label.find("input[type=radio]");
             var $radio = $label.find(".nova-radio");
-            $input.show();
+            //$input.show();
+            $input.removeClass("nova-radio-hide");
             $radio.remove();
         },
 
@@ -185,7 +187,8 @@
             var $labels = $(this.options.target).find(".nova-checkbox-label");
             var $inputs = $labels.find("input[type=checkbox]");
             var $checkboxs = $labels.find(".nova-checkbox");
-            $inputs.hide();
+            //$inputs.hide();
+            $inputs.addClass("nova-checkbox-hide");
             $checkboxs.remove();
             $inputs.after(this.options.template.checkbox);
             $inputs.each(function (index, ele) {
@@ -209,7 +212,8 @@
             var $labels = $(this.options.target).find(".nova-radio-label");
             var $inputs = $labels.find("input[type=radio]");
             var $radios = $labels.find(".nova-radio");
-            $inputs.hide();
+            //$inputs.hide();
+            $inputs.addClass("nova-radio-hide");
             $radios.remove();
             $inputs.after(this.options.template.radio);
 

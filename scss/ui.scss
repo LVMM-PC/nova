@@ -35,7 +35,6 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
   }
 }
 
-
 .nova-checkbox-label-orange {
   .nova-checkbox {
     &.checked {
@@ -154,4 +153,16 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
 
 .nova-select-label {
   display: inline-block;
+}
+
+.nova-checkbox-hide {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+}
+
+.nova-radio-hide {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
 }

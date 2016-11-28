@@ -133,9 +133,9 @@
     width: 84px;
     height: 49px;
     @include user-select(none);
-    color: #999999;
+    color: #BBB;
     &:hover {
-      color: #999999;
+      color: #BBB;
     }
   }
   .caldate {
@@ -236,7 +236,7 @@
     margin: -1px;
   }
   .caldisabled {
-    color: #999;
+    color: #BBB;
   }
   .caldisabled:hover {
     background-color: transparent;
@@ -557,7 +557,7 @@
     cursor: default;
   }
   .nodate:hover {
-    color: #999999;
+    color: #BBB;
     background-color: transparent;
   }
   .caldate.active {
@@ -612,7 +612,7 @@
   .festival {
     color: #ee3388;
     &.nodate {
-      color: #999999;
+      color: #BBB;
     }
   }
 
@@ -622,10 +622,10 @@
     background-color: #fcdaed;
   }
   .caldisabled {
-    color: #999999;
+    color: #BBB;
     cursor: default;
     &:hover {
-      color: #999999;
+      color: #BBB;
       background-color: transparent;
     }
     &.calmiddle:hover {
@@ -894,10 +894,10 @@
     }
     .nodate,
     .caldisabled {
-      color: #999999;
+      color: #BBB;
       cursor: default;
       &:hover {
-        color: #999999;
+        color: #BBB;
         background-color: transparent;
       }
       &.calmiddle:hover {

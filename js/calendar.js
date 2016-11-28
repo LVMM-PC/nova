@@ -145,6 +145,7 @@
 
     //默认值
     Factory.defaults = {
+        priceTipText: "因最低价实时变化，请以实际价格为准",
         showPriceTip: true,
         sectionSelect: false,  //单个日历区间选择
         allowMutiSelected: false,  //是否支持多选
@@ -1682,7 +1683,7 @@
                         self.sectionSelectEnd = date;
                     }
 
-                    if (canSelect == 1||canSelect == 0||canSelect == 4) {
+                    if (canSelect == 1 || canSelect == 0 || canSelect == 4) {
                         runSelectDateCallback()
                     } else {
                         runCancelDateCallback()
@@ -1692,7 +1693,7 @@
                     if (canSelect == 4) {
                         self.sectionSelectFlag = true;
                         self.sectionSelectStart = date
-                        self.sectionSelectEnd = Calendar.dateOffset(date,1);
+                        self.sectionSelectEnd = Calendar.dateOffset(date, 1);
                     }
 
                     self.renderSelected();
@@ -1991,8 +1992,8 @@
             this.wrap.append(this.createHead());
             this.wrap.append(this.createBody());
 
-            if(this.wrap.is(".ui-calendar-big") && this.options.showPriceTip){
-                this.wrap.append("<div class='nova-calendar-tip'><i></i>因最低价实时变化，请以实际价格为准</div>")
+            if (this.wrap.is(".ui-calendar-big") && this.options.showPriceTip) {
+                this.wrap.append("<div class='nova-calendar-tip'><i></i>" + this.options.priceTipText + "</div>")
             }
 
             var sourceFn = this.options.sourceFn;
