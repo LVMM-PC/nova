@@ -139,21 +139,21 @@ $(function () {
             '<p>说明：使用模态窗口，能实现全站的弹窗统一，外观能够控制，方便修改，功能上也可定制，实在是统一网页设计弹窗的必备武器！</p>',
             buttons: [
                 {
-                    value: "非常满意",
+                    text: "非常满意",
                     className: "btn-pink",
                     callback: function () {
                         nova.msg("感谢你的选择", 2000);
                     }
                 },
                 {
-                    value: "一般满意",
+                    text: "一般满意",
                     className: "btn-blue",
                     callback: function () {
                         nova.msg("我也同意你的看法", 2000);
                     }
                 },
                 {
-                    value: "不满意",
+                    text: "不满意",
                     className: "btn-disabled",
                     callback: function () {
                         return false;
