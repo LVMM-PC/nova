@@ -164,7 +164,7 @@
             wrap.addClass(options.wrapClass);
 
             //设置按钮
-            self.button();
+            self.buttons();
 
             //设置宽高
             self.size(options.width, options.height);

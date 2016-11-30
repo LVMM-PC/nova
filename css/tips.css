@@ -5,7 +5,7 @@
 .nova-tip a:hover, .nova-tip-box a:hover { color: #ff6600; }
 
 /*region 提示文本*/
-.nova-tip, .nova-tip-form { vertical-align: top; font-family: "Arial", "PingFang SC", "SimSun", serif; font-size: 12px; color: #333333; line-height: 18px; }
+.nova-tip, .nova-tip-form { vertical-align: top; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; font-size: 12px; color: #333333; line-height: 18px; }
 
 .nova-tip .nova-icon-xs, .nova-tip-form .nova-icon-xs { float: left; margin: 2px 5px 0 -19px; }
 
@@ -61,7 +61,7 @@
 
 /*endregion*/
 /*region 信息提示框*/
-.nova-tip-box { position: relative; font-family: "Arial", "PingFang SC", "SimSun", serif; padding: 15px 10px 15px 102px; }
+.nova-tip-box { position: relative; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; padding: 15px 10px 15px 102px; }
 
 .nova-tip-box .nova-icon-lg { position: absolute; left: 0; top: 0; margin: 20px 0 0 50px; }
 

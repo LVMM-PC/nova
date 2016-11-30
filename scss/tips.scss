@@ -22,7 +22,7 @@
 .nova-tip,
 .nova-tip-form {
   vertical-align: top;
-  font-family: $serif;
+  font-family: $sans-serif;
   font-size: 12px;
   color: #333333;
   line-height: 18px;
@@ -170,7 +170,7 @@
 /*region 信息提示框*/
 .nova-tip-box {
   position: relative;
-  font-family: $serif;
+  font-family: $sans-serif;
   padding: 15px 10px 15px 102px;
   .nova-icon-lg {
     position: absolute;
