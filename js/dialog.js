@@ -79,8 +79,8 @@
         okCallback: null,  //确定按钮
         cancelCallback: null,  //取消按钮
 
-        okValue: "确定",  //确定按钮文本
-        cancelValue: "取消",  //取消按钮文本
+        okText: "确定",  //确定按钮文本
+        cancelText: "取消",  //取消按钮文本
 
         okClassName: "btn-orange",  //确定按钮class
         cancelClassName: "",  //取消按钮class
@@ -322,7 +322,7 @@
             if (options.okCallback) {
                 var okButton = {
                     className: options.okClassName,
-                    value: options.okValue,
+                    text: options.okText,
                     callback: options.okCallback
                 };
                 options.buttons.push(okButton)
@@ -330,7 +330,7 @@
             if (options.cancelCallback) {
                 var cancelButton = {
                     className: options.cancelClassName,
-                    value: options.cancelValue,
+                    text: options.cancelText,
                     callback: options.cancelCallback
                 };
                 options.buttons.push(cancelButton)
@@ -369,7 +369,7 @@
 
                 $button.attr({
                     class: "btn " + className
-                }).html(button.value);
+                }).html(button.text);
 
                 $footer.append($button);
 
@@ -562,7 +562,7 @@
         /**
          * 遮罩层
          */
-        masked: function () {
+        mask: function () {
             var mask = this.options.masked;
             if (mask) {
                 this.wrap.attr("data-mask", "mask");
