@@ -334,6 +334,8 @@
 
             var checked = $this.prop("checked");
 
+            var $group = $this.parents(".nova-radio-group").first();
+            var $inputs = $group.find(".nova-radio-label input[type=radio][name=" + name + "]");
             var $radios = $inputs.parents(".nova-radio-label").find(".nova-radio");
 
             $radios.removeClass("nova-checked");
