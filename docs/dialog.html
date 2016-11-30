@@ -327,8 +327,8 @@ nova.dialog({
     okCallback: null,  //确定按钮
     cancelCallback: null,  //取消按钮
 
-    okValue: "确定",  //确定按钮文本
-    cancelValue: "取消",  //取消按钮文本
+    okText: "确定",  //确定按钮文本
+    cancelText: "取消",  //取消按钮文本
 
     okClassName: "btn-orange",  //确定按钮class
     cancelClassName: "",  //取消按钮class
@@ -428,9 +428,9 @@ nova.dialog({
         nova.msg("保存成功");
     },
     okClassName: "btn-pink",
-    okValue: "保存修改",
+    okText: "保存修改",
     cancelCallback: true,
-    cancelValue: "不保存"
+    cancelText: "不保存"
 });
 </code></pre>
         <p>
@@ -440,14 +440,14 @@ nova.dialog({
 <code class="js">
 nova.dialog({
     content: "点击“重写提示”按钮，将使用链式操作重写弹窗的提醒内容！",
-    okValue: "重写提示",
+    okText: "重写提示",
     okCallback: function () {
         this.title("警告");
         this.content("重写该弹窗提示内容，在回调函数使用return false 不会关闭当前弹出框");
         this.resize();
         return false;
     },
-    cancelValue: "关闭",
+    cancelText: "关闭",
     cancelCallback: true
 });
 </code></pre>
@@ -558,13 +558,13 @@ nova.dialog({
     title: "关闭对话框前执行方法",
     content: "用户填写了信息但未保存，提醒用户是否保存",
     okCallback: true,
-    okValue: "关闭",
+    okText: "关闭",
     okClassName: "btn",
     cancelCallback: function () {
         this.close(true);
         return false;
     },
-    cancelValue: "强制关闭",
+    cancelText: "强制关闭",
     cancelClassName: "btn-pink",
     beforeClosingCallback: function () {
         var self = this;

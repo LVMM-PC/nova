@@ -110,9 +110,9 @@ $(function () {
                 nova.msg("保存成功");
             },
             okClassName: "btn-pink",
-            okValue: "保存修改",
+            okText: "保存修改",
             cancelCallback: true,
-            cancelValue: "不保存"
+            cancelText: "不保存"
         });
     });
 
@@ -120,14 +120,14 @@ $(function () {
         var count = 0;
         nova.dialog({
             content: "点击“重写提示”按钮，将使用链式操作重写弹窗的提醒内容！",
-            okValue: "重写提示",
+            okText: "重写提示",
             okCallback: function () {
                 this.title("警告");
                 this.content("重写该弹窗提示内容，在回调函数使用return false 不会关闭当前弹出框<br>" + (count)++ + " Click!<br>" + Math.random());
                 this.resize();
                 return false;
             },
-            cancelValue: "关闭",
+            cancelText: "关闭",
             cancelCallback: true
         });
     });
@@ -245,13 +245,13 @@ $(function () {
             title: "关闭对话框前执行方法",
             content: "User Name: <input type='text' value='em2046'><br><br>用户填写了信息但未保存，提醒用户是否保存<br/><br/><br/><br/><br/>",
             okCallback: true,
-            okValue: "关闭",
+            okText: "关闭",
             okClassName: "btn",
             cancelCallback: function () {
                 this.close(true);
                 return false;
             },
-            cancelValue: "强制关闭",
+            cancelText: "强制关闭",
             cancelClassName: "btn-pink",
             beforeClosingCallback: function () {
                 var self = this;
