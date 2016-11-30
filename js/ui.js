@@ -196,9 +196,9 @@
                 var checked = $ele.prop("checked");
                 var $checkbox = $ele.parents(".nova-checkbox-label").find(".nova-checkbox");
                 if (checked) {
-                    $checkbox.addClass("checked");
+                    $checkbox.addClass("nova-checked");
                 } else {
-                    $checkbox.removeClass("checked");
+                    $checkbox.removeClass("nova-checked");
                 }
 
                 var disabled = $ele.prop("disabled");
@@ -222,9 +222,9 @@
                 var checked = $ele.prop("checked");
                 var $radio = $ele.parents(".nova-radio-label").find(".nova-radio");
                 if (checked) {
-                    $radio.addClass("checked");
+                    $radio.addClass("nova-checked");
                 } else {
-                    $radio.removeClass("checked");
+                    $radio.removeClass("nova-checked");
                 }
                 var disabled = $ele.prop("disabled");
                 if (disabled) {
@@ -319,9 +319,9 @@
             var $checkbox = $label.find(".nova-checkbox");
             var checked = $this.prop("checked");
             if (checked) {
-                $checkbox.addClass("checked");
+                $checkbox.addClass("nova-checked");
             } else {
-                $checkbox.removeClass("checked");
+                $checkbox.removeClass("nova-checked");
             }
         },
 
@@ -334,12 +334,10 @@
 
             var checked = $this.prop("checked");
 
-            var $form = $this.parents("form").first();
-            var $inputs = $form.find(".nova-radio-label input[type=radio][name=" + name + "]");
             var $radios = $inputs.parents(".nova-radio-label").find(".nova-radio");
 
-            $radios.removeClass("checked");
-            $radio.addClass("checked");
+            $radios.removeClass("nova-checked");
+            $radio.addClass("nova-checked");
 
         }
 
