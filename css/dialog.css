@@ -20,7 +20,7 @@
 
 .nova-dialog-footer { font-size: 0; text-align: center; padding-bottom: 30px; }
 
-.nova-overlay { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: #000; opacity: 0.35; filter: alpha(opacify=35); }
+.nova-overlay { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: #000; opacity: 0.35; filter: alpha(opacity=35); }
 
 .nova-dialog-body-loading { text-align: center; }
 
