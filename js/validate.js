@@ -180,7 +180,7 @@
             var isThatAllRight = true;
 
             for (var rule in rules) {
-                var $inputs = $(rule);
+                var $inputs = this.$target.find(rule);
                 var ruleDetails = rules[rule];
 
                 for (var index = 0; index < $inputs.length; index++) {

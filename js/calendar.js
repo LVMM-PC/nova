@@ -299,9 +299,15 @@
             '2016-10-07': {
                 vacationName: '国庆节假期'
             },
+            '2016-12-31': {
+                vacationName: '元旦假期'
+            },
             '2017-01-01': {
                 name: '元旦',
                 vacationName: '元旦'
+            },
+            '2017-01-02': {
+                vacationName: '元旦假期'
             },
             '2017-01-27': {
                 name: '除夕',
@@ -311,25 +317,76 @@
                 name: '春节',
                 vacationName: '春节'
             },
+            '2017-01-29': {
+                vacationName: '春节假期'
+            },
+            '2017-01-30': {
+                vacationName: '春节假期'
+            },
+            '2017-01-31': {
+                vacationName: '春节假期'
+            },
+            '2017-02-01': {
+                vacationName: '春节假期'
+            },
+            '2017-02-02': {
+                vacationName: '春节假期'
+            },
+            '2017-04-02': {
+                vacationName: '清明节假期'
+            },
+            '2017-04-03': {
+                vacationName: '清明节假期'
+            },
             '2017-04-04': {
                 name: '清明',
                 vacationName: '清明节'
+            },
+            '2017-04-29': {
+                vacationName: '劳动节假期'
+            },
+            '2017-04-30': {
+                vacationName: '劳动节假期'
             },
             '2017-05-01': {
                 name: '劳动',
                 vacationName: '劳动节'
             },
+            '2017-05-28': {
+                vacationName: '端午节假期'
+            },
+            '2017-05-29': {
+                vacationName: '端午节假期'
+            },
             '2017-05-30': {
                 name: '端午',
                 vacationName: '端午节'
+            },
+            '2017-10-01': {
+                name: '国庆',
+                vacationName: '国庆节'
+            },
+            '2017-10-02': {
+                vacationName: '国庆节、中秋节假期'
+            },
+            '2017-10-03': {
+                vacationName: '国庆节、中秋节假期'
             },
             '2017-10-04': {
                 name: '中秋',
                 vacationName: '中秋节'
             },
-            '2017-10-01': {
-                name: '国庆',
-                vacationName: '国庆节'
+            '2017-10-05': {
+                vacationName: '国庆节、中秋节假期'
+            },
+            '2017-10-06': {
+                vacationName: '国庆节、中秋节假期'
+            },
+            '2017-10-07': {
+                vacationName: '国庆节、中秋节假期'
+            },
+            '2017-10-08': {
+                vacationName: '国庆节、中秋节假期'
             }
         },
         cascadingEndNotShowStart: false  //级联第二个日历不显示第一个选中元素

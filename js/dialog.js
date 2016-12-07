@@ -61,6 +61,7 @@
     Factory.defaults = {
 
         template: template,
+        cloneEvent: true,
 
         showClose: true,  //是否显示关闭按钮
         buttons: null,  //按钮组
@@ -368,7 +369,7 @@
                 }
 
                 $button.attr({
-                    class: "btn " + className
+                    "class": "btn " + className
                 }).html(button.text);
 
                 $footer.append($button);
@@ -480,7 +481,8 @@
 
                 $body.html(content);
             } else if ($(content).get(0).nodeType === 1) {
-                var contentClone = content.clone(true);
+                var cloneEvent = this.options.cloneEvent;
+                var contentClone = content.clone(cloneEvent);
                 contentClone.show();
                 $body.html(contentClone);
             }

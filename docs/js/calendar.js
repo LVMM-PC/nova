@@ -24,11 +24,11 @@ $(function () {
         template: "small",
         allowMutiSelected: true,
 
-        monthNext: 2,
-        monthPrev: 2,
+        monthNext: 24,
+        monthPrev: 24,
 
-        dayNext: 10,
-        dayPrev: 10
+        dayNext: 1000,
+        dayPrev: 1000
 
     });
 
@@ -324,7 +324,8 @@ $(function () {
             console.log(self.getSelect()[0])
         },
 
-        monthPrev: 2,
+        monthPrev: 24,
+        monthNext: 24,
         dayPrev: 0
     });
 
