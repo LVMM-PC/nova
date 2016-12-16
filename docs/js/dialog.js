@@ -226,7 +226,7 @@ $(function () {
             content: "dialog/dialog-iframe.html",
             width: 600,
             //height: 300,
-            initHeight: 300
+            initHeight: 400
         });
     });
 
