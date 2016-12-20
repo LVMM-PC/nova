@@ -197,9 +197,9 @@
 
 .ui-calendar-mini td { position: relative; width: 30px; height: 30px; padding: 1px; border: none; text-align: center; vertical-align: top; }
 
-.ui-calendar-mini .sat { border-right: 2px solid #fff; }
+.ui-calendar-mini .sat { /*border-right: 2px solid #fff;*/ }
 
-.ui-calendar-mini .sun { border-left: 1px solid #fff; }
+.ui-calendar-mini .sun { /*border-left: 1px solid #fff;*/ }
 
 .ui-calendar-mini .date { position: absolute; left: 0; top: 0; text-align: center; width: 30px; height: 30px; line-height: 30px; cursor: default; border: none; }
 

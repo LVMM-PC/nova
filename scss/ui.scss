@@ -8,7 +8,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
     .nova-checkbox {
       background-position: 0 -20px;
     }
-    .nova-checkbox.checked {
+    .nova-checkbox.nova-checked {
       background-position: 0 -40px;
     }
     .nova-checkbox.disabled {
@@ -26,7 +26,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
   display: inline-block;
   background: $ui-bg;
   background-position: 0 0;
-  &.checked {
+  &.nova-checked {
     background-position: 0 -40px;
   }
 
@@ -37,7 +37,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
 
 .nova-checkbox-label-orange {
   .nova-checkbox {
-    &.checked {
+    &.nova-checked {
       background-position: -20px -40px;
     }
   }
@@ -45,7 +45,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
     .nova-checkbox {
       background-position: -20px -20px;
     }
-    .nova-checkbox.checked {
+    .nova-checkbox.nova-checked {
       background-position: -20px -40px;
     }
   }
@@ -57,7 +57,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
     .nova-radio {
       background-position: 0 -80px;
     }
-    .nova-radio.checked {
+    .nova-radio.nova-checked {
       background-position: 0 -100px;
     }
     .nova-radio.disabled {
@@ -75,7 +75,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
   display: inline-block;
   background: $ui-bg;
   background-position: 0 -60px;
-  &.checked {
+  &.nova-checked {
     background-position: 0 -100px;
   }
 }
@@ -83,7 +83,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
 .nova-radio-label-orange {
 
   .nova-radio {
-    &.checked {
+    &.nova-checked {
       background-position: -20px -100px;
     }
   }
@@ -91,7 +91,7 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
     .nova-radio {
       background-position: -20px -80px;
     }
-    .nova-radio.checked {
+    .nova-radio.nova-checked {
       background-position: -20px -100px;
     }
   }

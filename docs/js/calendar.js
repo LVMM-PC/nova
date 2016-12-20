@@ -165,6 +165,7 @@ $(function () {
                     //是否促销
                     if (sale) {
                         var $sale = $('<div class="calsale">促</div>');
+                        $calActive.find(".calsale").remove();
                         $calActive.append($sale);
                     }
 
@@ -312,13 +313,32 @@ $(function () {
         var self = this;
     }
 
+    var now = new Date();
+    var date = now.getDate();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var firstDate = new Date(year, month, 1);
+    var firstDateDay = firstDate.getDay();
+    var index = -firstDateDay;
+
     var myBigCalendar = lv.calendar({
         autoRender: true,
-        date: "2016-08-01",
+        //date: "2016-08-01",
         trigger: "#myBigCalendar",
         triggerEvent: "click",
         sourceFn: fillData,
-        completeCallback: completeCallback,
+        completeCallback: function () {
+            var newNow = this.now;
+            if (now.getFullYear() === newNow.getFullYear() && now.getMonth() === newNow.getMonth()) {
+                console.log("yes");
+                this.options.dayOffset = date - 1 - index;
+                this.render(true)
+            } else {
+                console.log("no");
+                this.options.dayOffset = 0;
+                this.render(true)
+            }
+        },
 
         selectDateCallback: function (self, $ele) {
             console.log(self.getSelect()[0])
@@ -326,7 +346,9 @@ $(function () {
 
         monthPrev: 24,
         monthNext: 24,
-        dayPrev: 0
+        dayPrev: 0,
+
+        dayOffset: 0
     });
 
     var myBigBimonthlyCalendar = lv.calendar({
@@ -462,7 +484,7 @@ $(function () {
     var distributionCaches = {};
 
     //清缓存
-    $(document).on("click","#distributionClearCache", function () {
+    $(document).on("click", "#distributionClearCache", function () {
         distributionCaches = {};
         console.log("缓存已经清空");
     });
@@ -707,7 +729,7 @@ $(function () {
                 async: true
             }).done(function (data) {
                 //模拟ajax延迟
-                setTimeRandom = ~~(Math.random() * 2000)+500;
+                setTimeRandom = ~~(Math.random() * 2000) + 500;
                 setTimeout(function () {
                     setDate(data, index);
                     $month.removeClass("distribution-loading");
@@ -984,6 +1006,7 @@ $(function () {
                     //是否促销
                     if (sale) {
                         var $sale = $('<div class="calsale">促</div>');
+                        $calActive.find(".calsale").remove();
                         $calActive.append($sale);
                     }
 

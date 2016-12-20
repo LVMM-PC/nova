@@ -157,6 +157,16 @@
             top: 0,
             left: 0
         },
+        //english week title
+        englishWeekTitle: {
+            0: 'sun',
+            1: 'mon',
+            2: 'tue',
+            3: 'wed',
+            4: 'thu',
+            5: 'fri',
+            6: 'sat'
+        },
         //星期短标题
         weekShortTitle: {
             0: "日",
@@ -389,7 +399,9 @@
                 vacationName: '国庆节、中秋节假期'
             }
         },
-        cascadingEndNotShowStart: false  //级联第二个日历不显示第一个选中元素
+        cascadingEndNotShowStart: false,  //级联第二个日历不显示第一个选中元素,
+        weekOffset: 0,
+        dayOffset: 0
     };
 
     /**
@@ -2500,9 +2512,27 @@
                 nextMonthTitle = nextMonthTitle.replace("caltitle", "caltitle caltitlenext");
                 html += nextMonthTitle
             }
+            var weekOffset = this.options.weekOffset;
+            var dayOffset = this.options.dayOffset;
+            var englishWeekTitle = this.options.englishWeekTitle;
+            var weekShortTitle = this.options.weekShortTitle;
             html += this.replaceWith(options.template.calBody, {
                 month: month + 1,
-                date: this.createDate(date)
+                date: this.createDate(date),
+                'englishWeekTitle[0]': englishWeekTitle[(0 + weekOffset + dayOffset) % 7],
+                'englishWeekTitle[1]': englishWeekTitle[(1 + weekOffset + dayOffset) % 7],
+                'englishWeekTitle[2]': englishWeekTitle[(2 + weekOffset + dayOffset) % 7],
+                'englishWeekTitle[3]': englishWeekTitle[(3 + weekOffset + dayOffset) % 7],
+                'englishWeekTitle[4]': englishWeekTitle[(4 + weekOffset + dayOffset) % 7],
+                'englishWeekTitle[5]': englishWeekTitle[(5 + weekOffset + dayOffset) % 7],
+                'englishWeekTitle[6]': englishWeekTitle[(6 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[0]': weekShortTitle[(0 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[1]': weekShortTitle[(1 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[2]': weekShortTitle[(2 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[3]': weekShortTitle[(3 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[4]': weekShortTitle[(4 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[5]': weekShortTitle[(5 + weekOffset + dayOffset) % 7],
+                'shortWeekTitle[6]': weekShortTitle[(6 + weekOffset + dayOffset) % 7]
             });
             html = this.replaceWith(options.template.calMonth, {
                 content: html,
@@ -2667,7 +2697,9 @@
             var firstDate = new Date(year, month, 1);
             var nextMonthFirstDate = new Date(year, month + 1, 1);
             var firstDateDay = firstDate.getDay();
-            var index = -firstDateDay;
+            var index = -firstDateDay + this.options.weekOffset;
+            index = index > 0 ? index - 7 : index;
+            index += this.options.dayOffset;
             var row = 0;
             var col = 0;
             var space;
@@ -2782,13 +2814,13 @@
     var calTable = '<table class="caltable">' +
         '    <thead>' +
         '        <tr>' +
-        '            <th class="sun">日</th>' +
-        '            <th class="mon">一</th>' +
-        '            <th class="tue">二</th>' +
-        '            <th class="wed">三</th>' +
-        '            <th class="thu">四</th>' +
-        '            <th class="fri">五</th>' +
-        '            <th class="sat">六</th>' +
+        '            <th class="{{englishWeekTitle[0]}}">{{shortWeekTitle[0]}}</th>' +
+        '            <th class="{{englishWeekTitle[1]}}">{{shortWeekTitle[1]}}</th>' +
+        '            <th class="{{englishWeekTitle[2]}}">{{shortWeekTitle[2]}}</th>' +
+        '            <th class="{{englishWeekTitle[3]}}">{{shortWeekTitle[3]}}</th>' +
+        '            <th class="{{englishWeekTitle[4]}}">{{shortWeekTitle[4]}}</th>' +
+        '            <th class="{{englishWeekTitle[5]}}">{{shortWeekTitle[5]}}</th>' +
+        '            <th class="{{englishWeekTitle[6]}}">{{shortWeekTitle[6]}}</th>' +
         '        </tr>' +
         '    </thead>' +
         '    <tbody>' +
