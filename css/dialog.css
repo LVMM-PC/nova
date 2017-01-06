@@ -1,4 +1,4 @@
-.nova-dialog, .nova-dialog-static { font-size: 12px; position: fixed; width: 418px; border: 1px solid #cccccc; background-color: #fff; color: #333333; box-shadow: 0 5px 14.25px 0.75px rgba(6, 0, 1, 0.15); }
+.nova-dialog, .nova-dialog-static { font-size: 12px; position: fixed; width: 418px; background-color: #fff; color: #333333; box-shadow: 0 5px 14.25px 0.75px rgba(6, 0, 1, 0.15); }
 
 .nova-dialog.nova-dialog-moving, .nova-dialog-static.nova-dialog-moving { cursor: move; }
 
