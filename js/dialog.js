@@ -530,7 +530,7 @@
                 return;
             }
 
-            if (windowHeight - dialogHeight >= 50) {
+            if (windowHeight - dialogHeight >= 0) {
                 this.offsets();
             } else {
                 var dialogTop = $window.scrollTop() + 10;

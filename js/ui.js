@@ -82,7 +82,8 @@
         render: function () {
             this.checkboxRender();
             this.radioRender();
-            this.selectRender()
+            this.selectRender();
+            this.numberBoxRender();
         },
 
         selectRender: function () {
@@ -153,6 +154,16 @@
 
         },
 
+        numberBoxRender: function () {
+            var self = this;
+            var $numberBox = $(this.options.target).find(".nova-number-box");
+            $numberBox.each(function (index, ele) {
+                var $box = $(ele);
+                var $subtract = $box.find(".nova-number-box-subtract");
+                self.addAndSubtract.call($subtract.get(0), self, 0);
+            });
+        },
+
         unrender: function () {
             this.checkboxUnrender();
             this.radioUnrender();
@@ -204,6 +215,7 @@
                 var disabled = $ele.prop("disabled");
                 if (disabled) {
                     $checkbox.addClass("disabled");
+                    $checkbox.parents(".nova-checkbox-label").eq(0).addClass("disabled");
                 }
             })
         },
@@ -229,6 +241,7 @@
                 var disabled = $ele.prop("disabled");
                 if (disabled) {
                     $radio.addClass("disabled");
+                    $radio.parents(".nova-radio-label").eq(0).addClass("disabled");
                 }
             })
         },
@@ -242,10 +255,28 @@
             $(this.options.target).off("click", ".nova-select-toggle", this.selectClickHandler);
             $(this.options.target).on("click", ".nova-select-toggle", {self: this}, this.selectClickHandler);
 
+            $(this.options.target).off("click", ".nova-select-option");
             $(this.options.target).on("click", ".nova-select-option", {self: this}, this.selectOptionClickHandler);
 
+            $(this.options.target).off("change", ".nova-select-label select");
             $(this.options.target).on("change", ".nova-select-label select", this.selectChangeHandler);
 
+            $(this.options.target).off("mousedown", ".nova-number-box .nova-number-box-subtract");
+            $(this.options.target).on("mousedown", ".nova-number-box .nova-number-box-subtract", {self: this}, function (e) {
+                var self = e.data.self;
+                self.addAndSubtract.call(this, self, -1);
+            });
+
+            $(this.options.target).off("mousedown", ".nova-number-box .nova-number-box-add");
+            $(this.options.target).on("mousedown", ".nova-number-box .nova-number-box-add", {self: this}, function (e) {
+                var self = e.data.self;
+                self.addAndSubtract.call(this, self, 1);
+            });
+
+            $(this.options.target).off("change", ".nova-number-box input", this.addAndSubtractChangeHandler);
+            $(this.options.target).on("change", ".nova-number-box input", {self: this}, this.addAndSubtractChangeHandler);
+
+            $($document).off("click", this.selectHideHandler);
             $($document).on("click", this.selectHideHandler);
         },
 
@@ -341,8 +372,52 @@
             $radios.removeClass("nova-checked");
             $radio.addClass("nova-checked");
 
-        }
+        },
 
+        addAndSubtractChangeHandler: function (e) {
+            var self = e.data.self;
+            var $this = $(this);
+            var $box = $this.parent();
+            self.addAndSubtractLimit($box, 0);
+        },
+
+        addAndSubtractLimit: function ($box, offset) {
+            var $subtract = $box.find(".nova-number-box-subtract");
+            var $add = $box.find(".nova-number-box-add");
+            var $input = $box.find("input");
+            var num = strToNumber($input.val(), 0);
+            var min = strToNumber($input.attr("data-min"), 0);
+            var max = strToNumber($input.attr("data-max"), 9);
+            var limit = {
+                min: min,
+                max: max
+            };
+
+            num = num + offset;
+
+            if (num >= max) {
+                num = max;
+                $add.addClass("disabled");
+            } else {
+                $add.removeClass("disabled");
+            }
+            if (num <= min) {
+                num = min;
+                $subtract.addClass("disabled");
+            } else {
+                $subtract.removeClass("disabled");
+            }
+
+            $input.val(num)
+        },
+
+        addAndSubtract: function (self, offset) {
+            var $this = $(this);
+            var $box = $this.parent();
+            self.addAndSubtractLimit($box, offset);
+            var $input = $box.find("input");
+            $input.change();
+        }
     };
 
     nova.ui = Factory;
@@ -354,6 +429,15 @@
                 Factory[c] = UI[c]
             }
         }
+    }
+
+    function strToNumber(str, def) {
+        str = $.trim(str);
+        var num = parseInt(str, 10);
+        if (isNaN(num) || !isFinite(num)) {
+            num = def;
+        }
+        return num;
     }
 
 })(window, jQuery, window.nova || {});

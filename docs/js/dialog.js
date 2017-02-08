@@ -263,4 +263,21 @@ $(function () {
         });
     });
 
+        var winHeight = $(window).height();
+        //console.log(winHeight);
+        nova.dialog({
+            //url: true,
+            content:"./change_hotel.html",
+            //wrapClass:"hotel-dialog",
+            title:"更换酒店",
+            width:960,
+            //initHeight: winHeight-38,  //iframe高度
+            height: winHeight,
+            //fixed: true,
+
+            zIndex:17
+        })
+
+
+
 });

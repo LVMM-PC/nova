@@ -1,53 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>日历3 单月大日历</title>
-    <meta name="renderer" content="webkit">
-    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
-    <link rel="stylesheet" href="../css/atom-one-light.css">
-    <link rel="stylesheet" href="../css/docs.css">
-</head>
-<body>
+/**
+ * author: Sheng JIANG
+ * date: 2017-01-16
+ */
 
-<header id="header">
-    <div id="logo">
-        NOVA
-    </div>
-</header>
+$(function () {
 
-<menu id="nav">
-    <li><a href="../">首页</a></li>
-</menu>
+    var $document = $(document);
 
-<p id="crumbs">
-    <a href="../">Index</a>
-    &gt;
-    <a href="../calendar.html">Calendar</a>
-</p>
-
-<div id="everything">
-
-<pre>
-<code class="js">
-var myBigCalendar = lv.calendar({
+    var myBigCalendar = lv.calendar({
         autoRender: true,  //自动渲染日历
         trigger: "#myBigCalendar",  //触发的位置
         triggerEvent: "click",  //响应的触发事件 自动渲染时此参数无效
         sourceFn: fillData,  //填充时间价格表
-        completeCallback: completeCallback,  //日历加载完成后执行的回掉函数
+        completeCallback: function () {
+
+        },  //日历加载完成后执行的回掉函数
 
         monthPrev: 2  //日历可以往前翻页2页
     });
-</code>
-</pre>
-<pre>
-<code class="js">
-
 
     function fillData() {
         var self = this;
-        var url = "json/calendar-data.json";
+        var url = "../json/calendar-data.json";
 
         /**
          * 获取剩余HTML
@@ -56,9 +30,9 @@ var myBigCalendar = lv.calendar({
          */
         function getStoreHTML(inventory) {
             var html = "";
-            if (inventory &lt;= 0) {
+            if (isNaN(inventory) || inventory <= 0) {
                 html = "售罄";
-            } else if (inventory &lt; 10) {
+            } else if (inventory < 10) {
                 html = "余" + inventory
             }
             return html;
@@ -70,10 +44,10 @@ var myBigCalendar = lv.calendar({
          */
         function createHover() {
             var $hover = $(".calhover");
-            if ($hover.length &lt;= 0) {
-                $hover = $(&apos;&lt;div class="calhover"&gt;&lt;div class="triangle"&gt;&lt;/div&gt;&lt;/div&gt;&apos;);
+            if ($hover.length <= 0) {
+                $hover = $('<div class="calhover"><div class="triangle"></div></div>');
             } else {
-                $hover.html(&apos;&lt;div class="triangle"&gt;&lt;/div&gt;&apos;);
+                $hover.html('<div class="triangle"></div>');
             }
             $("body").append($hover);
             $hover.removeClass("calhover-right");
@@ -94,7 +68,7 @@ var myBigCalendar = lv.calendar({
                 return false;
             }
 
-            var $allTd = self.wrap.find(&apos;td[data-date-map]&apos;);  //所有的日历单元格
+            var $allTd = self.wrap.find('td[data-date-map]');  //所有的日历单元格
             $allTd.children().addClass("caldisabled");  //先禁用所有的日历日期
 
             //对json对象进行迭代处理
@@ -135,7 +109,9 @@ var myBigCalendar = lv.calendar({
                 var sale = row.sale;
 
                 //json单元-日期对应文档中的td单元格
-                var $td = self.wrap.find(&apos;td[data-date-map=&apos; + dateStr + &apos;]&apos;);
+                var $td = self.wrap.find('td[data-date-map=' + dateStr + ']');
+
+                var lineRouteName = row.lineRouteName;
 
                 //如果json中的数据有td单元格相对应，则显示数据信息
                 if ($td) {
@@ -144,28 +120,35 @@ var myBigCalendar = lv.calendar({
                     var $calActive = $td.find(".calactive");
 
                     //显示价格
-                    $td.find(".calprice").html(&apos;&lt;i&gt;&yen;&lt;/i&gt;&lt;em&gt;&apos; + price + &apos;&lt;/em&gt;起&apos;);
+                    $td.find(".calprice").html('<i>&yen;</i><em>' + price + '</em>起');
 
                     //显示库存
                     $td.find(".calinfo").html(getStoreHTML(inventory));
 
                     //是否售罄
-                    if (inventory &lt;= 0) {
+                    if (isNaN(inventory) || inventory <= 0) {
                         $td.find(".calinfo").addClass("sellout");
+                        $td.children().removeClass("caldate").addClass("nodate");
                     } else {
                         $td.children().removeClass("caldisabled")
                     }
 
                     //是否促销
                     if (sale) {
-                        var $sale = $(&apos;&lt;div class="calsale"&gt;促&lt;/div&gt;&apos;);
+                        var $sale = $('<div class="calsale">促</div>');
+                        $calActive.find(".calsale").remove();
                         $calActive.append($sale);
                     }
+
+                    // if (lineRouteName) {
+                    //     var $lineRouteName = $('<div class="calroute">' + lineRouteName + '</div>');
+                    //     $calActive.find(".calroute").remove();
+                    //     $calActive.append($lineRouteName);
+                    // }
 
                 }
             });
 
-            
             //显示促销/线路/休假浮动框
             (function () {
 
@@ -197,16 +180,16 @@ var myBigCalendar = lv.calendar({
                     var $hover = createHover();
 
                     //休假
-                    var $calfestival = $(&apos;&lt;p class="calfestival"&gt;&lt;i&gt;休&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;&apos;);
+                    var $calfestival = $('<p class="calfestival"><i>休</i><span></span></p>');
                     var $calfestivalContent = $calfestival.find("span");
 
                     //线路
-                    var $calroute = $(&apos;&lt;p class="calroute"&gt;&lt;i&gt;&nbsp;&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;&apos;);
+                    var $calroute = $('<p class="calroute"><i>&nbsp;</i><span></span></p>');
                     var $calrouteTitle = $calroute.find("i");
                     var $calrouteContent = $calroute.find("span");
 
                     //促销
-                    var $calsale = $(&apos;&lt;p class="calsale"&gt;&lt;i&gt;促&lt;/i&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;&apos;);
+                    var $calsale = $('<p class="calsale"><i>促</i><span></span></p>');
                     var $calsaleContent = $calsale.find("span");
 
                     //显示坐标
@@ -227,7 +210,7 @@ var myBigCalendar = lv.calendar({
                         if (row.date == date) {
                             var route = row.lineRouteName;
                             if (row.sale) {
-                                var sale = row.sale.replace(/\n/g, &apos;&lt;br/&gt;&apos;);
+                                var sale = row.sale.replace(/\n/g, '<br/>');
                             }
 
                             if (route) {
@@ -250,7 +233,7 @@ var myBigCalendar = lv.calendar({
                     var $table = $this.parents(".caltable");
                     var tableLeft = $table.offset().left;
                     var tableWidth = $table.outerWidth();
-                    if (width + left - tableLeft &gt; tableWidth) {
+                    if (width + left - tableLeft > tableWidth) {
                         left = tableLeft + (tableWidth - width);
                         $hover.addClass("calhover-right");
                     }
@@ -260,7 +243,7 @@ var myBigCalendar = lv.calendar({
 
                         if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
                             //hide
-                        }else if (!self.wrap.is(".ui-calendar-mini")) {
+                        } else if (!self.wrap.is(".ui-calendar-mini")) {
                             $hover.show();
                         }
 
@@ -272,7 +255,7 @@ var myBigCalendar = lv.calendar({
                         var triangleLeft = ~~($this.offset().left - left + $this.width() / 2);
                         $hover.find(".triangle").css({
                             left: triangleLeft
-                        });
+                        })
 
                         if (self.options.zIndex) {
                             $hover.css("zIndex", self.options.zIndex + 1);
@@ -303,16 +286,62 @@ var myBigCalendar = lv.calendar({
         })
     }
 
+    var newDate = lv.calendar.getDateFromFormattedString(lv.calendar.dateFormat(myBigCalendar.date, "yyyy-MM-dd"), "yyyy-MM-dd");
 
-</code>
-</pre>
+    newDate.setDate(1);
+    var minDate = lv.calendar.monthOffset(newDate, -myBigCalendar.options.monthPrev);
+    var maxDate = lv.calendar.monthOffset(newDate, myBigCalendar.options.monthNext);
 
-</div>
+    // console.log(lv.calendar.dateFormat(newDate, "yyyy-MM"));
+    // console.log(lv.calendar.dateFormat(minDate, "yyyy-MM"));
+    // console.log(lv.calendar.dateFormat(maxDate, "yyyy-MM"));
 
-<script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
-<script src="../../js/calendar.js"></script>
-<script src="../js/calendar.js"></script>
-<script src="../js/highlight.pack.js"></script>
-<script src="../js/navigation.js"></script>
-</body>
-</html>
+    var $tab = $(".calendar-tab");
+
+    var tabs = [];
+    changeTabs(newDate);
+    //console.log(newDate);
+
+    function changeTabs(date) {
+        for (var i = 0; i < 4; i++) {
+            var datePoint = new Date(date);
+            datePoint = lv.calendar.monthOffset(date, i);
+            tabs[i] = datePoint;
+            $tab.eq(i).html(lv.calendar.dateFormat(datePoint, "yyyy-MM"));
+            $tab.eq(i).attr("data-date", lv.calendar.dateFormat(datePoint, "yyyy-MM"));
+            if(datePoint < minDate){
+
+            }
+        }
+        $tab.eq(0).click();
+    }
+
+    $document.on("click", ".calendar-tabs-prev", function () {
+        var tempDate = lv.calendar.monthOffset(newDate, -4);
+
+        console.log(tempDate);
+        console.log(minDate);
+
+        if(tempDate<minDate){
+            console.log("<<<")
+        }
+
+        newDate = tempDate;
+        changeTabs(newDate);
+    });
+    $document.on("click", ".calendar-tabs-next", function () {
+        newDate = lv.calendar.monthOffset(newDate, 4);
+        changeTabs(newDate);
+    });
+
+    $document.on("click", ".calendar-tab", function () {
+        var $this = $(this);
+        $this.addClass("active").siblings().removeClass("active");
+        var dateStr = $this.attr("data-date");
+        var date = lv.calendar.getDateFromFormattedString(dateStr, "yyyy-MM");
+        //console.log(date)
+        myBigCalendar.now = date;
+        myBigCalendar.render();
+    });
+
+});

@@ -4,6 +4,9 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
 
 .nova-checkbox-label {
   margin-right: 10px;
+  &.disabled {
+    color: #999;
+  }
   &:hover {
     .nova-checkbox {
       background-position: 0 -20px;
@@ -53,6 +56,9 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
 
 .nova-radio-label {
   margin-right: 10px;
+  &.disabled {
+    color: #999;
+  }
   &:hover {
     .nova-radio {
       background-position: 0 -80px;
@@ -165,4 +171,62 @@ $ui-bg: url(http://pic.lvmama.com/img/lv/ui.png);
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
+}
+
+.nova-number-box {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 0;
+  input {
+    font-size: 13px;
+    text-align: center;
+    float: left;
+    border: 1px solid #cccccc;
+    width: 39px;
+    height: 28px;
+    line-height: 28px;
+    margin-left: -1px;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.nova-number-box-subtract,
+.nova-number-box-add {
+  cursor: pointer;
+  float: left;
+  border: 1px solid #cccccc;
+  width: 28px;
+  height: 28px;
+  i {
+    background-image: $ui-bg;
+    width: 12px;
+    height: 12px;
+    display: block;
+    margin: 8px;
+  }
+}
+
+.nova-number-box-subtract {
+  i {
+    background-position: -40px 0;
+  }
+  &.disabled {
+    i {
+      background-position: -40px -20px;
+    }
+  }
+}
+
+.nova-number-box-add {
+  margin-left: -1px;
+  i {
+    background-position: -40px -40px;
+  }
+  &.disabled {
+    i {
+      background-position: -40px -60px;
+    }
+  }
 }

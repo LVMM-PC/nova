@@ -5,6 +5,7 @@
     <title>UI</title>
     <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
     <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="css/atom-one-light.css">
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <style>
@@ -12,15 +13,23 @@
             line-height: 30px;
             margin-bottom: 10px;
         }
+
         dt {
-            min-height:1px;
+            min-height: 1px;
             float: left;
             width: 100px;
             text-align: right;
             padding-right: 10px;
         }
+
         dd {
             float: left;
+        }
+
+        .nova-number-box {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -51,6 +60,17 @@
     </div>
 
     <h2>预览</h2>
+    <div class="section">
+        <pre>
+<code>
+
+    var ui = nova.ui();
+    ui.render();
+
+</code>
+        </pre>
+
+    </div>
     <div class="section">
 
         <form>
@@ -245,14 +265,46 @@
             </dl>
         </form>
     </div>
+    <div class="section">
+<pre>
+<code>
+&lt;div class="nova-number-box"&gt;
+    &lt;div class="nova-number-box-subtract"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;input value="9" type="text" data-max="9" data-min="0"&gt;
+    &lt;div class="nova-number-box-add"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+    </div>
+    <div class="section">
+
+        <div class="number-box-group clearfix">
+            <div class="nova-number-box">
+                <div class="nova-number-box-subtract"><i></i></div>
+                <input value="0" type="text" data-max="9" data-min="0">
+                <div class="nova-number-box-add"><i></i></div>
+            </div>
+            <em>$110</em>
+        </div>
+        <div class="nova-number-boxes clearfix">
+            <div class="nova-number-box">
+                <div class="nova-number-box-subtract"><i></i></div>
+                <input value="9" type="text" data-max="9" data-min="0">
+                <div class="nova-number-box-add"><i></i></div>
+            </div>
+        </div>
+        <div class="btn JS_number_box_add">添加</div>
+    </div>
 
     <h2>评论</h2>
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="ui" data-title="NOVA" data-url="http://www.em2046.com/nova/docs/ui.html"></div>
+    <div class="ds-thread" data-thread-key="ui" data-title="NOVA"
+         data-url="http://www.em2046.com/nova/docs/ui.html"></div>
     <!-- 多说评论框 end -->
 
 </div>
 <script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+<script src="js/highlight.pack.js"></script>
 <script src="js/navigation.js"></script>
 <script src="../js/ui.js"></script>
 <script src="../docs/js/ui.js"></script>

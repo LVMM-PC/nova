@@ -142,6 +142,8 @@ $(function () {
                 //json单元-日期对应文档中的td单元格
                 var $td = self.wrap.find('td[data-date-map=' + dateStr + ']');
 
+                var lineRouteName = row.lineRouteName;
+
                 //如果json中的数据有td单元格相对应，则显示数据信息
                 if ($td) {
 
@@ -168,6 +170,12 @@ $(function () {
                         $calActive.find(".calsale").remove();
                         $calActive.append($sale);
                     }
+
+                    // if (lineRouteName) {
+                    //     var $lineRouteName = $('<div class="calroute">' + lineRouteName + '</div>');
+                    //     $calActive.find(".calroute").remove();
+                    //     $calActive.append($lineRouteName);
+                    // }
 
                 }
             });
@@ -530,7 +538,6 @@ $(function () {
         }
 
         function setDate(data, index) {
-
             if (!data) {
                 return false;
             }
