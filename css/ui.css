@@ -50,7 +50,7 @@
 
 .nova-select-toggle { width: 166px; padding: 0 10px; border: 1px solid #cccccc; }
 
-.nova-select-dropdown { margin-top: -1px; background-color: #fff; width: 186px; border: 1px solid #cccccc; max-height: 280px; overflow: auto; position: absolute; display: none; }
+.nova-select-dropdown { margin-top: -1px; background-color: #fff; width: 186px; border: 1px solid #cccccc; max-height: 280px; overflow: auto; position: absolute; display: none; z-index: 1; }
 
 .nova-select-optgroup-label { color: #999; }
 
@@ -87,3 +87,17 @@
 .nova-number-box-add i { background-position: -40px -40px; }
 
 .nova-number-box-add.disabled i { background-position: -40px -60px; }
+
+.nova-checkbox-label-bordered { position: relative; line-height: 23px; height: 23px; border: 1px solid #dddddd; padding: 1px 15px; font-size: 12px; display: inline-block; color: #666; }
+
+.nova-checkbox-label-bordered:hover, .nova-checkbox-label-bordered.nova-checked { color: #333; padding: 0 14px; border: 2px solid #ff8800; }
+
+.nova-checkbox-label-bordered .nova-checkbox { position: absolute; bottom: -2px; right: -2px; margin: 0; display: none; }
+
+.nova-checkbox-label-bordered .nova-checkbox.nova-checked { display: block; background-image: url(http://pic.lvmama.com/img/lv/ui.png); background-position: -40px -80px; width: 20px; height: 20px; }
+
+.nova-checkbox-label-bordered:hover .nova-checkbox.nova-checked { background-position: -40px -80px; }
+
+.nova-checkbox-label-bordered .nova-checkbox-text { display: inline-block; }
+
+.nova-checkbox-label-bordered .nova-checkbox-hide { top: 0; left: 0; }

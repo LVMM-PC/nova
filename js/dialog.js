@@ -87,6 +87,7 @@
         cancelClassName: "",  //取消按钮class
 
         content: "",  //内容
+        contentClone: true,
         title: "消息提醒",  //标题
 
         time: null,  //定时关闭 单位毫秒(ms)
@@ -423,12 +424,18 @@
          * @param force 不执行beforeunload直接关闭
          */
         close: function (force) {
+            var contentClone = this.options.contentClone;
             var beforeunload = this.options.beforeClosingCallback;
             if (!force && beforeunload && $.isFunction(beforeunload)) {
                 var ret = beforeunload.call(this);
                 if (ret === false) {
                     return;
                 }
+            }
+            if (!contentClone) {
+                var content = this.options.content;
+                content.hide();
+                $body.append(content);
             }
             this.wrap.remove();
             this.mask();
@@ -455,6 +462,8 @@
         content: function (content) {
 
             var $body = this.wrap.find(".nova-dialog-body");
+            var contentClone = this.options.contentClone;
+
             if (this.options.url) {
                 this.wrap.addClass("nova-dialog-custom");
                 var $iframe = $('<iframe src="' + content + '" frameborder="0"></iframe>');
@@ -478,13 +487,17 @@
             }
 
             if (typeof content === "string") {
-
                 $body.html(content);
-            } else if ($(content).get(0).nodeType === 1) {
-                var cloneEvent = this.options.cloneEvent;
-                var contentClone = content.clone(cloneEvent);
-                contentClone.show();
-                $body.html(contentClone);
+            } else if ($(content).get(0) && $(content).get(0).nodeType === 1) {
+                if (contentClone) {
+                    var cloneEvent = this.options.cloneEvent;
+                    var contentCloned = content.clone(cloneEvent);
+                    contentCloned.show();
+                    $body.html(contentCloned);
+                } else {
+                    $body.html(content);
+                    content.show();
+                }
             }
         },
 

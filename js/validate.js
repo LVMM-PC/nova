@@ -38,7 +38,7 @@
         rules: {},
         validateCallback: null,
         messages: {
-            default: "格式错误",
+            error: "格式错误",
             required: "必须填写。",
             "chinese-and-english": "请输入中文或英文。",
             chinese: "请输入中文。",
@@ -92,7 +92,7 @@
 
             var rules = this.options.rules;
             var messages = this.options.messages;
-            var message = this.options.messages.default;
+            var message = this.options.messages.error;
             var validateCallback = this.options.validateCallback;
 
             var val = $.trim($input.val());

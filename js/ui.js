@@ -206,10 +206,13 @@
                 var $ele = $(ele);
                 var checked = $ele.prop("checked");
                 var $checkbox = $ele.parents(".nova-checkbox-label").find(".nova-checkbox");
+                var $label = $ele.parents(".nova-checkbox-label");
                 if (checked) {
                     $checkbox.addClass("nova-checked");
+                    $label.addClass("nova-checked");
                 } else {
                     $checkbox.removeClass("nova-checked");
+                    $label.removeClass("nova-checked");
                 }
 
                 var disabled = $ele.prop("disabled");
@@ -351,8 +354,10 @@
             var checked = $this.prop("checked");
             if (checked) {
                 $checkbox.addClass("nova-checked");
+                $label.addClass("nova-checked");
             } else {
                 $checkbox.removeClass("nova-checked");
+                $label.removeClass("nova-checked");
             }
         },
 
