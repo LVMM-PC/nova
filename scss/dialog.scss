@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$dialog-img: url(//pic.lvmama.com/img/lv/dialog.png);
+$dialog-img: url(../../img/lv/dialog.png);
 
 .nova-dialog, .nova-dialog-static {
   font-size: 12px;
@@ -83,7 +83,7 @@ $dialog-img: url(//pic.lvmama.com/img/lv/dialog.png);
 .nova-dialog-body-loading {
   text-align: center;
   i {
-    background-image: url(http://pic.lvmama.com/img/new_v/ui_scrollLoading/loadingGIF46px.gif);
+    background-image: url(../../img/new_v/ui_scrollLoading/loadingGIF46px.gif);
     width: 46px;
     height: 46px;
     display: inline-block;

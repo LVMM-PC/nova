@@ -17,7 +17,7 @@
 
 .nova-tip-close { float: right; right: 0; top: 0; margin: -8px -31px 0 0; padding: 10px; display: block; cursor: pointer; }
 
-.nova-tip-close i { width: 11px; height: 11px; background-image: url(http://pic.lvmama.com/img/lv/icon.png); background-position: -240px -200px; display: block; }
+.nova-tip-close i { width: 11px; height: 11px; background-image: url(../../img/lv/icon.png); background-position: -240px -200px; display: block; }
 
 .nova-tip-close:hover i { background-position: -260px -200px; }
 

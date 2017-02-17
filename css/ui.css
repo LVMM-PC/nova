@@ -8,7 +8,7 @@
 
 .nova-checkbox-label:hover .nova-checkbox.disabled { background-position: 0 0; }
 
-.nova-checkbox { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background: url(http://pic.lvmama.com/img/lv/ui.png); background-position: 0 0; }
+.nova-checkbox { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background: url(../../img/lv/ui.png); background-position: 0 0; }
 
 .nova-checkbox.nova-checked { background-position: 0 -40px; }
 
@@ -30,7 +30,7 @@
 
 .nova-radio-label:hover .nova-radio.disabled { background-position: 0 -60px; }
 
-.nova-radio { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background: url(http://pic.lvmama.com/img/lv/ui.png); background-position: 0 -60px; }
+.nova-radio { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background: url(../../img/lv/ui.png); background-position: 0 -60px; }
 
 .nova-radio.nova-checked { background-position: 0 -100px; }
 
@@ -76,7 +76,7 @@
 
 .nova-number-box-subtract, .nova-number-box-add { cursor: pointer; float: left; border: 1px solid #cccccc; width: 28px; height: 28px; }
 
-.nova-number-box-subtract i, .nova-number-box-add i { background-image: url(http://pic.lvmama.com/img/lv/ui.png); width: 12px; height: 12px; display: block; margin: 8px; }
+.nova-number-box-subtract i, .nova-number-box-add i { background-image: url(../../img/lv/ui.png); width: 12px; height: 12px; display: block; margin: 8px; }
 
 .nova-number-box-subtract i { background-position: -40px 0; }
 
@@ -94,7 +94,7 @@
 
 .nova-checkbox-label-bordered .nova-checkbox { position: absolute; bottom: -2px; right: -2px; margin: 0; display: none; }
 
-.nova-checkbox-label-bordered .nova-checkbox.nova-checked { display: block; background-image: url(http://pic.lvmama.com/img/lv/ui.png); background-position: -40px -80px; width: 20px; height: 20px; }
+.nova-checkbox-label-bordered .nova-checkbox.nova-checked { display: block; background-image: url(../../img/lv/ui.png); background-position: -40px -80px; width: 20px; height: 20px; }
 
 .nova-checkbox-label-bordered:hover .nova-checkbox.nova-checked { background-position: -40px -80px; }
 
