@@ -6,7 +6,6 @@
 
 .nova-dialog-close { cursor: pointer; position: absolute; top: 0; right: 0; width: 35px; height: 35px; }
 
-.nova-dialog-close i { display: block; margin: 10px 0 0 9px; width: 16px; height: 15px; background-image: url(../../img/lv/dialog.png); background-position: 0 0; }
 
 .nova-dialog-close:hover i { background-position: -20px 0; }
 
@@ -24,7 +23,6 @@
 
 .nova-dialog-body-loading { text-align: center; }
 
-.nova-dialog-body-loading i { background-image: url(../../img/new_v/ui_scrollLoading/loadingGIF46px.gif); width: 46px; height: 46px; display: inline-block; margin: 0 auto; }
 
 .nova-dialog-custom .nova-dialog-body { padding: 0; }
 

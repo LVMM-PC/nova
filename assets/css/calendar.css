@@ -3,13 +3,11 @@
 /*region 日历*/
 .nova-calendar-tip { background: #fff; font-size: 12px; color: #999; line-height: 32px; height: 32px; }
 
-.nova-calendar-tip i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; background: url(../../img/lv/icon.png) -240px -220px; vertical-align: -3px; }
 
 .ui-calendar { font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; background-color: #fff; position: relative; width: 1196px; border: 2px solid #e3e3e3; color: #333; }
 
 .ui-calendar .monthbg { display: none; }
 
-.ui-calendar .month-prev, .ui-calendar .month-next { position: absolute; color: #ffffff; font-size: 16px; width: 26px; height: 26px; background-image: url(../../img/lv/calendar.png); top: 4px; cursor: pointer; text-indent: -9999em; overflow: hidden; }
 
 .ui-calendar .month-prev:hover, .ui-calendar .month-next:hover { background-color: #ff77bb; }
 
@@ -27,7 +25,6 @@
 
 .ui-calendar .caltitle { font-size: 16px; height: 34px; line-height: 34px; text-align: center; background-color: #ffffff; border-left: 1px solid #e3e3e3; border-right: 1px solid #e3e3e3; }
 
-.ui-calendar .month-loading { left: 0; top: 0; right: 0; bottom: 0; background: #fff url(../../img/new_v/ui_scrollLoading/loadingGIF46px.gif) no-repeat center center; position: absolute; overflow: hidden; font-size: 200px; line-height: 100%; text-align: center; display: none; }
 
 .ui-calendar table { position: relative; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; }
 
@@ -69,7 +66,6 @@
 
 .ui-calendar .calactive { top: 0; right: 0; }
 
-.ui-calendar .calsale, .ui-calendar .calfestival, .ui-calendar .calroute { margin-left: 1px; display: inline-block; background-image: url(../../img/lv/calendar.png); background-position: -120px 0; width: 14px; height: 14px; text-indent: -9999em; float: left; }
 
 .ui-calendar .calroute { background-image: none; background-color: #fe7878; color: #FFFFFF; text-indent: 0; line-height: 14px; text-align: center; }
 
@@ -159,7 +155,6 @@
 
 .ui-calendar-big .calmonth[data-offset='1'] { float: right; }
 
-.ui-calendar-big .td-selected .calselected { display: block; position: absolute; right: 0; bottom: 0; background: url(../../img/lv/calendar.png) no-repeat -140px -10px; width: 20px; height: 20px; }
 
 .ui-calendar-big .td-selected .caldate { border: 1px solid #ff9900; background: #fffaee; margin: -1px; }
 
@@ -263,7 +258,6 @@
 
 .ui-calendar-birthday .cal-year-select-active, .ui-calendar-birthday .cal-year-select, .ui-calendar-birthday .cal-month-select-active, .ui-calendar-birthday .cal-month-select { font-size: 14px; text-align: center; cursor: pointer; height: 24px; line-height: 24px; }
 
-.ui-calendar-birthday .cal-year-select-active i, .ui-calendar-birthday .cal-year-select i, .ui-calendar-birthday .cal-month-select-active i, .ui-calendar-birthday .cal-month-select i { margin-left: 5px; vertical-align: 3px; display: inline-block; background-image: url(../../img/lv/calendar.png); background-position: -160px 0; width: 7px; height: 4px; }
 
 .ui-calendar-birthday .cal-month-select.active, .ui-calendar-birthday .cal-month-select-active, .ui-calendar-birthday .cal-year-select.active, .ui-calendar-birthday .cal-year-select-active { color: #ee3388; }
 
@@ -321,7 +315,6 @@
 
 .ui-calendar-birthday .cal-hour-dropdown .close, .ui-calendar-birthday .cal-minute-dropdown .close { cursor: pointer; top: 2px; right: 4px; position: absolute; padding: 5px; }
 
-.ui-calendar-birthday .cal-hour-dropdown .close i, .ui-calendar-birthday .cal-minute-dropdown .close i { display: block; width: 11px; height: 11px; background-image: url(../../img/lv/calendar.png); background-position: -160px -15px; }
 
 .ui-calendar-birthday .cal-hour-dropdown .close i:hover, .ui-calendar-birthday .cal-minute-dropdown .close i:hover { background-position: -180px -15px; }
 
@@ -410,7 +403,6 @@
 /*endregion*/
 .calhover { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; display: none; color: #666666; border: 1px solid #cccccc; background: #FFFFFF; position: absolute; padding: 10px 10px 4px 10px; *margin-left: -1px; *margin-top: -1px; }
 
-.calhover .triangle { width: 11px; height: 7px; display: block; position: absolute; margin: 0; top: -7px; left: 36px; bottom: auto; background: url(../../img/lv/calendar.png) no-repeat -140px 0; pointer-events: none; border: none; }
 
 .calhover.calhover-right { *margin-left: 0; }
 
@@ -424,12 +416,9 @@
 
 .calhover .calroute i { background: #fe7878; color: #FFFFFF; }
 
-.calhover .calfestival i { text-indent: -9999em; background-image: url(../../img/lv/calendar.png); background-position: -120px -15px; }
 
-.calhover .calsale i { text-indent: -9999em; background-image: url(../../img/lv/calendar.png); background-position: -120px 0; }
 
 .calhover .calHasNotProduct { margin: -3px 0 3px 0; }
 
 .cal-number-of-days { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); display: none; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; pointer-events: none; position: absolute; background: #ffffff; border: 1px solid #cccccc; line-height: 20px; padding: 5px 10px; }
 
-.cal-number-of-days .triangle { width: 11px; height: 7px; display: block; position: absolute; top: -7px; left: 50%; margin-left: -5px; background: url(../../img/lv/calendar.png) no-repeat -140px 0; pointer-events: none; }
