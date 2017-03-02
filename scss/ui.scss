@@ -235,6 +235,16 @@ $ui-bg: url(../../img/lv/ui.png);
     display: block;
     margin: 8px;
   }
+  &:hover {
+      position: relative;
+      border-color: #ff9900;
+      background: #fffaee;
+  }
+  &.disabled:hover {
+      position: static;
+      border-color: #cccccc;
+      background: inherit;
+  }
 }
 
 .nova-number-box-subtract {
