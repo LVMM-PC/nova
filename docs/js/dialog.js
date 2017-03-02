@@ -96,12 +96,17 @@ $(function () {
     $(".JS_dialog_dom").on("click", function () {
         nova.dialog({
             content: $("#elemBack"),
-            contentClone: false
+            contentClone: false,
+            zIndex: 50
         })
     });
 
     $("#testbtn").click(function () {
-        nova.alert("您点击激活了原绑定事件");
+        //nova.alert("您点击激活了原绑定事件");
+        nova.dialog({
+            content: "您点击激活了原绑定事件",
+            zIndex: 100
+        })
     });
 
     $(".JS_dialog_btn").on("click", function () {

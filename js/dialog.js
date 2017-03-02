@@ -98,7 +98,7 @@
         wrapClass: "",  //弹窗class
         maskClass: "nova-overlay",  //遮罩层class
 
-        zIndex: null  //z-index
+        zIndex: 1  //z-index
 
     };
 
@@ -178,6 +178,9 @@
             self.content(options.content);
 
             //设置z-index
+            if (options.zIndex === null) {
+                options.zIndex = "auto";
+            }
             self.zIndex(options.zIndex);
 
             //设置定时器
@@ -589,6 +592,7 @@
                 $mask = $('<div class="nova-overlay"></div>');
                 $body.append($mask);
             }
+            $mask.css("zIndex", this.options.zIndex);
             var $dialogs = $(".nova-dialog[data-mask=mask]");
 
             $mask.attr("class", "nova-overlay");
@@ -602,6 +606,7 @@
                 $dialog.before($mask);
                 var maskClass = dialog.options.maskClass;
                 $mask.addClass(maskClass);
+                $mask.css("zIndex", dialog.options.zIndex);
             }
 
         }

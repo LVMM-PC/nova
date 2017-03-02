@@ -120,15 +120,11 @@ hue-6-2: #c18401
 }
 
 .hljs.javascript .hljs-string {
-    background-color: #FFC37F;
-    border-radius: 3px;
-    color: #fff;
+    color: #333;
 }
 
 .hljs.javascript .hljs-literal {
-    background-color: #7FCCFF;
-    border-radius: 3px;
-    color: #fff;
+    color: #333;
 }
 
 .hljs.javascript .hljs-number {
@@ -144,9 +140,7 @@ hue-6-2: #c18401
 }
 
 .hljs.css .hljs-keyword {
-    background-color: #7FCCFF;
-    border-radius: 3px;
-    color: #fff;
+    color: #333;
 }
 
 .hljs.css .hljs-number {
@@ -154,13 +148,9 @@ hue-6-2: #c18401
 }
 
 .hljs.css .hljs-built_in {
-    background-color: #FFC37F;
-    border-radius: 3px;
-    color: #fff;
+    color: #333;
 }
 
 .hljs.css .hljs-string {
-    background-color: #FFC37F;
-    border-radius: 3px;
-    color: #fff;
+    color: #333;
 }

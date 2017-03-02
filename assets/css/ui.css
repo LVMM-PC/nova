@@ -40,7 +40,7 @@
 
 .nova-radio-label-orange:hover .nova-radio.nova-checked { background-position: -20px -100px; }
 
-.nova-select { width: 188px; line-height: 28px; }
+.nova-select { cursor: default; width: 188px; line-height: 28px; }
 
 .nova-select.opened { position: relative; }
 
@@ -48,7 +48,13 @@
 
 .nova-select.disabled { background-color: #cccccc; }
 
-.nova-select-toggle { width: 166px; padding: 0 10px; border: 1px solid #cccccc; }
+.nova-select-toggle { width: 166px; padding: 0 10px; border: 1px solid #cccccc; position: relative; }
+
+.nova-select-toggle b { width: 24px; height: 20px; border-left: 1px solid #eeeeee; position: absolute; top: 4px; right: 0; }
+
+.nova-select-toggle i { position: absolute; width: 7px; height: 4px; background-image: url(../../img/lv/ui.png); background-position: -40px -100px; display: inline-block; top: 9px; left: 10px; }
+
+.opened .nova-select-toggle i { background-position: -50px -100px; }
 
 .nova-select-dropdown { margin-top: -1px; background-color: #fff; width: 186px; border: 1px solid #cccccc; max-height: 280px; overflow: auto; position: absolute; display: none; z-index: 1; }
 
@@ -62,7 +68,7 @@
 
 .nova-select-optgroup .nova-select-option { padding-left: 20px; }
 
-.nova-select-label { display: inline-block; }
+.nova-select-label { display: inline-block; vertical-align: top; }
 
 .nova-checkbox-hide { opacity: 0; filter: alpha(opacity=0); position: absolute; }
 
@@ -101,3 +107,17 @@
 .nova-checkbox-label-bordered .nova-checkbox-text { display: inline-block; }
 
 .nova-checkbox-label-bordered .nova-checkbox-hide { top: 0; left: 0; }
+
+.nova-radio-label-bordered { position: relative; line-height: 23px; height: 23px; border: 1px solid #dddddd; padding: 1px 15px; font-size: 12px; display: inline-block; color: #666; }
+
+.nova-radio-label-bordered:hover, .nova-radio-label-bordered.nova-checked { color: #333; padding: 0 14px; border: 2px solid #ff8800; }
+
+.nova-radio-label-bordered .nova-radio { position: absolute; bottom: -2px; right: -2px; margin: 0; display: none; }
+
+.nova-radio-label-bordered .nova-radio.nova-checked { display: block; background-image: url(../../img/lv/ui.png); background-position: -40px -80px; width: 20px; height: 20px; }
+
+.nova-radio-label-bordered:hover .nova-radio.nova-checked { background-position: -40px -80px; }
+
+.nova-radio-label-bordered .nova-radio-text { display: inline-block; }
+
+.nova-radio-label-bordered .nova-radio-hide { top: 0; left: 0; }

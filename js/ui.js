@@ -16,6 +16,9 @@
     var $document = $(document);  //文档
 
     function Factory(options) {
+        if (options && options.template) {
+            options.template = $.extend(true, {}, template, options.template);
+        }
         options = $.extend({}, Factory.defaults, options);
         return new UI(options);
     }
@@ -28,7 +31,7 @@
         select: {
             main: '' +
             '<div class="nova-select">' +
-            '<div class="nova-select-toggle"><em>{{text}}</em></div>' +
+            '<div class="nova-select-toggle"><em>{{text}}</em><b><i></i></b></div>' +
             '<div class="nova-select-dropdown">' +
             '{{dropdown}}' +
             '</div>' +
@@ -320,30 +323,38 @@
             $select.get(0).selectedIndex = $options.index($this);
 
             $novaSelect.removeClass("opened");
-
+            $label.removeClass("opened");
         },
 
         selectHideHandler: function (e) {
             var $target = $(e.target);
+            var $select;
+            var $label;
+            var $allSelect = $(".nova-select");
             if ($target.is(".nova-select") || $target.parents(".nova-select").length > 0) {
-
                 if ($target.is(".nova-select")) {
-                    $(".nova-select").not($target).removeClass("opened");
+                    $select = $allSelect.not($target);
                 } else if ($target.parents(".nova-select").length > 0) {
-                    $(".nova-select").not($target.parents(".nova-select")).removeClass("opened");
+                    $select = $allSelect.not($target.parents(".nova-select"));
                 }
+                $label = $select.parents(".nova-select-label");
+                $select.removeClass("opened");
             } else {
-                $(".nova-select").removeClass("opened")
+                $allSelect.removeClass("opened");
+                $label = $allSelect.parents(".nova-select-label");
             }
+            $label.removeClass("opened");
         },
 
         selectClickHandler: function () {
             var $this = $(this);
             var $select = $this.parent(".nova-select");
+            var $label = $select.parents(".nova-select-label");
             if ($select.is(".disabled")) {
 
             } else {
                 $select.toggleClass("opened");
+                $label.toggleClass("opened");
             }
         },
 
@@ -371,12 +382,14 @@
             var checked = $this.prop("checked");
 
             var $group = $this.parents(".nova-radio-group");
+            var $labels = $group.find(".nova-radio-label");
             var $inputs = $group.find(".nova-radio-label input[type=radio][name=" + name + "]");
             var $radios = $inputs.parents(".nova-radio-label").find(".nova-radio");
 
             $radios.removeClass("nova-checked");
             $radio.addClass("nova-checked");
-
+            $labels.removeClass("nova-checked");
+            $label.addClass("nova-checked");
         },
 
         addAndSubtractChangeHandler: function (e) {

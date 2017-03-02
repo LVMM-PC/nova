@@ -104,6 +104,7 @@ $ui-bg: url(../../img/lv/ui.png);
 }
 
 .nova-select {
+  cursor: default;
   width: 188px;
   line-height: 28px;
   &.opened {
@@ -121,6 +122,32 @@ $ui-bg: url(../../img/lv/ui.png);
   width: 166px;
   padding: 0 10px;
   border: 1px solid #cccccc;
+  position: relative;
+  b {
+    width: 24px;
+    height: 20px;
+    border-left: 1px solid #eeeeee;
+    position: absolute;
+    top: 4px;
+    right: 0;
+  }
+  i {
+    position: absolute;
+    width: 7px;
+    height: 4px;
+    background-image: $ui-bg;
+    background-position: -40px -100px;
+    display: inline-block;
+    top: 9px;
+    left: 10px;
+  }
+
+}
+
+.opened .nova-select-toggle {
+  i {
+    background-position: -50px -100px;
+  }
 }
 
 .nova-select-dropdown {
@@ -160,6 +187,7 @@ $ui-bg: url(../../img/lv/ui.png);
 
 .nova-select-label {
   display: inline-block;
+  vertical-align: top;
 }
 
 .nova-checkbox-hide {
@@ -269,6 +297,48 @@ $ui-bg: url(../../img/lv/ui.png);
     display: inline-block;
   }
   .nova-checkbox-hide {
+    top: 0;
+    left: 0;
+  }
+}
+
+.nova-radio-label-bordered {
+  position: relative;
+  line-height: 23px;
+  height: 23px;
+  border: 1px solid #dddddd;
+  padding: 1px 15px;
+  font-size: 12px;
+  display: inline-block;
+  color: #666;
+  &:hover,
+  &.nova-checked {
+    color: #333;
+    padding: 0 14px;
+    border: 2px solid #ff8800;
+  }
+
+  .nova-radio {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    margin: 0;
+    display: none;
+    &.nova-checked {
+      display: block;
+      background-image: $ui-bg;
+      background-position: -40px -80px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &:hover .nova-radio.nova-checked {
+    background-position: -40px -80px;
+  }
+  .nova-radio-text {
+    display: inline-block;
+  }
+  .nova-radio-hide {
     top: 0;
     left: 0;
   }
