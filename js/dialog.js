@@ -436,9 +436,10 @@
                 }
             }
             if (!contentClone) {
-                var content = this.options.content;
-                content.hide();
-                $body.append(content);
+                //var content = this.options.content;
+                if(this._elemBack){
+                    this._elemBack();
+                }
             }
             this.wrap.remove();
             this.mask();
@@ -462,14 +463,20 @@
         /**
          * 设置内容
          */
-        content: function (content) {
+        content: function ($content) {
+
+            var self = this;
+
+            if(this._elemBack){
+                this._elemBack();
+            }
 
             var $body = this.wrap.find(".nova-dialog-body");
             var contentClone = this.options.contentClone;
 
             if (this.options.url) {
                 this.wrap.addClass("nova-dialog-custom");
-                var $iframe = $('<iframe src="' + content + '" frameborder="0"></iframe>');
+                var $iframe = $('<iframe src="' + $content + '" frameborder="0"></iframe>');
                 $body.html($iframe);
                 var dialogHeight = this.wrap.height();
                 var $header = this.wrap.find(".nova-dialog-header:visible");
@@ -489,17 +496,38 @@
                 return;
             }
 
-            if (typeof content === "string") {
-                $body.html(content);
-            } else if ($(content).get(0) && $(content).get(0).nodeType === 1) {
+            if (typeof $content === "string") {
+                $body.html($content);
+            } else if ($($content).get(0) && $($content).get(0).nodeType === 1) {
                 if (contentClone) {
                     var cloneEvent = this.options.cloneEvent;
-                    var contentCloned = content.clone(cloneEvent);
+                    var contentCloned = $content.clone(cloneEvent);
                     contentCloned.show();
                     $body.html(contentCloned);
                 } else {
-                    $body.html(content);
-                    content.show();
+
+                    var content = $($content).get(0);
+                    var display = content.style.display;
+                    var prev = content.previousSibling;
+                    var next = content.nextSibling;
+                    var parent = content.parentNode;
+                    this._elemBack = function () {
+
+                        if (prev && prev.parentNode) {
+                            prev.parentNode.insertBefore(content, prev.nextSibling);
+                        } else if (next && next.parentNode) {
+                            next.parentNode.insertBefore(content, next);
+                        } else if (parent) {
+                            parent.appendChild(content);
+                        }
+
+                        content.style.display = display;
+                        self._elemBack = null;
+                    };
+
+                    $body.html($content);
+                    $content.show();
+
                 }
             }
         },
