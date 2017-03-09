@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .nova-checkbox-label { margin-right: 10px; }
 
 .nova-checkbox-label.disabled { color: #999; }
@@ -8,7 +9,7 @@
 
 .nova-checkbox-label:hover .nova-checkbox.disabled { background-position: 0 0; }
 
-.nova-checkbox { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background: url(../../img/lv/ui.png); background-position: 0 0; }
+.nova-checkbox { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background-image: url(../../img/lv/ui.png); background-position: 0 0; }
 
 .nova-checkbox.nova-checked { background-position: 0 -40px; }
 
@@ -30,7 +31,7 @@
 
 .nova-radio-label:hover .nova-radio.disabled { background-position: 0 -60px; }
 
-.nova-radio { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background: url(../../img/lv/ui.png); background-position: 0 -60px; }
+.nova-radio { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background-image: url(../../img/lv/ui.png); background-position: 0 -60px; }
 
 .nova-radio.nova-checked { background-position: 0 -100px; }
 
@@ -44,9 +45,9 @@
 
 .nova-select.opened { position: relative; }
 
-.nova-select.opened .nova-select-dropdown { display: block; }
+.nova-select.disabled { color: #bbbbbb; background-color: #f9f9f9; }
 
-.nova-select.disabled { background-color: #cccccc; }
+.nova-select.disabled .nova-select-toggle i { background-position: -40px -110px; }
 
 .nova-select-toggle { width: 166px; padding: 0 10px; border: 1px solid #cccccc; position: relative; }
 
@@ -56,7 +57,15 @@
 
 .opened .nova-select-toggle i { background-position: -50px -100px; }
 
-.nova-select-dropdown { margin-top: -1px; background-color: #fff; width: 186px; border: 1px solid #cccccc; max-height: 280px; overflow: auto; position: absolute; display: none; z-index: 1; }
+.nova-select-dropdown { cursor: default; font-size: 14px; line-height: 30px; margin-top: -1px; background-color: #fff; width: 186px; border: 1px solid #cccccc; max-height: 280px; overflow: auto; position: absolute; display: none; z-index: 1; }
+
+.nova-select-dropdown::-webkit-scrollbar { width: 7px; background: #e3e3e3; border-radius: 5px; }
+
+.nova-select-dropdown::-webkit-scrollbar-track, .nova-select-dropdown::-webkit-scrollbar-thumb { border-radius: 5px; }
+
+.nova-select-dropdown::-webkit-scrollbar-thumb { min-height: 20px; background-clip: content-box; box-shadow: 0 0 0 5px #bbbbbb inset; }
+
+.nova-select-dropdown::-webkit-scrollbar-corner { background: transparent; }
 
 .nova-select-optgroup-label { color: #999; }
 
@@ -64,7 +73,7 @@
 
 .nova-select-option.active { color: #ee3388; }
 
-.nova-select-option:hover { background-color: #fef2f9; }
+.nova-select-option:hover { color: #ee3388; background-color: #fef2f9; }
 
 .nova-select-optgroup .nova-select-option { padding-left: 20px; }
 
@@ -83,6 +92,10 @@
 .nova-number-box-subtract, .nova-number-box-add { cursor: pointer; float: left; border: 1px solid #cccccc; width: 28px; height: 28px; }
 
 .nova-number-box-subtract i, .nova-number-box-add i { background-image: url(../../img/lv/ui.png); width: 12px; height: 12px; display: block; margin: 8px; }
+
+.nova-number-box-subtract:hover, .nova-number-box-add:hover { position: relative; border-color: #ff9900; background: #fffaee; }
+
+.nova-number-box-subtract.disabled:hover, .nova-number-box-add.disabled:hover { position: static; border-color: #cccccc; background: inherit; }
 
 .nova-number-box-subtract i { background-position: -40px 0; }
 
@@ -121,3 +134,10 @@
 .nova-radio-label-bordered .nova-radio-text { display: inline-block; }
 
 .nova-radio-label-bordered .nova-radio-hide { top: 0; left: 0; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { /* 当设备像素比不小于1.5的时候... */
+  .nova-checkbox { background-image: url(../../img/lv/ui@2x.png); background-size: 200px; }
+  .nova-radio { background-image: url(../../img/lv/ui@2x.png); background-size: 200px; }
+  .nova-select-toggle i { background-image: url(../../img/lv/ui@2x.png); background-size: 200px; }
+  .nova-number-box-subtract i, .nova-number-box-add i { background-image: url(../../img/lv/ui@2x.png); background-size: 200px; }
+  .nova-checkbox-label-bordered .nova-checkbox.nova-checked { background-image: url(../../img/lv/ui@2x.png); background-size: 200px; } }

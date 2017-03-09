@@ -113,6 +113,7 @@ $(function () {
         nova.dialog({
             content: "显示弹窗按钮，实现按钮文字自定义，绑定特定按钮点击事件",
             okCallback: function () {
+                console.log("save")
                 nova.msg("保存成功");
             },
             okClassName: "btn-pink",

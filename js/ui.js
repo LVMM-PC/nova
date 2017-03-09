@@ -14,6 +14,7 @@
     }
 
     var $document = $(document);  //文档
+    var $body = $("body");
 
     function Factory(options) {
         if (options && options.template) {
@@ -153,6 +154,10 @@
                 }
 
                 $label.append($novaSelect);
+
+                var $dropdown = $label.find(".nova-select-dropdown");
+                $dropdown.data("label", $label);
+                $label.data("dropdown", $dropdown);
             })
 
         },
@@ -306,14 +311,16 @@
         selectOptionClickHandler: function () {
 
             var $this = $(this);
-            var $label = $this.parents(".nova-select-label");
+            var $dropdown = $this.parents(".nova-select-dropdown");
+
+            var $label = $dropdown.data("label");
+
             var $select = $label.find("select");
             var $novaSelect = $label.find(".nova-select");
 
             var text = $this.text();
 
             var $toggle = $novaSelect.find(".nova-select-toggle");
-            var $dropdown = $novaSelect.find(".nova-select-dropdown");
 
             $toggle.find("em").text(text);
 
@@ -339,22 +346,55 @@
                 }
                 $label = $select.parents(".nova-select-label");
                 $select.removeClass("opened");
+            } else if($target.is(".nova-select-optgroup-label")) {
+                //Do nothing
             } else {
                 $allSelect.removeClass("opened");
                 $label = $allSelect.parents(".nova-select-label");
+
+                $("body>.nova-select-dropdown").each(function (index, ele) {
+                    var $ele = $(ele);
+                    var $label = $ele.data("label");
+                    $ele.hide();
+                    $label.append($ele);
+                });
             }
-            $label.removeClass("opened");
+            if($label){
+                $label.removeClass("opened");
+            }
+
         },
 
         selectClickHandler: function () {
             var $this = $(this);
             var $select = $this.parent(".nova-select");
             var $label = $select.parents(".nova-select-label");
+            var $dropdown = $label.data("dropdown");
+            $(".nova-select-dropdown").hide();
+
             if ($select.is(".disabled")) {
 
             } else {
                 $select.toggleClass("opened");
                 $label.toggleClass("opened");
+            }
+
+            if ($select.hasClass("opened")) {
+                $body.append($dropdown);
+
+                var top = $this.offset().top;
+                var left = $this.offset().left;
+                var height = $this.outerHeight();
+                var width = $this.outerWidth() - 2;
+
+                $dropdown.css({
+                    position: "absolute",
+                    top: top + height,
+                    left: left,
+                    width: width
+                }).show()
+            } else {
+                $label.append($dropdown.hide());
             }
         },
 
