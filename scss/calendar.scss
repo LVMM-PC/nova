@@ -10,6 +10,9 @@
 
 /*region 日历*/
 
+$img-ico: url(../../img/lv/icon.png);
+$img-ico2x: url(../../img/lv/icon@2x.png);
+
 .nova-calendar-tip {
   background: #fff;
   font-size: 12px;
@@ -23,7 +26,8 @@
   width: 14px;
   height: 14px;
   margin-right: 5px;
-  background: url(../../img/lv/icon.png) -240px -220px;
+  background-image: $img-ico;
+  background-position: -240px -220px;
   vertical-align: -3px;
 }
 
@@ -45,7 +49,7 @@
     font-size: 16px;
     width: 26px;
     height: 26px;
-    background-image: $img;
+    background-image: $img-cal;
     top: 4px;
     cursor: pointer;
     text-indent: -9999em;
@@ -197,7 +201,7 @@
   .calroute {
     margin-left: 1px;
     display: inline-block;
-    background-image: $img;
+    background-image: $img-cal;
     background-position: -120px 0;
     width: 14px;
     height: 14px;
@@ -414,7 +418,7 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      background: $img no-repeat -140px -10px;
+      background: $img-cal no-repeat -140px -10px;
       width: 20px;
       height: 20px;
     }
@@ -681,7 +685,7 @@
       margin-left: 5px;
       vertical-align: 3px;
       display: inline-block;
-      background-image: $img;
+      background-image: $img-cal;
       background-position: -160px 0;
       width: 7px;
       height: 4px;
@@ -844,7 +848,7 @@
         display: block;
         width: 11px;
         height: 11px;
-        background-image: $img;
+        background-image: $img-cal;
         background-position: -160px -15px;
         &:hover {
           background-position: -180px -15px;
@@ -1061,7 +1065,7 @@
     top: -7px;
     left: 36px;
     bottom: auto;
-    background: $img no-repeat -140px 0;
+    background: $img-cal no-repeat -140px 0;
     pointer-events: none;
     border: none;
   }
@@ -1102,14 +1106,14 @@
   .calfestival {
     i {
       text-indent: -9999em;
-      background-image: $img;
+      background-image: $img-cal;
       background-position: -120px -15px;
     }
   }
   .calsale {
     i {
       text-indent: -9999em;
-      background-image: $img;
+      background-image: $img-cal;
       background-position: -120px 0;
     }
   }
@@ -1136,7 +1140,100 @@
     top: -7px;
     left: 50%;
     margin-left: -5px;
-    background: $img no-repeat -140px 0;
+    background: $img-cal no-repeat -140px 0;
     pointer-events: none;
   }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  /* 当设备像素比不小于1.5的时候... */
+
+  .nova-calendar-tip i {
+    background-image: $img-ico2x;
+    background-size: 400px;
+  }
+
+  .ui-calendar {
+
+    .month-prev,
+    .month-next {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+    .calsale,
+    .calfestival,
+    .calroute {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+
+  }
+
+  /*region 大日历*/
+  .ui-calendar-big {
+
+    .td-selected {
+      .calselected {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+  }
+
+  /*endregion */
+
+  /*region 生日日历*/
+  .ui-calendar-birthday {
+
+    .cal-year-select-active,
+    .cal-year-select,
+    .cal-month-select-active,
+    .cal-month-select {
+      i {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+    .cal-hour-dropdown,
+    .cal-minute-dropdown {
+      .close {
+        i {
+          background-image: $img-cal2x;
+          background-size: 200px;
+        }
+      }
+    }
+  }
+
+  /*endregion*/
+
+  .calhover {
+    .triangle {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+
+    .calfestival {
+      i {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+    .calsale {
+      i {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+  }
+
+  .cal-number-of-days {
+    .triangle {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+  }
+
 }

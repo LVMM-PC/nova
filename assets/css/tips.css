@@ -76,3 +76,5 @@
 .nova-tip-box-links i { vertical-align: top; margin: 5px 10px 0 10px; text-indent: -9999em; height: 12px; border-right: 1px solid #cccccc; }
 
 /*endregion*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { /* 当设备像素比不小于1.5的时候... */
+  .nova-tip-close i { background-image: url(../../img/lv/icon@2x.png); background-size: 400px; } }

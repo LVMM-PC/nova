@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .nova-dialog, .nova-dialog-static { font-size: 12px; position: fixed; width: 418px; background-color: #fff; color: #333333; box-shadow: 0 5px 14.25px 0.75px rgba(6, 0, 1, 0.15); }
 
 .nova-dialog.nova-dialog-moving, .nova-dialog-static.nova-dialog-moving { cursor: move; }
@@ -6,7 +7,7 @@
 
 .nova-dialog-close { cursor: pointer; position: absolute; top: 0; right: 0; width: 35px; height: 35px; }
 
-.nova-dialog-close i { display: block; margin: 10px 0 0 9px; width: 16px; height: 15px; background-image: url(../../img/lv/dialog.png); background-position: 0 0; }
+.nova-dialog-close i { display: block; margin: 10px 0 0 9px; width: 17px; height: 15px; background-image: url(../../img/lv/dialog.png); background-position: 0 0; }
 
 .nova-dialog-close:hover i { background-position: -20px 0; }
 
@@ -29,3 +30,6 @@
 .nova-dialog-custom .nova-dialog-body { padding: 0; }
 
 .nova-dialog-custom .nova-dialog-body-loading { padding: 30px 30px 25px 30px; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { /* 当设备像素比不小于1.5的时候... */
+  .nova-dialog-close i { background-image: url(../../img/lv/dialog@2x.png); background-size: 100px; } }

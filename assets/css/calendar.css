@@ -3,7 +3,7 @@
 /*region 日历*/
 .nova-calendar-tip { background: #fff; font-size: 12px; color: #999; line-height: 32px; height: 32px; }
 
-.nova-calendar-tip i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; background: url(../../img/lv/icon.png) -240px -220px; vertical-align: -3px; }
+.nova-calendar-tip i { display: inline-block; width: 14px; height: 14px; margin-right: 5px; background-image: url(../../img/lv/icon.png); background-position: -240px -220px; vertical-align: -3px; }
 
 .ui-calendar { font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; background-color: #fff; position: relative; width: 1196px; border: 2px solid #e3e3e3; color: #333; }
 
@@ -433,3 +433,19 @@
 .cal-number-of-days { -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1); display: none; font-family: "Arial", "PingFang SC", "Microsoft Yahei", "SimSun", sans-serif; pointer-events: none; position: absolute; background: #ffffff; border: 1px solid #cccccc; line-height: 20px; padding: 5px 10px; }
 
 .cal-number-of-days .triangle { width: 11px; height: 7px; display: block; position: absolute; top: -7px; left: 50%; margin-left: -5px; background: url(../../img/lv/calendar.png) no-repeat -140px 0; pointer-events: none; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { /* 当设备像素比不小于1.5的时候... */
+  .nova-calendar-tip i { background-image: url(../../img/lv/icon@2x.png); background-size: 400px; }
+  .ui-calendar .month-prev, .ui-calendar .month-next { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  .ui-calendar .calsale, .ui-calendar .calfestival, .ui-calendar .calroute { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  /*region 大日历*/
+  .ui-calendar-big .td-selected .calselected { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  /*endregion */
+  /*region 生日日历*/
+  .ui-calendar-birthday .cal-year-select-active i, .ui-calendar-birthday .cal-year-select i, .ui-calendar-birthday .cal-month-select-active i, .ui-calendar-birthday .cal-month-select i { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  .ui-calendar-birthday .cal-hour-dropdown .close i, .ui-calendar-birthday .cal-minute-dropdown .close i { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  /*endregion*/
+  .calhover .triangle { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  .calhover .calfestival i { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  .calhover .calsale i { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; }
+  .cal-number-of-days .triangle { background-image: url(../../img/lv/calendar@2x.png); background-size: 200px; } }

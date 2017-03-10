@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 $dialog-img: url(../../img/lv/dialog.png);
+$dialog-img2x: url(../../img/lv/dialog@2x.png);
 
 .nova-dialog, .nova-dialog-static {
   font-size: 12px;
@@ -15,7 +16,7 @@ $dialog-img: url(../../img/lv/dialog.png);
   }
 }
 
-.nova-dialog-no-title{
+.nova-dialog-no-title {
   padding-top: 20px;
 }
 
@@ -29,7 +30,7 @@ $dialog-img: url(../../img/lv/dialog.png);
   i {
     display: block;
     margin: 10px 0 0 9px;
-    width: 16px;
+    width: 17px;
     height: 15px;
     background-image: $dialog-img;
     background-position: 0 0;
@@ -77,7 +78,7 @@ $dialog-img: url(../../img/lv/dialog.png);
   left: 0;
   background-color: #000;
   opacity: 0.35;
-  filter: alpha(opacity = 35);
+  filter: alpha(opacity=35);
 }
 
 .nova-dialog-body-loading {
@@ -97,4 +98,18 @@ $dialog-img: url(../../img/lv/dialog.png);
 
 .nova-dialog-custom .nova-dialog-body-loading {
   padding: 30px 30px 25px 30px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  /* 当设备像素比不小于1.5的时候... */
+
+  .nova-dialog-close {
+    i {
+      background-image: $dialog-img2x;
+      background-size: 100px;
+    }
+  }
+
 }

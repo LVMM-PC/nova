@@ -8,6 +8,9 @@
 @import "variables";
 @import "mixins";
 
+$img: url(../../img/lv/icon.png);
+$img2x: url(../../img/lv/icon@2x.png);
+
 .nova-tip,
 .nova-tip-box {
   a {
@@ -57,7 +60,7 @@
   i {
     width: 11px;
     height: 11px;
-    background-image: url(../../img/lv/icon.png);
+    background-image: $img;
     background-position: -240px -200px;
     display: block;
   }
@@ -94,9 +97,13 @@
   background-color: #f8fff2;
   border: 1px solid #66cc33;
   .nova-tip-close {
-    i { background-position: -200px -200px; }
+    i {
+      background-position: -200px -200px;
+    }
     &:hover {
-      i { background-position: -220px -200px; }
+      i {
+        background-position: -220px -200px;
+      }
     }
   }
 }
@@ -105,9 +112,13 @@
   background-color: #fff2f2;
   border: 1px solid #ff8888;
   .nova-tip-close {
-    i { background-position: -200px -220px; }
+    i {
+      background-position: -200px -220px;
+    }
     &:hover {
-      i { background-position: -220px -220px; }
+      i {
+        background-position: -220px -220px;
+      }
     }
   }
 }
@@ -116,9 +127,13 @@
   background-color: #fffaee;
   border: 1px solid #ffaa00;
   .nova-tip-close {
-    i { background-position: -200px -240px; }
+    i {
+      background-position: -200px -240px;
+    }
     &:hover {
-      i { background-position: -220px -240px; }
+      i {
+        background-position: -220px -240px;
+      }
     }
   }
 }
@@ -127,9 +142,13 @@
   background-color: #f0f5fc;
   border: 1px solid #88bbee;
   .nova-tip-close {
-    i { background-position: -200px -260px; }
+    i {
+      background-position: -200px -260px;
+    }
     &:hover {
-      i { background-position: -220px -260px; }
+      i {
+        background-position: -220px -260px;
+      }
     }
   }
 }
@@ -138,9 +157,13 @@
   background-color: #f0f5fc;
   border: 1px solid #88bbee;
   .nova-tip-close {
-    i { background-position: -200px -280px; }
+    i {
+      background-position: -200px -280px;
+    }
     &:hover {
-      i { background-position: -220px -280px; }
+      i {
+        background-position: -220px -280px;
+      }
     }
   }
 }
@@ -210,3 +233,15 @@
 }
 
 /*endregion*/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  /* 当设备像素比不小于1.5的时候... */
+  .nova-tip-close {
+    i {
+      background-image: $img2x;
+      background-size: 400px;
+    }
+  }
+}

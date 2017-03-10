@@ -161,15 +161,24 @@ section p,
 }
 
 .label.todo {
+    border: 1px solid #dddddd;
     background-color: #dddddd;
 }
 
 .label.doing {
+    border: 1px solid #ffaa00;
     background-color: #ffaa00;
 }
 
 .label.done {
+    border: 1px solid #66cc33;
     background-color: #66cc33;
+}
+
+.label.retina {
+    border: 1px solid #2299ee;
+    color: #2299ee;
+    border-radius: 50px;
 }
 
 .list {
@@ -220,6 +229,10 @@ section p,
 .list .done {
     background-color: #f8fff2;
     border-color: #66cc33;
+}
+
+.list .retina {
+    border-radius: 50px;
 }
 
 #nav {
