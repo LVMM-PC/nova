@@ -58,6 +58,11 @@ code span::selection {
     background-color: #CCC;
 }
 
+input {
+    border: 1px solid #CCC;
+    padding: 10px;
+}
+
 .hljs-comment::selection {
     color: #fff;
 }
