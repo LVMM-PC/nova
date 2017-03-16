@@ -109,12 +109,20 @@ $(function () {
                 }
 
                 $wrap.find(".nova-calendar-tabs-prev").on("click", function () {
+                    var $this = $(this);
+                    if ($this.hasClass("disabled")) {
+                        return false;
+                    }
                     self.switchTab(-1);
                     var dateStr = $tab.first().attr("data-date");
                     renderCal(dateStr);
                     return false;
                 });
                 $wrap.find(".nova-calendar-tabs-next").on("click", function () {
+                    var $this = $(this);
+                    if ($this.hasClass("disabled")) {
+                        return false;
+                    }
                     self.switchTab(1);
                     var dateStr = $tab.first().attr("data-date");
                     renderCal(dateStr);
