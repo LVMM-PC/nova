@@ -94,7 +94,7 @@ $(function () {
                 this.size = monthArray.length;
                 this.index = 0;
                 this.page = 0;
-                this.maxPage = ~~(this.size / 4);
+                this.maxPage = Math.ceil(this.size / 4);
             },
             bindEvent: function () {
                 var $wrap = fourMonthCalendar.wrap;
@@ -161,7 +161,8 @@ $(function () {
                     $prev.addClass("disabled");
 
                 }
-                if (page == this.maxPage) {
+
+                if (page == this.maxPage - 1) {
                     //console.log("max")
                     $next.addClass("disabled");
                 }
