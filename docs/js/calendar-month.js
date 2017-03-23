@@ -63,14 +63,16 @@ $(function () {
             bimonthly: false,
             template: {
                 wrap: '<div class="ui-calendar ui-calendar-big" {{bimonthly}} {{float}}></div>',
-                calWrap: '<div class="nova-calendar-tabs-wrap"></div><div class="nova-calendar-tabs clearfix">' +
+                calWrap: '<div class="nova-calendar-tabs-wrap">' +
+                '<div class="nova-calendar-tabs clearfix">' +
                 '<div class="nova-calendar-tabs-prev"><i></i></div>' +
                 tabStr +
                 tabStr +
                 tabStr +
                 tabStr +
                 '<div class="nova-calendar-tabs-next"><i></i></div>' +
-                '</div></div>' + '<div class="calwrap clearfix">{{content}}</div>',
+                '</div>' +
+                '</div>' + '<div class="calwrap clearfix">{{content}}</div>',
                 calTitle: '',
                 day: '' +
                 '<td data-week="{{week}}" {{dateMap}}>' +
@@ -185,7 +187,8 @@ $(function () {
                     }
                     if (tabDate) {
                         var tabDateStr = nova.calendar.dateFormat(tabDate, "yyyy-MM");
-                        $tabMonth.text(tabDateStr);
+                        var tabYearMonthStr = nova.calendar.dateFormat(tabDate, "yyyy年MM月");
+                        $tabMonth.text(tabYearMonthStr);
                         $thisTab.attr("data-date", tabDateStr);
 
                         $thisTab.removeClass("disabled");

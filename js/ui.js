@@ -328,6 +328,7 @@
             $options.removeClass("active");
             $this.addClass("active");
             $select.get(0).selectedIndex = $options.index($this);
+            $select.change();
 
             $novaSelect.removeClass("opened");
             $label.removeClass("opened");

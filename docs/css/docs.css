@@ -60,7 +60,6 @@ code span::selection {
 
 input {
     border: 1px solid #CCC;
-    padding: 10px;
 }
 
 .hljs-comment::selection {
