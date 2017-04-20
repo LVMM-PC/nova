@@ -32,9 +32,10 @@ $(function () {
 
     var $document = $(document);
     $document.on("change", ".number-box-group input", function () {
+
         var $this = $(this);
         var val = $this.val();
-        //console.log(val);
+        console.log(val);
         var $group = $this.parents(".number-box-group");
         var $em = $group.find("em");
         $em.html("￥" + 110 * val + "起");

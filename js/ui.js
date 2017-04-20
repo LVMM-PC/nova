@@ -347,7 +347,7 @@
                 }
                 $label = $select.parents(".nova-select-label");
                 $select.removeClass("opened");
-            } else if($target.is(".nova-select-optgroup-label")) {
+            } else if ($target.is(".nova-select-optgroup-label")) {
                 //Do nothing
             } else {
                 $allSelect.removeClass("opened");
@@ -360,7 +360,7 @@
                     $label.append($ele);
                 });
             }
-            if($label){
+            if ($label) {
                 $label.removeClass("opened");
             }
 
@@ -371,6 +371,9 @@
             var $select = $this.parent(".nova-select");
             var $label = $select.parents(".nova-select-label");
             var $dropdown = $label.data("dropdown");
+			// 对label重定位
+			$dropdown.data("label", $label);
+			//
             $(".nova-select-dropdown").hide();
 
             if ($select.is(".disabled")) {
@@ -473,9 +476,14 @@
         addAndSubtract: function (self, offset) {
             var $this = $(this);
             var $box = $this.parent();
+            var isDisabled = $this.is(".disabled");
             self.addAndSubtractLimit($box, offset);
             var $input = $box.find("input");
-            $input.change();
+            if (isDisabled) {
+
+            } else {
+                $input.change();
+            }
         }
     };
 
