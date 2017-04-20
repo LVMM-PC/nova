@@ -241,7 +241,7 @@
         /**
          * 拖动
          */
-        draggable: function () {
+        drag: function () {
             var wrap = this.wrap;
             var dialogTop;
             var dialogLeft;
