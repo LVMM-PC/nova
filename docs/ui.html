@@ -5,7 +5,7 @@
     <title>UI</title>
     <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
     <link rel="stylesheet" href="css/docs.css">
-    <link rel="stylesheet" href="css/atom-one-light.css">
+    <link rel="stylesheet" href="css/monokai-sublime.css">
     <link rel="stylesheet" href="../assets/css/ui.css">
     <link rel="stylesheet" href="../assets/css/buttons.css">
     <style>
@@ -74,34 +74,157 @@
     <div class="section">
 
         <form>
+
             <dl class="clearfix">
                 <dt>镜头：</dt>
                 <dd>
-                    <label class="nova-checkbox-label nova-checkbox-label-orange">
-                        <input type="checkbox" name="lens" readonly="readonly" value="wideAngle">广角
+                    <label class="nova-checkbox-label">
+                        <input type="checkbox" name="lens" checked value="superWideAngle">超广角
                     </label>
                     <label class="nova-checkbox-label">
-                        <input type="checkbox" name="lens" disabled="disabled" value="standard">标准
+                        <input type="checkbox" name="lens" disabled value="wideAngle">广角
+                    </label>
+                    <label class="nova-checkbox-label">
+                        <input type="checkbox" name="lens" disabled checked value="standard">标准
                     </label>
                     <label class="nova-checkbox-label">
                         <input type="checkbox" name="lens" value="telephoto">长焦
                     </label>
                 </dd>
             </dl>
+        </form>
+
+        <pre>
+<code>
+&lt;label class="nova-checkbox-label"&gt;
+    &lt;input type="checkbox" name="lens" checked value="superWideAngle"&gt;超广角
+&lt;/label&gt;
+&lt;label class="nova-checkbox-label"&gt;
+    &lt;input type="checkbox" name="lens" disabled value="wideAngle"&gt;广角
+&lt;/label&gt;
+&lt;label class="nova-checkbox-label"&gt;
+    &lt;input type="checkbox" name="lens" disabled checked value="standard"&gt;标准
+&lt;/label&gt;
+&lt;label class="nova-checkbox-label"&gt;
+    &lt;input type="checkbox" name="lens" value="telephoto"&gt;长焦
+&lt;/label&gt;
+</code>
+        </pre>
+    </div>
+
+
+    <div class="section">
+
+        <form>
+
+            <dl class="clearfix">
+                <dt>镜头：</dt>
+                <dd>
+                    <label class="nova-checkbox-label nova-checkbox-label-orange">
+                        <input type="checkbox" name="lens" checked value="superWideAngle">超广角
+                    </label>
+                    <label class="nova-checkbox-label nova-checkbox-label-orange">
+                        <input type="checkbox" name="lens" disabled value="wideAngle">广角
+                    </label>
+                    <label class="nova-checkbox-label nova-checkbox-label-orange">
+                        <input type="checkbox" name="lens" disabled checked value="standard">标准
+                    </label>
+                    <label class="nova-checkbox-label nova-checkbox-label-orange">
+                        <input type="checkbox" name="lens" value="telephoto">长焦
+                    </label>
+                </dd>
+            </dl>
+        </form>
+
+        <pre>
+<code>
+&lt;label class="nova-checkbox-label nova-checkbox-label-orange"&gt;
+    &lt;input type="checkbox" name="lens" checked value="superWideAngle"&gt;超广角
+&lt;/label&gt;
+
+</code>
+        </pre>
+
+    </div>
+
+    <div class="section">
+        <form>
+
+
             <dl class="clearfix">
                 <dt>性别：</dt>
                 <dd class="nova-radio-group">
                     <label class="nova-radio-label">
-                        <input type="radio" name="sex" disabled="disabled" value="male">男
+                        <input type="radio" name="sex" disabled checked value="male">男
                     </label>
                     <label class="nova-radio-label">
+                        <input type="radio" name="sex" value="female">女
+                    </label>
+                    <label class="nova-radio-label">
+                        <input type="radio" name="sex" value="secret">保密
+                    </label>
+                    <label class="nova-radio-label">
+                        <input type="radio" name="sex" disabled value="other">其他
+                    </label>
+                </dd>
+            </dl>
+        </form>
+
+        <pre>
+<code>
+&lt;label class="nova-radio-label"&gt;
+    &lt;input type="radio" name="sex" disabled checked value="male"&gt;男
+&lt;/label&gt;
+&lt;label class="nova-radio-label"&gt;
+    &lt;input type="radio" name="sex" value="female"&gt;女
+&lt;/label&gt;
+&lt;label class="nova-radio-label"&gt;
+    &lt;input type="radio" name="sex" value="secret"&gt;保密
+&lt;/label&gt;
+&lt;label class="nova-radio-label"&gt;
+    &lt;input type="radio" name="sex" disabled value="other"&gt;其他
+&lt;/label&gt;
+</code>
+        </pre>
+
+    </div>
+
+
+    <div class="section">
+        <form>
+
+            <dl class="clearfix">
+                <dt>性别：</dt>
+                <dd class="nova-radio-group">
+                    <label class="nova-radio-label nova-radio-label-orange">
+                        <input type="radio" name="sex" disabled checked value="male">男
+                    </label>
+                    <label class="nova-radio-label nova-radio-label-orange">
                         <input type="radio" name="sex" value="female">女
                     </label>
                     <label class="nova-radio-label nova-radio-label-orange">
                         <input type="radio" name="sex" value="secret">保密
                     </label>
+                    <label class="nova-radio-label nova-radio-label-orange">
+                        <input type="radio" name="sex" disabled value="other">其他
+                    </label>
                 </dd>
             </dl>
+        </form>
+        <pre>
+<code>
+&lt;label class="nova-radio-label nova-radio-label-orange"&gt;
+    &lt;input type="radio" name="sex" disabled checked value="male"&gt;男
+&lt;/label&gt;
+</code>
+        </pre>
+    </div>
+    
+    <div class="section">
+        
+        
+        <form>
+
             <dl class="clearfix">
                 <dt>所在地：</dt>
                 <dd>

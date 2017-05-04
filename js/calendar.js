@@ -2763,7 +2763,7 @@
         },
 
         //获取星期或者节假日(一般日期显示星期x，特殊日期显示如今天、中秋)信息
-        getDayOfWeek: function (date) {
+        getDayOfWeek: function (date, noFestival) {
 
             date = date || this.now;
 
@@ -2774,14 +2774,16 @@
                     return "今天";
                 }
 
-                //节日
-                var nowStr = Calendar.dateFormat(date, this.options.dateFormat);
-                if (nowStr) {
+                if (!noFestival) {
+                    //节日
+                    var nowStr = Calendar.dateFormat(date, this.options.dateFormat);
+                    if (nowStr) {
 
-                    var festival = this.options.festival[nowStr];
-                    if (festival) {
-                        if (festival.name) {
-                            return festival.name;
+                        var festival = this.options.festival[nowStr];
+                        if (festival) {
+                            if (festival.name) {
+                                return festival.name;
+                            }
                         }
                     }
                 }

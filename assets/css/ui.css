@@ -7,19 +7,27 @@
 
 .nova-checkbox-label:hover .nova-checkbox.nova-checked { background-position: 0 -40px; }
 
-.nova-checkbox-label:hover .nova-checkbox.disabled { background-position: 0 0; }
+.nova-checkbox-label:hover .nova-checkbox.disabled { background-position: -20px 0; }
+
+.nova-checkbox-label:hover .nova-checked.disabled { background-position: -60px 0; }
 
 .nova-checkbox { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background-image: url(../../img/lv/ui.png); background-position: 0 0; }
 
 .nova-checkbox.nova-checked { background-position: 0 -40px; }
 
-.nova-checkbox.disabled { background-position: 0 0; }
+.nova-checkbox.disabled { background-position: -20px 0; }
+
+.nova-checkbox.nova-checked.disabled { background-position: -60px 0; }
 
 .nova-checkbox-label-orange .nova-checkbox.nova-checked { background-position: -20px -40px; }
+
+.nova-checkbox-label-orange .nova-checkbox.nova-checked.disabled { background-position: -60px 0; }
 
 .nova-checkbox-label-orange:hover .nova-checkbox { background-position: -20px -20px; }
 
 .nova-checkbox-label-orange:hover .nova-checkbox.nova-checked { background-position: -20px -40px; }
+
+.nova-checkbox-label-orange:hover .nova-checked.disabled { background-position: -60px 0; }
 
 .nova-radio-label { margin-right: 10px; }
 
@@ -29,17 +37,27 @@
 
 .nova-radio-label:hover .nova-radio.nova-checked { background-position: 0 -100px; }
 
-.nova-radio-label:hover .nova-radio.disabled { background-position: 0 -60px; }
+.nova-radio-label:hover .nova-radio.disabled { background-position: -20px -60px; }
+
+.nova-radio-label:hover .nova-checked.disabled { background-position: -80px 0; }
 
 .nova-radio { vertical-align: top; margin-top: 9px; margin-right: 5px; width: 13px; height: 13px; display: inline-block; background-image: url(../../img/lv/ui.png); background-position: 0 -60px; }
 
 .nova-radio.nova-checked { background-position: 0 -100px; }
 
+.nova-radio.disabled { background-position: -20px -60px; }
+
+.nova-radio.nova-checked.disabled { background-position: -80px 0; }
+
 .nova-radio-label-orange .nova-radio.nova-checked { background-position: -20px -100px; }
+
+.nova-radio-label-orange .nova-radio.nova-checked.disabled { background-position: -80px 0; }
 
 .nova-radio-label-orange:hover .nova-radio { background-position: -20px -80px; }
 
 .nova-radio-label-orange:hover .nova-radio.nova-checked { background-position: -20px -100px; }
+
+.nova-radio-label-orange:hover .nova-checked.disabled { background-position: -80px 0; }
 
 .nova-select { cursor: default; width: 188px; line-height: 28px; }
 
