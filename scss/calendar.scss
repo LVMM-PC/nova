@@ -727,7 +727,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       border-radius: 6px;
     }
     overflow-y: auto;
-    height: 240px;
+    max-height: 240px;
     width: 72px;
     li {
       cursor: pointer;

@@ -327,8 +327,10 @@
             var $options = $dropdown.find(".nova-select-option");
             $options.removeClass("active");
             $this.addClass("active");
-            $select.get(0).selectedIndex = $options.index($this);
-            $select.change();
+            if ($select.get(0).selectedIndex !== $options.index($this)) {
+                $select.get(0).selectedIndex = $options.index($this);
+                $select.change();
+            }
 
             $novaSelect.removeClass("opened");
             $label.removeClass("opened");
@@ -356,8 +358,9 @@
                 $("body>.nova-select-dropdown").each(function (index, ele) {
                     var $ele = $(ele);
                     var $label = $ele.data("label");
+                    var $select = $label.find(".nova-select");
                     $ele.hide();
-                    $label.append($ele);
+                    $select.append($ele);
                 });
             }
             if ($label) {
@@ -371,9 +374,9 @@
             var $select = $this.parent(".nova-select");
             var $label = $select.parents(".nova-select-label");
             var $dropdown = $label.data("dropdown");
-			// 对label重定位
-			$dropdown.data("label", $label);
-			//
+            // 对label重定位
+            $dropdown.data("label", $label);
+            //
             $(".nova-select-dropdown").hide();
 
             if ($select.is(".disabled")) {
@@ -398,7 +401,7 @@
                     width: width
                 }).show()
             } else {
-                $label.append($dropdown.hide());
+                $select.append($dropdown.hide());
             }
         },
 

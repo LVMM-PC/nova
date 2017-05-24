@@ -273,7 +273,7 @@
 
 .ui-calendar-birthday .cal-month-select { position: absolute; top: 3px; left: 132px; width: 49px; display: block; }
 
-.ui-calendar-birthday .cal-year-dropdown, .ui-calendar-birthday .cal-month-dropdown { overflow-y: auto; height: 240px; width: 72px; }
+.ui-calendar-birthday .cal-year-dropdown, .ui-calendar-birthday .cal-month-dropdown { overflow-y: auto; max-height: 240px; width: 72px; }
 
 .ui-calendar-birthday .cal-year-dropdown::-webkit-scrollbar, .ui-calendar-birthday .cal-month-dropdown::-webkit-scrollbar { background-color: transparent; width: 12px; }
 
