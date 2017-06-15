@@ -190,14 +190,6 @@
                 }, 0);
             }
 
-            //显示弹窗
-            self.wrap.show();
-
-            //重置定位
-            setTimeout(function () {
-                self.resize();
-            }, 0);
-
             //事件绑定
             self.bindEvent(options);
 
@@ -209,8 +201,17 @@
             //设置关闭按钮
             self.showClose(options.showClose);
 
+            self.wrap.hide();
+
             //将弹窗添加到页面中
             $body.append(self.wrap);
+
+            //重置定位
+            setTimeout(function () {
+                self.resize();
+                //显示弹窗
+                self.wrap.show();
+            }, 0);
 
             //执行初始化完成方法
             if (typeof options.initCallback === "function") {
