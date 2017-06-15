@@ -67,7 +67,7 @@
         buttons: null,  //按钮组
         fixed: true,  //是否position:fixed
         masked: true,  //是否有遮罩层
-        drag: false,  //是否可以拖拽
+        draggable: false,  //是否可以拖拽
 
         topFixed: false,  //是否弹窗顶部与窗口顶部保持固定尺寸
         topOffset: 60,  //弹窗顶部与窗口顶部的距离
@@ -159,9 +159,6 @@
 
             var wrap = self.wrap;
 
-            //将弹窗添加到页面中
-            $body.append(self.wrap);
-
             //设置class
             wrap.addClass(options.wrapClass);
 
@@ -212,6 +209,9 @@
             //设置关闭按钮
             self.showClose(options.showClose);
 
+            //将弹窗添加到页面中
+            $body.append(self.wrap);
+
             //执行初始化完成方法
             if (typeof options.initCallback === "function") {
                 options.initCallback.call(this);
@@ -241,7 +241,7 @@
         /**
          * 拖动
          */
-        draggable: function () {
+        drag: function () {
             var wrap = this.wrap;
             var dialogTop;
             var dialogLeft;
