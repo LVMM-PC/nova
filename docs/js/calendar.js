@@ -886,6 +886,29 @@ $(function () {
         sourceFn: fillDataSection  //填充时间价格表
     });
 
+    nova.calendar({
+        trigger: ".weekOffsetCalendar",
+        autoRender: true,
+        sectionSelect: true,
+        template: "big",
+        triggerEvent: "click",
+        bimonthly: true,
+        weekOffset: 1,
+        selectDateCallback: function () {
+
+            var sectionSelectStartStr = nova.calendar.dateFormat(this.sectionSelectStart, this.options.dateFormat)
+            var sectionSelectEndStr = nova.calendar.dateFormat(this.sectionSelectEnd, this.options.dateFormat)
+
+
+            console.log(sectionSelectStartStr, sectionSelectEndStr)
+
+        },
+        cancelDateCallback: function () {
+            //console.log("未")
+        },
+        sourceFn: fillDataSection  //填充时间价格表
+    });
+
     function fillDataSection() {
         var self = this;
         var url = "json/calendar-section-data.json";
@@ -1219,7 +1242,6 @@ $(function () {
             //TODO 错误处理
         })
     }
-
 
 
 });
