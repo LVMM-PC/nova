@@ -38,47 +38,28 @@ $(function() {
     })
 
     // 姓名转拼音
-    var polyphoneLastNameToHandle; //用于存放待处理的姓的数据
-    var polyphoneFirstNameToHandle; //用于存放待处理的名的数据
     $(".name-input").on("input", function() {
         var inputValue = $.trim($(this).val());
         var lastName = inputValue.slice(0, 2);
         var firstName = inputValue.slice(2, length);
         var length = inputValue.length;
-        var lastNamePinyin = "";
-        var firstNamePinyin = "";
         var fuxingTestResult = py.getFuxingPinyinByName(inputValue);
         // 测试是否为复姓
         if (fuxingTestResult) {
-            lastNamePinyin = fuxingTestResult;
             $xingResult.val(fuxingTestResult);
         } else {
             lastName = inputValue.slice(0, 1);
             firstName = inputValue.slice(1, length);
-            testPolyphoneByArray(lastName, true);
-            if (!polyphoneLastNameToHandle.length) {
-                $xingResult.val(py.getPinyin(lastName, {
-                    separator: ""
-                }));
-            } else {
-                $xingResult.val("");
-            }
+            handlePolyphone(lastName, $xingResult);
         }
-        testPolyphoneByArray(firstName, false);
-        if (!polyphoneFirstNameToHandle.length) {
-            $mingResult.val(py.getPinyin(firstName, {
-                separator: ""
-            }));
-        } else {
-            $mingResult.val("");
-        }
+        handlePolyphone(firstName, $mingResult);
     })
 
-    function testPolyphoneByArray(pinyin, isLastName) {
-        var pinyinArr = py.getPinyin(pinyin, {
+    function handlePolyphone(chinese, $element) {
+        var isPolyphone = false;
+        var pinyinArr = py.getPinyin(chinese, {
             isPolyphone: true
         });
-        var isPolyphone = false;
         for (var i = 0, len = pinyinArr.length; i < len; i++) {
             var obj = pinyinArr[i];
             for (var j in obj) {
@@ -87,14 +68,20 @@ $(function() {
                 }
             }
         }
-        if (!isPolyphone) {
-            pinyinArr = [];
-        }
-        if (isLastName) {
-            polyphoneLastNameToHandle = pinyinArr;
+        if (isPolyphone) {
+            $element.val("");
+            var $test = $(generateHtml(pinyinArr))
+            $("body").append($test);
+            $element.data("py", $test);
         } else {
-            polyphoneFirstNameToHandle = pinyinArr;
+            $element.val(py.getPinyin(chinese, {
+                separator: ""
+            }));
         }
+    }
+
+    function generateHtml(pinyinArr) {
+        return "<div>你好</div>";
     }
 
 })
