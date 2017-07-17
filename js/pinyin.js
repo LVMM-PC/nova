@@ -52,7 +52,10 @@ function novaPinyin() {
             var result = [];
             var len = chinese.length;
             for (var i = 0; i < len; i++) {
-                result.push(pinyinDict[chinese[i]]);
+                var py = pinyinDict[chinese[i]];
+                if(py !== undefined) {
+                    result.push(py);
+                }
             }
             return result.join(separator);
         }

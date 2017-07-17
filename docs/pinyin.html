@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DIALOG</title>
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="css/monokai-sublime.css">
+    <style>
+        input {
+            border: 1px solid #CCC;
+            line-height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="logo">
+            NOVA
+        </div>
+    </header>
+
+    <menu id="nav">
+        <li><a href="./">首页</a></li>
+    </menu>
+    <div id="everything">
+
+        <h1>Pinyin</h1>
+
+        <h2>引用</h2>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://pic.lvmama.com/js/lv/pinyin.js" target="_blank">http://pic.lvmama.com/min/index.php?f=/js/lv/pinyin.js</a>
+                </li>
+            </ul>
+        </div>
+
+        <h2>调用方式</h2>
+        <pre>
+            <code class="js">
+            var py = novaPinyin();
+
+            //1.获取汉字拼音，默认以空格分隔
+            py.getPinyin("我知道那些夏天就像青春一样回不来");
+            // wo zhi dao na xie xia tian jiu xiang qing chun yi yang hui bu lai
+
+            //2.获取汉字拼音，不分隔
+            py.getPinyin("我知道这个世界每天都有太多遗憾");
+            // wozhidaozhegeshijiemeitiandouyoutaiduoyihan
+
+            //3.获取汉字拼音，以"-"分隔
+            py.getPinyin("所以你好再见");
+            // suo-yi-ni-hao-zai-jian
+
+            //4.获取姓名拼音
+            py.getNamePinyin("令狐冲");
+            // { lastName: "ling hu", firstName: "chong" }
+
+            </code>
+        </pre>
+
+        <h2>实例</h2>
+        <h3>汉字转拼音</h3>
+        <div class="section">
+            <input type="text" class="pinyin-input" value="所以你好再见">
+            <p class="pinyin-result">suo yi ni hao zai jian</p>
+        </div>
+
+        <h3>姓名转拼音</h3>
+        <div class="section">
+            <input type="text" class="name-input" value="令狐冲">
+            <p class="xing-result">ling hu</p>
+            <p class="ming-result">chong</p>
+        </div>
+
+    </div>
+    <script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="../js/pinyin.js"></script>
+    <script src="../docs/js/pinyin.js"></script>
+</body>
+
+</html>
