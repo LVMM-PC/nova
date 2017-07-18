@@ -7,10 +7,39 @@
     <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="../assets/css/ui.css">
     <style>
         input {
             border: 1px solid #CCC;
             line-height: 20px;
+        }
+        .pinyin-select-part {
+            display: none;
+            position: absolute;
+            width: 240px;
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+        .pinyin-select-part dl {
+            overflow: hidden;
+            padding: 5px 20px;
+            font-size: 14px;
+        }
+        .pinyin-select-part dd, .pinyin-select-part dt {
+            float: left;
+        }
+        .pinyin-select-part dt {
+            width: 40px;
+        }
+        .pinyin-select-part dd {
+            width: 160px;
+        }
+        .nova-radio {
+            margin-top: 4px;
+        }
+        .nova-radio-label {
+            display: inline-block;
+            width: 70px;
         }
     </style>
 </head>
@@ -60,7 +89,7 @@
             // [{"所":"suo"},{"以":"yi"},{"你":"ni"},{"好":"hao"},{"再":"zai"},{"见":"xian,jian"}]
 
             //5.测试复姓：若为复姓返回复姓拼音，若为单姓返回空字符串
-            py.testFuxingByName("令狐冲");
+            py.getFuxingPinyin("令狐冲");
             // linghu
 
             </code>
@@ -98,6 +127,7 @@
     <script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
     <script src="js/highlight.pack.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="../js/ui.js"></script>
     <script src="../js/pinyin.js"></script>
     <script src="../docs/js/pinyin.js"></script>
 </body>

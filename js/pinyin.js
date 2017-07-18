@@ -53,7 +53,7 @@ function novaPinyin() {
          * @param name 姓名
          * @returns 复姓拼音，单姓返回空
          */
-        getFuxingPinyinByName: function (name) {
+        getFuxingPinyin: function (name) {
             var fuxingPinyin = fuXingDict[name.slice(0, 2)];
             if (isValidString(name) && fuxingPinyin !== undefined) {
                 return fuxingPinyin.toLowerCase();

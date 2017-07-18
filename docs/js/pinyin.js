@@ -3,8 +3,10 @@
  * date: 2017-07-17
  */
 $(function() {
+    var $document = $(document);
+    var $body = $("body");
     var py = novaPinyin();
-
+    var ui = nova.ui();
     var $result = $(".pinyin-result");
     var $polyphoneResult = $(".pinyin-polyphone-result");
     var $fuxingResult = $(".fuxing-result");
@@ -39,14 +41,15 @@ $(function() {
 
     // 姓名转拼音
     $(".name-input").on("input", function() {
+        $(".pinyin-select-part").remove();
         var inputValue = $.trim($(this).val());
         var lastName = inputValue.slice(0, 2);
         var firstName = inputValue.slice(2, length);
         var length = inputValue.length;
-        var fuxingTestResult = py.getFuxingPinyinByName(inputValue);
+        var fuxingResult = py.getFuxingPinyin(inputValue);
         // 测试是否为复姓
-        if (fuxingTestResult) {
-            $xingResult.val(fuxingTestResult);
+        if (fuxingResult) {
+            $xingResult.val(fuxingResult);
         } else {
             lastName = inputValue.slice(0, 1);
             firstName = inputValue.slice(1, length);
@@ -55,24 +58,78 @@ $(function() {
         handlePolyphone(firstName, $mingResult);
     })
 
+    // 显示拼音选择框
+    $(".xing-result, .ming-result").on("focus", function(e) {
+        $(".pinyin-select-part").hide();
+        var $this = $(this);
+        var $selectPart = $this.data("py");
+        if ($selectPart) {
+            var thisL = $this.offset().left,
+                thisT = $this.offset().top,
+                thisH = $this.outerHeight(true);
+
+            $selectPart.show().css({
+                'left': thisL,
+                'top': thisT + thisH
+            });
+        }
+    }).on("click", function(e) {
+        e.stopPropagation();
+    })
+
+    $document.on("click", function() {
+        $(".pinyin-select-part").hide();
+    })
+
+    $document.on("click", ".pinyin-select-part", function(e) {
+        e.stopPropagation();
+    })
+
+    $document.on("change", ".pinyin-select-part input[type='radio']", function() {
+        var $this = $(this);
+        var $thisSelectPart = $this.parents(".pinyin-select-part");
+        var $pinyinList = $thisSelectPart.find("dl");
+        var isAllSelectedFlag = true;
+        var result = "";
+        // 判断是否每个都已选
+        $pinyinList.each(function(index, ele) {
+            var $selectCheckedRadio = $(ele).find("input[type='radio']:checked");
+            if ($selectCheckedRadio.length === 0) {
+                isAllSelectedFlag = false;
+            } else {
+                result += $selectCheckedRadio.val();
+            }
+        })
+        if (isAllSelectedFlag) {
+            $thisSelectPart.data("py").val(result);
+            $thisSelectPart.remove();
+        }
+    })
+
     function handlePolyphone(chinese, $element) {
         var isPolyphone = false;
         var pinyinArr = py.getPinyin(chinese, {
             isPolyphone: true
         });
-        for (var i = 0, len = pinyinArr.length; i < len; i++) {
-            var obj = pinyinArr[i];
-            for (var j in obj) {
-                if (obj[j].indexOf(",") != -1) {
-                    isPolyphone = true;
+        outPoint:
+            for (var i = 0, len = pinyinArr.length; i < len; i++) {
+                var obj = pinyinArr[i];
+                for (var j in obj) {
+                    if (obj[j].indexOf(",") != -1) {
+                        isPolyphone = true;
+                        break outPoint;
+                    }
                 }
             }
-        }
         if (isPolyphone) {
             $element.val("");
-            var $test = $(generateHtml(pinyinArr))
-            $("body").append($test);
-            $element.data("py", $test);
+            var $selectPart = $(generateHtml(pinyinArr))
+            var $oldSelectPart = $element.data("py");
+            $oldSelectPart && $oldSelectPart.remove();
+            $body.append($selectPart);
+            ui.render();
+            $element.data("py", $selectPart);
+            $selectPart.data("py", $element);
         } else {
             $element.val(py.getPinyin(chinese, {
                 separator: ""
@@ -80,8 +137,24 @@ $(function() {
         }
     }
 
+    // 生成选择框dom结构
     function generateHtml(pinyinArr) {
-        return "<div>你好</div>";
+        var html = "<div class='pinyin-select-part'>";
+        for (var i = 0, len = pinyinArr.length; i < len; i++) {
+            var obj = pinyinArr[i];
+            for (var j in obj) {
+                var pArr = obj[j].split(",");
+                html += "<dl><dt>" + j + "</dt><dd class='nova-radio-group'>";
+                if (pArr.length > 1) {
+                    for (var k = 0; k < pArr.length; k++) {
+                        html += ("<label class='nova-radio-label'><input type='radio' name='" + j + "' value='" + pArr[k] + "'>" + pArr[k] + "</label>")
+                    }
+                } else {
+                    html += ("<label class='nova-radio-label'><input type='radio' name='" + j + "' value='" + pArr[0] + "' checked>" + pArr[0] + "</label>")
+                }
+                html += "</dd></dl>";
+            }
+        }
+        return (html + "</div>");
     }
-
 })
