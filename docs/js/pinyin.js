@@ -154,10 +154,10 @@ $(function () {
     function generateHtml(pinyinArr) {
         var html = "<div class='pinyin-select-part'>";
         var template = "<label class='nova-radio-label'><input type='radio' name='{{chinese}}' value='{{pinyin}}' {{checked}}>{{pinyin}}</label>";
-        var checked = "";
         for (var i = 0, len = pinyinArr.length; i < len; i++) {
             var obj = pinyinArr[i];
             for (var j in obj) {
+                var checked = "";
                 var pArr = obj[j].split(",");
                 html += "<dl><dt>" + j + "</dt><dd class='nova-radio-group'>";
                 if (pArr.length === 1) {
