@@ -46,7 +46,7 @@ $(function () {
         var inputValue = $.trim($(this).val());
         var result = "请输入正确的汉字姓名";
         if (inputValue) {
-            result = py.getFuxingPinyinByName(inputValue);
+            result = py.getFuxingPinyin(inputValue);
             result = result ? "复姓：" + result : "单姓"
         }
         $fuxingResult.html(result);
