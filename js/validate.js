@@ -157,11 +157,12 @@
         bindEvent: function () {
             var rules = this.options.rules;
             var self = this;
+            var triggerEvent = this.options.triggerEvent;
 
             for (var rule in rules) {
                 (function (rule) {
 
-                    self.$target.on("change", rule, function () {
+                    self.$target.on(triggerEvent, rule, function () {
                         var $input = $(this);
                         var ruleDetails = rules[rule];
 

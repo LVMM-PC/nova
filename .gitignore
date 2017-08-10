@@ -2,3 +2,5 @@
 *node_modules
 *.sass-cache
 *.psd
+svnPath.js
+package-lock.json
