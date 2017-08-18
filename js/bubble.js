@@ -41,6 +41,10 @@
      */
     function Factory(options) {
 
+        if (!options.$trigger) {
+            throw new Error("气泡必须提供一个$trigger参数");
+        }
+
         if (options.$trigger.attr("data-nova-bubble-active") === "active") {
             return false;
         }
@@ -78,8 +82,8 @@
         okText: "确定",  //确定按钮文本
         cancelText: "取消",  //取消按钮文本
 
-        okClassName: "btn-orange",  //确定按钮class
-        cancelClassName: "",  //取消按钮class
+        okClassName: "btn-sm btn-orange",  //确定按钮class
+        cancelClassName: "btn-sm btn-default",  //取消按钮class
 
         content: "",  //内容
         contentClone: false,

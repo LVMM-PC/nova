@@ -15,7 +15,7 @@
 }
 
 .nova-bubble-no-title {
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 .nova-bubble-close {
@@ -33,6 +33,7 @@
   font-weight: bold;
   color: #999;
   i {
+    font-style: normal;
     display: inline-block;
     width: 12px;
     height: 12px;
@@ -64,7 +65,7 @@
 }
 
 .nova-bubble-body {
-  padding: 15px 20px 10px 20px;
+  padding: 10px 20px 10px 20px;
   line-height: 22px;
   //margin-top: 15px;
   iframe {

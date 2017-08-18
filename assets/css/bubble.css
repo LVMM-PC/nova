@@ -1,11 +1,11 @@
 @charset "UTF-8";
 .nova-bubble, .nova-bubble-static { font-size: 12px; position: absolute; background-color: #fff; color: #333333; width: 250px; border-radius: 3px; border: solid 1px #c3c6c7; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
 
-.nova-bubble-no-title { padding-top: 20px; }
+.nova-bubble-no-title { padding-top: 5px; }
 
 .nova-bubble-close { cursor: pointer; position: absolute; width: 16px; height: 16px; opacity: .8; transition: all .2s ease; text-decoration: none; top: 4px; right: 5px; font-family: '\5b8b\4f53'; font-size: 13px; font-weight: bold; color: #999; }
 
-.nova-bubble-close i { display: inline-block; width: 12px; height: 12px; vertical-align: top; background-image: none; margin: 0; font-size: 16px; font-weight: bold; color: #c3cfd2; content: ''; }
+.nova-bubble-close i { font-style: normal; display: inline-block; width: 12px; height: 12px; vertical-align: top; background-image: none; margin: 0; font-size: 16px; font-weight: bold; color: #c3cfd2; content: ''; }
 
 .nova-bubble-close:hover i { background-position: -20px 0; }
 
@@ -13,7 +13,7 @@
 
 .nova-bubble-header small { font-size: 12px; color: #666666; margin-left: 10px; }
 
-.nova-bubble-body { padding: 15px 20px 10px 20px; line-height: 22px; }
+.nova-bubble-body { padding: 10px 20px 10px 20px; line-height: 22px; }
 
 .nova-bubble-body iframe { width: 100%; height: 100%; }
 
