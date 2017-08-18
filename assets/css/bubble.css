@@ -31,5 +31,4 @@
 
 .nova-bubble-arrow-inner { display: inline-block; margin-top: 1px; border-bottom-color: #fff; }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { /* 当设备像素比不小于1.5的时候... */
-  .nova-bubble-close i { background-image: url(../../img/lv/bubble@2x.png); background-size: 100px; } }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { /* 当设备像素比不小于1.5的时候... */ }

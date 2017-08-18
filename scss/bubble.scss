@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-$bubble-img: url(../../img/lv/bubble.png);
-$bubble-img2x: url(../../img/lv/bubble@2x.png);
-
 .nova-bubble, .nova-bubble-static {
   font-size: 12px;
   position: absolute;
@@ -11,10 +8,8 @@ $bubble-img2x: url(../../img/lv/bubble@2x.png);
   color: #333333;
   width: 250px;
 
-
   border-radius: 3px;
   border: solid 1px #c3c6c7;
-
 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
@@ -129,12 +124,5 @@ $bubble-img2x: url(../../img/lv/bubble@2x.png);
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
   /* 当设备像素比不小于1.5的时候... */
-
-  .nova-bubble-close {
-    i {
-      background-image: $bubble-img2x;
-      background-size: 100px;
-    }
-  }
 
 }
