@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DIALOG</title>
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="../assets/css/bubble.css">
+    <link rel="stylesheet" href="../assets/css/buttons.css">
+    <style>
+
+        .d-animation {
+            -moz-transform: scale(.8);
+            -webkit-transform: scale(.8);
+            -o-transform: scale(.8);
+            transform: scale(.8);
+            opacity: 0
+        }
+
+        .d-animation-show {
+            -webkit-transition: opacity .3s, -webkit-transform .3s;
+            -moz-transition: opacity .3s, -moz-transform .3s;
+            -o-transition: opacity .3s, -o-transform .3s;
+            -moz-transform: none;
+            -webkit-transform: none;
+            -o-transform: none;
+            transform: none;
+            opacity: 1
+        }
+
+        .d-animation-hide {
+            opacity: 0;
+            -moz-transition: opacity .3s;
+            -webkit-transition: opacity .3s;
+            -o-transition: opacity .3s;
+            transition: opacity .3s
+        }
+
+    </style>
+    <style>
+
+        input {
+            border: 1px solid #CCC;
+            line-height: 20px;
+        }
+
+        .table, .table td {
+            border: 1px solid #CCC;
+        }
+
+        .table td {
+            text-align: center;
+            padding: 5px;
+        }
+
+        #elemBack {
+            display: none;
+        }
+
+        .bubble-auto {
+            display: none;
+        }
+
+        .bubble-auto .tabs {
+        }
+
+        .bubble-auto .tab {
+            cursor: pointer;
+            float: left;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .bubble-auto .tab.active {
+            color: #fff;
+            background-color: #ff9900;
+        }
+
+        .bubble-auto .panes {
+            text-align: center;
+        }
+
+        .bubble-auto .pane {
+            display: none;
+        }
+
+        .bubble-auto .pane.active {
+            display: block;
+        }
+
+        .da-recommend {
+            background-color: #cdf0ff;
+            height: 300px;
+            line-height: 300px;
+        }
+
+        .da-free {
+            background-color: #d6fada;
+            height: 500px;
+            line-height: 300px;
+        }
+
+        .bubble-ajax {
+            padding: 20px;
+            height: 300px;
+            overflow: auto;
+        }
+
+    </style>
+</head>
+<body>
+<header id="header">
+    <div id="logo">
+        NOVA
+    </div>
+</header>
+
+<menu id="nav">
+    <li><a href="./">首页</a></li>
+</menu>
+<div id="everything">
+
+    <h1>Dialog</h1>
+
+    <h2>引用</h2>
+    <div>
+        <ul>
+            <li>
+                <a href="http://pic.lvmama.com/styles/lv/buttons.css" target="_blank">http://pic.lvmama.com/min/index.php?f=/styles/lv/buttons.css</a>
+            </li>
+            <li>
+                <a href="http://pic.lvmama.com/styles/lv/bubble.css" target="_blank">http://pic.lvmama.com/min/index.php?f=/styles/lv/bubble.css</a>
+            </li>
+            <li>
+                <a href="http://pic.lvmama.com/js/lv/bubble.js" target="_blank">http://pic.lvmama.com/min/index.php?f=/js/lv/bubble.js</a>
+            </li>
+        </ul>
+    </div>
+
+    <h2>预览</h2>
+    <h3>默认提示框</h3>
+    <div class="section">
+        <div class="nova-bubble-static" style="position:relative;">
+            <div class="nova-bubble-close"><i>&times;</i></div>
+            <div class="nova-bubble-header">消息提醒</div>
+            <div class="nova-bubble-body">
+                提示文本信息-这是弹出框的内容一般提示文本-也可以是较为复杂的布局，此默认提示框宽度400px。布局，此默认提示框宽度420px布局，此默认提示框宽度420px。
+            </div>
+            <div class="nova-bubble-footer">
+                <span class="btn btn-orange">确认</span>
+                <span class="btn">取消</span>
+            </div>
+        </div>
+    </div>
+    <pre>
+<code class="html">
+&lt;!--弹窗结构--&gt;
+&lt;div class="nova-bubble"&gt;
+    &lt;div class="nova-bubble-close"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class="nova-bubble-header"&gt;消息提醒&lt;/div&gt;
+    &lt;div class="nova-bubble-body"&gt;
+        提示文本信息-这是弹出框的内容一般提示文本-也可以是较为复杂的布局，此默认提示框宽度400px。布局，此默认提示框宽度420px布局，此默认提示框宽度420px。
+    &lt;/div&gt;
+    &lt;div class="nova-bubble-footer"&gt;
+        &lt;span class="btn btn-orange"&gt;确认&lt;/span&gt;
+        &lt;span class="btn"&gt;取消&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+    </pre>
+
+    <h3>调用方式</h3>
+    <div class="section">
+        nova.bubble有两种调用模式
+    </div>
+
+    <h3>3 标准模式实例</h3>
+    <h4>3.1 基础实例</h4>
+    <div class="section">
+        <p>
+            <span class="btn JS_bubble_title_content">自定义标题 内容</span>
+        </p>
+        <p>
+            <span class="btn JS_bubble_no_title">无标题</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    title: "自定义标题",
+    content: "标准模式，可以自定义提醒标题和内容，默认不显示确定 取消的按钮"
+});
+</code></pre>
+        <p>
+            <span class="btn JS_bubble_button">显示弹窗按钮</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: "显示弹窗按钮，若未指定按钮的回调函数，则默认关闭",
+    okCallback: true,
+    cancelCallback: true
+});
+</code></pre>
+
+        <p>
+            <span class="btn JS_bubble_height_overflow">弹窗内容高过窗口</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: "弹窗内容过高，超过浏览器窗口高度时，弹窗变化为跟随滚动条滚动。N多换行后，再高的内容，我也能看到内容最下面的部分",
+    width: 400,
+    height: 4000
+})
+</code></pre>
+
+        <p>
+            <span class="btn JS_bubble_dom">指定DOM对象将其代码显示到弹窗</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: $("#elemBack")
+})
+</code></pre>
+        <pre>
+<code class="html">
+&lt;!--
+测试页面元素及其原绑定事件
+事件不能写在将要显示在弹层的内容中
+--&gt;
+&lt;div id="elemBack"&gt;
+    &lt;p&gt;传入指定element对象（这里传入 $("#elemBack") 显示其内容(含其本身盒子)，同时保存其原有事件&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;原事件不能以 &lt;code&gt;&lt;script&gt;&lt;/code&gt; 标签包含在 #elemBack 盒子内，否则事件会重复绑定&lt;/p&gt;
+    &lt;button id="testbtn" class="btn"&gt;点此测试事件&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <h4>3.2 自定义按钮</h4>
+    <div class="section">
+
+        <p>
+            <span class="btn JS_bubble_btn">更改默认按钮</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: "显示弹窗按钮，实现按钮文字自定义，绑定特定按钮点击事件",
+    okCallback: function () {
+        nova.msg("保存成功");
+    },
+    okClassName: "btn-pink",
+    okText: "保存修改",
+    cancelCallback: true,
+    cancelText: "不保存"
+});
+</code></pre>
+        <p>
+            <span class="btn JS_bubble_rewrite">重写提示内容</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: "点击“重写提示”按钮，将使用链式操作重写弹窗的提醒内容！",
+    okText: "重写提示",
+    okCallback: function () {
+        this.title("警告");
+        this.content("重写该弹窗提示内容，在回调函数使用return false 不会关闭当前弹出框");
+        this.resize();
+        return false;
+    },
+    cancelText: "关闭",
+    cancelCallback: true
+});
+</code></pre>
+        <p>
+            <span class="btn JS_bubble_btn_group">实现多个按钮</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: '&lt;h4&gt;您对模态窗口满意吗？&lt;/h4&gt;' +
+    '&lt;p&gt;说明：使用模态窗口，能实现全站的弹窗统一，外观能够控制，方便修改，功能上也可定制，实在是统一网页设计弹窗的必备武器！&lt;/p&gt;',
+    button: [
+        {
+            text: "非常满意",
+            className: "btn-pink",
+            callback: function () {
+                nova.msg("感谢你的选择", 2000);
+            }
+        },
+        {
+            text: "一般满意",
+            className: "btn-blue",
+            callback: function () {
+                nova.msg("我也同意你的看法", 2000);
+            }
+        },
+        {
+            text: "不满意",
+            className: "btn-disabled",
+            callback: function () {
+                return false;  //阻止关闭
+            }
+        }
+    ]
+});
+</code></pre>
+    </div>
+
+    <h4>3.3 弹窗高度检测</h4>
+    <div class="section">
+
+        <p>
+            <span class="btn JS_bubble_auto">弹窗高度检测</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    content: $(".bubble-auto"),
+    topFixed: true,
+    topOffset: 60
+});
+</code></pre>
+        <pre>
+<code class="html">
+&lt;div class="bubble-auto"&gt;
+    &lt;div class="tabs clearfix"&gt;
+        &lt;div class="tab active"&gt;往返推荐&lt;/div&gt;
+        &lt;div class="tab"&gt;自由组合&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panes"&gt;
+        &lt;div class="pane active da-recommend"&gt;往返推荐内容&lt;/div&gt;
+        &lt;div class="pane da-free"&gt;自由组合内容&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <h4>3.4 复杂交互</h4>
+    <div class="section">
+        <!--TODO-->
+        暂无实例
+    </div>
+
+    <h4>3.5 对话框初始化及其事件</h4>
+
+    <div class="section">
+        <ul>
+            <li>initialize弹窗初始化完成后执行的方法</li>
+        </ul>
+        <p>
+            <span class="btn JS_bubble_initialize">弹窗初始化后执行方法</span>
+        </p>
+
+        <pre>
+<code class="js">
+nova.bubble({
+    content: "弹窗未初始化完成",
+    initCallback: function () {
+        this.content("弹窗初始化完成");
+    }
+});
+</code></pre>
+    </div>
+    <h4>3.6 关闭对话框前执行函数</h4>
+
+    <div class="section">
+
+        <ul>
+            <li>beforeunload弹窗初始化完成后执行的方法</li>
+        </ul>
+        <p>
+            <span class="btn JS_bubble_beforeunload">关闭弹窗前执行方法</span>
+        </p>
+        <pre>
+<code class="js">
+nova.bubble({
+    height: 300,
+    title: "关闭对话框前执行方法",
+    content: "用户填写了信息但未保存，提醒用户是否保存",
+    okCallback: true,
+    okText: "关闭",
+    okClassName: "btn",
+    cancelCallback: function () {
+        this.close(true);
+        return false;
+    },
+    cancelText: "强制关闭",
+    cancelClassName: "btn-pink",
+    beforeClosingCallback: function () {
+        var self = this;
+        nova.confirm("关闭后会导致数据丢失，是否确认关闭？", function () {
+            self.close(true);  //强制关闭弹窗
+        });
+        return false;
+    }
+});
+</code></pre>
+    </div>
+
+    <h3>4 Ajax调用</h3>
+
+    <div class="section">
+
+        <p class="clearfix"><span class="btn JS_bubble_ajax_load" style="float:right;">Ajax调用</span></p>
+        <pre>
+<code class="js">
+nova.bubble({
+    width: 600,
+    wrapClass: "nova-bubble-custom",
+    initCallback: function () {
+        var self = this;
+        self.loading();
+        $.ajax({
+            url: "bubble/bubble-ajax.html",
+            dataType: "html"
+        }).done(function (html) {
+
+            self.content(html);
+            self.resize();
+
+        }).fail(function (err) {
+            self.content("加载失败");
+        });
+    }
+});
+</code></pre>
+
+        <p><span class="btn JS_bubble_ajax_save">Ajax保存</span></p>
+        <pre>
+<code class="js">
+$.ajax({
+    url: "bubble/bubble-ajax.html",
+    dataType: "html"
+}).done(function () {
+    nova.msg("保存成功");
+}).fail(function () {
+    nova.msg("保存失败");
+});
+</code></pre>
+    </div>
+
+    <!--
+        测试页面元素及其原绑定事件
+        事件不能写在将要显示在弹层的内容中
+     -->
+    <div id="elemBack">
+        <p>传入指定element对象（这里传入 $("#elemBack") 显示其内容(含其本身盒子)，同时保存其原有事件</p>
+        <p><strong>注意：</strong>原事件不能以 <code>&lt;script&gt;</code> 标签包含在 #elemBack 盒子内，否则事件会重复绑定</p>
+        <button id="testbtn" class="btn btn-blue">点此测试事件</button>
+    </div>
+
+    <h2>评论</h2>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="bubble" data-title="NOVA"
+         data-url="http://www.em2046.com/nova/docs/bubble.html"></div>
+    <!-- 多说评论框 end -->
+
+    <div class="bubble-auto">
+        <div class="tabs clearfix">
+            <div class="tab active">往返推荐</div>
+            <div class="tab">自由组合</div>
+        </div>
+        <div class="panes">
+            <div class="pane active da-recommend">往返推荐内容</div>
+            <div class="pane da-free">自由组合内容</div>
+        </div>
+    </div>
+
+</div>
+<script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script src="js/navigation.js"></script>
+<script src="../js/bubble.js"></script>
+<script src="../docs/js/bubble.js"></script>
+</body>
+</html>
