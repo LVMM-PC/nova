@@ -19,6 +19,47 @@
     //弹窗计数
     var count = 0;
 
+    $document.off("click", autoHideHandler);
+    $document.on("click", autoHideHandler);
+
+    /**
+     * 自动隐藏
+     * @param e
+     */
+    function autoHideHandler(e) {
+        for (var id in Bubble.list) {
+            var bubble = Bubble.list[id];
+            tryClose(bubble)
+        }
+
+        function tryClose(self) {
+
+            var autoHide = self.options.autoHide;
+            if (!autoHide) {
+                return false;
+            }
+
+            var $target = $(e.target);
+
+            var $trigger = self.options.$trigger;
+
+            var $btn = $target.parents("[data-nova-bubble-active]");
+            var $bubble = $target.parents(".nova-bubble");
+            var $wrap = self.wrap;
+
+            if ($btn.is($trigger) || $target.is($trigger)) {
+
+            } else if ($bubble.is($wrap) || $target.is($wrap)) {
+
+            } else {
+                self.close();
+            }
+        }
+
+
+
+    }
+
     //静态时间戳
     var timeStamp = +(new Date());
 
@@ -55,10 +96,18 @@
         //0. 组合参数与默认值
         options = $.extend({}, Factory.defaults, options);
 
-        //1. 创建新弹窗
-        var bubble = new Bubble(options);
+        //1. 为弹窗设置单独id
+        var bubbleId = timeStamp + count;
+        count++;
 
-        //2. 返回弹窗对象，方便外部使用内部方法
+        //2. 创建新弹窗
+        var bubble = new Bubble(options, bubbleId);
+        bubble.id = bubbleId;
+
+        //3. 将弹窗添加到列表中
+        Bubble.list[bubbleId] = bubble;
+
+        //4. 返回弹窗对象，方便外部使用内部方法
         return bubble;
     }
 
@@ -98,6 +147,9 @@
 
         autoHide: true,
 
+        //阻止冒泡
+        stopPropagation: false,
+
         offset: {
             left: 0,
             top: 0
@@ -110,9 +162,12 @@
      * @param options 参数
      * @constructor
      */
-    function Bubble(options) {
-        this.init(options);
+    function Bubble(options, bubbleId) {
+        this.init(options, bubbleId);
     }
+
+    //Bubble list
+    Bubble.list = {};
 
     //原型方法
     Bubble.prototype = {
@@ -127,11 +182,14 @@
          * 初始化
          * @param options
          */
-        init: function (options) {
+        init: function (options, bubbleId) {
+
             //将参数绑定到弹窗对象
             this.options = options;
             //备份默认值
             this.defaults = Factory.defaults;
+
+            this.bubbleId = bubbleId;
 
             //备份this
             var self = this;
@@ -296,7 +354,15 @@
             self.wrap.on("click", ".nova-bubble-close", {self: self}, self.closeBubbleHandler);
             self.wrap.on("click", ".nova-bubble-footer>*", {self: self}, self.buttonHandler);
 
-            $document.on("click", {self: self}, self.autoHideHandler);
+            self.wrap.off("click", self.stopPropagationHandler);
+            self.wrap.on("click", {self: self}, self.stopPropagationHandler)
+        },
+
+        stopPropagationHandler: function (e) {
+            var self = e.data.self;
+            if(self.options.stopPropagation) {
+                e.stopPropagation();
+            }
         },
 
         /**
@@ -304,37 +370,8 @@
          */
         unBindEvent: function () {
             var self = this;
-            $document.off("click", self.autoHideHandler);
         },
 
-        /**
-         * 自动隐藏
-         * @param e
-         */
-        autoHideHandler: function (e) {
-            var self = e.data.self;
-            var autoHide = self.options.autoHide;
-            if (!autoHide) {
-                return false;
-            }
-
-            var $target = $(e.target);
-
-            var $trigger = self.options.$trigger;
-
-            var $btn = $target.parents("[data-nova-bubble-active]");
-            var $bubble = $target.parents(".nova-bubble");
-            var $wrap = self.wrap;
-
-            if ($btn.is($trigger) || $target.is($trigger)) {
-
-            } else if ($bubble.is($wrap) || $target.is($wrap)) {
-
-            } else {
-                self.close(true);
-            }
-
-        },
 
         /**
          * 按钮事件
@@ -395,6 +432,8 @@
 
             this.options.$trigger.attr("data-nova-bubble-active", "");
             this.unBindEvent()
+
+            delete Bubble.list[this.id];
         },
 
         /**

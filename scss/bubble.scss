@@ -16,6 +16,10 @@
 
 .nova-bubble-no-title {
   padding-top: 5px;
+  color: #666666;
+  .nova-bubble-close {
+    right: 7px;
+  }
 }
 
 .nova-bubble-close {
@@ -26,12 +30,11 @@
   opacity: .8;
   transition: all .2s ease;
   text-decoration: none;
-  top: 4px;
-  right: 5px;
+  top: 7px;
+  right: 17px;
   font-family: '\5b8b\4f53';
   font-size: 13px;
   font-weight: bold;
-  color: #999;
   i {
     font-style: normal;
     display: inline-block;
@@ -42,10 +45,11 @@
     margin: 0;
     font-size: 16px;
     font-weight: bold;
-    color: #c3cfd2;
+    color: #999;
     content: ''
   }
   &:hover i {
+    color: #666;
     background-position: -20px 0;
   }
 }
@@ -54,7 +58,7 @@
   height: 35px;
   line-height: 35px;
   font-size: 14px;
-  padding: 0 10px;
+  padding: 0 20px;
   border-bottom: 1px solid #e3e3e3;
   //margin-bottom: -15px;
   small {
@@ -78,6 +82,9 @@
   font-size: 0;
   text-align: center;
   padding-bottom: 20px;
+  .btn {
+    margin: 0 10px;
+  }
 }
 
 .nova-bubble-body-loading {

@@ -191,7 +191,7 @@ $(function () {
     });
 
     $(".JS_bubble_beforeunload").on("click", function () {
-        nova.bubble({
+        var before = nova.bubble({
             $trigger: $(this),
             height: 300,
             title: "关闭对话框前执行方法",
@@ -207,7 +207,19 @@ $(function () {
             cancelClassName: "btn-pink",
             beforeClosingCallback: function () {
                 var self = this;
-                self.close(true);  //强制关闭弹窗
+
+                var $btn = this.wrap.find(".nova-bubble-footer .btn").eq(0);
+                nova.bubble({
+                    $trigger: $btn,
+                    content: "确定关闭吗",
+                    okCallback: function () {
+                        self.close(true)
+                    },
+                    cancelCallback: function () {
+
+                    }
+                })
+
                 return false;
             }
         });
