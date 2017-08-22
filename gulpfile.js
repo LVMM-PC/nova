@@ -21,4 +21,6 @@ gulp.task('toPic', ['sass'], function () {
         .pipe(gulp.dest(PATH_CONFIG.picSvnPath + '/js' + PATH_CONFIG.projectPath));
     gulp.src('assets/css/**/*.css')
         .pipe(gulp.dest(PATH_CONFIG.picSvnPath + '/styles' + PATH_CONFIG.projectPath));
+    gulp.src('img/**/*.png')
+        .pipe(gulp.dest(PATH_CONFIG.picSvnPath + '/img'));
 });

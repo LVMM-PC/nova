@@ -47,7 +47,8 @@
 
     Factory.defaults = {
         target: "body",
-        template: template
+        template: template,
+        radioClassName: ''
     };
 
     function UI(options) {
@@ -232,6 +233,7 @@
         },
 
         radioRender: function () {
+            var self = this;
             var $labels = $(this.options.target).find(".nova-radio-label");
             var $inputs = $labels.find("input[type=radio]");
             var $radios = $labels.find(".nova-radio");
@@ -243,7 +245,9 @@
             $inputs.each(function (index, ele) {
                 var $ele = $(ele);
                 var checked = $ele.prop("checked");
-                var $radio = $ele.parents(".nova-radio-label").find(".nova-radio");
+                var $label = $ele.parents(".nova-radio-label");
+                $label.addClass(self.options.radioClassName);
+                var $radio = $label.find(".nova-radio");
                 if (checked) {
                     $radio.addClass("nova-checked");
                 } else {

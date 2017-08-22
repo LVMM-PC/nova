@@ -133,6 +133,56 @@ $ui-bg2x: url(../../img/lv/ui@2x.png);
   }
 }
 
+.nova-radio-label-bg {
+
+  .nova-radio {
+    width: 16px;
+    height: 16px;
+    background-position: 0 -120px;
+    &.nova-checked {
+      background-position: 0 -160px;
+    }
+    &.nova-checked.disabled {
+      background-position: -80px -20px;
+    }
+  }
+  &:hover {
+    .nova-radio {
+      background-position: 0 -140px;
+    }
+    .nova-radio.nova-checked {
+      background-position: 0 -160px;
+    }
+    .nova-checked.disabled {
+      background-position: -80px -20px;
+    }
+  }
+}
+
+.nova-radio-label-bg.nova-radio-label-orange {
+
+  .nova-radio {
+    background-position: 0 -120px;
+    &.nova-checked {
+      background-position: -20px -160px;
+    }
+    &.nova-checked.disabled {
+      background-position: -80px -20px;
+    }
+  }
+  &:hover {
+    .nova-radio {
+      background-position: -20px -140px;
+    }
+    .nova-radio.nova-checked {
+      background-position: -20px -160px;
+    }
+    .nova-checked.disabled {
+      background-position: -80px -20px;
+    }
+  }
+}
+
 .nova-select {
   cursor: default;
   width: 188px;
