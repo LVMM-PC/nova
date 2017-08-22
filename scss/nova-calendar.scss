@@ -1,0 +1,1243 @@
+@charset "UTF-8";
+/*!
+ * buttons.scss
+ * 2016-03-15
+ * Sheng Jiang
+ * 1.0.0.0
+ */
+@import "variables";
+@import "mixins";
+
+/*region 日历*/
+
+$img-ico: url(../../img/lv/icon.png);
+$img-ico2x: url(../../img/lv/icon@2x.png);
+
+.nova-calendar-tip {
+  background: #fff;
+  font-size: 12px;
+  color: #999;
+  line-height: 32px;
+  height: 32px;
+}
+
+.nova-calendar-tip i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  background-image: $img-ico;
+  background-position: -240px -220px;
+  vertical-align: -3px;
+}
+
+.nova-calendar {
+  .nova-calendar-bg {
+    display: none;
+  }
+
+  @include sans-serif;
+  background-color: #fff;
+  position: relative;
+  width: 1196px;
+  border: 2px solid #e3e3e3;
+  color: #333;
+  .nova-calendar-month-prev,
+  .nova-calendar-month-next {
+    position: absolute;
+    color: #ffffff;
+    font-size: 16px;
+    width: 26px;
+    height: 26px;
+    background-image: $img-cal;
+    top: 4px;
+    cursor: pointer;
+    text-indent: -9999em;
+    overflow: hidden;
+    &:hover {
+      background-color: #ff77bb;
+    }
+  }
+  .nova-calendar-month-prev {
+    background-position: -60px 0;
+    left: 4px;
+    &:hover {
+      background-position: 0 0;
+    }
+  }
+  .nova-calendar-month-next {
+    background-position: -90px 0;
+    right: 4px;
+    &:hover {
+      background-position: -30px 0;
+    }
+  }
+  .nova-calendar-month {
+    width: 596px;
+    float: left;
+  }
+  .nova-calendar-box {
+    position: relative;
+  }
+  .nova-calendar-title {
+    font-size: 16px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #ffffff;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+  }
+  .month-loading {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff url(../../img/new_v/ui_scrollLoading/loadingGIF46px.gif) no-repeat center center;
+    position: absolute;
+    overflow: hidden;
+    font-size: 200px;
+    line-height: 100%;
+    text-align: center;
+    display: none;
+  }
+  table {
+    position: relative;
+    @include sans-serif;
+  }
+  thead {
+    background-color: #eee;
+  }
+  th, td {
+    border: 1px solid #e3e3e3;
+  }
+  th {
+    text-align: center;
+    width: 30px;
+    height: 26px;
+    line-height: 26px;
+    font-weight: normal;
+  }
+  td {
+    width: 84px;
+    height: 49px;
+  }
+  .sat,
+  .sun {
+    color: #ee3388;
+  }
+  .date {
+    position: relative;
+    width: 84px;
+    height: 49px;
+    cursor: default;
+  }
+  .nodate {
+    position: relative;
+    width: 84px;
+    height: 49px;
+    @include user-select(none);
+    color: #BBB;
+    &:hover {
+      color: #BBB;
+    }
+  }
+  .caldate {
+    position: relative;
+    cursor: pointer;
+  }
+  .caldisabled {
+    height: 49px;
+    position: relative;
+    cursor: default;
+  }
+  .caldate:hover {
+    width: 84px;
+    height: 49px;
+    //border: 1px solid #ff9800;
+    background: #fffaee;
+    //margin: -1px;
+  }
+  .calday,
+  .calinfo,
+  .calprice,
+  .calactive {
+    position: absolute;
+  }
+  .calday {
+    top: 5px;
+    left: 6px;
+    line-height: 12px;
+  }
+  .calinfo {
+    top: 19px;
+    left: 5px;
+    right: 5px;
+    color: #11b811;
+    line-height: 12px;
+    &.sellout {
+      color: #bbbbbb;
+      text-align: center;
+    }
+    &.sellouting {
+      color: #ff3300;
+    }
+  }
+  .calprice {
+    left: 5px;
+    top: 32px;
+    line-height: 12px;
+    color: #ff6600;
+    i, em {
+      vertical-align: -1px;
+    }
+  }
+  .calactive {
+    top: 0;
+    right: 0;
+  }
+  .calsale,
+  .calfestival,
+  .calroute {
+    margin-left: 1px;
+    display: inline-block;
+    background-image: $img-cal;
+    background-position: -120px 0;
+    width: 14px;
+    height: 14px;
+    text-indent: -9999em;
+    float: left;
+  }
+
+  .calroute {
+    background-image: none;
+    background-color: #fe7878;
+    color: #FFFFFF;
+    text-indent: 0;
+    line-height: 14px;
+    text-align: center;
+  }
+  .calfestival {
+    background-position: -120px -15px;
+  }
+
+  &[data-float="true"] {
+    position: absolute;
+    @include box-shadow(0px 2px 7px 0px rgba(0, 0, 0, 0.15));
+  }
+}
+
+/*endregion */
+
+/*region 大日历*/
+.nova-calendar-big {
+  .month-loading {
+  }
+  .nova-calendar-box {
+    border: 1px solid #e3e3e3;
+  }
+  table {
+    margin: -1px;
+  }
+  .caldisabled {
+    color: #BBB;
+  }
+  .caldisabled:hover {
+    background-color: transparent;
+  }
+  .caldate:hover {
+    &.caldisabled {
+      /*background: none;*/
+      /*margin: 0;*/
+      cursor: default;
+    }
+  }
+  &[data-bimonthly="true"] {
+    .notThisMonth {
+      display: none;
+    }
+    .nova-calendar-tip {
+      line-height: 30px;
+      height: 30px;
+      padding-left: 10px;
+    }
+  }
+  &[data-float="true"] {
+    .nova-calendar-tip {
+      border-left: 1px solid #e3e3e3;
+      border-right: 1px solid #e3e3e3;
+      padding-left: 10px;
+    }
+  }
+  &[data-float="true"][data-bimonthly="true"] {
+    .nova-calendar-tip {
+      border-left: 2px solid #e3e3e3;
+      border-right: 2px solid #e3e3e3;
+      padding-left: 10px;
+      margin-top: -1px;
+      position: relative;
+      border-bottom: 2px solid #e3e3e3;
+    }
+    width: 928px;
+    border: none;
+    .nova-calendar-month {
+      width: 464px;
+      margin: 0;
+    }
+    .nova-calendar-title {
+      border: none;
+    }
+    [data-offset="0"] {
+      .nova-calendar-box {
+        border-right: none;
+      }
+
+    }
+    [data-offset="1"] {
+      .nova-calendar-box {
+      }
+
+    }
+    .nova-calendar-box {
+      border: 2px solid #e3e3e3;
+      border-top: none;
+      overflow: hidden;
+    }
+    .nova-calendar-table {
+      margin: -1px;
+    }
+    td {
+      width: 65px;
+      height: 49px;
+    }
+    .date {
+      width: 65px;
+      height: 49px;
+    }
+    .nova-calendar-title {
+      background: #ee3388;
+      color: #FFFFFF;
+      line-height: 28px;
+      height: 28px;
+    }
+    .nova-calendar-month-prev,
+    .nova-calendar-month-next {
+      width: 28px;
+      height: 28px;
+      top: 0;
+      &:hover {
+        background-color: #a81c54;
+      }
+    }
+    .nova-calendar-month-prev {
+      left: 0;
+      background-position: 0 0;
+    }
+    .nova-calendar-month-next {
+      right: 0;
+      background-position: -30px 0;
+    }
+  }
+
+  &[data-bimonthly="false"] {
+    width: 561px;
+    border: none;
+    .nova-calendar-month-prev,
+    .nova-calendar-month-next {
+      width: 28px;
+      height: 28px;
+      top: 0;
+      &:hover {
+        background-color: #a81c54;
+      }
+    }
+    .nova-calendar-month-prev {
+      left: 0;
+      background-position: 0 0;
+    }
+    .nova-calendar-month-next {
+      right: 0;
+      background-position: -30px 0;
+    }
+    .nova-calendar-title {
+      background-color: #ee3388;
+      color: #ffffff;
+      height: 28px;
+      line-height: 28px;
+      border: none;
+    }
+    th {
+      height: 24px;
+      line-height: 24px;
+      border-top: none;
+    }
+    td {
+      width: 79px;
+    }
+    .nodate,
+    .caldate,
+    .date {
+      width: 79px;
+    }
+    .notThisMonth {
+      background-color: #f8f8f8;
+    }
+    .caldate:hover {
+      width: 79px;
+    }
+    .notThisMonth.caldate:hover {
+      background-color: #fffaee;
+    }
+    .notThisMonth.caldisabled:hover {
+      background-color: #f8f8f8;
+    }
+    .nova-calendar-month[data-offset='0'] {
+      width: 561px;
+
+      .nova-calendar-box {
+      }
+    }
+  }
+  &[data-bimonthly="true"][data-float="false"] {
+    .nova-calendar-month {
+      margin-bottom: -1px;
+    }
+    .nova-calendar-month[data-offset='0'] {
+      margin-left: -1px;
+    }
+    .nova-calendar-month[data-offset='1'] {
+      margin-right: -1px;
+    }
+  }
+  .nova-calendar-month[data-offset='1'] {
+    float: right;
+  }
+  .td-selected {
+    .calselected {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: $img-cal no-repeat -140px -10px;
+      width: 20px;
+      height: 20px;
+    }
+    .caldate {
+      border: 1px solid #ff9900;
+      background: #fffaee;
+      margin: -1px;
+    }
+  }
+  .caldate.nodate {
+    cursor: default;
+  }
+  .festival {
+    .calday {
+      color: #ee3388;
+    }
+  }
+  .calmiddle {
+    margin: -1px;
+    border: 1px solid #ff9900;
+    background-color: #fffaee;
+  }
+}
+
+/*endregion */
+
+/*region 小日历*/
+.nova-calendar-mini {
+  position: relative;
+  width: 468px;
+  border: none;
+  .nova-calendar-month-prev,
+  .nova-calendar-month-next {
+    position: absolute;
+    color: #ffffff;
+    font-size: 16px;
+    width: 28px;
+    height: 28px;
+    top: 0;
+  }
+  .nova-calendar-month-prev {
+    left: 0;
+    background-position: 0 0;
+  }
+  .nova-calendar-month-next {
+    right: 0;
+    background-position: -30px 0;
+  }
+  .nova-calendar-month {
+    width: 234px;
+    float: left;
+    border-bottom: 1px solid #cccccc;
+  }
+  .nova-calendar-box {
+    position: relative;
+  }
+
+  .nova-calendar-box {
+    padding: 5px 4px 4px 4px;
+  }
+  .nova-calendar-title {
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #ef3388;
+    border: none;
+  }
+  .nova-calendar-bg {
+    position: absolute;
+    overflow: hidden;
+    font-size: 200px;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+  }
+  .nova-calendar-table {
+    height: auto;
+    position: relative;
+
+  }
+
+  thead {
+    background-color: #eee;
+  }
+  th {
+    text-align: center;
+    width: 30px;
+    height: 24px;
+    border-bottom: 4px solid #fff;
+    font-weight: normal;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  td {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    padding: 1px;
+    border: none;
+    text-align: center;
+    vertical-align: top;
+  }
+  .sat {
+    border-right: 2px solid #fff;
+  }
+  .sun {
+    border-left: 1px solid #fff;
+  }
+  .date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+    border: none;
+  }
+  .today {
+    color: #ee3388;
+  }
+  .caldate {
+    cursor: pointer;
+  }
+  .notThisMonth {
+    display: none;
+  }
+  .caldate:hover {
+    width: 32px;
+    margin: 0 0 0 -1px;
+    height: 30px;
+    border: none;
+    background-color: #fef2f9;
+    color: #ee3388;
+  }
+  .nodate {
+    cursor: default;
+  }
+  .nodate:hover {
+    color: #BBB;
+    background-color: transparent;
+  }
+  .caldate.active {
+    background-color: #ff77bb;
+    color: #fff;
+  }
+
+  .nova-calendar-month[data-offset='0'] {
+    .nova-calendar-box {
+      border-right: 1px solid #f5f5f5;
+      border-left: 1px solid #cccccc;
+    }
+  }
+  .nova-calendar-month[data-offset='1'] {
+    .nova-calendar-box {
+      border-left: 1px solid #f5f5f5;
+      border-right: 1px solid #cccccc;
+    }
+  }
+  &[data-bimonthly] {
+    .nova-calendar-month-prev:hover,
+    .nova-calendar-month-next:hover {
+      background-color: #a81c54;
+    }
+  }
+
+  &[data-bimonthly="false"] {
+    width: 234px;
+
+    .nodate {
+      background-color: transparent;
+    }
+    .caldate:hover {
+      width: 32px;
+    }
+    .nova-calendar-month[data-offset='0'] {
+      width: 234px;
+      .nova-calendar-box {
+        border-right: 1px solid #cccccc;
+      }
+    }
+  }
+  &[data-bimonthly="true"] {
+    .nova-calendar-month {
+      margin-bottom: -1px;
+    }
+  }
+  &[data-bimonthly="true"] .nova-calendar-month[data-offset='0'],
+  &[data-bimonthly="true"] .nova-calendar-month[data-offset='1'],
+  &[data-bimonthly="false"] .nova-calendar-month[data-offset='0'] {
+    margin: 0;
+  }
+  .festival {
+    color: #ee3388;
+    &.nodate {
+      color: #BBB;
+    }
+  }
+
+  .calmiddle {
+    width: 32px;
+    margin-left: -1px;
+    background-color: #fcdaed;
+  }
+  .caldisabled {
+    color: #BBB;
+    cursor: default;
+    &:hover {
+      color: #BBB;
+      background-color: transparent;
+    }
+    &.calmiddle:hover {
+      background-color: #fcdaed;
+    }
+  }
+  .td-selected {
+    .caldate {
+      width: 32px;
+      margin-left: -1px;
+      color: #fff;
+      background: #ff77bb;
+      border: none;
+    }
+  }
+
+  .nodate {
+    background-color: transparent;
+  }
+}
+
+/*endregion */
+
+/*region 生日日历*/
+.nova-calendar-birthday {
+  .nova-calendar-month-dropdown-box,
+  .nova-calendar-year-dropdown-box {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid #cccccc;
+    width: 72px;
+    position: absolute;
+  }
+  .nova-calendar-month-dropdown-box {
+    width: 49px;
+  }
+  .td-selected {
+    .caldate:hover {
+      background: #84b1e9;
+      color: #fff;
+    }
+  }
+  .nova-calendar-year-select-active,
+  .nova-calendar-year-select,
+  .nova-calendar-month-select-active,
+  .nova-calendar-month-select {
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    height: 24px;
+    line-height: 24px;
+    i {
+      margin-left: 5px;
+      vertical-align: 3px;
+      display: inline-block;
+      background-image: $img-cal;
+      background-position: -160px 0;
+      width: 7px;
+      height: 4px;
+    }
+  }
+  .nova-calendar-month-select.active,
+  .nova-calendar-month-select-active,
+  .nova-calendar-year-select.active,
+  .nova-calendar-year-select-active {
+    color: #ee3388;
+    i {
+      background-position: -170px 0;
+    }
+  }
+  .nova-calendar-year-select {
+    position: absolute;
+    top: 3px;
+    left: 56px;
+    width: 72px;
+    display: block;
+  }
+  .nova-calendar-month-select {
+    position: absolute;
+    top: 3px;
+    left: 132px;
+    width: 49px;
+    display: block;
+  }
+  .nova-calendar-year-dropdown,
+  .nova-calendar-month-dropdown {
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #eaeaea;
+      border: 2px solid #fff;
+      width: 8px;
+      border-radius: 6px;
+    }
+    overflow-y: auto;
+    max-height: 240px;
+    width: 72px;
+    li {
+      cursor: pointer;
+      font-size: 12px;
+      padding-left: 8px;
+      color: #666666;
+      height: 20px;
+      line-height: 20px;
+    }
+    li:hover {
+      color: #ee3388;
+      background-color: #fef2f9;
+    }
+    li.active {
+      color: #ffffff;
+      background-color: #ed7eb6;
+    }
+  }
+  .nova-calendar-month-dropdown {
+    width: 49px;
+  }
+  .nova-calendar-pane {
+    text-align: right;
+    height: 30px;
+    margin: 5px 3px 0 0;
+    color: #666666;
+    @include sans-serif;
+  }
+  .nova-calendar-time-input {
+    width: 48px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    color: #333333;
+    text-align: center;
+  }
+  .nova-calendar-time-text,
+  .nova-calendar-time-input,
+  .nova-calendar-birthday-ok,
+  .nova-calendar-birthday-time,
+  .nova-calendar-birthday-clear {
+    display: none;
+    margin-left: 5px;
+    margin-right: 0;
+  }
+  .nova-calendar-birthday-clear {
+    display: inline-block;
+  }
+  .nova-calendar-hour,
+  .nova-calendar-minute,
+  .nova-calendar-time-to {
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    width: 20px;
+    &.active {
+      color: #0065d3;
+    }
+  }
+  .nova-calendar-hour {
+    text-align: right;
+  }
+  .nova-calendar-minute {
+    text-align: left;
+  }
+  .nova-calendar-time-to {
+    width: 8px;
+  }
+  .nova-calendar-hour-dropdown,
+  .nova-calendar-minute-dropdown {
+    width: 123px;
+    height: 146px;
+    border: 1px solid #cccccc;
+    position: absolute;
+    top: 113px;
+    left: 78px;
+    background: #fff;
+    ul {
+      margin: 5px 0 0 5px;
+    }
+    li {
+      cursor: pointer;
+      text-align: center;
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      margin: 0 2px 2px 0;
+      color: #333333;
+      &:hover {
+        background: #eff8fc;
+        color: #0065d3;
+      }
+      &.active {
+        background: #84b1e9;
+        color: #fff;
+      }
+    }
+    li[data-disabled="true"] {
+      cursor: default;
+      color: #999;
+      background-color: transparent;
+    }
+    .title {
+      @include sans-serif;
+      width: 123px;
+      height: 24px;
+      line-height: 24px;
+      color: #666666;
+      padding-left: 10px;
+    }
+    .close {
+      cursor: pointer;
+      top: 2px;
+      right: 4px;
+      position: absolute;
+      padding: 5px;
+      i {
+        display: block;
+        width: 11px;
+        height: 11px;
+        background-image: $img-cal;
+        background-position: -160px -15px;
+        &:hover {
+          background-position: -180px -15px;
+        }
+      }
+    }
+  }
+  .nova-calendar-minute-dropdown {
+    height: 100px;
+    top: 159px;
+  }
+}
+
+/*endregion*/
+
+/*region 黄色*/
+.nova-calendar-orange {
+  .sat,
+  .sun {
+    color: #ff6600;
+  }
+  .nova-calendar-title {
+    background-color: #ff8800;
+  }
+  &[data-bimonthly="true"] .nova-calendar-month-prev:hover,
+  &[data-bimonthly="true"] .nova-calendar-month-next:hover {
+    background-color: #ff6600;
+  }
+  .nova-calendar-month .nova-calendar-table {
+    .caldate:hover {
+      background-color: #fff7e4;
+      color: #ff6600;
+    }
+    .festival {
+      color: #ff6600;
+    }
+    .today {
+      color: #ff6600;
+      background-color: transparent;
+    }
+    .td-selected .today {
+      width: 32px;
+      background-color: #fa0;
+    }
+    .calmiddle {
+      background-color: #ffedc1;
+    }
+    .nodate,
+    .caldisabled {
+      color: #BBB;
+      cursor: default;
+      &:hover {
+        color: #BBB;
+        background-color: transparent;
+      }
+      &.calmiddle:hover {
+        background-color: #ffedc1;
+      }
+    }
+    .td-selected .caldate {
+      color: #ffffff;
+      background-color: #ffaa00;
+    }
+  }
+}
+
+/*endregion*/
+
+/*region 蓝色*/
+.nova-calendar-blue[data-float][data-bimonthly] {
+  .sat,
+  .sun {
+    color: #1d79d8;
+  }
+  .festival {
+    color: #1d79d8;
+    .calday {
+      color: #1d79d8;
+    }
+  }
+  .nova-calendar-title {
+    background-color: #0088dd;
+  }
+  .nova-calendar-month-prev:hover,
+  .nova-calendar-month-next:hover {
+    background-color: #007bc6;
+  }
+  &.nova-calendar-mini {
+
+    .nova-calendar-month-prev:hover,
+    .nova-calendar-month-next:hover {
+      background-color: #0065d3;
+    }
+    .nova-calendar-title {
+      background-color: #5092e5;
+    }
+    .today {
+      color: #0065d3;
+    }
+    .caldate {
+    }
+    .caldate:hover {
+      background-color: #eff8fc;
+      color: #0065d3;
+    }
+
+    .td-selected .caldate {
+      background: #84b1e9;
+      color: #fff;
+    }
+    .calmiddle {
+      background-color: #eff8fc;
+    }
+    .caldisabled,
+    .caldisabled:hover {
+      color: #999999;
+      background-color: transparent;
+    }
+  }
+
+  &.nova-calendar-birthday {
+
+    .nova-calendar-month-select.active,
+    .nova-calendar-month-select-active,
+    .nova-calendar-year-select.active,
+    .nova-calendar-year-select-active {
+      color: #0065d3;
+
+      i {
+        background-position: -160px -5px;
+      }
+    }
+
+    .nova-calendar-year-dropdown,
+    .nova-calendar-month-dropdown {
+
+      li:hover {
+        color: #0065d3;
+        background-color: #eff8fc;
+      }
+      li.active {
+        color: #ffffff;
+        background-color: #84b1e9;
+      }
+    }
+
+  }
+
+}
+
+.nova-calendar-big.nova-calendar-blue[data-float][data-bimonthly] {
+  td,
+  .date {
+    height: 62px;
+    word-break: break-all;
+  }
+}
+
+/*endregion*/
+
+/*region 特卖会*/
+.nova-calendar-groupon {
+  &[data-float][data-bimonthly] {
+    .nova-calendar-tip {
+      margin-top: 0;
+      border-left: 1px solid #e3e3e3;
+      border-right: 1px solid #e3e3e3;
+    }
+    width: 1127px;
+    .nova-calendar-month {
+      width: 561px;
+    }
+    .nova-calendar-table {
+      margin: 0;
+    }
+    .nova-calendar-box {
+      width: 561px;
+      border: none;
+    }
+    td {
+      width: 79px;
+    }
+    .date {
+      width: 79px;
+    }
+    [data-offset="0"] {
+      .nova-calendar-title {
+        width: 566px;
+      }
+    }
+  }
+}
+
+/*endregion*/
+
+.calhover {
+  @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
+  @include sans-serif;
+  display: none;
+  color: #666666;
+  border: 1px solid #cccccc;
+  background: #FFFFFF;
+  position: absolute;
+  padding: 10px 10px 4px 10px;
+  *margin-left: -1px;
+  *margin-top: -1px;
+  //*width: 346px;
+  .triangle {
+    width: 11px;
+    height: 7px;
+    display: block;
+    position: absolute;
+    margin: 0;
+    top: -7px;
+    left: 36px;
+    bottom: auto;
+    background: $img-cal no-repeat -140px 0;
+    pointer-events: none;
+    border: none;
+  }
+  &.calhover-right {
+    *margin-left: 0;
+    .triangle {
+      left: auto;
+      right: 36px;
+    }
+  }
+  .calroute,
+  .calsale,
+  .calfestival {
+    line-height: 20px;
+    i {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      float: left;
+      margin-right: 5px;
+      vertical-align: top;
+      text-align: center;
+      line-height: 14px;
+      overflow: hidden;
+    }
+    span {
+      vertical-align: top;
+      display: inline-block;
+      margin: -3px 0 3px 0;
+    }
+  }
+  .calroute {
+    i {
+      background: #fe7878;
+      color: #FFFFFF;
+    }
+  }
+  .calfestival {
+    i {
+      text-indent: -9999em;
+      background-image: $img-cal;
+      background-position: -120px -15px;
+    }
+  }
+  .calsale {
+    i {
+      text-indent: -9999em;
+      background-image: $img-cal;
+      background-position: -120px 0;
+    }
+  }
+  .calHasNotProduct {
+    margin: -3px 0 3px 0;
+  }
+}
+
+.nova-calendar-number-of-days {
+  @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
+  display: none;
+  @include sans-serif;
+  pointer-events: none;
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  line-height: 20px;
+  padding: 5px 10px;
+  .triangle {
+    width: 11px;
+    height: 7px;
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    margin-left: -5px;
+    background: $img-cal no-repeat -140px 0;
+    pointer-events: none;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  /* 当设备像素比不小于1.5的时候... */
+
+  .nova-calendar-tip i {
+    background-image: $img-ico2x;
+    background-size: 400px;
+  }
+
+  .nova-calendar {
+
+    .nova-calendar-month-prev,
+    .nova-calendar-month-next {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+    .calsale,
+    .calfestival,
+    .calroute {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+
+  }
+
+  /*region 大日历*/
+  .nova-calendar-big {
+
+    .td-selected {
+      .calselected {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+  }
+
+  /*endregion */
+
+  /*region 生日日历*/
+  .nova-calendar-birthday {
+
+    .nova-calendar-year-select-active,
+    .nova-calendar-year-select,
+    .nova-calendar-month-select-active,
+    .nova-calendar-month-select {
+      i {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+    .nova-calendar-hour-dropdown,
+    .nova-calendar-minute-dropdown {
+      .close {
+        i {
+          background-image: $img-cal2x;
+          background-size: 200px;
+        }
+      }
+    }
+  }
+
+  /*endregion*/
+
+  .calhover {
+    .triangle {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+
+    .calfestival {
+      i {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+    .calsale {
+      i {
+        background-image: $img-cal2x;
+        background-size: 200px;
+      }
+    }
+  }
+
+  .nova-calendar-number-of-days {
+    .triangle {
+      background-image: $img-cal2x;
+      background-size: 200px;
+    }
+  }
+
+}
