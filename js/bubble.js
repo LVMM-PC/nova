@@ -56,8 +56,6 @@
             }
         }
 
-
-
     }
 
     //静态时间戳
@@ -360,7 +358,7 @@
 
         stopPropagationHandler: function (e) {
             var self = e.data.self;
-            if(self.options.stopPropagation) {
+            if (self.options.stopPropagation) {
                 e.stopPropagation();
             }
         },
@@ -431,7 +429,7 @@
             }, 300);
 
             this.options.$trigger.attr("data-nova-bubble-active", "");
-            this.unBindEvent()
+            this.unBindEvent();
 
             delete Bubble.list[this.id];
         },

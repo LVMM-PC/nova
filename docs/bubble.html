@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DIALOG</title>
+    <title>BUBBLE</title>
     <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="css/monokai-sublime.css">
@@ -121,7 +121,7 @@
 </menu>
 <div id="everything">
 
-    <h1>Dialog</h1>
+    <h1>Bubble</h1>
 
     <h2>引用</h2>
     <div>
@@ -169,6 +169,59 @@
 &lt;/div&gt;
 </code>
     </pre>
+
+
+    <h3>2 标准模式参数</h3>
+    <div class="section">
+
+        options参数较多，请参考下列文档
+
+        <pre>
+<code>
+nova.bubble({
+
+    showClose: true,  //是否显示关闭按钮
+    button: null,  //按钮组
+    fixed: true,  //是否position:fixed
+    masked: true,  //是否有遮罩层
+    drag: false,  //是否可以拖拽
+
+    topFixed: false,  //是否弹窗顶部与窗口顶部保持固定尺寸
+    topOffset: 60,  //弹窗顶部与窗口顶部的距离
+
+    initHeight: "300px",  //iframe高度
+
+    initCallback: null,  //初始化完成后执行方法
+    beforeClosingCallback: null,  //窗口关闭前执行方法
+
+    okCallback: null,  //确定按钮
+    cancelCallback: null,  //取消按钮
+
+    okText: "确定",  //确定按钮文本
+    cancelText: "取消",  //取消按钮文本
+
+    okClassName: "btn-orange",  //确定按钮class
+    cancelClassName: "",  //取消按钮class
+
+    content: "",  //内容
+    contentClone: true,  //是否克隆content内容
+    title: "消息提醒",  //标题
+
+    time: null,  //定时关闭 单位毫秒(ms)
+
+    width: "",  //宽度
+    height: "",  //高度
+
+    wrapClass: "",  //弹窗class
+    maskClass: "nova-overlay",  //遮罩层class
+
+    zIndex: null  //z-index
+
+});
+</code></pre>
+
+    </div>
+
 
     <h3>调用方式</h3>
     <div class="section">
