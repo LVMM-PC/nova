@@ -88,7 +88,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     border-left: 1px solid #e3e3e3;
     border-right: 1px solid #e3e3e3;
   }
-  .month-loading {
+  .nova-month-loading {
     left: 0;
     top: 0;
     right: 0;
@@ -142,34 +142,34 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       color: #BBB;
     }
   }
-  .caldate {
+  .nova-calendar-date {
     position: relative;
     cursor: pointer;
   }
-  .caldisabled {
+  .nova-calendar-disabled {
     height: 49px;
     position: relative;
     cursor: default;
   }
-  .caldate:hover {
+  .nova-calendar-date:hover {
     width: 84px;
     height: 49px;
     //border: 1px solid #ff9800;
     background: #fffaee;
     //margin: -1px;
   }
-  .calday,
-  .calinfo,
-  .calprice,
-  .calactive {
+  .nova-calendar-day,
+  .nova-calendar-info,
+  .nova-calendar-price,
+  .nova-calendar-active {
     position: absolute;
   }
-  .calday {
+  .nova-calendar-day {
     top: 5px;
     left: 6px;
     line-height: 12px;
   }
-  .calinfo {
+  .nova-calendar-info {
     top: 19px;
     left: 5px;
     right: 5px;
@@ -183,7 +183,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       color: #ff3300;
     }
   }
-  .calprice {
+  .nova-calendar-price {
     left: 5px;
     top: 32px;
     line-height: 12px;
@@ -192,13 +192,13 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       vertical-align: -1px;
     }
   }
-  .calactive {
+  .nova-calendar-active {
     top: 0;
     right: 0;
   }
-  .calsale,
-  .calfestival,
-  .calroute {
+  .nova-calendar-sale,
+  .nova-calendar-festival,
+  .nova-calendar-route {
     margin-left: 1px;
     display: inline-block;
     background-image: $img-cal;
@@ -209,7 +209,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     float: left;
   }
 
-  .calroute {
+  .nova-calendar-route {
     background-image: none;
     background-color: #fe7878;
     color: #FFFFFF;
@@ -217,7 +217,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     line-height: 14px;
     text-align: center;
   }
-  .calfestival {
+  .nova-calendar-festival {
     background-position: -120px -15px;
   }
 
@@ -231,7 +231,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
 
 /*region 大日历*/
 .nova-calendar-big {
-  .month-loading {
+  .nova-month-loading {
   }
   .nova-calendar-box {
     border: 1px solid #e3e3e3;
@@ -239,14 +239,14 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
   table {
     margin: -1px;
   }
-  .caldisabled {
+  .nova-calendar-disabled {
     color: #BBB;
   }
-  .caldisabled:hover {
+  .nova-calendar-disabled:hover {
     background-color: transparent;
   }
-  .caldate:hover {
-    &.caldisabled {
+  .nova-calendar-date:hover {
+    &.nova-calendar-disabled {
       /*background: none;*/
       /*margin: 0;*/
       cursor: default;
@@ -375,20 +375,20 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       width: 79px;
     }
     .nodate,
-    .caldate,
+    .nova-calendar-date,
     .date {
       width: 79px;
     }
     .notThisMonth {
       background-color: #f8f8f8;
     }
-    .caldate:hover {
+    .nova-calendar-date:hover {
       width: 79px;
     }
-    .notThisMonth.caldate:hover {
+    .notThisMonth.nova-calendar-date:hover {
       background-color: #fffaee;
     }
-    .notThisMonth.caldisabled:hover {
+    .notThisMonth.nova-calendar-disabled:hover {
       background-color: #f8f8f8;
     }
     .nova-calendar-month[data-offset='0'] {
@@ -413,7 +413,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     float: right;
   }
   .td-selected {
-    .calselected {
+    .nova-calendar-selected {
       display: block;
       position: absolute;
       right: 0;
@@ -422,21 +422,21 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       width: 20px;
       height: 20px;
     }
-    .caldate {
+    .nova-calendar-date {
       border: 1px solid #ff9900;
       background: #fffaee;
       margin: -1px;
     }
   }
-  .caldate.nodate {
+  .nova-calendar-date.nodate {
     cursor: default;
   }
   .festival {
-    .calday {
+    .nova-calendar-day {
       color: #ee3388;
     }
   }
-  .calmiddle {
+  .nova-calendar-middle {
     margin: -1px;
     border: 1px solid #ff9900;
     background-color: #fffaee;
@@ -546,13 +546,13 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
   .today {
     color: #ee3388;
   }
-  .caldate {
+  .nova-calendar-date {
     cursor: pointer;
   }
   .notThisMonth {
     display: none;
   }
-  .caldate:hover {
+  .nova-calendar-date:hover {
     width: 32px;
     margin: 0 0 0 -1px;
     height: 30px;
@@ -567,7 +567,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     color: #BBB;
     background-color: transparent;
   }
-  .caldate.active {
+  .nova-calendar-date.active {
     background-color: #ff77bb;
     color: #fff;
   }
@@ -597,7 +597,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     .nodate {
       background-color: transparent;
     }
-    .caldate:hover {
+    .nova-calendar-date:hover {
       width: 32px;
     }
     .nova-calendar-month[data-offset='0'] {
@@ -624,24 +624,24 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     }
   }
 
-  .calmiddle {
+  .nova-calendar-middle {
     width: 32px;
     margin-left: -1px;
     background-color: #fcdaed;
   }
-  .caldisabled {
+  .nova-calendar-disabled {
     color: #BBB;
     cursor: default;
     &:hover {
       color: #BBB;
       background-color: transparent;
     }
-    &.calmiddle:hover {
+    &.nova-calendar-middle:hover {
       background-color: #fcdaed;
     }
   }
   .td-selected {
-    .caldate {
+    .nova-calendar-date {
       width: 32px;
       margin-left: -1px;
       color: #fff;
@@ -671,7 +671,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     width: 49px;
   }
   .td-selected {
-    .caldate:hover {
+    .nova-calendar-date:hover {
       background: #84b1e9;
       color: #fff;
     }
@@ -882,7 +882,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     background-color: #ff6600;
   }
   .nova-calendar-month .nova-calendar-table {
-    .caldate:hover {
+    .nova-calendar-date:hover {
       background-color: #fff7e4;
       color: #ff6600;
     }
@@ -897,22 +897,22 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       width: 32px;
       background-color: #fa0;
     }
-    .calmiddle {
+    .nova-calendar-middle {
       background-color: #ffedc1;
     }
     .nodate,
-    .caldisabled {
+    .nova-calendar-disabled {
       color: #BBB;
       cursor: default;
       &:hover {
         color: #BBB;
         background-color: transparent;
       }
-      &.calmiddle:hover {
+      &.nova-calendar-middle:hover {
         background-color: #ffedc1;
       }
     }
-    .td-selected .caldate {
+    .td-selected .nova-calendar-date {
       color: #ffffff;
       background-color: #ffaa00;
     }
@@ -929,7 +929,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
   }
   .festival {
     color: #1d79d8;
-    .calday {
+    .nova-calendar-day {
       color: #1d79d8;
     }
   }
@@ -952,22 +952,22 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     .today {
       color: #0065d3;
     }
-    .caldate {
+    .nova-calendar-date {
     }
-    .caldate:hover {
+    .nova-calendar-date:hover {
       background-color: #eff8fc;
       color: #0065d3;
     }
 
-    .td-selected .caldate {
+    .td-selected .nova-calendar-date {
       background: #84b1e9;
       color: #fff;
     }
-    .calmiddle {
+    .nova-calendar-middle {
       background-color: #eff8fc;
     }
-    .caldisabled,
-    .caldisabled:hover {
+    .nova-calendar-disabled,
+    .nova-calendar-disabled:hover {
       color: #999999;
       background-color: transparent;
     }
@@ -1048,7 +1048,7 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
 
 /*endregion*/
 
-.calhover {
+.nova-calendar-hover {
   @include box-shadow(2px 2px 2px 0 rgba(0, 0, 0, 0.1));
   @include sans-serif;
   display: none;
@@ -1073,16 +1073,16 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
     pointer-events: none;
     border: none;
   }
-  &.calhover-right {
+  &.nova-calendar-hover-right {
     *margin-left: 0;
     .triangle {
       left: auto;
       right: 36px;
     }
   }
-  .calroute,
-  .calsale,
-  .calfestival {
+  .nova-calendar-route,
+  .nova-calendar-sale,
+  .nova-calendar-festival {
     line-height: 20px;
     i {
       width: 14px;
@@ -1101,27 +1101,27 @@ $img-ico2x: url(../../img/lv/icon@2x.png);
       margin: -3px 0 3px 0;
     }
   }
-  .calroute {
+  .nova-calendar-route {
     i {
       background: #fe7878;
       color: #FFFFFF;
     }
   }
-  .calfestival {
+  .nova-calendar-festival {
     i {
       text-indent: -9999em;
       background-image: $img-cal;
       background-position: -120px -15px;
     }
   }
-  .calsale {
+  .nova-calendar-sale {
     i {
       text-indent: -9999em;
       background-image: $img-cal;
       background-position: -120px 0;
     }
   }
-  .calHasNotProduct {
+  .nova-calendar-has-not-product {
     margin: -3px 0 3px 0;
   }
 }
@@ -1166,9 +1166,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
       background-image: $img-cal2x;
       background-size: 200px;
     }
-    .calsale,
-    .calfestival,
-    .calroute {
+    .nova-calendar-sale,
+    .nova-calendar-festival,
+    .nova-calendar-route {
       background-image: $img-cal2x;
       background-size: 200px;
     }
@@ -1179,7 +1179,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   .nova-calendar-big {
 
     .td-selected {
-      .calselected {
+      .nova-calendar-selected {
         background-image: $img-cal2x;
         background-size: 200px;
       }
@@ -1213,19 +1213,19 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
   /*endregion*/
 
-  .calhover {
+  .nova-calendar-hover {
     .triangle {
       background-image: $img-cal2x;
       background-size: 200px;
     }
 
-    .calfestival {
+    .nova-calendar-festival {
       i {
         background-image: $img-cal2x;
         background-size: 200px;
       }
     }
-    .calsale {
+    .nova-calendar-sale {
       i {
         background-image: $img-cal2x;
         background-size: 200px;

@@ -819,7 +819,7 @@
 
         destroy: function () {
             this.wrap.remove();
-            $(".calhover").remove();
+            $(".nova-calendar-hover").remove();
             $(".nova-calendar-number-of-days").remove();
         },
 
@@ -1562,7 +1562,7 @@
             var dateStr = $this.attr("data-date-map");
 
             if (self.options.cascading) {
-                if (!$this.children().is(".nodate,.caldisabled")) {
+                if (!$this.children().is(".nodate,.nova-calendar-disabled")) {
                     if (!self.options.cascadingEndNotShowStart) {
                         self.renderSelected(dateStr, false);
                     }
@@ -1718,7 +1718,7 @@
                 }
             }
 
-            if ($this.children().first().is(".nodate,.caldisabled")) {
+            if ($this.children().first().is(".nodate,.nova-calendar-disabled")) {
                 //不可用
             } else if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
                 //不可用
@@ -1810,7 +1810,7 @@
 
             if (!autoRender) {
                 var $td = $this;
-                if ($this.find(".nodate,.caldisabled").length > 0) {
+                if ($this.find(".nodate,.nova-calendar-disabled").length > 0) {
                     return false;
                 }
                 if ($this.children().is(".notThisMonth") && self.options.bimonthly) {
@@ -2146,12 +2146,12 @@
         renderSelected: function (mouseOverEnd, isClick) {
             var self = this;
             var selected = this.selected;
-            var $dates = this.wrap.find("[data-date-map]").has(".caldate");
+            var $dates = this.wrap.find("[data-date-map]").has(".nova-calendar-date");
             var cascadingMin = this.options.cascadingMin;
             var cascadingMax = self.options.cascadingMax;
             var cascadingEndNotShowStart = self.options.cascadingEndNotShowStart;
 
-            $dates.children().removeClass("calmiddle");
+            $dates.children().removeClass("nova-calendar-middle");
 
             //级联
             var dateFormat = self.options.dateFormat;
@@ -2159,8 +2159,8 @@
                 var start = self.cascadingSelected.start;
                 var end = mouseOverEnd || self.cascadingSelected.end;
 
-                var $startDate = $dates.filter('[data-date-map="' + start + '"]').has(".caldate");
-                var $endDate = $dates.filter('[data-date-map="' + end + '"]').has(".caldate");
+                var $startDate = $dates.filter('[data-date-map="' + start + '"]').has(".nova-calendar-date");
+                var $endDate = $dates.filter('[data-date-map="' + end + '"]').has(".nova-calendar-date");
 
                 if (start) {
                     var startDate = Calendar.getDateFromFormattedString(start, dateFormat);
@@ -2186,7 +2186,7 @@
                             if (end) {
                                 if (date > startDate && date < endDate) {
                                     if (!self.options.cascadingEndNotShowStart) {
-                                        $date.children().addClass("calmiddle");
+                                        $date.children().addClass("nova-calendar-middle");
                                     }
 
                                 }
@@ -2197,14 +2197,14 @@
                             if (cascadingMin != -1) {
                                 //最小限制
                                 if (date < +startDate + Calendar.dayToMS(cascadingMin)) {
-                                    $date.children().addClass("caldisabled")
+                                    $date.children().addClass("nova-calendar-disabled")
                                 }
                             }
 
                             if (cascadingMax != -1) {
                                 //最大限制
                                 if (date > +startDate + Calendar.dayToMS(cascadingMax)) {
-                                    $date.children().addClass("caldisabled");
+                                    $date.children().addClass("nova-calendar-disabled");
                                 }
                             }
 
@@ -2291,7 +2291,7 @@
                     }
                 });
 
-                $tds.removeClass("td-selected").children().removeClass("calmiddle").find(".calday").each(function (index, ele) {
+                $tds.removeClass("td-selected").children().removeClass("nova-calendar-middle").find(".nova-calendar-day").each(function (index, ele) {
                     var $ele = $(ele);
                     var backup = $ele.attr("data-backup");
                     if (backup) {
@@ -2333,7 +2333,7 @@
                     while (+middle < +sectionSelectEnd) {
                         middleStr = Calendar.dateFormat(middle, dateFormat);
                         $middle = $tds.filter('td[data-date-map=' + middleStr + ']');
-                        $middle.children().addClass("calmiddle");
+                        $middle.children().addClass("nova-calendar-middle");
                         middle = Calendar.dateOffset(middle, 1);
 
                     }
@@ -2346,7 +2346,7 @@
 
                     var $start = $tds.filter('td[data-date-map=' + sectionSelectStartStr + ']');
                     $start.addClass("td-selected");
-                    var $startCalDay = $start.find(".calday");
+                    var $startCalDay = $start.find(".nova-calendar-day");
                     $startCalDay.attr("data-backup", $startCalDay.text()).text("入住");
                 }
 
@@ -2355,7 +2355,7 @@
                     var sectionSelectEndStr = Calendar.dateFormat(sectionSelectEnd, dateFormat);
                     var $end = $tds.filter('td[data-date-map=' + sectionSelectEndStr + ']');
                     $end.addClass("td-selected");
-                    var $endCalDay = $end.find(".calday");
+                    var $endCalDay = $end.find(".nova-calendar-day");
                     $endCalDay.attr("data-backup", $endCalDay.text()).text("退房");
                 }
 
@@ -2401,9 +2401,9 @@
             $tds.each(function (i, domEle) {
                 var $td = $(domEle);
 
-                var $date = $td.find(".caldate");
-                var $calActive = $date.find(".calactive");
-                var $calday = $date.find(".calday");
+                var $date = $td.find(".nova-calendar-date");
+                var $calActive = $date.find(".nova-calendar-active");
+                var $novaCalendarDay = $date.find(".nova-calendar-day");
 
                 var date = $td.attr("data-date-map");
                 var tdFestival = festival[date];
@@ -2418,12 +2418,12 @@
 
                     } else {
                         //大日历
-                        var $calFestival = $('<div class="calfestival">休</div>');
+                        var $calFestival = $('<div class="nova-calendar-festival">休</div>');
                         $calActive.append($calFestival);
 
                         if (tdFestival.name) {
                             $date.addClass("festival");
-                            $calday.html(tdFestival.name);
+                            $novaCalendarDay.html(tdFestival.name);
                         }
                     }
                 }
@@ -2433,7 +2433,7 @@
                         $date.html("今天");
                     } else {
                         //大日历
-                        $calday.html("今天");
+                        $novaCalendarDay.html("今天");
                     }
                 }
 
@@ -2447,7 +2447,7 @@
                         //小日历
                     } else {
                         //大日历
-                        $calday.html((thisDateMonth + 1) + "月" + thisDateDay + "日");
+                        $novaCalendarDay.html((thisDateMonth + 1) + "月" + thisDateDay + "日");
                     }
                 }
             })
@@ -2564,7 +2564,7 @@
                             dateMap: 'data-date-map="' + dateMap + '"'
                         });
                     } else {
-                        singleDateHtml = '<td><div class="date caldate caldisabled"></div></td>';
+                        singleDateHtml = '<td><div class="date nova-calendar-date nova-calendar-disabled"></div></td>';
                     }
 
                     dateHtml += singleDateHtml;
@@ -2599,15 +2599,15 @@
             var cascading = this.options.cascading;
 
             if ((year == date.getFullYear()) && (month == date.getMonth())) {
-                className += " caldate";
+                className += " nova-calendar-date";
             } else if (this.options.division) {
                 //分割
-                className += " caldate notThisMonth";
+                className += " nova-calendar-date notThisMonth";
             } else {
                 if (this.wrap.is(".nova-calendar-mini")) {
                     className += " nodate notThisMonth";
                 } else {
-                    className += " caldate notThisMonth";
+                    className += " nova-calendar-date notThisMonth";
                 }
             }
 
@@ -2640,7 +2640,7 @@
             if (Calendar.isSameDay(thisDate, cal)) {
                 className += " today";
                 if (!this.options.isTodayClick) {
-                    className += " caldisabled"
+                    className += " nova-calendar-disabled"
                 }
             }
             return className;
@@ -2863,11 +2863,11 @@
         day: '' +
         '<td data-week="{{week}}" {{dateMap}}>' +
         '    <div class="{{className}}">' +
-        '        <div class="calday">{{day}}</div>' +
-        '        <div class="calinfo"></div>' +
-        '        <div class="calprice"></div>' +
-        '        <div class="calactive"></div>' +
-        '        <div class="calselected"></div>' +
+        '        <div class="nova-calendar-day">{{day}}</div>' +
+        '        <div class="nova-calendar-info"></div>' +
+        '        <div class="nova-calendar-price"></div>' +
+        '        <div class="nova-calendar-active"></div>' +
+        '        <div class="nova-calendar-selected"></div>' +
         '    </div>' +
         '</td>'
     };
