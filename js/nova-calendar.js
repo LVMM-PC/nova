@@ -571,8 +571,14 @@
             var dateSetterParameter = DATE_FORMATS[part];
             if (dateSetterParameter) {
                 fn = dateSetter.apply(this, dateSetterParameter);
-                fn(date, number);
+                if (!isNaN(number)) {
+                    fn(date, number);
+                }
             }
+        }
+        if (+date === +getEpochOfCST()) {
+            date = new Date();
+            date.isInvalidDate = true;
         }
         return date;
     };
