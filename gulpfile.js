@@ -1,5 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var ejs = require('gulp-ejs');
+var gutil = require('gulp-util');
 const PATH_CONFIG = require('./svnPath.js');
 
 gulp.task('default', ['sass'], function () {
@@ -23,4 +25,16 @@ gulp.task('toPic', ['sass'], function () {
         .pipe(gulp.dest(PATH_CONFIG.picSvnPath + '/styles' + PATH_CONFIG.projectPath));
     gulp.src('img/**/*.png')
         .pipe(gulp.dest(PATH_CONFIG.picSvnPath + '/img'));
+});
+
+gulp.task('ejs', function () {
+    gulp.src('./templates/*.ejs')
+        .pipe(ejs({
+            msg: 'Hello Gulp!'
+        }).on('error', gutil.log))
+        .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('ejs:watch', function () {
+    gulp.watch('./templates/*.ejs', ['ejs'])
 });

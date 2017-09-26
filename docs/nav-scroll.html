@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>驴妈妈导航滚动监听组件</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://pic.lvmama.com/min/index.php?f=/styles/v6/header_new.css">
+    <style type="text/css">
+        .main_all {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .fixed_parent {
+            position: relative;
+            height: 38px;
+        }
+
+        .fixed_ul {
+            overflow: hidden;
+            border-bottom: #ddd solid 2px;
+            background-color: #fff;
+        }
+
+        .fixed_ul li {
+            float: left;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        .fixed_ul li.active {
+            color: #f60;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-top: 30px;
+            padding: 20px;
+            border: #ddd solid 1px;
+        }
+
+        .content h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .left_nav {
+            position: fixed;
+            left: 50%;
+            margin-left: -600px;
+            top: 50%;
+        }
+
+        .left_nav li {
+            border-bottom: #ddd solid 1px;
+            background-color: #999;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .left_nav li.active {
+            background-color: #f60;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: #f90;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main_all">
+    <div class="fixed_parent" id="nav1">
+        <ul class="fixed_ul js_fixed">
+            <li data-id="jd">景点介绍</li>
+            <li data-id="zy">注意事项</li>
+            <li data-id="jt3">交通地图</li>
+            <li data-id="dp">点评</li>
+        </ul>
+    </div>
+
+    <div class="content_all">
+        <div class="content" id="jd"><h3>内容1，景点介绍</h3>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br>内容1，景点介绍<br><span
+                class="btn">增加内容</span></div>
+
+        <div class="content" id="zy"><h3>内容2，注意事项</h3>
+
+            <div class="fixed_parent">
+                <ul class="fixed_ul js_fixed2">
+                    <li data-id="zy1">注意事项1</li>
+                    <li data-id="zy2">注意事项2</li>
+                    <li data-id="zy3">注意事项3</li>
+                </ul>
+            </div>
+
+            <div class="content" id="zy1">
+                注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>注意事项1<br>
+            </div>
+            <div class="content" id="zy2">
+                注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br>注意事项2<br><span
+                    class="btn">增加内容</span></div>
+            <div class="content" id="zy3">
+                注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>注意事项3<br>
+            </div>
+
+
+        </div>
+
+        <div class="content" id="jt"><h3>内容3，交通地图</h3>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>内容3，交通地图<br>
+        </div>
+
+        <div class="content" id="dp"><h3>内容4，点评</h3>
+            内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br>内容4，点评<br><span
+                    class="btn">增加内容</span></div>
+    </div>
+
+
+</div>
+
+
+<ul class="left_nav js_fixed3">
+    <li data-id="nav1">第一个导航</li>
+    <li data-id="zy">第二个导航</li>
+</ul>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<script src="http://pic.lvmama.com/min/index.php?f=/js/new_v/jquery-1.7.2.min.js"></script>
+<script src="../js/nav-scroll.js"></script>
+<script src="../docs/js/nav-scroll.js"></script>
+</body>
+</html>

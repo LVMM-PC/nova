@@ -699,4 +699,4 @@
         }
     }
 
-})(window, jQuery || $, window.nova || {});
+})(window, jQuery, window.nova || {});
