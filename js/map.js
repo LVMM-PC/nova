@@ -18,6 +18,7 @@
         pointLine : false,
         scrollWheelZoom : true,
         showControl : true,
+        zIndex : 1,
         zoom : 12
 
     };
@@ -43,8 +44,6 @@
 
             if (options.mapType == 'baidu') {
                 this.baidu();
-                //创建覆盖物
-                //this.overlayLine(options.pointData);
             }else{
                 this.google(options.point.lng,options.point.lat);
             };
@@ -73,12 +72,8 @@
                 this.map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));
             };
 
-
-            //添加默认酒店覆盖物
-            this.overlayLine({
-                pointData: options.pointData,
-                pointLine: options.pointLine
-            });
+            //添加默认调用的酒店覆盖物
+            this.defaltOverlay();
 
 
         },
@@ -253,7 +248,8 @@
             //添加覆盖物 
             map.addOverlay(myCompOverlay);
         },
-        overlayLine:function(data){
+        pointArr : [], //存储所有覆盖物的经纬度，用于计算最佳缩放比例和中心点
+        overlayList:function(data){
 
 
 
@@ -268,20 +264,6 @@
 
             //创建覆盖物
             if (pointData) {
-
-                //清除覆盖物
-                this.clearOverlays();
-
-                //添加酒店覆盖物
-                this.overlay({
-                    pointData : {'title':this.centerData.title,point:this.point} ,
-                    number: this.centerData.number,
-                    zIndex : 2 
-                });
-                //移动镜头到酒店
-                self.moveTo(this.point);
-                
-                
 
                 for (var i = 0; i < pointData.length; i++) {
                     //创建覆盖物
@@ -302,8 +284,14 @@
                         this.map.addOverlay(polyline);   //增加折线
                     };
                     
-                    
+                    //添加所有覆盖物的经纬度
+                    this.pointArr.push(pointData[i].point);
                 };
+
+
+                
+                
+
 
                 /*if (typeof data.callback =='function') {
                     this.map.addEventListener("tilesloaded",function(){
@@ -313,18 +301,45 @@
                 };*/
             };
         },
+        //添加初始化的覆盖物
+        defaltOverlay:function(){
+            var options = this.options;
+            this.overlayList({
+                pointData: options.pointData,
+                pointLine: options.pointLine,
+                zIndex: options.zIndex
+            });
+        },
+        overlayLine:function(data){
+            var map = this.map;
+
+            //清除所有覆盖物
+            this.clearOverlays();
+            //重绘默认覆盖物
+            this.defaltOverlay();
+            //绘制新的覆盖物
+            this.overlayList(data);
+
+            //获取所有覆盖物的中心和最佳缩放比例
+            var centerSize = this.getViewport(this.pointArr);
+            map.setZoom(centerSize.zoom);
+            map.panTo(centerSize.center);
+        },
         replaceAll: function (str, obj) {
             for (var i in obj) {
                 str = str.replace("{{" + i + "}}", obj[i]);
             }
             return str;
         },
+        getViewport:function(pointArr){
+            return this.map.getViewport(this.pointArr);
+        },
         //绘制线路
         addOverlay:function(linePath){
             var map = this.map;
             map.addOverlay(new BMap.Polyline(linePath));
         },
-        //视角平移到新的经纬度
+        //视角平移到新的经纬度为中心点
         moveTo:function(point){ 
             var map = this.map;
             if (point) {
@@ -338,8 +353,24 @@
         setZoom:function(size){
             this.map.setZoom(size);
         },
+        //返回当前地图的缩放级别
+        getZoom:function(){
+            return this.map.getZoom();
+        },
+        //返回当前地图的中心点经纬度
+        getCenter:function(){
+            return this.map.getCenter();
+        },
+        //返回两个经纬度之间的距离
+        getDistance:function(startPoint,endPoint){
+            var sPoint = new BMap.Point(startPoint.lng,startPoint.lat),
+                ePoint = new BMap.Point(endPoint.lng,endPoint.lat);
+            return this.map.getDistance(sPoint,ePoint);
+        },
         clearOverlays:function(){
-            //清除覆盖物
+            //清除覆盖物的经纬度
+            this.pointArr = [];
+            //清除所有覆盖物
             this.map.clearOverlays();
         }
 
