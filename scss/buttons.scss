@@ -113,7 +113,7 @@ button.btn {
   background: $btn-pink-bg;
   border-color: $btn-pink-border;
   &:hover {
-    border-color: $btn-pink-border;
+    border-color: $btn-pink-bg-hover;
     color: #FFFFFF;
     text-decoration: none;
     background: $btn-pink-bg-hover;
@@ -132,7 +132,7 @@ button.btn {
   background: $btn-orange-bg;
   border-color: $btn-orange-border;
   &:hover {
-    border-color: $btn-orange-border;
+    border-color: $btn-orange-bg-hover;
     color: #FFFFFF;
     text-decoration: none;
     background: $btn-orange-bg-hover;
@@ -151,7 +151,7 @@ button.btn {
   background: $btn-blue-bg;
   border-color: $btn-blue-border;
   &:hover {
-    border-color: $btn-blue-border;
+    border-color: $btn-blue-bg-hover;
     color: #FFFFFF;
     text-decoration: none;
     background: $btn-blue-bg-hover;
