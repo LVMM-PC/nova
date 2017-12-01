@@ -120,8 +120,9 @@ $(window).on("load", function() {
         }
     ];
     nova.chart({
-        fillBottom: true,
         chartBoxSelector: '.chart-box',
+        width: 800,
+        height: 400,
         data: data
     });
 

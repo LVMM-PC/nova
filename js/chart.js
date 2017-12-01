@@ -12,6 +12,8 @@
     var defalt = {
         chartID: null,
         chartType: 'line',
+        width: 400,
+        height: 200,
         data: [
             {
                 xAxis: {
@@ -84,27 +86,32 @@
             //共享参数
             this.options = options;
             this.$chartBox = $(options.chartBoxSelector);
-            this.width = this.$chartBox.width();
-            this.height = this.$chartBox.height();
-            this.$chartBox.append("<canvas width="+this.width+" height="+this.height+"></canvas>");
+            this.width = this.options.width;
+            this.height = this.options.height;
+            this.$chartBox.append("<canvas width='"+this.width+"' height='"+this.height+"'></canvas>");
             this.$chart = this.$chartBox.find("canvas");
             this.canvas = this.$chart[0];
             // 动态创建的canvas还需要调用excanvas的函数才能兼容
             this.fixLowIE();
             this.ctx = this.canvas.getContext("2d");
-
             // 适配高分屏
-            this.ratio = this.getPixelRatio(this.ctx);
-            this.canvasWidth = this.$chart.width() * this.ratio;
-            this.canvasHeight = this.$chart.height() * this.ratio;
-            this.canvas.width = this.canvasWidth;
-            this.canvas.height = this.canvasHeight;
+            this.pixelRatio = (window.devicePixelRatio || 1) / (this.ctx.backingStorePixelRatio || 1);
+            this.canvasWidth = this.$chart.width();
+            this.canvasHeight = this.$chart.height();
+            $(this.canvas).css({
+                width: this.width,
+                height: this.height
+            });
+            this.canvas.width = this.canvasWidth*this.pixelRatio;
+            this.canvas.height = this.canvasHeight*this.pixelRatio;
+
             // y轴标识宽度为35
-            this.chartWidth = this.canvasWidth - 35*this.ratio;
+            this.chartWidth = this.canvasWidth - 35;
             // 图表上方距离10
-            this.topOffset = 10*this.ratio;
+            this.topOffset = 10;
             // x轴标识高度为20
-            this.chartHeight = this.canvasHeight - 20*this.ratio - this.topOffset;
+            this.chartHeight = this.canvasHeight - 20 - this.topOffset;
+
             this.render(options.data);
         },
         /**
@@ -177,7 +184,9 @@
         },
         // 清空画布：canvas每当高度或宽度被重设时，画布内容就会被清空
         clearCanvas: function () {
-            this.canvas.height = this.canvasHeight;
+            this.canvas.height = this.canvasHeight*this.pixelRatio;
+            this.canvas.width = this.canvasWidth*this.pixelRatio;
+            this.ctx.scale(this.pixelRatio,this.pixelRatio);
         },
         /**
          * 画网格
@@ -213,10 +222,10 @@
             this.ctx.font = this.options.theme.axisStyle.font;
             this.ctx.fillStyle = this.options.theme.axisStyle.color;
             this.ctx.textAlign = "right";
-            var x = this.canvasWidth-this.chartWidth-4*this.ratio;//-4是为了右边间距
+            var x = this.canvasWidth-this.chartWidth-4;//-4是为了右边间距
             for(var i=0;i<=horizontalCount+1;i++){
                 var value = ""+this.yMaxValue/5*i;
-                var y = this.chartHeight / (horizontalCount + 1) * (horizontalCount+1-i)+4*this.ratio+this.topOffset;//+4是为了水平居中
+                var y = this.chartHeight / (horizontalCount + 1) * (horizontalCount+1-i)+4+this.topOffset;//+4是为了水平居中
                 this.ctx.fillText(value, x, y);
             }
 
@@ -228,8 +237,8 @@
                 var minPoint = this.points[this.minIndex];
                 var maxPoint = this.points[this.maxIndex];
                 var prefix = this.options.minMax.prefix;
-                this.ctx.fillText(prefix+minPoint.yValue, minPoint.x, minPoint.y+20*this.ratio);
-                this.ctx.fillText(prefix+maxPoint.yValue, maxPoint.x, maxPoint.y-10*this.ratio);
+                this.ctx.fillText(prefix+minPoint.yValue, minPoint.x, minPoint.y+20);
+                this.ctx.fillText(prefix+maxPoint.yValue, maxPoint.x, maxPoint.y-10);
             }
 
             //填充折线图下方
@@ -253,7 +262,7 @@
                 var y1 = p.y;
                 var x2 = q.x;
                 var y2 = q.y;
-                this.ctx.lineWidth = this.options.theme.dataLineStyle.width * this.ratio;
+                this.ctx.lineWidth = this.options.theme.dataLineStyle.width;
                 this.ctx.strokeStyle = this.options.theme.dataLineStyle.color;
                 this.ctx.beginPath();
                 this.ctx.moveTo(x1, y1);
@@ -272,13 +281,13 @@
                 // // 第1个实心圆
                 this.ctx.beginPath();
                 this.ctx.fillStyle = this.options.theme.circleStyle.color;
-                this.ctx.arc(x, y, radius * this.ratio, 0, Math.PI * 2);
+                this.ctx.arc(x, y, radius, 0, Math.PI * 2);
                 this.ctx.closePath();
                 this.ctx.fill();
                 // // 第2个实心圆
                 this.ctx.beginPath();
                 this.ctx.fillStyle = "rgb(255,255,255)";
-                this.ctx.arc(x, y, (radius-1) * this.ratio, 0, Math.PI * 2);
+                this.ctx.arc(x, y, (radius-1), 0, Math.PI * 2);
                 this.ctx.closePath();
                 this.ctx.fill();
                 // 画标识
@@ -287,19 +296,6 @@
                 this.ctx.textAlign= "center";
                 this.ctx.fillText(p.xValue, p.x, this.canvasHeight);
             }
-        },
-        /**
-         * 适配高分屏
-         */
-        getPixelRatio: function () {
-            var ctx = this.ctx;
-            var backingStore = ctx.backingStorePixelRatio ||
-                ctx.webkitBackingStorePixelRatio ||
-                ctx.mozBackingStorePixelRatio ||
-                ctx.msBackingStorePixelRatio ||
-                ctx.oBackingStorePixelRatio ||
-                ctx.backingStorePixelRatio || 1;
-            return (window.devicePixelRatio || 1) / backingStore;
         },
         /**
          * 判断IE9以下版本
