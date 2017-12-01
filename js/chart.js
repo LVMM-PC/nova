@@ -89,7 +89,10 @@
             this.$chartBox.append("<canvas width="+this.width+" height="+this.height+"></canvas>");
             this.$chart = this.$chartBox.find("canvas");
             this.canvas = this.$chart[0];
+            // 动态创建的canvas还需要调用excanvas的函数才能兼容
+            this.fixLowIE();
             this.ctx = this.canvas.getContext("2d");
+
             // 适配高分屏
             this.ratio = this.getPixelRatio(this.ctx);
             this.canvasWidth = this.$chart.width() * this.ratio;
@@ -297,6 +300,14 @@
                 ctx.oBackingStorePixelRatio ||
                 ctx.backingStorePixelRatio || 1;
             return (window.devicePixelRatio || 1) / backingStore;
+        },
+        /**
+         * 判断IE9以下版本
+         */
+        fixLowIE: function () {
+            if($.browser.msie&&parseInt($.browser.version)<9){
+                window.G_vmlCanvasManager.initElement(this.canvas);
+            }
         }
     };
 
