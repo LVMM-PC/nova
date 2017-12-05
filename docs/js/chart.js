@@ -123,7 +123,13 @@ $(window).on("load", function() {
         chartBoxSelector: '.chart-box',
         width: 800,
         height: 400,
-        data: data
+        data: data,
+        mousemoveCallback: function (point) {
+            console.log(point)
+        },
+        mouseleaveCallback: function () {
+            console.log("leave")
+        }
     });
 
 });
