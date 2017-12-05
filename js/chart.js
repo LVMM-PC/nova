@@ -326,7 +326,7 @@
             }
             console.log(self.canvasWidth / self.points.length)
             self.$chart.off("mousemove").on("mousemove", function(e) {
-                var x = e.offsetX - self.yAxisMarkWidth;
+                var x = e.offsetX - self.yAxisMarkWidth -1;
                 var y= e.offsetY;
                 if(x>=0 && y <=(self.canvasHeight-self.xAxisMarkHeight)){
                     var index = ~~(x / ((self.canvasWidth-self.yAxisMarkWidth) / self.points.length));
