@@ -11,6 +11,7 @@
 
     var defalt = {
         chartID: null,
+        // 图标类型
         chartType: 'line',
         width: 400,
         height: 200,
@@ -91,7 +92,8 @@
             this.$chartBox = $(options.chartBoxSelector);
             this.width = this.options.width;
             this.height = this.options.height;
-            this.$chartBox.append("<canvas width='"+this.width+"' height='"+this.height+"'></canvas>");
+            // 创建canvas
+            this.$chartBox.append("<canvas width='" + this.width + "' height='" + this.height + "'></canvas>");
             this.$chart = this.$chartBox.find("canvas");
             this.canvas = this.$chart[0];
             // 动态创建的canvas还需要调用excanvas的函数才能兼容
@@ -105,8 +107,8 @@
                 width: this.width,
                 height: this.height
             });
-            this.canvas.width = this.canvasWidth*this.pixelRatio;
-            this.canvas.height = this.canvasHeight*this.pixelRatio;
+            this.canvas.width = this.canvasWidth * this.pixelRatio;
+            this.canvas.height = this.canvasHeight * this.pixelRatio;
 
             // y轴标识宽度为35
             this.yAxisMarkWidth = 35;
@@ -134,7 +136,7 @@
                 var xValue = thisData.xAxis.value;
                 var yValue = thisData.yAxis.value;
                 var point = {
-                    x: (this.chartWidth / this.dataLength) * (i + 0.5)+ (this.canvasWidth-this.chartWidth),
+                    x: (this.chartWidth / this.dataLength) * (i + 0.5) + (this.canvasWidth - this.chartWidth),
                     y: this.chartHeight + (-yValue / this.yMaxValue) * this.chartHeight + this.topOffset,
                     xValue: xValue,
                     yValue: yValue
@@ -145,7 +147,7 @@
         /**
          * 计算最大最小值
          */
-        calMinMax: function() {
+        calMinMax: function () {
             // 最大值系数
             var scale = 1.25;
             // 最大/小值索引
@@ -156,7 +158,7 @@
             for (var i = 0; i < this.dataLength; i++) {
                 var value = parseInt(this.data[i].yAxis.value);
                 // 寻找最大最小值
-                if ( value < min) {
+                if (value < min) {
                     this.minIndex = i;
                     min = value;
                 }
@@ -165,7 +167,7 @@
                     max = value;
                 }
             }
-            this.yMaxValue = parseInt((max*scale/100)+1)*100;
+            this.yMaxValue = parseInt((max * scale / 100) + 1) * 100;
         },
         // 绘制图表
         render: function (data) {
@@ -176,14 +178,14 @@
 
             if (this.options.chartType == 'line') {
                 this.renderLineChart();
-                if(this.options.mousemoveCallback) {
+                if (this.options.mousemoveCallback) {
                     this.bindEvent();
                 }
             } else {
                 this.renderBarChart();
             }
         },
-        // 绘制空白图
+        // 绘制空白网格图
         renderBasic: function () {
             // 清空画布
             this.clearCanvas();
@@ -192,9 +194,9 @@
         },
         // 清空画布：canvas每当高度或宽度被重设时，画布内容就会被清空
         clearCanvas: function () {
-            this.canvas.height = this.canvasHeight*this.pixelRatio;
-            this.canvas.width = this.canvasWidth*this.pixelRatio;
-            this.ctx.scale(this.pixelRatio,this.pixelRatio);
+            this.canvas.height = this.canvasHeight * this.pixelRatio;
+            this.canvas.width = this.canvasWidth * this.pixelRatio;
+            this.ctx.scale(this.pixelRatio, this.pixelRatio);
         },
         /**
          * 画网格
@@ -205,12 +207,12 @@
             this.ctx.lineWidth = this.options.theme.borderLineStyle.width;
             this.ctx.strokeStyle = this.options.theme.borderLineStyle.color;
             // 画边框
-            this.ctx.strokeRect(0.5+(this.canvasWidth-this.chartWidth), 0.5+this.topOffset, this.chartWidth - 1, this.chartHeight - 1);
+            this.ctx.strokeRect(0.5 + (this.canvasWidth - this.chartWidth), 0.5 + this.topOffset, this.chartWidth - 1, this.chartHeight - 1);
             // 画横线
             this.ctx.beginPath();
             for (var i = 1; i <= horizontalCount; i++) {
                 var yHeight = this.chartHeight / (horizontalCount + 1) * i - 0.5 + this.topOffset;
-                this.ctx.moveTo(this.canvasWidth-this.chartWidth, yHeight);
+                this.ctx.moveTo(this.canvasWidth - this.chartWidth, yHeight);
                 this.ctx.lineTo(this.canvasWidth, yHeight);
             }
             // 画竖线
@@ -230,40 +232,40 @@
             this.ctx.font = this.options.theme.axisStyle.font;
             this.ctx.fillStyle = this.options.theme.axisStyle.color;
             this.ctx.textAlign = "right";
-            var x = this.canvasWidth-this.chartWidth-4;//-4是为了右边间距
-            for(var i=0;i<=horizontalCount+1;i++){
-                var value = ""+this.yMaxValue/5*i;
-                var y = this.chartHeight / (horizontalCount + 1) * (horizontalCount+1-i)+4+this.topOffset;//+4是为了水平居中
+            var x = this.canvasWidth - this.chartWidth - 4;//-4是为了右边间距
+            for (var i = 0; i <= horizontalCount + 1; i++) {
+                var value = "" + this.yMaxValue / 5 * i;
+                var y = this.chartHeight / (horizontalCount + 1) * (horizontalCount + 1 - i) + 4 + this.topOffset;//+4是为了水平居中
                 this.ctx.fillText(value, x, y);
             }
 
             //最大最小值
-            if(this.options.minMax.shown) {
+            if (this.options.minMax.shown) {
                 this.ctx.font = this.options.theme.minMax.font;
                 this.ctx.fillStyle = this.options.theme.minMax.color;
                 this.ctx.textAlign = "center";
                 var minPoint = this.points[this.minIndex];
                 var maxPoint = this.points[this.maxIndex];
                 var prefix = this.options.minMax.prefix;
-                this.ctx.fillText(prefix+minPoint.yValue, minPoint.x, minPoint.y+20);
-                this.ctx.fillText(prefix+maxPoint.yValue, maxPoint.x, maxPoint.y-10);
+                this.ctx.fillText(prefix + minPoint.yValue, minPoint.x, minPoint.y + 20);
+                this.ctx.fillText(prefix + maxPoint.yValue, maxPoint.x, maxPoint.y - 10);
             }
 
             //填充折线图下方
-            if(this.options.fillBottom){
+            if (this.options.fillBottom) {
                 this.ctx.fillStyle = this.options.theme.fillBottomStyle.color;
                 this.ctx.beginPath();
-                this.ctx.moveTo(this.canvasWidth-this.chartWidth, this.chartHeight+this.topOffset);
+                this.ctx.moveTo(this.canvasWidth - this.chartWidth, this.chartHeight + this.topOffset);
                 for (var i = 0; i < this.dataLength; i++) {
                     var p = this.points[i];
                     this.ctx.lineTo(p.x, p.y);
                 }
-                this.ctx.lineTo(this.canvasWidth, this.chartHeight+this.topOffset);
+                this.ctx.lineTo(this.canvasWidth, this.chartHeight + this.topOffset);
                 this.ctx.fill();
             }
 
             //先画线
-            for (var i = 0; i < this.dataLength-1; i++) {
+            for (var i = 0; i < this.dataLength - 1; i++) {
                 var p = this.points[i];
                 var q = this.points[i + 1];
                 var x1 = p.x;
@@ -286,8 +288,8 @@
                 var radius = this.options.theme.circleStyle.radius;
                 this.ctx.lineWidth = 1;
 
-                if ( hoverIndex!=undefined &&hoverIndex === j ) {
-                    radius *=1.5;
+                if (hoverIndex != undefined && hoverIndex === j) {
+                    radius *= 1.5;
                 }
 
                 // // 第1个实心圆
@@ -299,13 +301,13 @@
                 // // 第2个实心圆
                 this.ctx.beginPath();
                 this.ctx.fillStyle = "rgb(255,255,255)";
-                this.ctx.arc(x, y, (radius-1), 0, Math.PI * 2);
+                this.ctx.arc(x, y, (radius - 1), 0, Math.PI * 2);
                 this.ctx.closePath();
                 this.ctx.fill();
                 // 画标识
-                this.ctx.font= this.options.theme.axisStyle.font;
+                this.ctx.font = this.options.theme.axisStyle.font;
                 this.ctx.fillStyle = this.options.theme.axisStyle.color;
-                this.ctx.textAlign= "center";
+                this.ctx.textAlign = "center";
                 this.ctx.fillText(p.xValue, p.x, this.canvasHeight);
             }
         },
@@ -315,21 +317,21 @@
         bindEvent: function () {
             // 事件绑定
             var self = this;
+            // 重画
             function reRender(index) {
                 self.renderBasic();
-
                 if (self.options.chartType == 'line') {
                     self.renderLineChart(index);
                 } else {
                     self.renderBarChart();
                 }
             }
-            console.log(self.canvasWidth / self.points.length)
-            self.$chart.off("mousemove").on("mousemove", function(e) {
-                var x = e.offsetX - self.yAxisMarkWidth -1;
-                var y= e.offsetY;
-                if(x>=0 && y <=(self.canvasHeight-self.xAxisMarkHeight)){
-                    var index = ~~(x / ((self.canvasWidth-self.yAxisMarkWidth) / self.points.length));
+
+            self.$chart.off("mousemove").on("mousemove", function (e) {
+                var x = e.offsetX - self.yAxisMarkWidth - 1;
+                var y = e.offsetY;
+                if (x >= 0 && y <= (self.canvasHeight - self.xAxisMarkHeight) && y >= self.topOffset) {
+                    var index = ~~(x / ((self.canvasWidth - self.yAxisMarkWidth) / self.points.length));
                     var thisPoint = self.points[index];
                     self.options.mousemoveCallback({
                         index: index,
@@ -347,7 +349,7 @@
                 }
             });
 
-            self.$chart.off("mouseleave").on("mouseleave", function() {
+            self.$chart.off("mouseleave").on("mouseleave", function () {
                 // 重画
                 reRender();
                 self.options.mouseleaveCallback();
@@ -357,7 +359,7 @@
          * 判断IE9以下版本
          */
         fixLowIE: function () {
-            if($.browser.msie&&parseInt($.browser.version)<9){
+            if ($.browser.msie && parseInt($.browser.version) < 9) {
                 window.G_vmlCanvasManager.initElement(this.canvas);
             }
         }
