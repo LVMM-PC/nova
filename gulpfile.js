@@ -26,15 +26,3 @@ gulp.task('toPic', ['sass'], function () {
     gulp.src('img/**/*.png')
         .pipe(gulp.dest(PATH_CONFIG.picSvnPath + '/img'));
 });
-
-gulp.task('ejs', function () {
-    gulp.src('./templates/*.ejs')
-        .pipe(ejs({
-            msg: 'Hello Gulp!'
-        }).on('error', gutil.log))
-        .pipe(gulp.dest('./dist'))
-});
-
-gulp.task('ejs:watch', function () {
-    gulp.watch('./templates/*.ejs', ['ejs'])
-});
