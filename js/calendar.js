@@ -727,7 +727,7 @@
             }
 
             if (typeof options.template == "object") {
-                template = $.extend(true, {}, smallTemplate);
+                template = smallTemplate;
                 for (var temp in options.template) {
                     template[temp] = options.template[temp];
                 }
