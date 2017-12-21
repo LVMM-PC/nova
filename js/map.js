@@ -10,7 +10,7 @@
 
     "use strict";
 
-    var defalt = {
+    var defaults = {
         mapType : 'baidu',
         mapID : null,
         pointData : [
@@ -28,7 +28,7 @@
     //创建新的对象
     function Factory(options){
         //合并参数
-        options = $.extend({}, defalt, options);
+        options = $.extend({}, defaults, options);
         //构造新的地图对象
         return new webMap(options);
     }
@@ -127,7 +127,7 @@
             };
 
             //添加默认调用的酒店覆盖物
-            this.defaltOverlay();
+            this.defaultOverlay();
 
 
 
@@ -158,7 +158,7 @@
             };
 
             //添加默认调用的酒店覆盖物
-            this.defaltOverlay();
+            this.defaultOverlay();
 
 
 
@@ -620,7 +620,7 @@
             };
         },
         //添加初始化的覆盖物
-        defaltOverlay:function(){
+        defaultOverlay:function(){
             var options = this.options;
             this.overlayList({
                 pointData: options.pointData,
@@ -634,7 +634,7 @@
             //清除所有覆盖物
             this.clearOverlays();
             //重绘默认覆盖物
-            this.defaltOverlay();
+            this.defaultOverlay();
             
 
             if (data.pointData.length) {

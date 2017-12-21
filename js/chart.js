@@ -9,7 +9,7 @@
 
     "use strict";
 
-    var defalt = {
+    var defaults = {
         chartID: null,
         // 图标类型
         chartType: 'line',
@@ -74,7 +74,7 @@
     //创建新的对象
     function Factory(options) {
         //合并参数
-        options = $.extend({}, defalt, options);
+        options = $.extend({}, defaults, options);
         //构造新的图表对象
         return new novaChart(options);
     }
