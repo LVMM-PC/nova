@@ -377,7 +377,7 @@
 
 .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .calmiddle { background-color: #eff8fc; }
 
-.ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .caldisabled, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .caldisabled:hover { color: #999999; background-color: transparent; }
+.ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .nodate, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .nodate:hover, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .caldisabled, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-mini .caldisabled:hover { color: #999999; background-color: transparent; }
 
 .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-birthday .cal-month-select.active, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-birthday .cal-month-select-active, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-birthday .cal-year-select.active, .ui-calendar-blue[data-float][data-bimonthly].ui-calendar-birthday .cal-year-select-active { color: #0065d3; }
 

@@ -377,7 +377,7 @@
 
 .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nova-calendar-middle { background-color: #eff8fc; }
 
-.nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nova-calendar-disabled, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nova-calendar-disabled:hover { color: #999999; background-color: transparent; }
+.nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nodate, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nodate:hover, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nova-calendar-disabled, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-mini .nova-calendar-disabled:hover { color: #999999; background-color: transparent; }
 
 .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-birthday .nova-calendar-month-select.active, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-birthday .nova-calendar-month-select-active, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-birthday .nova-calendar-year-select.active, .nova-calendar-blue[data-float][data-bimonthly].nova-calendar-birthday .nova-calendar-year-select-active { color: #0065d3; }
 
