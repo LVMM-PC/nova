@@ -349,7 +349,7 @@
                 }
             });
 
-            self.$chart.off("mouseleave").on("mouseleave", function () {
+            self.$chartBox.off("mouseleave").on("mouseleave", function () {
                 // 重画
                 reRender();
                 self.options.mouseleaveCallback();
