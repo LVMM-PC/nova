@@ -35,7 +35,7 @@
         // 最大最小值
         minMax: {
             shown: true,
-            prefix: "￥"
+            temp: "￥{{value}}"
         },
         // 主题颜色
         theme: {
@@ -246,9 +246,9 @@
                 this.ctx.textAlign = "center";
                 var minPoint = this.points[this.minIndex];
                 var maxPoint = this.points[this.maxIndex];
-                var prefix = this.options.minMax.prefix;
-                this.ctx.fillText(prefix + minPoint.yValue, minPoint.x, minPoint.y + 20);
-                this.ctx.fillText(prefix + maxPoint.yValue, maxPoint.x, maxPoint.y - 10);
+                var temp = this.options.minMax.temp;
+                this.ctx.fillText(this.replaceWith(temp, {value: minPoint.yValue}), minPoint.x, minPoint.y + 20);
+                this.ctx.fillText(this.replaceWith(temp, {value: maxPoint.yValue}), maxPoint.x, maxPoint.y - 10);
             }
 
             //填充折线图下方
@@ -362,6 +362,18 @@
             if ($.browser.msie && parseInt($.browser.version) < 9) {
                 window.G_vmlCanvasManager.initElement(this.canvas);
             }
+        },
+        /**
+         * 替换匹配的内容
+         * @param str
+         * @param obj
+         * @returns {*}
+         */
+        replaceWith: function (str, obj) {
+            for (var i in obj) {
+                str = str.replace(new RegExp("{{" + i + "}}", 'g'), obj[i]);
+            }
+            return str;
         }
     };
 
