@@ -1,5 +1,5 @@
 $(window).on("load", function() {
-    var data = [
+    var testData = [
         {
             xAxis: {
                 value: "07-11",
@@ -119,15 +119,28 @@ $(window).on("load", function() {
             }
         }
     ];
+    var $chartBox = $(".chart-box");
     nova.chart({
         chartBoxSelector: '.chart-box',
         width: 800,
         height: 400,
-        data: data,
+        data: testData,
         mousemoveCallback: function (point) {
-            console.log(point)
+            var index = point.index;
+            var thisPoint = testData[index];
+            console.log();
+            $(".chart-hover").remove();
+            $chartBox.append("<div class='chart-hover'><span class='chart-price'>"+thisPoint.yAxis.text+"</span><br><span class='chart-date'>"+thisPoint.xAxis.text+"</span></div>");
+            var top = point.position.y-$(".chart-hover").outerHeight()-10+"px";
+            var left = point.position.x-$(".chart-hover").outerWidth()/2+"px";
+            $(".chart-hover").css({
+                left: left,
+                top: top
+            });
+
         },
         mouseleaveCallback: function () {
+            $(".chart-hover").remove();
             console.log("leave")
         }
     });
