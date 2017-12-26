@@ -29,6 +29,7 @@
         tipContent : '对不起，找不到：<span>{{keyword}}</span>', //无结果的提示模板
         dataKey : null, //需要渲染的数据对象的key
         activeName : 'active', //补全的选中状态样式
+        zIndex: 9,
         
         ajaxUrl : null, //ajax请求的url
         ajaxType : 'GET', //请求方式
@@ -64,12 +65,12 @@
             //共享参数
             this.options = options;
 
+            this.$input = $(options.input);
+            
             //事件
             this.event();
 
-            if (options.skinClass) {
-                $completeBox.addClass(options.skinClass);
-            };
+            
             
         },
         event : function(){
@@ -144,7 +145,11 @@
                 self.listActive();
                 //回车回调
                 if (typeof options.enterCallback == 'function') {
-                    options.enterCallback.call(self,$this);
+
+                    if ($(options.input).is(lvCompleteFocus)) {
+                        options.enterCallback.call(self,$this);
+                    };
+                    
                 };
             });
 
@@ -229,10 +234,15 @@
                             offset = $input.offset();
 
                         $completeBox.show().css({
-                            width : $input.outerWidth()-2,
-                            left : offset.left,
-                            top : offset.top + $input.outerHeight()
-                        });    
+                            "width" : $input.outerWidth()-2,
+                            "z-index" : options.zIndex,
+                            "left" : offset.left,
+                            "top" : offset.top + $input.outerHeight()
+                        });
+                        //添加皮肤
+                        if (options.skinClass) {
+                            $completeBox.attr('class','lvComplete '+options.skinClass);
+                        };    
                         
                     }else{
                         //隐藏补全列表

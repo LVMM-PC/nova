@@ -25,6 +25,11 @@
 
     };
 
+    //地图状态
+    var loadState = {
+        baidu : false,
+        google : false
+    };
 
     // 复杂的自定义覆盖物
     function ComplexCustomOverlay(point, text, mouseoverText){
@@ -65,35 +70,55 @@
             var script = document.createElement('script');
 
             //检测是否加载地图api
-            var hasScript = {'baidu':false,'google':false};
+            /*var hasScript = {'baidu':false,'google':false};
             var scriptTag = document.getElementsByTagName('script');
             for (var i = 0; i < scriptTag.length; i++) {
                 var src = scriptTag[i].getAttribute('src');
                 if ( /api.map.baidu.com/.test(src) ) {
                     hasScript.baidu = true;
-                }else if(/maps.google.cn/.test(src)){
+                }else if($('#googleApi').length){
                     hasScript.google = true;
                 };
-            };
+            };*/
             //百度地图
             if (options.mapType == 'baidu') {
                 //页面存在百度地图api
-                if (hasScript.baidu) {
-                      self.baidu();
+                if ($('#baiduApi').length) {
+                    if (loadState.baidu) {
+                        self.baidu();
+                    }else{
+                        var loadStateTime = setInterval(function(){
+                            if (loadState.baidu) {
+                                clearInterval(loadStateTime);
+                                self.baidu();
+                            };
+                        },500);
+                    };
                 }else{//不存在，则加载百度api
                     var script = document.createElement("script");    
                     script.src = 'http://api.map.baidu.com/getscript?v=2.0&ak=i2ccGvMLyR86WI0YcodIe7Lu';
                     document.body.appendChild(script);
+                    script.id="baiduApi";
                     script.onload = function(){
                         self.baidu();
+                        loadState.baidu = true;
                         //百度地图自动补全层级bug
                         $('body').append('<style>.tangram-suggestion-main{z-index:199 !important;}</style>');
                     }  
                 };
                 
             }else{ //google地图
-                if (hasScript.google) {
-                      self.google();
+                if ($('#googleApi').length) {
+                    if (loadState.google) {
+                        self.google();
+                    }else{
+                        var loadStateTime = setInterval(function(){
+                            if (loadState.google) {
+                                clearInterval(loadStateTime);
+                                self.google();
+                            };
+                        },500);
+                    };
                 }else{
                     //获取当前url
                     var hostname = location.hostname,
@@ -111,8 +136,10 @@
                     //script.src = 'http://ditu.google.cn/maps/api/js?libraries=geometry&channel=HOTEL_H&language=zh-CN&client=gme-ctriphk';
                     //script.src = 'http://ditu.google.cn/maps/api/js?libraries=geometry&channel=HOTEL_H&language=zh-CN&client=lvmamamap';
                     document.body.appendChild(script);
+                    script.id="googleApi";
                     script.onload = function(){
                         self.google();
+                        loadState.google = true;
                     }
                 };
 
