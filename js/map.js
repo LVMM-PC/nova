@@ -16,12 +16,16 @@
         pointData : [
             {title:'北京天安门',point:{"lng":116.404,"lat":39.915},number:''}
         ],
+        template : '<span class="map_icon map_icon_position">{{number}}</span><p>{{title}}</p>',
+        className : 'map_tip_box',
         fullViewport : false,
         pointLine : false,
+        pointLineColor : '#e38',
         scrollWheelZoom : true,
         showControl : true,
         zIndex : 1,
-        zoom : 12
+        zoom : 12,
+        dragstart : null
 
     };
 
@@ -173,6 +177,11 @@
             this.defaultOverlay();
 
 
+            //拖动事件
+            if (typeof options.dragstart =='function') {
+                this.map.addEventListener("dragstart",options.dragstart);
+            };
+            
 
         },
         //google地图
@@ -204,7 +213,10 @@
             this.defaultOverlay();
 
 
-
+            //拖动事件
+            if (typeof options.dragstart =='function') {
+                
+            };
 
             
             //获取经纬度
@@ -509,8 +521,8 @@
 
                     // Add the element to the "overlayLayer" pane.
                     var panes = this.getPanes();
-                    panes.overlayLayer.appendChild(div);
-                    self.overlayLayer = panes.overlayLayer;
+                    panes.overlayMouseTarget.appendChild(div);
+                    self.overlayLayer = panes.overlayMouseTarget;
                 };
                 USGSOverlay.prototype.draw = function() {
                     var overlayProjection = this.getProjection();
@@ -571,6 +583,7 @@
 
 
             var self = this,
+                map = self.map,
                 options = this.options,
                 pointData = data.pointData,
                 pointLine = data.pointLine,
@@ -583,56 +596,46 @@
             //创建覆盖物
             if (pointData) {
 
+                var linePointArr = [];
                 for (var i = 0; i < pointData.length; i++) {
+
+                    //创建覆盖物
+                    this.overlay({
+                        pointData : pointData[i] ,
+                        className : className , 
+                        number : pointData[i].number ,
+                        template : template,
+                        zIndex : data.zIndex
+                    });
+
+                    var thisPoint = pointData[i].point;
                     if (options.mapType =='baidu') {
-                        //创建覆盖物
-                        this.overlay({
-                            pointData : pointData[i] ,
-                            className : className , 
-                            number : pointData[i].number ,
-                            template : template,
-                            zIndex : data.zIndex
-                        });
-                        //连线
-                        if (i>0 && pointLine) {
-                            var polyline = new BMap.Polyline([
-                                new BMap.Point(pointData[i-1].point.lng, pointData[i-1].point.lat),
-                                new BMap.Point(pointData[i].point.lng, pointData[i].point.lat)
-                            ], {strokeColor:pointLineColor , strokeWeight:2, strokeOpacity:1});   //创建折线    
-                            this.map.addOverlay(polyline);   //增加折线
-                        };
+                        linePointArr.push(new BMap.Point(thisPoint.lng, thisPoint.lat));
                     }else{
+                        linePointArr.push(thisPoint);
+                    }
+                    
+                    //添加所有覆盖物的经纬度
+                    this.pointArr.push(thisPoint);
+                };
 
-                        /*var marker = new google.maps.Marker({
-                            position: pointData[i].point,
-                            map: this.map
-                        });*/
-                        //创建覆盖物
-                        this.overlay({
-                            pointData : pointData[i] ,
-                            className : className , 
-                            number : pointData[i].number ,
-                            template : template,
-                            zIndex : data.zIndex
-                        });
+                if (pointLine) {
 
+                    if (options.mapType =='baidu') {
+                        //var oldDom map.getPanes().floatPane;
                         //连线
-                        if (i>0 && pointLine) {
-                            new google.maps.Polyline({
-                                map: self.map,
-                                path: [
-                                    {'lng' : pointData[i-1].point.lng , 'lat':pointData[i-1].point.lat},
-                                    {'lng' : pointData[i].point.lng , 'lat':pointData[i].point.lat}
-                                ],
+                        var polyline = new BMap.Polyline(linePointArr, {strokeColor:pointLineColor , strokeWeight:2, strokeOpacity:1});   //创建折线  
+                        map.addOverlay(polyline);   //增加折线
+                    }else{
+                        new google.maps.Polyline({
+                                map: map,
+                                path: linePointArr,
                                 strokeColor: pointLineColor,
                                 strokeOpacity : 1,
                                 strokeWeight : 2
                             });
-                        }
-                    }
-                    
-                    //添加所有覆盖物的经纬度
-                    this.pointArr.push(pointData[i].point);
+                    };
+
                 };
 
 
@@ -657,38 +660,47 @@
             this.overlayList({
                 pointData: options.pointData,
                 pointLine: options.pointLine,
+                template: options.template,
+                pointLineColor : options.pointLineColor,
+                className: options.className,
                 zIndex: options.zIndex
             });
         },
         overlayLine:function(data){
-            var map = this.map;
+            var self = this;
+            var maptest = setInterval(function(){
+                var map = self.map;
 
-            //清除所有覆盖物
-            this.clearOverlays();
-            //重绘默认覆盖物
-            this.defaultOverlay();
-            
-
-            if (data.pointData.length) {
-                //绘制新的覆盖物
-                this.overlayList(data);
-
-                if (this.options.mapType == 'baidu') {
-                    //获取所有覆盖物的中心和最佳缩放比例
-                    var centerSize = this.getViewport(this.pointArr);
-                    map.setZoom(centerSize.zoom);
-                    map.panTo(centerSize.center);    
+                if (map) {
+                    clearInterval(maptest);
+                    //清除所有覆盖物
+                    self.clearOverlays();
+                    //重绘默认覆盖物
+                    self.defaultOverlay();
+                    
+                    if (data.pointData.length) {
+                        //绘制新的覆盖物
+                        self.overlayList(data);
+                        //设置所有覆盖物的中心点
+                        self.setViewportCenter(self.pointArr);
+                        
+                    }else{
+                        self.moveTo();
+                    };    
                 };
-                
-            }else{
-                this.moveTo();
-            };
-
-            
+            },100);
         },
         replaceAll: function (str, obj) {
             for (var i in obj) {
-                str = str.replace("{{" + i + "}}", obj[i]);
+                
+                if (typeof obj[i] == 'object') {
+                    for(var j in obj[i]){
+                        str = str.replace("{{" + i + '.' + j + "}}", obj[i][j]);
+                    }
+                }else{
+                    str = str.replace("{{" + i + "}}", obj[i]);
+                };
+                
             }
             return str;
         },
@@ -700,6 +712,27 @@
             var map = this.map;
             map.addOverlay(new BMap.Polyline(linePath));
         },*/
+        //绘制线段，传入经纬度数组，自动链接
+        addLine:function(pointArr,opt){
+            var map = this.map;
+            var linePointArr = [];
+            for (var i = 0; i < pointArr.length; i++) {
+                var thisPoint = pointArr[i];
+                linePointArr.push(new BMap.Point(thisPoint.lng, thisPoint.lat));
+            };
+
+            //默认画线参数
+            var def = {
+                strokeColor : '#e38',
+                strokeWeight : 2,
+                strokeOpacity : 1
+            };
+            var opt = $.extend({},def,opt);
+            //画线  
+            var polyline = new BMap.Polyline(linePointArr,opt);
+            map.addOverlay(polyline);
+            return polyline; //返回线条对象用于删除
+        },
         //视角平移到新的经纬度为中心点
         moveTo:function(point){ 
             var map = this.map;
@@ -708,7 +741,8 @@
                 if (point) {
                     map.panTo(new BMap.Point(point.lng,point.lat));
                 }else{
-                    map.panTo(this.options.pointData[0].point);
+                    var firstPoint = this.options.pointData[0].point;
+                    map.panTo(new BMap.Point(firstPoint.lng,firstPoint.lat));
                 };
             }else{
 
@@ -717,45 +751,51 @@
                 }else{
                     map.setCenter(new google.maps.LatLng({lat: this.point.lat, lng: this.point.lng}));
                 }
-                
-
-                /*if (point) {
-                    map.panTo(new google.maps.LatLng({lat: parseInt(point.lat), lng: parseInt(point.lng)}));
-                }else{
-                    map.panTo(new google.maps.LatLng({lat: this.point.lat, lng: this.point.lng}));
-                };  */  
             }
-            
-
-            
             
         },
         moveCenter:function(){
-            var map = this.map;
+            
             if (this.options.mapType == 'baidu') {
                 //获取所有覆盖物的中心和最佳缩放比例
-                var centerSize = this.getViewport(this.pointArr);
-                setTimeout(function(){
-                    map.setZoom(parseInt(centerSize.zoom));
-                    map.panTo(centerSize.center);
-                },200);
+                this.setViewportCenter(this.pointArr);
             }else{
-                var pointData = this.options.pointData;
-                var bounds = new google.maps.LatLngBounds();
+                var pointData = this.options.pointData,
+                    pointArr = [];
                 for (var i = 0; i < pointData.length; i++) {
-                  bounds.extend(pointData[i].point);
+                  pointArr.push(pointData[i].point);
                 };
-                var centerpoint = bounds.getCenter();
-                this.map.setCenter(centerpoint.toJSON());
-                this.map.fitBounds(bounds);
+                this.setViewportCenter(pointArr);
             };
             
+        },
+        setViewportCenter:function(pointArr){
+            var map = this.map;
+            if (this.options.mapType == 'baidu') {
+                if (pointArr.length>1) {
+                    map.setViewport(pointArr);
+                }else{
+                    this.moveTo(pointArr[0]);
+                };
+                
+            }else{
+                if (pointArr.length>1) {
+                    var bounds = new google.maps.LatLngBounds();
+                    for (var i = 0; i < pointArr.length; i++) {
+                      bounds.extend(pointArr[i]);
+                    };
+                    var centerpoint = bounds.getCenter();
+                    map.setCenter(centerpoint.toJSON());
+                    map.fitBounds(bounds);       
+                }else{
+                    this.moveTo(pointArr[0]);
+                }
+                 
+            }
         },
         //设置地图缩放尺寸
         setZoom:function(size){
             this.map.setZoom(size);
-            
-            
         },
         //返回当前地图的缩放级别
         getZoom:function(){
@@ -791,7 +831,10 @@
                 //this.map.setOptions({noClear:false});
                 //this.allOverlay.onRemove();
                 //console.log(this.allOverlay.getPanes().overlayLayer());
-                this.overlayLayer.innerHTML = '';
+                if (this.overlayLayer) {
+                    this.overlayLayer.innerHTML = '';
+                };
+                
                 //console.log(this.allOverlay);
             };
             
