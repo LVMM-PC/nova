@@ -406,7 +406,8 @@
         },
         cascadingEndNotShowStart: false,  //级联第二个日历不显示第一个选中元素,
         weekOffset: 0,
-        dayOffset: 0
+        dayOffset: 0,
+        todayTitle: "今天"
     };
 
     /**
@@ -2441,10 +2442,10 @@
                 //小日历
                 if (dateTodayStr === date) {
                     if ($(self.wrap).is(".ui-calendar-mini")) {
-                        $date.html("今天");
+                        $date.html(self.options.todayTitle);
                     } else {
                         //大日历
-                        $calday.html("今天");
+                        $calday.html(self.options.todayTitle);
                     }
                 }
 
@@ -2802,7 +2803,7 @@
 
                 //当天
                 if (Calendar.isSameDay(today, date)) {
-                    return "今天";
+                    return this.options.todayTitle;
                 }
 
                 if (!noFestival) {
