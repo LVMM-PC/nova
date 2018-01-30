@@ -1969,8 +1969,8 @@
             var mosNext = this.options.monthNext;
             var mosPrev = this.options.monthPrev;
 
-            var upperLimit = Calendar.monthOffset(today, mosNext);
-            var lowerLimit = Calendar.monthOffset(today, -mosPrev);
+            var upperLimit = Calendar.monthOffset(Calendar.getFirstDateInMonth(today), mosNext);
+            var lowerLimit = Calendar.monthOffset(Calendar.getFirstDateInMonth(today), -mosPrev);
 
             if (mosNext != -1 && Calendar.isSameMonth(upperLimit, this.now)) {
                 this.hideMonthNext();
@@ -2503,7 +2503,7 @@
             var options = this.options;
             var month = date.getMonth();
             var year = date.getFullYear();
-            var nextMonthDate = Calendar.monthOffset(date, 1);
+            var nextMonthDate = Calendar.monthOffset(Calendar.getFirstDateInMonth(date), 1);
             var nextMonthYear = nextMonthDate.getFullYear();
             var nextMonthMonth = nextMonthDate.getMonth();
             var weekHeaderTh = "";
