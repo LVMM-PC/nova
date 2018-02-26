@@ -407,6 +407,8 @@
         cascadingEndNotShowStart: false,  //级联第二个日历不显示第一个选中元素,
         weekOffset: 0,
         dayOffset: 0,
+        yearTitle: "年",
+        monthTitle: "月",
         todayTitle: "今天"
     };
 
@@ -754,7 +756,7 @@
 
             //生日日历
             if (options.isBirthday && Factory.defaults.titleTip == options.titleTip) {
-                options.titleTip = '<span class="cal-year-select">{{year}}年<i></i></span><span class="cal-month-select">{{month}}月<i></i></span>';
+                options.titleTip = '<span class="cal-year-select">{{year}}' + options.yearTitle + '<i></i></span><span class="cal-month-select">{{month}}' + options.monthTitle + '<i></i></span>';
             }
 
             this.options = options;
@@ -1507,7 +1509,7 @@
 
             var $dropdownBox = $('' +
                 '<div class="cal-month-dropdown-box">' +
-                '    <div class="cal-month-select-active">' + (this.now.getMonth() + 1) + '月<i></i></div>' +
+                '    <div class="cal-month-select-active">' + (this.now.getMonth() + 1) + this.options.monthTitle + '<i></i></div>' +
                 '</div>');
             var $ul = $('<ul class="cal-month-dropdown"></ul>');
             $dropdownBox.append($ul);
@@ -1530,7 +1532,7 @@
 
             var $dropdownBox = $('' +
                 '<div class="cal-year-dropdown-box">' +
-                '    <div class="cal-year-select-active">' + this.now.getFullYear() + '年<i></i></div>' +
+                '    <div class="cal-year-select-active">' + this.now.getFullYear() + this.options.yearTitle + '<i></i></div>' +
                 '</div>');
             var $ul = $('<ul class="cal-year-dropdown"></ul>');
             $dropdownBox.append($ul);

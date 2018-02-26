@@ -407,6 +407,8 @@
         cascadingEndNotShowStart: false,  //级联第二个日历不显示第一个选中元素,
         weekOffset: 0,
         dayOffset: 0,
+        yearTitle: "年",
+        monthTitle: "月",
         todayTitle: "今天"
     };
 
@@ -754,7 +756,7 @@
 
             //生日日历
             if (options.isBirthday && Factory.defaults.titleTip == options.titleTip) {
-                options.titleTip = '<span class="nova-calendar-year-select">{{year}}年<i></i></span><span class="nova-calendar-month-select">{{month}}月<i></i></span>';
+                options.titleTip = '<span class="nova-calendar-year-select">{{year}}' + options.yearTitle + '<i></i></span><span class="nova-calendar-month-select">{{month}}' + options.monthTitle + '<i></i></span>';
             }
 
             this.options = options;
@@ -1507,7 +1509,7 @@
 
             var $dropdownBox = $('' +
                 '<div class="nova-calendar-month-dropdown-box">' +
-                '    <div class="nova-calendar-month-select-active">' + (this.now.getMonth() + 1) + '月<i></i></div>' +
+                '    <div class="nova-calendar-month-select-active">' + (this.now.getMonth() + 1) + this.options.monthTitle + '<i></i></div>' +
                 '</div>');
             var $ul = $('<ul class="nova-calendar-month-dropdown"></ul>');
             $dropdownBox.append($ul);
@@ -1530,7 +1532,7 @@
 
             var $dropdownBox = $('' +
                 '<div class="nova-calendar-year-dropdown-box">' +
-                '    <div class="nova-calendar-year-select-active">' + this.now.getFullYear() + '年<i></i></div>' +
+                '    <div class="nova-calendar-year-select-active">' + this.now.getFullYear() + this.options.yearTitle + '<i></i></div>' +
                 '</div>');
             var $ul = $('<ul class="nova-calendar-year-dropdown"></ul>');
             $dropdownBox.append($ul);
