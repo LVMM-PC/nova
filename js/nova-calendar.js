@@ -67,8 +67,7 @@
 
     //获取北京时间1970年1月1日 00:00:00.0000
     function getEpochOfCST() {
-        var epoch = new Date(0);
-        epoch.setHours(0);
+        var epoch = new Date(1970, 0, 1);
         return epoch;
     }
 
