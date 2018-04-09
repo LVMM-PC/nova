@@ -2441,7 +2441,7 @@
                     }
                 }
                 //小日历
-                if (dateTodayStr === date) {
+                if (dateTodayStr === date && self.options.todayTitle!=null) {
                     if ($(self.wrap).is(".ui-calendar-mini")) {
                         $date.html(self.options.todayTitle);
                     } else {

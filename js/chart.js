@@ -4,7 +4,7 @@
  * 印韩春
  * 1.0.0.0
  */
-//驴妈妈图标组件
+//驴妈妈图表组件
 (function (window, $, nova) {
 
     "use strict";
