@@ -1,5 +1,7 @@
 # nova
 
+使用文档：http://nova.em2046.com/components
+
 1. 安装node.js，https://nodejs.org/en/
 2. 开启命令行，切换至项目目录
 3. 安装npm包，npm i
